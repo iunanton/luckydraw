@@ -17,7 +17,7 @@ class myCalendar {
 		$this->defaultDay = $day;
 		$this->language = $language;
 		$this->events = $events;
-		echo "constructor OK";
+
 		// table headings
 		switch($this->language) {
 			case 0:
