@@ -151,10 +151,13 @@ class myCalendar {
 
 			/* add in the day number */
 			if(in_array($string, $this->events)) {
-				$this->calendar.= ' active';
+				$this->table.= ' active';
 			}
 			if($day == $this->defaultDay) {
 				$this->table.= ' selected';
+			}
+			if($day == date("d")) {
+				$this->table.= ' today';
 			}
 			$this->table.= '">';
 			$this->table.= '<a href="';
