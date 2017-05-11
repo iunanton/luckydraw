@@ -5,7 +5,7 @@ class myCalendar {
 	private $month;
 	private $day;
 	private $serviceDays;
-	private $head;
+	private $calendarMonth;
 	private $headings;
 	private $calendar;
 	public function __construct($year, $month, $day, $language) {
@@ -37,58 +37,58 @@ class myCalendar {
 			case 0:
 				$this->headings = array('Sun','Mon','Tue','Wed','Thu','Fri','Sat');
 				switch($this->month) {
-					case 1: $this->head = 'January '.$this->year;
+					case 1: $this->calendarMonth = 'January '.$this->year;
 						break;
-					case 2: $this->head = 'Febrary '.$this->year;
+					case 2: $this->calendarMonth = 'Febrary '.$this->year;
 						break;
-					case 3: $this->head = 'March '.$this->year;
+					case 3: $this->calendarMonth = 'March '.$this->year;
 						break;
-					case 4: $this->head = 'April '.$this->year;
+					case 4: $this->calendarMonth = 'April '.$this->year;
 						break;
-					case 5: $this->head = 'May '.$this->year;
+					case 5: $this->calendarMonth = 'May '.$this->year;
 						break;
-					case 6: $this->head = 'June '.$this->year;
+					case 6: $this->calendarMonth = 'June '.$this->year;
 						break;
-					case 7: $this->head = 'July '.$this->year;
+					case 7: $this->calendarMonth = 'July '.$this->year;
 						break;
-					case 8: $this->head = 'August '.$this->year;
+					case 8: $this->calendarMonth = 'August '.$this->year;
 						break;
-					case 9: $this->head = 'September '.$this->year;
+					case 9: $this->calendarMonth = 'September '.$this->year;
 						break;
-					case 10: $this->head = 'October '.$this->year;
+					case 10: $this->calendarMonth = 'October '.$this->year;
 						break;
-					case 11: $this->head = 'November '.$this->year;
+					case 11: $this->calendarMonth = 'November '.$this->year;
 						break;
-					case 12: $this->head = 'December '.$this->year;
+					case 12: $this->calendarMonth = 'December '.$this->year;
 						break;
 				}
 				break;
 			case 1:
 				$this->headings = array('星期日','星期一','星期二','星期三','星期四','星期五','星期六');
 				switch($this->month) {
-					case 1: $this->head = $this->year.'年 一月';
+					case 1: $this->calendarMonth = $this->year.'年 一月';
 						break;
-					case 2: $this->head = $this->year.'年 二月';
+					case 2: $this->calendarMonth = $this->year.'年 二月';
 						break;
-					case 3: $this->head = $this->year.'年 三月';
+					case 3: $this->calendarMonth = $this->year.'年 三月';
 						break;
-					case 4: $this->head = $this->year.'年 四月';
+					case 4: $this->calendarMonth = $this->year.'年 四月';
 						break;
-					case 5: $this->head = $this->year.'年 五月';
+					case 5: $this->calendarMonth = $this->year.'年 五月';
 						break;
-					case 6: $this->head = $this->year.'年 六月';
+					case 6: $this->calendarMonth = $this->year.'年 六月';
 						break;
-					case 7: $this->head = $this->year.'年 七月';
+					case 7: $this->calendarMonth = $this->year.'年 七月';
 						break;
-					case 8: $this->head = $this->year.'年 八月';
+					case 8: $this->calendarMonth = $this->year.'年 八月';
 						break;
-					case 9: $this->head = $this->year.'年 九月';
+					case 9: $this->calendarMonth = $this->year.'年 九月';
 						break;
-					case 10: $this->head = $this->year.'年 十月';
+					case 10: $this->calendarMonth = $this->year.'年 十月';
 						break;
-					case 11: $this->head = $this->year.'年 十一月';
+					case 11: $this->calendarMonth = $this->year.'年 十一月';
 						break;
-					case 12: $this->head = $this->year.'年 十二月';
+					case 12: $this->calendarMonth = $this->year.'年 十二月';
 						break;
 				}
 				break;
@@ -125,7 +125,7 @@ class myCalendar {
 		$this->calendar.= $this->previousMonth();
 		$this->calendar.= '"><img src="left_arrow.png" alt="previous" width=25px></a>';
 		$this->calendar.= '<div>';
-		$this->calendar.= $this->head;
+		$this->calendar.= $this->calendarMonth;
 		$this->calendar.= '</div>';
 		$this->calendar.= '<a href="?';
 		$this->calendar.= $this->nextMonth();
