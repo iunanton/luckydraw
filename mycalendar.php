@@ -8,7 +8,7 @@ class myCalendar {
 	private $header;
 	private $weedDays;
 	private $events;
-	private $table;
+	private $html;
 
 	//determine class constructor
 	public function __construct($year, $month, $day, $language, $events) {
@@ -113,19 +113,19 @@ class myCalendar {
 
 	public function draw() {
 		// calendar header
-		$this->table = '<table id="calendar">';
-		$this->table.= '<tr class="calendar-head">';
-		$this->table.= '<td id="calendar-prev"><a href="'.$this->requestPreviousMonth().'">Prev.</a></td>';
-		$this->table.= '<td colspan="5" id="calendar-month">'.$this->header.'</td>';
-		$this->table.= '<td id="calendar-next"><a href="'.$this->requestNextMonth().'">Next</a></td>';
-		$this->table.= '</tr>';
+		$this->html = '<table id="calendar">';
+		$this->html.= '<tr class="calendar-head">';
+		$this->html.= '<td id="calendar-prev"><a href="'.$this->requestPreviousMonth().'">Prev.</a></td>';
+		$this->html.= '<td colspan="5" id="calendar-month">'.$this->header.'</td>';
+		$this->html.= '<td id="calendar-next"><a href="'.$this->requestNextMonth().'">Next</a></td>';
+		$this->html.= '</tr>';
 
 		// names of week days
-		$this->table.= '<tr class="calendar-head">';
-		$this->table.= '<td class="calendar-day-head">';
-		$this->table.= implode('</td><td class="calendar-day-head">', $this->weedDays);
-		$this->table.= '</td>';
-		$this->table.= '</tr>';
+		$this->html.= '<tr class="calendar-head">';
+		$this->html.= '<td class="calendar-day-head">';
+		$this->html.= implode('</td><td class="calendar-day-head">', $this->weedDays);
+		$this->html.= '</td>';
+		$this->html.= '</tr>';
 		
 		/* days and weeks vars now ... */
 		$running_day = date('w',mktime(0,0,0,$this->defaultMonth,1,$this->defaultYear));
@@ -135,43 +135,43 @@ class myCalendar {
 		$dates_array = array();
 		
 		/* row for week one */
-		$this->table.= '<tr class="calendar-row">';
+		$this->html.= '<tr class="calendar-row">';
 		
 		/* print "blank" days until the first of the current week */
 		for($x = 0; $x < $running_day; $x++):
-			$this->table.= '<td class="calendar-day-np"> </td>';
+			$this->html.= '<td class="calendar-day-np"> </td>';
 			$days_in_this_week++;
 		endfor;
 
 		/* keep going with days.... */
 		for($list_day = 1; $list_day <= $days_in_month; $list_day++):
-			$this->table.= '<td class="calendar-day';
+			$this->html.= '<td class="calendar-day';
 			$day = str_pad($list_day, 2, '0', STR_PAD_LEFT);
 			$string = $this->defaultYear.'-'.$this->defaultMonth.'-'.$day;
 
 			/* add in the day number */
 			if(in_array($string, $this->events)) {
-				$this->table.= ' active';
+				$this->html.= ' active';
 			}
 			if($day == $this->defaultDay) {
-				$this->table.= ' selected';
+				$this->html.= ' selected';
 			}
 			if($day == date("d")) {
-				$this->table.= ' today';
+				$this->html.= ' today';
 			}
-			$this->table.= '">';
+			$this->html.= '">';
 			if(in_array($string, $this->events)) {
-				$this->table.= '<a href="';
-				$this->table.= "?year=$this->defaultYear&month=$this->defaultMonth&day=$day";
-				$this->table.= '" class="day-number">'.$day.'</a>';
+				$this->html.= '<a href="';
+				$this->html.= "?year=$this->defaultYear&month=$this->defaultMonth&day=$day";
+				$this->html.= '" class="day-number">'.$day.'</a>';
 			} else {
-				$this->table.= $day;
+				$this->html.= $day;
 			}
-			$this->table.= '</td>';
+			$this->html.= '</td>';
 			if($running_day == 6):
-				$this->table.= '</tr>';
+				$this->html.= '</tr>';
 				if(($day_counter+1) != $days_in_month):
-					$this->table.= '<tr class="calendar-row">';
+					$this->html.= '<tr class="calendar-row">';
 				endif;
 				$running_day = -1;
 				$days_in_this_week = 0;
@@ -182,21 +182,21 @@ class myCalendar {
 		/* finish the rest of the days in the week */
 		if($days_in_this_week < 8):
 			for($x = 1; $x <= (8 - $days_in_this_week); $x++):
-				$this->table.= '<td class="calendar-day-np"> </td>';
+				$this->html.= '<td class="calendar-day-np"> </td>';
 			endfor;
 		endif;
 		
 		/* final row */
-		$this->table.= '</tr>';
+		$this->html.= '</tr>';
 		
 		/* end the table */
-		$this->table.= '</table>';
+		$this->html.= '</table>';
 		
 		/* all done, return result */
-		return $this->table;
+		return $this->html;
 	}
 	public function show() {
-		echo $this->table;
+		echo $this->html;
 	}
 }
 ?>
