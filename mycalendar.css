@@ -55,6 +55,9 @@
 		background-color: grey;
 		color: white;
 	}
+	.calendar-day.active .day-number {
+		 font-weight: bold;
+	}
 	.calendar-day.active .day-number:hover {
 		background-color: coral;
 		color: white;
