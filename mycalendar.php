@@ -17,7 +17,7 @@ class myCalendar {
 		$this->defaultDay = $day;
 		$this->language = $language;
 		$this->events = $events;
-
+		echo "constructor OK";
 		// table headings
 		switch($this->language) {
 			case 0:
@@ -139,7 +139,7 @@ class myCalendar {
 		
 		/* print "blank" days until the first of the current week */
 		for($x = 0; $x < $running_day; $x++):
-			$this->calendar.= '<td class="calendar-day-np"> </td>';
+			$this->table.= '<td class="calendar-day-np"> </td>';
 			$days_in_this_week++;
 		endfor;
 
