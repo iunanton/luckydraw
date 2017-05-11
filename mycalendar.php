@@ -14,20 +14,6 @@ class myCalendar {
 		$this->day = $day;
 		$this->language = $language;
 	}
-	public function setLanguage($language) {
-		$this->language = $language;
-	}
-	public function setDate($year, $month) {
-		$this->year = $year;
-		$this->month = $month;
-		$this->day = $day;
-	}
-	public function getYear() {
-		return $year;
-	}
-	public function getMonth() {
-		return $month;
-	}
 	public function update($serviceDays) {
 		$this->serviceDays = $serviceDays;
 	}
