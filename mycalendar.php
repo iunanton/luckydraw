@@ -203,7 +203,7 @@ class myCalendar {
 		/* all done, return result */
 		return $this->calendar;
 	}
-	public function getCalendar() {
+	public function show() {
 		echo $this->calendar;
 	}
 }
