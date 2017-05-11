@@ -25,7 +25,7 @@
 <title>A-backup - HIV Test Booking</title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-12T04:24:31+0800" >
+<meta name="date" content="2017-05-12T04:36:49+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -34,68 +34,8 @@
 <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8">
 <meta http-equiv="content-style-type" content="text/css">
 <meta http-equiv="expires" content="0">
-<link href="" rel="stylesheet" type="text/css">
+<link href="mycalendar.css" rel="stylesheet" type="text/css">
 <style type="text/css">
-	body {
-		margin: 0 0 0 0;	
-	}
-	body div{
-		display: block;	
-	}
-	#nav div {
-		display: inline-block;	
-	}
-	#page {
-		width: 900px;
-		margin-left: 150px;	
-	}
-	#page div {
-		display: block;	
-	}
-	#page #header {
-		margin-top: 10px;
-		margin-bottom: 10px;
-		font-size: 24px;
-	}
-	#calendar {
-		border-collapse: collapse;
-		margin-top: 10px;
-		margin-bottom: 10px;
-	}
-	#calendar,
-	#calendar-head,
-	#calendar-head td,
-	.calendar-day-head, {
-		border-width: 0px;	
-	}
-	.calendar-row,
-	.calendar-row td {
-    border: 1px solid grey;
-	}
-	#calendar th,
-	#calendar td {
-		text-align: center;
-	}
-	#calendar-prev a,
-	#calendar-next a {
-		text-decoration: none;
-	}
-	.day-number {
-		text-decoration: none;
-		margin: 10px 10px 10px 10px;
-		border-radius: 5px 5px 5px 5px;
-	}
-	.calendar-day.today .day-number {
-		border: 1px solid lightblue;
-	}
-	.calendar-day.selected .day-number {
-		background-color: grey;
-		color: white;
-	}
-	.calendar-day.active .day-number:hover {
-		background-color: coral;
-		color: white;
-	}
 </style>
 </head>
 <body>
