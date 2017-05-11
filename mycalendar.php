@@ -160,9 +160,13 @@ class myCalendar {
 				$this->table.= ' today';
 			}
 			$this->table.= '">';
-			$this->table.= '<a href="';
-			$this->table.= "?year=$this->defaultYear&month=$this->defaultMonth&day=$day";
-			$this->table.= '" class="day-number">'.$day.'</a>';
+			if(in_array($string, $this->events)) {
+				$this->table.= '<a href="';
+				$this->table.= "?year=$this->defaultYear&month=$this->defaultMonth&day=$day";
+				$this->table.= '" class="day-number">'.$day.'</a>';
+			} else {
+				$this->table.= $day;
+			}
 			$this->table.= '</td>';
 			if($running_day == 6):
 				$this->table.= '</tr>';
