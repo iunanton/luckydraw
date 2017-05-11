@@ -25,7 +25,7 @@
 <title>A-backup - HIV Test Booking</title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-12T04:36:49+0800" >
+<meta name="date" content="2017-05-12T05:58:29+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -36,6 +36,73 @@
 <meta http-equiv="expires" content="0">
 <link href="mycalendar.css" rel="stylesheet" type="text/css">
 <style type="text/css">
+	#schedule {
+		border-collapse: collapse;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	#schedule,
+	#schedule-head,
+	#schedule-head td,
+	.schedule-day-head, {
+		border-width: 0px;	
+	}
+	.schedule-row,
+	.schedule-row td {
+    border: 1px solid lightgrey;
+	}
+	#schedule th,
+	#schedule td {
+		text-align: center;
+	}
+	#schedule-prev a,
+	#schedule-next a {
+		text-decoration: none;
+	}
+	.schedule-day {
+		padding: 20px 20px 20px 20px;
+		color: black;
+	}
+	.day-number {
+		text-decoration: none;
+		border-radius: 5px 5px 5px 5px;
+		color: inherit;
+	}
+	.schedule-day.today .day-number {
+		border: 1px solid lightblue;
+	}
+	.schedule-day.selected .day-number {
+		background-color: grey;
+		color: white;
+	}
+	.schedule-day.active .day-number {
+		 font-weight: bold;
+	}
+	.schedule-day.active .day-number:hover {
+		background-color: coral;
+		color: white;
+	}
+
+
+
+
+.schedule-radio {
+		display:none;
+}
+.schedule-radio + .schedule-label {
+	cursor: pointer;
+	margin: 10px 10px 10px 10px;
+	border-radius: 5px 5px 5px 5px;
+
+}
+.schedule-radio:checked + .schedule-label {
+	background-color: grey;
+	color: white;
+}
+.schedule-radio:hover + .schedule-label {
+	background-color: coral;
+	color: white;
+}
 </style>
 </head>
 <body>
@@ -65,19 +132,13 @@
 				$calendar->draw();
 				$calendar->show();
 			?>
+			<b>Preferred time slot</b>
 			<?php
 				//Create schedule for current date
-				$schedule = new mySchedule();
-				$schedule->update($service_times);
+				$schedule = new mySchedule($service_times);
 				$schedule->draw();
-				$schedule->getSchedule();
+				$schedule->show();
 			?>
-			<b>Preferred time slot</b>
-			<select id="schedule">
-				<option value="1">14:00</option>
-				<option value="2">14:30</option>
-				<option value="3">15:00</option>
-			</select>
 			<input type="submit" value="Next">
 		</div>
 	</div>
