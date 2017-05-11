@@ -33,7 +33,7 @@
 	}
 	.calendar-row,
 	.calendar-row td {
-    border: 1px solid grey;
+    border: 1px solid lightgrey;
 	}
 	#calendar th,
 	#calendar td {
@@ -44,11 +44,11 @@
 		text-decoration: none;
 	}
 	.calendar-day {
+		padding: 20px 20px 20px 20px;
 		color: black;
 	}
 	.day-number {
 		text-decoration: none;
-		margin: 10px 10px 10px 10px;
 		border-radius: 5px 5px 5px 5px;
 		color: inherit;
 	}
