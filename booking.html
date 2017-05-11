@@ -4,7 +4,7 @@
 <title>A-backup - HIV Test Booking</title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-12T02:28:35+0800" >
+<meta name="date" content="2017-05-12T04:14:22+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -55,18 +55,25 @@
 	#calendar td {
 		text-align: center;
 	}
+	#calendar-prev a,
+	#calendar-next a {
+		text-decoration: none;
+	}
 	.day-number {
 		text-decoration: none;
 		margin: 10px 10px 10px 10px;
 		border-radius: 5px 5px 5px 5px;
-		border-color: coral;
+		
 	}
-	.day-number:hover {
-		background-color: coral;
+	.calendar-day.today .day-number {
+		border: 1px solid lightblue;
+	}
+	.calendar-day.selected .day-number {
+		background-color: grey;
 		color: white;
 	}
-	.day-number#selected {
-		background-color: grey;
+	.active .day-number:hover {
+		background-color: coral;
 		color: white;
 	}
 </style>
@@ -88,9 +95,9 @@
 			<b>What date would you like an appointment?</b>
 			<table id="calendar">
 			<tr class="calendar-head">
-				<td class="calendar-prev">Prev.</td>
-				<td colspan="5" class="calendar-month">May 2017</td>
-				<td class="calendar-next">Next</td>
+				<td id="calendar-prev"><a href="#">Prev.</a></td>
+				<td colspan="5" id="calendar-month">May 2017</td>
+				<td id="calendar-next"><a href="#">Next</a></td>
 			</tr>
 			<tr class="calendar-head">
 				<td class="calendar-day-head">Sun</td>
@@ -120,7 +127,7 @@
 				<td class="calendar-day"><a href="#" class="day-number">11</a></td>
 			</tr>
 			<tr class="calendar-row">
-				<td class="calendar-day"><a href="#" class="day-number" id="selected">12</a></td>
+				<td class="calendar-day active selected today"><a href="#" class="day-number">12</a></td>
 				<td class="calendar-day"><a href="#" class="day-number">13</a></td>
 				<td class="calendar-day"><a href="#" class="day-number">14</a></td>
 				<td class="calendar-day"><a href="#" class="day-number">15</a></td>
@@ -156,6 +163,6 @@
 			<input type="submit" value="Next">
 		</div>
 	</div>
-	<div id="footer">Lucky</div>
+	<div id="footer">Lucky &copy Copyright By A-Backup</div>
 </body>
 </html>
