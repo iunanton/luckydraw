@@ -43,10 +43,14 @@
 	#calendar-next a {
 		text-decoration: none;
 	}
+	.calendar-day {
+		color: black;
+	}
 	.day-number {
 		text-decoration: none;
 		margin: 10px 10px 10px 10px;
 		border-radius: 5px 5px 5px 5px;
+		color: inherit;
 	}
 	.calendar-day.today .day-number {
 		border: 1px solid lightblue;
