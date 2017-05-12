@@ -1,4 +1,4 @@
-/* myCalendar */
+/* myCalendar minimum CSS file*/
 	body {
 		margin: 0 0 0 0;	
 	}
@@ -24,55 +24,18 @@
 	.schedule {
 		border-collapse: collapse;
 	}
-	#calendar {
-		margin-top: 10px;
-		margin-bottom: 10px;
-	}
-	#calendar,
-	#calendar-head,
-	.calendar-day-head, {
-		border-width: 0px;	
-	}
 	.calendar-day,
 	.calendar-day-np {
     border: 1px solid lightgrey;
 	}
+	#calendar-prev,
+	#calendar-month,
+	#calendar-next,
 	.calendar-day-head,
 	.calendar-day {
 		text-align: center;
 	}
-	#calendar-prev a,
-	#calendar-next a {
-		text-decoration: none;
-	}
-	.calendar-day {
-		padding: 10px 10px 10px 10px;
-		color: black;
-	}
-	.day-number {
-		text-decoration: none;
-		border-radius: 5px 5px 5px 5px;
-		color: inherit;
-	}
 	.calendar-day.today .day-number {
-		border: 1px solid lightblue;
-	}
-	.calendar-day.selected .day-number {
-		background-color: grey;
-		color: white;
-	}
-	.calendar-day.active .day-number {
-		 font-weight: bold;
-	}
-	.calendar-day.active .day-number:hover {
 		background-color: coral;
 		color: white;
-	}
-	.schedule,
-	.schedule-row,
-	.time-slot {
-		border-width: 0px;
-	}
-	.time-slot {
-    text-align: center;
 	}
