@@ -1,6 +1,7 @@
 <?php
 class myCalendar {
 	//determine class variables
+	private $conn;
 	private $defaultYear;
 	private $defaultMonth;
 	private $defaultDay;
@@ -9,15 +10,16 @@ class myCalendar {
 	private $weedDays;
 	private $events;
 	private $html;
-
 	//determine class constructor
 	public function __construct($year, $month, $day, $language, $events) {
+		//myDatabase class
+		require_once('mydatabase.php');
+		$this->conn = new myDatabase();
 		$this->defaultYear = $year;
 		$this->defaultMonth = $month;
 		$this->defaultDay = $day;
 		$this->language = $language;
 		$this->events = $events;
-
 		// table headings
 		switch($this->language) {
 			case 0:
@@ -80,7 +82,6 @@ class myCalendar {
 				break;
 		}
 	}
-
 	//create GET request of previous month
 	private function requestPreviousMonth() {
 		//if not January
@@ -95,7 +96,6 @@ class myCalendar {
 		}
 		return "?year=$year&month=$month&day=$day";
 	}
-
 	//create GET request of next month
 	private function requestNextMonth() {
 		//if not December
@@ -110,7 +110,6 @@ class myCalendar {
 		}
 		return "?year=$year&month=$month&day=$day";
 	}
-
 	public function draw() {
 		// calendar header
 		$this->html = '<table id="calendar">';
@@ -119,7 +118,6 @@ class myCalendar {
 		$this->html.= '<td colspan="5" id="calendar-month">'.$this->header.'</td>';
 		$this->html.= '<td id="calendar-next"><a href="'.$this->requestNextMonth().'">Next</a></td>';
 		$this->html.= '</tr>';
-
 		// names of week days
 		$this->html.= '<tr class="calendar-head">';
 		$this->html.= '<td class="calendar-day-head">';
@@ -142,13 +140,12 @@ class myCalendar {
 			$this->html.= '<td class="calendar-day-np"> </td>';
 			$days_in_this_week++;
 		endfor;
-
 		/* keep going with days.... */
 		for($list_day = 1; $list_day <= $days_in_month; $list_day++):
 			$this->html.= '<td class="calendar-day';
+			
 			$day = str_pad($list_day, 2, '0', STR_PAD_LEFT);
 			$string = $this->defaultYear.'-'.$this->defaultMonth.'-'.$day;
-
 			/* add in the day number */
 			if(in_array($string, $this->events)) {
 				$this->html.= ' active';
