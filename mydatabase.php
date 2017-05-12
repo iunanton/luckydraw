@@ -22,10 +22,24 @@ class myDatabase {
 		return $DateArray;
 	}
 	public function getTimeArray($year, $month, $day) {
-		$stmt = $this->pdo->prepare("SELECT s.id, d.time FROM service_times AS s JOIN default_times AS d ON s.time = d.id WHERE s.date = STR_TO_DATE('$year,$month,$day','%Y,%m,%d') AND (s.date > CURDATE() OR (s.date = CURDATE() AND d.time > CURTIME()))");
+		$stmt = $this->pdo->prepare("SELECT s.id, d.time FROM service_times AS s JOIN default_times AS d ON s.time = d.id LEFT JOIN appointments AS a ON s.id = a.service_time WHERE a.id IS NULL AND s.date = STR_TO_DATE('$year,$month,$day','%Y,%m,%d') AND (s.date > CURDATE() OR (s.date = CURDATE() AND d.time > CURTIME()))");
 		$stmt->execute();
 		$TimeArray = $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
 		return $TimeArray;
+	}
+	public function getTestInfo($test) {
+		$stmt = $this->pdo->prepare("SELECT s.date AS date, d.time AS time FROM service_times AS s JOIN default_times AS d ON s.time = d.id WHERE s.id = :test");
+		$stmt->bindParam(':test', $test);		
+		$stmt->execute();
+		$result = $stmt->fetch();
+		return $result;
+	}
+	public function setAppointment($test, $name, $tel) {
+		$stmt = $this->pdo->prepare("INSERT INTO appointments (name, phone, service_time) VALUES (:name, :phone, :service_time)");
+		$stmt->bindParam(':name', $name);
+		$stmt->bindParam(':phone', $tel);
+		$stmt->bindParam(':service_time', $test);
+		$stmt->execute();
 	}
 }
 ?>
