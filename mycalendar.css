@@ -20,23 +20,25 @@
 		margin-bottom: 10px;
 		font-size: 24px;
 	}
-	#calendar {
+	#calendar,
+	.schedule {
 		border-collapse: collapse;
+	}
+	#calendar {
 		margin-top: 10px;
 		margin-bottom: 10px;
 	}
 	#calendar,
 	#calendar-head,
-	#calendar-head td,
 	.calendar-day-head, {
 		border-width: 0px;	
 	}
-	.calendar-row,
-	.calendar-row td {
+	.calendar-day,
+	.calendar-day-np {
     border: 1px solid lightgrey;
 	}
-	#calendar th,
-	#calendar td {
+	.calendar-day-head,
+	.calendar-day {
 		text-align: center;
 	}
 	#calendar-prev a,
@@ -44,7 +46,7 @@
 		text-decoration: none;
 	}
 	.calendar-day {
-		padding: 20px 20px 20px 20px;
+		padding: 10px 10px 10px 10px;
 		color: black;
 	}
 	.day-number {
@@ -65,4 +67,12 @@
 	.calendar-day.active .day-number:hover {
 		background-color: coral;
 		color: white;
+	}
+	.schedule,
+	.schedule-row,
+	.time-slot {
+		border-width: 0px;
+	}
+	.time-slot {
+    text-align: center;
 	}
