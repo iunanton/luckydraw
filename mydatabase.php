@@ -22,7 +22,7 @@ class myDatabase {
 		return $DateArray;
 	}
 	public function getTimeArray($year, $month, $day) {
-		$stmt = $this->pdo->prepare("SELECT s.id, d.time FROM service_times AS s JOIN default_times AS d ON s.time = d.id WHERE date = STR_TO_DATE('$year,$month,$day','%Y,%m,%d')");
+		$stmt = $this->pdo->prepare("SELECT s.id, d.time FROM service_times AS s JOIN default_times AS d ON s.time = d.id WHERE date = STR_TO_DATE('$year,$month,$day','%Y,%m,%d') AND date >= CURDATE()");
 		$stmt->execute();
 		$TimeArray = $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
 		return $TimeArray;
