@@ -10,16 +10,19 @@ class myCalendar {
 	private $weedDays;
 	private $events;
 	private $html;
-	//determine class constructor
+	private $timeOnRow = 3;
+
 	public function __construct($year, $month, $day, $language, $events) {
 		//myDatabase class
 		require_once('mydatabase.php');
 		$this->conn = new myDatabase();
+		
 		$this->defaultYear = $year;
 		$this->defaultMonth = $month;
 		$this->defaultDay = $day;
 		$this->language = $language;
 		$this->events = $events;
+		
 		// table headings
 		switch($this->language) {
 			case 0:
@@ -82,7 +85,7 @@ class myCalendar {
 				break;
 		}
 	}
-	//create GET request of previous month
+	
 	private function requestPreviousMonth() {
 		//if not January
 		if($this->defaultMonth > 1) {
@@ -96,7 +99,7 @@ class myCalendar {
 		}
 		return "?year=$year&month=$month&day=$day";
 	}
-	//create GET request of next month
+	
 	private function requestNextMonth() {
 		//if not December
 		if($this->defaultMonth < 12) {
@@ -110,6 +113,7 @@ class myCalendar {
 		}
 		return "?year=$year&month=$month&day=$day";
 	}
+	
 	public function draw() {
 		// calendar header
 		$this->html = '<table id="calendar">';
@@ -118,6 +122,7 @@ class myCalendar {
 		$this->html.= '<td colspan="5" id="calendar-month">'.$this->header.'</td>';
 		$this->html.= '<td id="calendar-next"><a href="'.$this->requestNextMonth().'">Next</a></td>';
 		$this->html.= '</tr>';
+		
 		// names of week days
 		$this->html.= '<tr class="calendar-head">';
 		$this->html.= '<td class="calendar-day-head">';
@@ -125,49 +130,95 @@ class myCalendar {
 		$this->html.= '</td>';
 		$this->html.= '</tr>';
 		
-		/* days and weeks vars now ... */
+		// days and weeks vars now ...
 		$running_day = date('w',mktime(0,0,0,$this->defaultMonth,1,$this->defaultYear));
 		$days_in_month = date('t',mktime(0,0,0,$this->defaultMonth,1,$this->defaultYear));
 		$days_in_this_week = 1;
 		$day_counter = 0;
 		$dates_array = array();
 		
-		/* row for week one */
+		// row for week one
 		$this->html.= '<tr class="calendar-row">';
 		
-		/* print "blank" days until the first of the current week */
-		for($x = 0; $x < $running_day; $x++):
+		// print "blank" days until the first of the current week
+		for($x = 0; $x < $running_day; $x++) {
 			$this->html.= '<td class="calendar-day-np"> </td>';
 			$days_in_this_week++;
-		endfor;
-		/* keep going with days.... */
-		for($list_day = 1; $list_day <= $days_in_month; $list_day++):
-			$this->html.= '<td class="calendar-day';
+		}
+		
+		// keep going with days....
+		for($list_day = 1; $list_day <= $days_in_month; $list_day++) {
+			$day = str_pad($list_day, 2, '0', STR_PAD_LEFT);
 
 			//get time array from myDatabase
-			$timeSlots = $this->conn->getTimeArray($this->defaultYear,$this->defaultMonth,$day);
+			$timeSlots = $this->conn->getTimeArray($this->defaultYear, $this->defaultMonth, $day);
+			
+			$this->html.= '<td class="calendar-day';
 			
 			//check array is not empty
 			if(!empty($timeSlots)) {
 				$this->html.= ' active';
 			}
-
-			/* add in the day number */
-			$day = str_pad($list_day, 2, '0', STR_PAD_LEFT);
-			$string = $this->defaultYear.'-'.$this->defaultMonth.'-'.$day;
 			
-			/*
-			if(in_array($string, $this->events)) {
-				$this->html.= ' active';
-			}*/
+			//show selected day
 			if($day == $this->defaultDay) {
 				$this->html.= ' selected';
 			}
+			
+			//show today
 			if($day == date("d")) {
 				$this->html.= ' today';
 			}
+			
 			$this->html.= '">';
-			foreach ($timeSlots as $key => $value) echo $key.' '.$value.'<br>';
+			
+			//add day number
+			$this->html.= '<p class="day-number">';
+			$this->html.= $list_day;			
+			$this->html.= '</p>';
+			
+			//add time slots
+			$this->html.= '<table class="schedule">';
+			$this->html.= '<tr class="schedule-row">';
+			
+			//time slot number
+			$i = 1;
+			foreach ($timeSlots as $key => $value) {
+				$time = substr($value, 0, 5);
+				$this->html.= '<td class="time-slot">';
+				$this->html.= '<a href="?timeslot='.$key.'">';
+				$this->html.= $time;
+				$this->html.= '</a>';
+				$this->html.= '</td>';
+				if(!($i % $this->timeOnRow)) {
+					$this->html.= '</tr><tr class="schedule-row">';
+				}
+				$i++;
+			}
+			while($i % $this->timeOnRow) {
+				$this->html.= '<td>';
+				$this->html.= '</td>';
+				$i++;
+			}
+			$this->html.= '</tr>';			
+			$this->html.= '</table>';
+
+			//close td tag
+			$this->html.= '</td>';
+			
+/*
+
+
+
+
+
+ 
+
+			
+
+
+			$this->html.= "$this->defaultYear, $this->defaultMonth, $day, today is ".date("d")."<br>";
+			foreach ($timeSlots as $key => $value) $this->html.= $key.' '.$value.'<br>';
 			if(in_array($string, $this->events)) {
 				$this->html.= '<a href="';
 				$this->html.= "?year=$this->defaultYear&month=$this->defaultMonth&day=$day";
@@ -176,23 +227,25 @@ class myCalendar {
 				$this->html.= $day;
 			}
 			$this->html.= '</td>';
-			if($running_day == 6):
+			
+*/
+			if($running_day == 6) {
 				$this->html.= '</tr>';
-				if(($day_counter+1) != $days_in_month):
+				if(($day_counter+1) != $days_in_month) {
 					$this->html.= '<tr class="calendar-row">';
-				endif;
+				}
 				$running_day = -1;
 				$days_in_this_week = 0;
-			endif;
+			}
 			$days_in_this_week++; $running_day++; $day_counter++;
-		endfor;
+		}
 		
 		/* finish the rest of the days in the week */
-		if($days_in_this_week < 8):
-			for($x = 1; $x <= (8 - $days_in_this_week); $x++):
+		if($days_in_this_week < 8) {
+			for($x = 1; $x <= (8 - $days_in_this_week); $x++) {
 				$this->html.= '<td class="calendar-day-np"> </td>';
-			endfor;
-		endif;
+			}
+		}
 		
 		/* final row */
 		$this->html.= '</tr>';
