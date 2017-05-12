@@ -18,7 +18,7 @@
 <title>Lucky - Test Appointment</title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-13T03:53:08+0800" >
+<meta name="date" content="2017-05-13T03:58:27+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -39,7 +39,7 @@
 	<div id="nav">
 		<div id="news"><a href="news.php">NEWS</a></div>
 		<div id="rapid-test"><a href="rapid_test.php">RAPID-TEST</a></div>
-		<div id="rapid-test"><a href="booking.php">TEST BOOKING</a></div>
+		<div id="test-booking"><a href="booking.php">TEST BOOKING</a></div>
 		<div id="free-condom"><a href="#">FREE CONDOM</a></div>
 		<div id="videos"><a href="#">VIDEOS</a></div>
 		<div id="hiv-pos"><a href="#">HIV+</a></div>

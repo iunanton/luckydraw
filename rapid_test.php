@@ -4,7 +4,7 @@
 <title>Lucky - Rapid Test</title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-13T03:49:49+0800" >
+<meta name="date" content="2017-05-13T03:58:27+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -21,13 +21,13 @@
 	<div id="header"><img src="logo.jpg" alt="logo" height="100px"></div>
 	<div id="nav">
 		<div id="news"><a href="news.php">NEWS</a></div>
-		<div id="rapid-test"><a href="#">RAPID-TEST</a></div>
-		<div id="rapid-test"><a href="booking.php">TEST BOOKING</a></div>
+		<div id="rapid-test"><a href="rapid_test.php">RAPID-TEST</a></div>
+		<div id="test-booking"><a href="booking.php">TEST BOOKING</a></div>
 		<div id="free-condom"><a href="#">FREE CONDOM</a></div>
 		<div id="videos"><a href="#">VIDEOS</a></div>
 		<div id="hiv-pos"><a href="#">HIV+</a></div>
 		<div id="join-us"><a href="#">JOIN US</a></div>
-		<div id="about-us"><a href="#">ABOUT US</a></div>
+		<div id="about-us"><a href="about_us.php">ABOUT US</a></div>
 	</div>
 	<div id="page">
 		<div id="header">Rapid Test</div>
