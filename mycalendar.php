@@ -8,11 +8,10 @@ class myCalendar {
 	private $language;
 	private $header;
 	private $weedDays;
-	private $events;
 	private $html;
 	private $timeOnRow = 3;
 
-	public function __construct($year, $month, $day, $language, $events) {
+	public function __construct($year, $month, $day, $language) {
 		//myDatabase class
 		require_once('mydatabase.php');
 		$this->conn = new myDatabase();
@@ -21,7 +20,6 @@ class myCalendar {
 		$this->defaultMonth = $month;
 		$this->defaultDay = $day;
 		$this->language = $language;
-		$this->events = $events;
 		
 		// table headings
 		switch($this->language) {
@@ -135,7 +133,6 @@ class myCalendar {
 		$days_in_month = date('t',mktime(0,0,0,$this->defaultMonth,1,$this->defaultYear));
 		$days_in_this_week = 1;
 		$day_counter = 0;
-		$dates_array = array();
 		
 		// row for week one
 		$this->html.= '<tr class="calendar-row">';
@@ -154,19 +151,9 @@ class myCalendar {
 			$timeSlots = $this->conn->getTimeArray($this->defaultYear, $this->defaultMonth, $day);
 			
 			$this->html.= '<td class="calendar-day';
-			
-			//check array is not empty
-			if(!empty($timeSlots)) {
-				$this->html.= ' active';
-			}
-			
-			//show selected day
-			if($day == $this->defaultDay) {
-				$this->html.= ' selected';
-			}
-			
-			//show today
-			if($day == date("d")) {
+						
+			//highlight today
+			if($this->defaultYear == date("Y") && $this->defaultMonth == date("m") && $day == date("d")) {
 				$this->html.= ' today';
 			}
 			
@@ -186,7 +173,7 @@ class myCalendar {
 			foreach ($timeSlots as $key => $value) {
 				$time = substr($value, 0, 5);
 				$this->html.= '<td class="time-slot">';
-				$this->html.= '<a href="?timeslot='.$key.'">';
+				$this->html.= '<a href="confirm.php?id='.$key.'" class="time">';
 				$this->html.= $time;
 				$this->html.= '</a>';
 				$this->html.= '</td>';
@@ -206,29 +193,6 @@ class myCalendar {
 			//close td tag
 			$this->html.= '</td>';
 			
-/*
-
-
-
-
-
- 
-
-			
-
-
-			$this->html.= "$this->defaultYear, $this->defaultMonth, $day, today is ".date("d")."<br>";
-			foreach ($timeSlots as $key => $value) $this->html.= $key.' '.$value.'<br>';
-			if(in_array($string, $this->events)) {
-				$this->html.= '<a href="';
-				$this->html.= "?year=$this->defaultYear&month=$this->defaultMonth&day=$day";
-				$this->html.= '" class="day-number">'.$day.'</a>';
-			} else {
-				$this->html.= $day;
-			}
-			$this->html.= '</td>';
-			
-*/
 			if($running_day == 6) {
 				$this->html.= '</tr>';
 				if(($day_counter+1) != $days_in_month) {
@@ -240,20 +204,20 @@ class myCalendar {
 			$days_in_this_week++; $running_day++; $day_counter++;
 		}
 		
-		/* finish the rest of the days in the week */
+		// finish the rest of the days in the week
 		if($days_in_this_week < 8) {
 			for($x = 1; $x <= (8 - $days_in_this_week); $x++) {
 				$this->html.= '<td class="calendar-day-np"> </td>';
 			}
 		}
 		
-		/* final row */
+		// final row
 		$this->html.= '</tr>';
 		
-		/* end the table */
+		// end the table
 		$this->html.= '</table>';
 		
-		/* all done, return result */
+		// all done, return result
 		return $this->html;
 	}
 	public function show() {
