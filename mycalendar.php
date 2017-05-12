@@ -143,13 +143,23 @@ class myCalendar {
 		/* keep going with days.... */
 		for($list_day = 1; $list_day <= $days_in_month; $list_day++):
 			$this->html.= '<td class="calendar-day';
+
+			//get time array from myDatabase
+			$timeSlots = $this->conn->getTimeArray($this->defaultYear,$this->defaultMonth,$day);
 			
-			$day = str_pad($list_day, 2, '0', STR_PAD_LEFT);
-			$string = $this->defaultYear.'-'.$this->defaultMonth.'-'.$day;
-			/* add in the day number */
-			if(in_array($string, $this->events)) {
+			//check array is not empty
+			if(!empty($timeSlots)) {
 				$this->html.= ' active';
 			}
+
+			/* add in the day number */
+			$day = str_pad($list_day, 2, '0', STR_PAD_LEFT);
+			$string = $this->defaultYear.'-'.$this->defaultMonth.'-'.$day;
+			
+			/*
+			if(in_array($string, $this->events)) {
+				$this->html.= ' active';
+			}*/
 			if($day == $this->defaultDay) {
 				$this->html.= ' selected';
 			}
@@ -157,6 +167,7 @@ class myCalendar {
 				$this->html.= ' today';
 			}
 			$this->html.= '">';
+			foreach ($timeSlots as $key => $value) echo $key.' '.$value.'<br>';
 			if(in_array($string, $this->events)) {
 				$this->html.= '<a href="';
 				$this->html.= "?year=$this->defaultYear&month=$this->defaultMonth&day=$day";
