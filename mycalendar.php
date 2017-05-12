@@ -4,7 +4,6 @@ class myCalendar {
 	private $conn;
 	private $defaultYear;
 	private $defaultMonth;
-	private $defaultDay;
 	private $language;
 	private $header;
 	private $weedDays;
@@ -18,7 +17,6 @@ class myCalendar {
 		
 		$this->defaultYear = $year;
 		$this->defaultMonth = $month;
-		$this->defaultDay = $day;
 		$this->language = $language;
 		
 		// table headings
@@ -89,11 +87,9 @@ class myCalendar {
 		if($this->defaultMonth > 1) {
 			$year = $this->defaultYear;
 			$month = $this->defaultMonth-1;
-			$day = $this->defaultDay;
 		} else {
 			$year = $this->defaultYear-1;
 			$month = 12;
-			$day = $this->defaultDay;
 		}
 		return "?year=$year&month=$month&day=$day";
 	}
@@ -103,11 +99,9 @@ class myCalendar {
 		if($this->defaultMonth < 12) {
 			$year = $this->defaultYear;
 			$month = $this->defaultMonth+1;
-			$day = $this->defaultDay;
 		} else {
 			$year = $this->defaultYear+1;
 			$month = 1;
-			$day = $this->defaultDay;
 		}
 		return "?year=$year&month=$month&day=$day";
 	}

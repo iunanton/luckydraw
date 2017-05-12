@@ -3,23 +3,21 @@
 	require_once('mycalendar.php');
 
 	//GET and POST methods
-	if(isset($_GET['year']) && isset($_GET['month']) && isset($_GET['day'])) {
+	if(isset($_GET['year']) && isset($_GET['month'])) {
 		$year = $_GET['year'];
 		$month = str_pad($_GET['month'], 2, '0', STR_PAD_LEFT);
-		$day = str_pad($_GET['day'], 2, '0', STR_PAD_LEFT);
 	} else {
 		$year = date("Y");
 		$month = date("m");
-		$day = date("d");
 	}
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<title>A-backup - HIV Test Booking</title>
+<title>Lucky - HIV Test Booking</title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-12T22:30:07+0800" >
+<meta name="date" content="2017-05-12T22:38:19+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -37,6 +35,7 @@
 	<div id="nav">
 		<div id="news"><a href="#">NEWS</a></div>
 		<div id="rapid-test"><a href="#">RAPID-TEST</a></div>
+		<div id="rapid-test"><a href="#">TEST BOOKING</a></div>
 		<div id="free-condom"><a href="#">FREE CONDOM</a></div>
 		<div id="videos"><a href="#">VIDEOS</a></div>
 		<div id="hiv-pos"><a href="#">HIV+</a></div>
