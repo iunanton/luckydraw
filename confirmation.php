@@ -1,25 +1,24 @@
 <?php
-	//include myCalendar class
-	require_once('mycalendar.php');
+	//include myDatabase class
+	require_once('mydatabase.php');
+	$conn = new myDatabase();
 
 	//GET and POST methods
-	if(isset($_GET['year']) && isset($_GET['month']) && isset($_GET['day'])) {
-		$year = $_GET['year'];
-		$month = str_pad($_GET['month'], 2, '0', STR_PAD_LEFT);
-		$day = str_pad($_GET['day'], 2, '0', STR_PAD_LEFT);
-	} else {
-		$year = date("Y");
-		$month = date("m");
-		$day = date("d");
+	if(isset($_POST['test']) && isset($_POST['name']) && isset($_POST['tel'])) {
+		$test = $_POST['test'];
+		$name = $_POST['name'];
+		$tel = $_POST['tel'];
+		$conn->setAppointment($test, $name, $tel);
+		$info = $conn->getTestInfo($test);
 	}
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Lucky - HIV Test Booking</title>
+<title>Lucky - Test Appointment</title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-13T03:53:11+0800" >
+<meta name="date" content="2017-05-13T03:53:08+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -30,6 +29,9 @@
 <meta http-equiv="expires" content="0">
 <link href="mycalendar.css" rel="stylesheet" type="text/css">
 <style type="text/css">
+	#test-confirmation .input-field {
+		display: block;	
+	}
 </style>
 </head>
 <body>
@@ -45,15 +47,10 @@
 		<div id="about-us"><a href="about_us.php">ABOUT US</a></div>
 	</div>
 	<div id="page">
-		<div id="header">Booking</div>
+		<div id="header">Test Appointment</div>
 		<div id="content">
-			<p>What date and time would you like an appointment?</p>
-			<?php
-				//Create calendar for current date
-				$calendar = new myCalendar($year, $month, $day, 0);
-				$calendar->draw();
-				$calendar->show();
-			?>
+			<p>Your booking was confirmed successfully.</p>
+			<p><?= $info['date'].' '.$info['time'] ?></p>
 		</div>
 	</div>
 	<div id="footer">Lucky &copy Copyright By Lucky Draw Studio<br>

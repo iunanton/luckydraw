@@ -1,25 +1,10 @@
-<?php
-	//include myCalendar class
-	require_once('mycalendar.php');
-
-	//GET and POST methods
-	if(isset($_GET['year']) && isset($_GET['month']) && isset($_GET['day'])) {
-		$year = $_GET['year'];
-		$month = str_pad($_GET['month'], 2, '0', STR_PAD_LEFT);
-		$day = str_pad($_GET['day'], 2, '0', STR_PAD_LEFT);
-	} else {
-		$year = date("Y");
-		$month = date("m");
-		$day = date("d");
-	}
-?>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Lucky - HIV Test Booking</title>
+<title>Lucky - About Us</title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-13T03:53:11+0800" >
+<meta name="date" content="2017-05-13T03:53:19+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -45,15 +30,16 @@
 		<div id="about-us"><a href="about_us.php">ABOUT US</a></div>
 	</div>
 	<div id="page">
-		<div id="header">Booking</div>
+		<div id="header">About Us</div>
 		<div id="content">
-			<p>What date and time would you like an appointment?</p>
-			<?php
-				//Create calendar for current date
-				$calendar = new myCalendar($year, $month, $day, 0);
-				$calendar->draw();
-				$calendar->show();
-			?>
+			<p>幸運抽獎工作室Lucky Draw Studio是支援社A-Backup的分支，是一個非牟利團體，因為政府未能資助異性戀者的測試服務，所以本工作室會以自負盈虧的形式運作，而一切成本均由捐款中支出， 並於觀塘(鴻圖道58號金凱工業大廈6樓25室)測試中心提供愛滋病病毒抗體和性病測試服務。</p>
+			<p>設有測試HIV服務 Tel: 5405 6631</p>
+			<p>星期一至五開放時間 16:30 - 20:30(無需預約)</p>
+			<p>(無預約停止派籌時間 20:30)</p>
+			<p>星期六 / 日16:30 - 20:30 (敬請預約)</p>
+			<p>公眾假期 16:30 - 20:30 (敬請預約)</p>
+			<p>觀塘鴻圖道58號金凱工業大廈6樓25室</p>
+			<p>Email 電郵地址：abackuphk@gmail.com</p>
 		</div>
 	</div>
 	<div id="footer">Lucky &copy Copyright By Lucky Draw Studio<br>

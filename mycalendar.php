@@ -167,7 +167,7 @@ class myCalendar {
 			foreach ($timeSlots as $key => $value) {
 				$time = substr($value, 0, 5);
 				$this->html.= '<td class="time-slot">';
-				$this->html.= '<a href="confirm.php?id='.$key.'" class="time">';
+				$this->html.= '<a href="booking_form.php?test='.$key.'" class="time">';
 				$this->html.= $time;
 				$this->html.= '</a>';
 				$this->html.= '</td>';
