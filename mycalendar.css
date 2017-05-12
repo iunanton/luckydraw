@@ -39,6 +39,9 @@
 		background-color: coral;
 		color: white;
 	}
+	.day-number {
+		margin: 5px 5px 5px 5px;	
+	}
 	.time {
 		margin: 5px 5px 5px 5px;	
 	}
