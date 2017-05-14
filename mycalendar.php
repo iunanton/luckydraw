@@ -91,7 +91,7 @@ class myCalendar {
 			$year = $this->defaultYear-1;
 			$month = 12;
 		}
-		return "?year=$year&month=$month&day=$day";
+		return "?year=$year&month=$month";
 	}
 	
 	private function requestNextMonth() {
@@ -103,7 +103,7 @@ class myCalendar {
 			$year = $this->defaultYear+1;
 			$month = 1;
 		}
-		return "?year=$year&month=$month&day=$day";
+		return "?year=$year&month=$month";
 	}
 	
 	public function draw() {
