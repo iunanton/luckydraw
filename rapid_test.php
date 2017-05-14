@@ -1,22 +1,7 @@
-<?php
-	//include myCalendar class
-	require_once('mycalendar.php');
-
-	//GET and POST methods
-	if(isset($_GET['year']) && isset($_GET['month']) && isset($_GET['day'])) {
-		$year = $_GET['year'];
-		$month = str_pad($_GET['month'], 2, '0', STR_PAD_LEFT);
-		$day = str_pad($_GET['day'], 2, '0', STR_PAD_LEFT);
-	} else {
-		$year = date("Y");
-		$month = date("m");
-		$day = date("d");
-	}
-?>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Lucky - HIV Test Booking</title>
+<title>Lucky - Rapid Test</title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
 <meta name="date" content="2017-05-13T03:58:27+0800" >
@@ -45,15 +30,9 @@
 		<div id="about-us"><a href="about_us.php">ABOUT US</a></div>
 	</div>
 	<div id="page">
-		<div id="header">Booking</div>
+		<div id="header">Rapid Test</div>
 		<div id="content">
-			<p>What date and time would you like an appointment?</p>
-			<?php
-				//Create calendar for current date
-				$calendar = new myCalendar($year, $month, $day, 0);
-				$calendar->draw();
-				$calendar->show();
-			?>
+			<p>A-Backup Testing Centre opens Monday to Saturday and Public Holidays need reservation. We provided Anonymous Rapid HIV Test. Only take a drop of blood and the result will come out within 15 minutes. All test are conducted in private and result will remain Anonymous.</p>
 		</div>
 	</div>
 	<div id="footer">Lucky &copy Copyright By Lucky Draw Studio<br>
