@@ -8,11 +8,11 @@
 	
 	$global_page = basename(__FILE__, '.php');
 	
-	require_once('mydatabase.php');
+	require_once('class/mydatabase.php');
 ?>
 <?php
 	//include myDatabase class
-	require_once('mydatabase.php');
+	require_once('class/mydatabase.php');
 	$conn = new myDatabase();
 
 	//GET and POST methods
@@ -32,7 +32,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-15T00:06:12+0800" >
+<meta name="date" content="2017-05-15T00:42:09+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -53,9 +53,21 @@
 	<?php
 		include('view/navigation_bar.php');
 	?>
-	<div id="page">
-		<div id="header">Confirmation</div>
-		<div id="content">
+	<div id="wrapper">
+		<div id="wrapper-header">
+			<?php
+				switch($global_lang) {
+					case EN:
+						$header = "Confirmation";
+						break;
+					case ZH:
+						$header = "Confirmation";
+						break;
+				}
+			?>
+			<h1><?= $header; ?></h1>
+		</div>
+		<div id="wrapper-content">
 			<p>Your booking was confirmed successfully.</p>
 			<p><?= $info['date'].' '.$info['time'] ?></p>
 		</div>

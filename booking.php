@@ -8,11 +8,11 @@
 	
 	$global_page = basename(__FILE__, '.php');
 	
-	require_once('mydatabase.php');
+	require_once('class/mydatabase.php');
 ?>
 <?php
 	//include myCalendar class
-	require_once('mycalendar.php');
+	require_once('class/mycalendar.php');
 
 	//GET and POST methods
 	if(isset($_GET['year']) && isset($_GET['month']) && isset($_GET['day'])) {
@@ -33,7 +33,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-15T00:06:08+0800" >
+<meta name="date" content="2017-05-15T00:41:42+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -43,7 +43,7 @@
 <meta http-equiv="content-style-type" content="text/css">
 <meta http-equiv="expires" content="0">
 <link href="style.css" rel="stylesheet" type="text/css">
-<link href="mycalendar.css" rel="stylesheet" type="text/css">
+<link href="class/mycalendar.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 </style>
 </head>
@@ -52,9 +52,21 @@
 	<?php
 		include('view/navigation_bar.php');
 	?>
-	<div id="page">
-		<div id="header">Booking</div>
-		<div id="content">
+	<div id="wrapper">
+		<div id="wrapper-header">
+			<?php
+				switch($global_lang) {
+					case EN:
+						$header = "Booking";
+						break;
+					case ZH:
+						$header = "預約測試";
+						break;
+				}
+			?>
+			<h1><?= $header; ?></h1>
+		</div>
+		<div id="wrapper-content">
 			<p>What date and time would you like an appointment?</p>
 			<?php
 				//Create calendar for current date

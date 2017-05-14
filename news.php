@@ -9,7 +9,7 @@
 
 	$global_page = basename(__FILE__, '.php');
 
-	require_once('mydatabase.php');
+	require_once('class/mydatabase.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,7 +19,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-14T23:19:32+0800" >
+<meta name="date" content="2017-05-15T00:39:58+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -44,14 +44,14 @@
 			<?php
 				switch($global_lang) {
 					case EN:
-						$news = "News";
+						$header = "News";
 						break;
 					case ZH:
-						$news = "最新消息";
+						$header = "最新消息";
 						break;
 				}
 			?>
-			<h1><?= $news; ?></h1>
+			<h1><?= $header; ?></h1>
 		</div>
 		<div id="wrapper-content">
 			<?php

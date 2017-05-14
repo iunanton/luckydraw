@@ -8,11 +8,11 @@
 	
 	$global_page = basename(__FILE__, '.php');
 	
-	require_once('mydatabase.php');
+	require_once('class/mydatabase.php');
 ?>
 <?php
 	//include myDatabase class
-	require_once('mydatabase.php');
+	require_once('class/mydatabase.php');
 
 	//GET and POST methods
 	if(isset($_GET['test'])) {
@@ -29,7 +29,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-15T00:06:03+0800" >
+<meta name="date" content="2017-05-15T00:40:49+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -50,9 +50,21 @@
 	<?php
 		include('view/navigation_bar.php');
 	?>
-	<div id="page">
-		<div id="header">Booking Form</div>
-		<div id="content">
+	<div id="wrapper">
+		<div id="wrapper-header">
+			<?php
+				switch($global_lang) {
+					case EN:
+						$header = "Booking Form";
+						break;
+					case ZH:
+						$header = "Booking Form";
+						break;
+				}
+			?>
+			<h1><?= $header; ?></h1>
+		</div>
+		<div id="wrapper-content">
 			<p><?= $info['date'].' '.$info['time'] ?></p>
 			<p>Please specify your name and contact phone number below in the form fields:</p>
 			<form method="POST" id="test-confirmation" action="confirmation.php">

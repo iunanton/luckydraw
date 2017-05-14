@@ -17,7 +17,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-15T00:06:24+0800" >
+<meta name="date" content="2017-05-15T00:40:05+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -35,9 +35,21 @@
 	<?php
 		include('view/navigation_bar.php');
 	?>
-	<div id="page">
-		<div id="header">Rapid Test</div>
-		<div id="content">
+	<div id="wrapper">
+		<div id="wrapper-header">
+			<?php
+				switch($global_lang) {
+					case EN:
+						$header = "Rapid Test";
+						break;
+					case ZH:
+						$header = "快速測試";
+						break;
+				}
+			?>
+			<h1><?= $header; ?></h1>
+		</div>
+		<div id="wrapper-content">
 			<p>A-Backup Testing Centre opens Monday to Saturday and Public Holidays need reservation. We provided Anonymous Rapid HIV Test. Only take a drop of blood and the result will come out within 15 minutes. All test are conducted in private and result will remain Anonymous.</p>
 		</div>
 	</div>
