@@ -1,0 +1,26 @@
+/* myCalendar minimum CSS file*/
+	#calendar,
+	.schedule {
+		border-collapse: collapse;
+	}
+	.calendar-day,
+	.calendar-day-np {
+    border: 1px solid lightgrey;
+	}
+	#calendar-prev,
+	#calendar-month,
+	#calendar-next,
+	.calendar-day-head,
+	.calendar-day {
+		text-align: center;
+	}
+	.calendar-day.today .day-number {
+		background-color: coral;
+		color: white;
+	}
+	.day-number {
+		margin: 5px 5px 5px 5px;	
+	}
+	.time {
+		margin: 5px 5px 5px 5px;	
+	}
