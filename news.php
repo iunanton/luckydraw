@@ -10,10 +10,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Lucky - News</title>
+	<?php
+		$filename = basename(__FILE__, '.php');
+		include('view/title.php');
+	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-13T14:57:07+0800" >
+<meta name="date" content="2017-05-14T00:01:37+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -30,40 +33,9 @@
 	<header>
 		<img src="logo.jpg" alt="logo" height="100px">
 	</header>
-	<nav>
-		<?php
-			switch($global_lang) {
-				case EN:
-					$news = "NEWS";
-					$rapid_test = "RAPID TEST";
-					$test_booking = "TEST BOOKING";
-					$free_condom = "FREE CONDOM";
-					$videos = "VIDEOS";
-					$hiv_pos = "HIV+";
-					$join_us = "JOIN US";
-					$about_US = "ABOUT US";
-					break;
-				case ZH:
-					$news = "最新消息";
-					$rapid_test = "快速測試";
-					$test_booking = "預約測試";
-					$free_condom = "無標題文件";
-					$videos = "相關影片";
-					$hiv_pos = "HIV 陽性";
-					$join_us = "加入我們";
-					$about_US = "關於我們";
-					break;
-			}
-		?>
-		<div id="news"><a href="news.php?lang=<?= $global_lang ?>"><?= $news; ?></a></div>
-		<div id="rapid-test"><a href="rapid_test.php?lang=<?= $global_lang ?>"><?= $rapid_test; ?></a></div>
-		<div id="test-booking"><a href="booking.php?lang=<?= $global_lang ?>"><?= $test_booking; ?></a></div>
-		<div id="free-condom"><a href="#"><?= $free_condom; ?></a></div>
-		<div id="videos"><a href="#"><?= $videos; ?></a></div>
-		<div id="hiv-pos"><a href="#"><?= $hiv_pos; ?></a></div>
-		<div id="join-us"><a href="#"><?= $join_us; ?></a></div>
-		<div id="about-us"><a href="about_us.php?lang=<?= $global_lang ?>"><?= $about_US; ?></a></div>
-	</nav>
+	<?php
+		include('view/navigation_bar.php');
+	?>
 	<div id="wrapper">
 		<div id="wrapper-header">
 			<?php
@@ -91,7 +63,8 @@
 			<p>查詢或預約 Tel/WhatsApp：5405 6631/line ID:luckydrawstudio</p>
 		</div>
 	</div>
-	<footer>Lucky &copy Copyright By Lucky Draw Studio<br>
-	地址：觀塘鴻圖道58號金凱工業大廈6樓25室　電話：(852) 5405 6631</footer>
+	<?php
+		include('view/footer.php');
+	?>
 </body>
 </html>

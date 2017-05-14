@@ -7,8 +7,14 @@
 	footer {
 		display: block;	
 	}
-	nav div {
-		display: inline-block;	
+	.nav-link {
+		display: inline-block;
+		background-color: lightgrey;
+		color: black;	
+	}
+	.nav-link a{
+		text-decoration: none;
+		color: inherit;	
 	}
 	#wrapper {
 		width: 900px;
@@ -21,4 +27,21 @@
 		margin-top: 10px;
 		margin-bottom: 10px;
 		font-size: 24px;
+	}
+	footer {
+		padding-top: 10px;
+		padding-bottom: 10px;
+		background-color: dimgray;
+		color: lightgrey;
+		text-align: center;	
+	}
+	.footer-row {
+		display: block;
+	}
+	.footer-column {
+		display: inline-block;
+		min-width: 200px;
+		margin-left: 10px;
+		margin-right: 10px;
+		vertical-align: middle;
 	}
