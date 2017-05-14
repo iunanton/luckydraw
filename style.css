@@ -9,7 +9,8 @@
 	}
 	nav {
 		background-color: whitesmoke;
-		color: dimgrey;	
+		color: dimgrey;
+		font-family: sans-serif;	
 	}
 	.nav-link {
 		display: inline-block;
