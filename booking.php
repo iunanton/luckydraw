@@ -15,7 +15,7 @@
 	require_once('class/mycalendar.php');
 
 	//GET and POST methods
-	if(isset($_GET['year']) && isset($_GET['month']) && isset($_GET['day'])) {
+	if(isset($_GET['year']) && isset($_GET['month'])) {
 		$year = $_GET['year'];
 		$month = str_pad($_GET['month'], 2, '0', STR_PAD_LEFT);
 		$day = str_pad($_GET['day'], 2, '0', STR_PAD_LEFT);
@@ -33,7 +33,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-15T00:41:42+0800" >
+<meta name="date" content="2017-05-15T01:30:28+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -70,7 +70,7 @@
 			<p>What date and time would you like an appointment?</p>
 			<?php
 				//Create calendar for current date
-				$calendar = new myCalendar($year, $month, $day, 0);
+				$calendar = new myCalendar($year, $month, 0);
 				$calendar->draw();
 				$calendar->show();
 			?>
