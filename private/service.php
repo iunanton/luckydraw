@@ -14,10 +14,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Lucky Draw Studio - Summary</title>
+<title>Lucky Draw Studio - Service</title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-15T19:56:26+0800" >
+<meta name="date" content="2017-05-15T19:56:54+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -37,16 +37,11 @@
 		include('view/navigation_bar.php');
 	?>
 <br><br>
+Add new service time.
 	<?php
 		echo "Today is ".date("d M, Y")."<br>";
 		echo "<br>";
 		$conn = new myDatabase();
-		$appointments = $conn->getAppointments(TODAY);
-		echo sizeof($appointments)." appointment(s) was founded:<br><br>";
-		foreach ($appointments as $appointment) {
-			echo $appointment['id']."|".$appointment['time']."|".$appointment['name']."|".$appointment['phone']."<br>";	
-		}
-		//$content = $conn->getNews($global_lang);
 	?>
 	<?php
 		include('view/footer.php');
