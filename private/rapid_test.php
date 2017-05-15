@@ -17,7 +17,6 @@
 	<?php
 		include('view/title.php');
 	?>
-<title>Lucky Draw Studio - Rapid Test</title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
 <meta name="date" content="2017-05-16T04:13:12+0800" >
