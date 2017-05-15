@@ -23,7 +23,7 @@
 			<ul>
 				<li><a href="about_us.php?lang=<?=$global_lang; ?>"><?=$first_column[1]; ?></a></li>
 				<li><a href="#"><?=$first_column[2]; ?></a></li>
-				<li><a href="#"><?=$first_column[3]; ?></a></li>
+				<li><a href="private/summary.php?lang=<?=$global_lang; ?>"><?=$first_column[3]; ?></a></li>
 			</ul>
 		</div>
 		<div class="footer-column">
