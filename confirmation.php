@@ -32,7 +32,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-15T00:42:09+0800" >
+<meta name="date" content="2017-05-16T04:27:21+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -49,7 +49,9 @@
 </style>
 </head>
 <body>
-	<div id="header"><img src="logo.jpg" alt="logo" height="100px"></div>
+	<?php
+		include('view/header.php');
+	?>
 	<?php
 		include('view/navigation_bar.php');
 	?>
