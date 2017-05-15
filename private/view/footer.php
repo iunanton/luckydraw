@@ -1,12 +1,12 @@
 <?php
 	switch($global_lang) {
 		case EN:
-			$first_column = ARRAY("CENTER","Back");
+			$first_column = ARRAY("CENTER","Home");
 			$second_column = ARRAY("GO UP");
 			$copyright = "&copy Copyright By Lucky Draw Studio";
 			break;
 		case ZH:
-			$first_column = ARRAY("中心","回上一頁");
+			$first_column = ARRAY("中心","首頁");
 			$second_column = ARRAY("GO UP");
 			$copyright = "&copy Copyright By 幸運抽獎工作室";
 			break;
