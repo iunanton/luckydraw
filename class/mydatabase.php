@@ -63,7 +63,7 @@ class myDatabase {
 		$stmt->execute();
 	}
 	public function getAppointments($date) {
-		$sql = "SELECT a.id, d.time, a.name, a.phone";
+		$sql = "SELECT a.id, d.time, a.name, a.phone, a.reservation_time";
 		$sql.= " FROM appointments AS a";
 		$sql.= " JOIN service_times AS s ON a.service_time = s.id";
 		$sql.= " JOIN default_times AS d ON s.time = d.id";
