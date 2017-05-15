@@ -105,6 +105,32 @@ class myCalendar {
 		}
 		return "?year=$year&month=$month";
 	}
+		
+	private function validDate($date) {
+		if(strtotime($date) > strtotime(TODAY)) {
+			return true;
+		} elseif(strtotime($date) == strtotime(TODAY) && strtotime(NOW) < strtotime(END_OF_BOOKING_TIME)) {
+			return true;
+		} else {
+			return false;		
+		}
+	}
+	
+	private function mayPhoneBooking($date) {
+		if($date == TODAY && strtotime(NOW) < strtotime(OPERATION_TIME_TO)) {
+			return true;
+		} else {
+			return false;		
+		}
+	}
+	
+	private function isToday($date) {
+		return $date == TODAY;
+	}	
+	
+	private function todayBooking($date) {
+		return $this->isToday($date) && strtotime(NOW) < strtotime(END_OF_BOOKING_TIME);
+	}
 	
 	public function draw() {
 		// calendar header
@@ -139,15 +165,17 @@ class myCalendar {
 		
 		// keep going with days....
 		for($list_day = 1; $list_day <= $days_in_month; $list_day++) {
-			$day = str_pad($list_day, 2, '0', STR_PAD_LEFT);
+			$list_date = $this->defaultYear.'-'.$this->defaultMonth.'-'.str_pad($list_day, 2, '0', STR_PAD_LEFT);
 
 			//get time array from myDatabase
-			$timeSlots = $this->conn->getTimeArray($this->defaultYear, $this->defaultMonth, $day);
+			if($this->validDate($list_date)) {
+				$timeSlots = $this->conn->getTimeArray($list_date);
+			}
 			
 			$this->html.= '<td class="calendar-day';
 						
 			//highlight today
-			if($this->defaultYear == date("Y") && $this->defaultMonth == date("m") && $day == date("d")) {
+			if($this->isToday($list_date)) {
 				$this->html.= ' today';
 			}
 			
@@ -155,35 +183,40 @@ class myCalendar {
 			
 			//add day number
 			$this->html.= '<p class="day-number">';
-			$this->html.= $list_day;			
+			$this->html.= $list_day;
 			$this->html.= '</p>';
 			
-			//add time slots
-			$this->html.= '<table class="schedule">';
-			$this->html.= '<tr class="schedule-row">';
-			
-			//time slot number
-			$i = 1;
-			foreach ($timeSlots as $key => $value) {
-				$time = substr($value, 0, 5);
-				$this->html.= '<td class="time-slot">';
-				$this->html.= '<a href="booking_form.php?test='.$key.'" class="time">';
-				$this->html.= $time;
-				$this->html.= '</a>';
-				$this->html.= '</td>';
-				if(!($i % $this->timeOnRow)) {
-					$this->html.= '</tr><tr class="schedule-row">';
+			if($this->validDate($list_date)) {
+				//add time slots
+				$this->html.= '<table class="schedule">';
+				$this->html.= '<tr class="schedule-row">';
+				
+				//time slot number
+				$i = 1;
+				foreach ($timeSlots as $key => $value) {
+					$time = substr($value, 0, 5);
+					$this->html.= '<td class="time-slot">';
+					$this->html.= '<a href="booking_form.php?test='.$key.'" class="time">';
+					$this->html.= $time;
+					$this->html.= '</a>';
+					$this->html.= '</td>';
+					if(!($i % $this->timeOnRow)) {
+						$this->html.= '</tr><tr class="schedule-row">';
+					}
+					$i++;
 				}
-				$i++;
+				while($i % $this->timeOnRow) {
+					$this->html.= '<td>';
+					$this->html.= '</td>';
+					$i++;
+				}
+				$this->html.= '</tr>';			
+				$this->html.= '</table>';
+			} elseif($this->mayPhoneBooking($list_date)) {
+				//show notice
+				$this->html.= 'Please call us for today\'s booking';			
 			}
-			while($i % $this->timeOnRow) {
-				$this->html.= '<td>';
-				$this->html.= '</td>';
-				$i++;
-			}
-			$this->html.= '</tr>';			
-			$this->html.= '</table>';
-
+	
 			//close td tag
 			$this->html.= '</td>';
 			

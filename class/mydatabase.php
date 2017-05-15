@@ -21,14 +21,29 @@ class myDatabase {
 		];
 		$this->pdo = new PDO($dsn, $this->username, $this->password, $opt);
 	}
-	public function getDateArray() {
-		$stmt = $this->pdo->prepare("SELECT date FROM service_times WHERE date >= CURDATE() GROUP BY date");
+	public function getValidDates() {
+		$sql = "SELECT date";
+		$sql.= " FROM service_times";
+		if(strtotime(NOW) < strtotime(END_OF_BOOKING_TIME)) {
+			$sql.= " WHERE date >= CURDATE()";
+		} else {
+			$sql.= " WHERE date > CURDATE()";
+		}
+		$sql.= " GROUP BY date";
+		$stmt = $this->pdo->prepare($sql);
 		$stmt->execute();
 		$DateArray = $stmt->fetchAll(PDO::FETCH_COLUMN);
 		return $DateArray;
 	}
-	public function getTimeArray($year, $month, $day) {
-		$stmt = $this->pdo->prepare("SELECT s.id, d.time FROM service_times AS s JOIN default_times AS d ON s.time = d.id LEFT JOIN appointments AS a ON s.id = a.service_time WHERE a.id IS NULL AND s.date = STR_TO_DATE('$year,$month,$day','%Y,%m,%d') AND (s.date > CURDATE() OR (s.date = CURDATE() AND d.time > CURTIME()))");
+	public function getTimeArray($date) {
+		$sql = "SELECT s.id, d.time";
+		$sql.= " FROM service_times AS s";
+		$sql.= " JOIN default_times AS d ON s.time = d.id";
+		$sql.= " LEFT JOIN appointments AS a ON s.id = a.service_time";
+		$sql.= " WHERE a.id IS NULL";
+		$sql.= " AND s.date = :date";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindParam(':date', $date);
 		$stmt->execute();
 		$TimeArray = $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
 		return $TimeArray;
