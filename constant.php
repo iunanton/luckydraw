@@ -9,4 +9,6 @@
 	define("YEAR", date("Y"), false);
 	define("MONTH", date("m"), false);
 	define("DAY", date("d"), false);
+	define("NOW", date("H:i:s"), false);
+	define("END_OF_BOOKING_TIME", "16:00:00", false);
 ?>
