@@ -14,10 +14,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Lucky Draw Studio - Service</title>
+	<?php
+		include('view/title.php');
+	?>
+<title>Lucky Draw Studio - Rapid Test</title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-15T20:45:15+0800" >
+<meta name="date" content="2017-05-16T04:13:12+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -36,18 +39,34 @@
 	<?php
 		include('view/navigation_bar.php');
 	?>
-<br><br>
-Add new service time.<br><br>
-From YYYY-MM-DD To YYYY-MM-DD<br><br>
-	<?php
-		echo "Today is ".date("d M, Y")."<br>";
-		echo "<br>";
-		$conn = new myDatabase();
-		$defaultTimeArray = $conn->getDefaultTimeArray();
-		foreach ($defaultTimeArray as $defaultTime) {
-			echo '<input type="checkbox" name="time" value="'.$defaultTime['id'].'">'.$defaultTime['time']."<br>";
-		}
-	?>
+	<div id="wrapper">
+		<div id="wrapper-header">
+			<?php
+				switch($global_lang) {
+					case EN:
+						$header = "Rapid Test";
+						break;
+					case ZH:
+						$header = "快速測試";
+						break;
+				}
+			?>
+			<h1><?= $header; ?></h1>
+		</div>
+		<div id="wrapper-content">
+			Add new service time.<br><br>
+			From YYYY-MM-DD To YYYY-MM-DD<br><br>
+			<?php
+				echo "Today is ".date("d M, Y")."<br>";
+				echo "<br>";
+				$conn = new myDatabase();
+				$defaultTimeArray = $conn->getDefaultTimeArray();
+				foreach ($defaultTimeArray as $defaultTime) {
+					echo '<input type="checkbox" name="time" value="'.$defaultTime['id'].'">'.$defaultTime['time']."<br>";
+				}
+			?>
+		</div>
+	</div>
 	<?php
 		include('view/footer.php');
 	?>

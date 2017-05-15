@@ -14,10 +14,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Lucky Draw Studio - Summary</title>
+	<?php
+		include('view/title.php');
+	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-15T19:56:26+0800" >
+<meta name="date" content="2017-05-16T04:04:53+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -36,18 +38,40 @@
 	<?php
 		include('view/navigation_bar.php');
 	?>
-<br><br>
-	<?php
-		echo "Today is ".date("d M, Y")."<br>";
-		echo "<br>";
-		$conn = new myDatabase();
-		$appointments = $conn->getAppointments(TODAY);
-		echo sizeof($appointments)." appointment(s) was founded:<br><br>";
-		foreach ($appointments as $appointment) {
-			echo $appointment['id']."|".$appointment['time']."|".$appointment['name']."|".$appointment['phone']."<br>";	
-		}
-		//$content = $conn->getNews($global_lang);
-	?>
+	<div id="wrapper">
+		<div id="wrapper-header">
+			<?php
+				switch($global_lang) {
+					case EN:
+						$header = "Summary";
+						break;
+					case ZH:
+						$header = "Summary";
+						break;
+				}
+			?>
+			<h1><?= $header; ?></h1>
+		</div>
+		<div id="wrapper-content">
+			<?php
+				echo "Today is ".date("d M, Y")."<br>";
+				echo "<br>";
+				$conn = new myDatabase();
+				$appointments = $conn->getAppointments(TODAY);
+				echo sizeof($appointments)." appointment(s) was founded:<br><br>";
+				echo "<table>";
+				echo "<tr>";
+				echo "<th>id</th><th>time</th><th>name</th><th>phone</th><th>the booking received at</th>";
+				echo "</tr>";
+				foreach ($appointments as $appointment) {
+					echo "<tr>";
+					echo "<td>".$appointment['id']."</td><td>".$appointment['time']."</td><td>".$appointment['name']."</td><td>".$appointment['phone']."</td><td>".$appointment['reservation_time']."</td>";
+					echo "</tr>";	
+				}
+				echo "</table>";
+			?>
+		</div>
+	</div>
 	<?php
 		include('view/footer.php');
 	?>
