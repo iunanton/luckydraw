@@ -17,7 +17,7 @@
 <title>Lucky Draw Studio - Service</title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-15T19:56:54+0800" >
+<meta name="date" content="2017-05-15T20:45:15+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -37,11 +37,16 @@
 		include('view/navigation_bar.php');
 	?>
 <br><br>
-Add new service time.
+Add new service time.<br><br>
+From YYYY-MM-DD To YYYY-MM-DD<br><br>
 	<?php
 		echo "Today is ".date("d M, Y")."<br>";
 		echo "<br>";
 		$conn = new myDatabase();
+		$defaultTimeArray = $conn->getDefaultTimeArray();
+		foreach ($defaultTimeArray as $defaultTime) {
+			echo '<input type="checkbox" name="time" value="'.$defaultTime['id'].'">'.$defaultTime['time']."<br>";
+		}
 	?>
 	<?php
 		include('view/footer.php');
