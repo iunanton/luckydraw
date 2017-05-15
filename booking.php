@@ -20,9 +20,9 @@
 		$month = str_pad($_GET['month'], 2, '0', STR_PAD_LEFT);
 		$day = str_pad($_GET['day'], 2, '0', STR_PAD_LEFT);
 	} else {
-		$year = date("Y");
-		$month = date("m");
-		$day = date("d");
+		$year = YEAR;
+		$month = MONTH;
+		$day = DAY;
 	}
 ?>
 <!DOCTYPE html>
@@ -33,7 +33,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-15T01:30:28+0800" >
+<meta name="date" content="2017-05-15T17:37:14+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
