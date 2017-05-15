@@ -19,7 +19,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-16T04:38:19+0800" >
+<meta name="date" content="2017-05-16T05:24:28+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -55,9 +55,8 @@
 			<h1><?= $header; ?></h1>
 		</div>
 		<div id="wrapper-content">
+			Today is <?=date("d M, Y"); ?><br><br>
 			<?php
-				echo "Today is ".date("d M, Y")."<br>";
-				echo "<br>";
 				$conn = new myDatabase();
 				$appointments = $conn->getAppointments(TODAY);
 				echo sizeof($appointments)." appointment(s) was founded:<br><br>";
