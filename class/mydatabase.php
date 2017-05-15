@@ -1,12 +1,18 @@
 <?php
 class myDatabase {
-	private $servername = "localhost";
-	private $username = "abackup";
-	private $password = "simple11";
-	private $dbname = "abackup";
-	private $charset = 'utf8';
+	private $servername;
+	private $username;
+	private $password;
+	private $dbname;
+	private $charset;
 	private $pdo;
 	public function __construct() {
+		$config = parse_ini_file('mydatabase.ini');
+		$this->servername = $config['servername'];
+		$this->username = $config['username'];
+		$this->password = $config['password'];
+		$this->dbname = $config['dbname'];
+		$this->charset = $config['charset'];
 		$dsn = "mysql:host=$this->servername;dbname=$this->dbname;charset=$this->charset";
 		$opt = [
 			PDO::ATTR_ERRMODE					=>	PDO::ERRMODE_EXCEPTION,
