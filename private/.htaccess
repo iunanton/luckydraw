@@ -1,0 +1,6 @@
+DirectoryIndex summary.php
+
+AuthType Basic
+AuthName "Staff Access"
+AuthUserFile /etc/apache2/.htpasswd
+Require valid-user
