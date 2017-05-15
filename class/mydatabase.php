@@ -74,5 +74,13 @@ class myDatabase {
 		$appointments = $stmt->fetchAll();
 		return $appointments;
 	}
+	public function getDefaultTimeArray() {
+		$sql = "SELECT id, time";
+		$sql.= " FROM default_times";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute();
+		$defaultTimeArray = $stmt->fetchAll();
+		return $defaultTimeArray;
+	}
 }
 ?>
