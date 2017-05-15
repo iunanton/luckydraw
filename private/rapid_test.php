@@ -19,7 +19,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-16T04:38:22+0800" >
+<meta name="date" content="2017-05-16T05:02:02+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -55,17 +55,19 @@
 			<h1><?= $header; ?></h1>
 		</div>
 		<div id="wrapper-content">
+			Today is <?=date("d M, Y"); ?><br><br>
 			Add new service time.<br><br>
-			From YYYY-MM-DD To YYYY-MM-DD<br><br>
+			Enter date period to fill:<br><br>
+			From 從<input type="text"> To 至<input type="text"><br><br>
 			<?php
-				echo "Today is ".date("d M, Y")."<br>";
-				echo "<br>";
 				$conn = new myDatabase();
 				$defaultTimeArray = $conn->getDefaultTimeArray();
+				echo "Choose time slots from default ones shown below:<br>";
 				foreach ($defaultTimeArray as $defaultTime) {
 					echo '<input type="checkbox" name="time" value="'.$defaultTime['id'].'">'.$defaultTime['time']."<br>";
 				}
 			?>
+			<input type="submit" value="Add">
 		</div>
 	</div>
 	<?php
