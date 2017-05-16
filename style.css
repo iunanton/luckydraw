@@ -44,6 +44,13 @@
 		margin-bottom: 10px;
 		font-size: 24px;
 	}
+	.content-table {
+		border-collapse: collapse;
+	}
+	.content-table td {
+		padding: 5px 5px 5px 5px;
+		border: 1px solid lightgrey;	
+	}
 	footer {
 		background-color: whitesmoke;
 		color: dimgrey;
