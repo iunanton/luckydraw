@@ -19,7 +19,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-16T05:22:50+0800" >
+<meta name="date" content="2017-05-17T06:18:22+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -56,7 +56,27 @@
 		</div>
 		<div id="wrapper-content">
 			Today is <?=date("d M, Y"); ?><br><br>
-			Add news.<br><br>
+			<u>Add news</u><br><br>
+			<table class="content-table">
+				<tr>
+					<th>#</th><th>Title</th><th>Language</th><th>Added at</th><th>Edit</th><th>Delete</th>		
+				</tr>
+				<tr>
+					<td>1</td><td>有關異性戀者的非政府資助測試服務</td><td>ZH</td><td>2017-05-15</td><td><u>Edit</u></td><td><u>Delete</u></td>		
+				</tr>
+				<tr>
+					<td>1</td><td>有關異性戀者的非政府資助測試服務</td><td>ZH</td><td>2017-05-15</td><td><u>Edit</u></td><td><u>Delete</u></td>		
+				</tr>
+				<tr>
+					<td>1</td><td>有關異性戀者的非政府資助測試服務</td><td>ZH</td><td>2017-05-15</td><td><u>Edit</u></td><td><u>Delete</u></td>		
+				</tr>
+				<tr>
+					<td>1</td><td>有關異性戀者的非政府資助測試服務</td><td>ZH</td><td>2017-05-15</td><td><u>Edit</u></td><td><u>Delete</u></td>		
+				</tr>
+				<tr>
+					<td>1</td><td>有關異性戀者的非政府資助測試服務</td><td>ZH</td><td>2017-05-15</td><td><u>Edit</u></td><td><u>Delete</u></td>		
+				</tr>
+			</table>
 		</div>
 	</div>
 	<?php
