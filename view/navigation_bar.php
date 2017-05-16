@@ -53,7 +53,7 @@
 	<div class="nav-link<?=$rapid_test_class_modifier; ?>" id="rapid-test"><a href="rapid_test.php?lang=<?=$global_lang ?>"><?= $rapid_test; ?></a></div>
 	<div class="nav-link<?=$booking_class_modifier; ?>" id="test-booking"><a href="booking.php?lang=<?=$global_lang ?>"><?= $test_booking; ?></a></div>
 	<div class="nav-link<?=$free_condom_class_modifier; ?>" id="free-condom"><a href="#"><?=$free_condom; ?></a></div>
-	<div class="nav-link<?=$videos_class_modifier; ?>" id="videos"><a href="#"><?=$videos; ?></a></div>
+	<div class="nav-link<?=$videos_class_modifier; ?>" id="videos"><a href="videos.php?lang=<?=$global_lang ?>"><?=$videos; ?></a></div>
 	<div class="nav-link<?=$hiv_pos_class_modifier; ?>" id="hiv-pos"><a href="#"><?=$hiv_pos; ?></a></div>
 	<div class="nav-link<?=$join_us_class_modifier; ?>" id="join-us"><a href="#"><?=$join_us; ?></a></div>
 	<div class="nav-link<?=$about_us_class_modifier; ?>" id="about-us"><a href="about_us.php?lang=<?=$global_lang ?>"><?= $about_US; ?></a></div>
