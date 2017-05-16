@@ -38,6 +38,7 @@
 				<li><?=$third_column[1]; ?></li>
 				<li><?=$third_column[2]; ?></li>
 				<li><?=$third_column[3]; ?></li>
+				<li><?=$third_column[4]; ?></li>
 			</ul>
 		</div>
 		<div class="footer-column">
