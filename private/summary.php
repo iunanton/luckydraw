@@ -19,7 +19,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-16T05:24:28+0800" >
+<meta name="date" content="2017-05-17T15:00:10+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -30,7 +30,16 @@
 <meta http-equiv="expires" content="0">
 <link href="../style.css" rel="stylesheet" type="text/css">
 <style type="text/css">
-
+	.summary {
+		border-collapse: collapse;
+	}
+	.summary td {
+		padding: 10px 10px 10px 10px;
+		border: 1px solid black
+	}
+	.summary td.selected {
+		background-color: yellow;	
+	}
 </style>
 </head>
 <body>
@@ -71,6 +80,19 @@
 				}
 				echo "</table>";
 			?>
+			<table class="summary">
+				<tr>
+					<td class="selected">16:30<br>Name<br>phone</td>
+					<td>17:00<br>--</td>
+					<td>17:30<br>--</td>
+					<td>18:00<br>--</td>
+					<td>18:30<br>--</td>
+					<td class="selected">19:00<br>Name<br>phone</td>
+					<td class="selected">19:30<br>Name<br>phone</td>
+					<td>20:00<br>--</td>
+					<td class="selected">20:30<br>Name<br>phone</td>
+				</tr>			
+			</table>
 		</div>
 	</div>
 	<?php
