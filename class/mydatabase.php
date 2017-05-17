@@ -36,8 +36,11 @@ class myDatabase {
 		return $DateArray;
 	}
 	public function getAllServiceTime() {
-		$sql = "SELECT id, date, time";
-		$sql.= " FROM service_times";
+		$sql = "SELECT s.id, s.date, d.time";
+		$sql.= " FROM service_times AS s";
+		$sql.= " JOIN default_times AS d";
+		$sql.= " ON s.time = d.id";
+		$sql.= " ORDER BY s.id";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->execute();
 		$TimeArray = $stmt->fetchAll();
