@@ -73,6 +73,16 @@ class myDatabase {
 		$stmt->bindParam(':service_time', $test);
 		$stmt->execute();
 	}
+	public function getAllAppointments() {
+		$sql = "SELECT a.id, d.time, a.name, a.phone, a.reservation_time";
+		$sql.= " FROM appointments AS a";
+		$sql.= " JOIN service_times AS s ON a.service_time = s.id";
+		$sql.= " JOIN default_times AS d ON s.time = d.id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute();
+		$appointments = $stmt->fetchAll();
+		return $appointments;
+	}
 	public function getAppointments($date) {
 		$sql = "SELECT a.id, d.time, a.name, a.phone, a.reservation_time";
 		$sql.= " FROM appointments AS a";
