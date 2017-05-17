@@ -35,6 +35,14 @@ class myDatabase {
 		$DateArray = $stmt->fetchAll(PDO::FETCH_COLUMN);
 		return $DateArray;
 	}
+	public function getAllServiceTime() {
+		$sql = "SELECT id, date, time";
+		$sql.= " FROM service_times";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute();
+		$TimeArray = $stmt->fetchAll();
+		return $TimeArray;
+	}
 	public function getTimeArray($date) {
 		$sql = "SELECT s.id, d.time";
 		$sql.= " FROM service_times AS s";
