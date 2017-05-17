@@ -1,7 +1,7 @@
 <?php
 	switch($global_lang) {
 		case EN:
-			switch($filename) {
+			switch($global_page) {
 				case "news":
 					$title = "Lucky Draw Studio - News";
 					break;
@@ -35,7 +35,7 @@
 			}
 			break;
 		case ZH:
-			switch($filename) {
+			switch($global_page) {
 				case "news":
 					$title = "幸運抽獎工作室 - 最新消息";
 					break;
@@ -70,4 +70,8 @@
 			break;
 	}
 ?>
-<title><?=$title ?></title>
+<title><?=$title ?>
+<?php
+	echo "title";
+?>
+</title>
