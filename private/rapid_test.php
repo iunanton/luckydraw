@@ -19,7 +19,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-16T05:02:02+0800" >
+<meta name="date" content="2017-05-17T22:30:06+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -58,7 +58,33 @@
 			Today is <?=date("d M, Y"); ?><br><br>
 			Add new service time.<br><br>
 			Enter date period to fill:<br><br>
-			From 從<input type="text"> To 至<input type="text"><br><br>
+			<!--Add new time slot form-->
+			<form action="" method="GET">
+				<!--Try date input here-->
+				<div class="form-date">
+					<label for="start-date">From:</label>
+					<input id="start-date" type="date">
+				</div>
+				<div class="form-date">
+					<label for="end-date">To:</label>
+					<input id="end-date" type="date">
+				</div>
+				<div class="form-time-slots">
+					<?php
+						$timeSlotsOnRow = 3;
+						for($i = 0; $i < 9; $i++) {
+							if(!($i % $timeSlotsOnRow)) {
+								echo "<br>";							
+							}
+							echo '<input id="time-slot-'.$i.'" type="checkbox" />';
+							echo '<label for="time-slot-'.$i.'">'.$i.'</label>';
+						}
+					?>
+				</div>
+				<div class="form-submit">
+					<input type="submit" name="" value="OK" />
+				</div>
+			</form>
 			<?php
 				$conn = new myDatabase();
 				$defaultTimeArray = $conn->getDefaultTimeArray();
