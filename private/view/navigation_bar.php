@@ -8,7 +8,7 @@
 			$videos = "VIDEOS";
 			break;
 		case ZH:
-			$summary = "SUMMARY";
+			$summary = "概要";
 			$news = "最新消息";
 			$rapid_test = "快速測試";
 			$test_booking = "預約測試";
