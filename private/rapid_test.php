@@ -19,7 +19,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-17T22:30:06+0800" >
+<meta name="date" content="2017-05-17T22:35:50+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -55,6 +55,18 @@
 			<h1><?= $header; ?></h1>
 		</div>
 		<div id="wrapper-content">
+			<?php
+				switch($global_lang) {
+					case EN:
+						$from = "From:";
+						$to = "To:";
+						break;
+					case ZH:
+						$from = "從";
+						$to = "至";
+						break;
+				}
+			?>	
 			Today is <?=date("d M, Y"); ?><br><br>
 			Add new service time.<br><br>
 			Enter date period to fill:<br><br>
@@ -62,11 +74,11 @@
 			<form action="" method="GET">
 				<!--Try date input here-->
 				<div class="form-date">
-					<label for="start-date">From:</label>
+					<label for="start-date"><?=$from; ?></label>
 					<input id="start-date" type="date">
 				</div>
 				<div class="form-date">
-					<label for="end-date">To:</label>
+					<label for="end-date"><?=$to; ?></label>
 					<input id="end-date" type="date">
 				</div>
 				<div class="form-time-slots">
