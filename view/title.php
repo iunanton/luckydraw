@@ -70,8 +70,4 @@
 			break;
 	}
 ?>
-<title><?=$title ?>
-<?php
-	echo "title";
-?>
-</title>
+<title><?=$title ?></title>
