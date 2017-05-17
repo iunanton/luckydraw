@@ -19,7 +19,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-17T23:09:21+0800" >
+<meta name="date" content="2017-05-18T00:30:49+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -102,7 +102,22 @@
 					<input type="submit" name="" value="OK" />
 				</div>
 			</form>
-			<input type="submit" value="Add">
+			<table class="content-table">
+				<tr>
+					<th>#</th><th>Date</th><th>Time</th><th>Delete</th>		
+				</tr>
+				<?php
+					$allServiceTime = $conn->getAllServiceTime();
+					foreach ($allServiceTime as $serviceTime) {
+						echo '<tr>';
+						echo '<td>'.$serviceTime['id'].'</td>';
+						echo '<td>'.$serviceTime['date'].'</td>';
+						echo '<td>'.$serviceTime['time'].'</td>';
+						echo '<td><u>Delete</u></td>';
+						echo '</tr>';
+					}
+				?>
+			</table>
 		</div>
 	</div>
 	<?php
