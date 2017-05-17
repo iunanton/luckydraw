@@ -19,7 +19,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-17T22:35:50+0800" >
+<meta name="date" content="2017-05-17T23:09:21+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -69,7 +69,7 @@
 			?>	
 			Today is <?=date("d M, Y"); ?><br><br>
 			Add new service time.<br><br>
-			Enter date period to fill:<br><br>
+			Enter date period to fill and choose time slots from default ones shown below:<br><br>
 			<!--Add new time slot form-->
 			<form action="" method="GET">
 				<!--Try date input here-->
@@ -83,13 +83,18 @@
 				</div>
 				<div class="form-time-slots">
 					<?php
+						$conn = new myDatabase();
+						$defaultTimeArray = $conn->getDefaultTimeArray();
 						$timeSlotsOnRow = 3;
-						for($i = 0; $i < 9; $i++) {
+						
+						$i = 0;
+						foreach ($defaultTimeArray as $defaultTime) {
 							if(!($i % $timeSlotsOnRow)) {
 								echo "<br>";							
 							}
-							echo '<input id="time-slot-'.$i.'" type="checkbox" />';
-							echo '<label for="time-slot-'.$i.'">'.$i.'</label>';
+							echo '<input id="time-slot-'.$defaultTime['id'].'" type="checkbox" />';
+							echo '<label for="time-slot-'.$defaultTime['id'].'">'.$defaultTime['time'].'</label>';
+							$i++;
 						}
 					?>
 				</div>
@@ -97,14 +102,6 @@
 					<input type="submit" name="" value="OK" />
 				</div>
 			</form>
-			<?php
-				$conn = new myDatabase();
-				$defaultTimeArray = $conn->getDefaultTimeArray();
-				echo "Choose time slots from default ones shown below:<br>";
-				foreach ($defaultTimeArray as $defaultTime) {
-					echo '<input type="checkbox" name="time" value="'.$defaultTime['id'].'">'.$defaultTime['time']."<br>";
-				}
-			?>
 			<input type="submit" value="Add">
 		</div>
 	</div>
