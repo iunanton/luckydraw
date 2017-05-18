@@ -4,10 +4,10 @@ Create online booking system on LAMP
 
 # myDatabase methods
 
-**public function** getDefaultTimeArray**()**
+**public function** getDefaultTimeArray **()**
 
-**public function** fillTimeSlotTable**($date)**
+**public function** fillTimeSlotTable **($date)**
 
-**public function** getAllTimeSlots**()**
+**public function** getAllTimeSlots **()**
 
-**public function** getAllTimeSlotsFromToday**()**
+**public function** getAllTimeSlotsFromToday **()**
