@@ -47,7 +47,7 @@ class myDatabase {
 	 */
 	public function fillTimeSlotTable($date) {
 		//형 보고 싶어요
-		$defaultTime = $this->getDefaultTime();
+		$defaultTime = $this->getDefaultTimeArray();
 		$sql = "INSERT INTO time_slots (date, time)";
 		$sql.= " VALUES (:date, :time)";
 		$stmt = $this->pdo->prepare($sql);
@@ -92,6 +92,38 @@ class myDatabase {
 		return $TimeArray;
 	}
 
+	/** Insert new reservation
+	 *	 @time_slot INT
+	 *  @name STRING
+	 *  @tel STRING
+	 *  @return nothing
+	 */
+	public function setReservation($time_slot, $name, $tel) {
+		$sql = "INSERT INTO reservations (name, phone, time_slot)";
+		$sql.= " VALUES (:name, :phone, :time_slot)";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindParam(':name', $name);
+		$stmt->bindParam(':phone', $tel);
+		$stmt->bindParam(':time_slot', $time_slot);
+		$stmt->execute();
+	}
+
+	/** Select info about reservation
+	 *	 @time_slot INT
+	 *  @return array
+	 */
+	public function getTestInfo($time_slot) {
+		$sql = "SELECT t.date, d.time AS time";
+		$sql.= " FROM time_slots AS t ";
+		$sql.= "JOIN default_time AS d ON t.time = d.id";
+		$sql.= " WHERE t.id = :time_slot";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindParam(':time_slot', $test);		
+		$stmt->execute();
+		$result = $stmt->fetch();
+		return $result;
+	}
+
 	public function getValidDates() {
 		$sql = "SELECT date";
 		$sql.= " FROM time_slots";
@@ -120,20 +152,7 @@ class myDatabase {
 		$TimeArray = $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
 		return $TimeArray;
 	}
-	public function getTestInfo($test) {
-		$stmt = $this->pdo->prepare("SELECT s.date AS date, d.time AS time FROM time_slots AS s JOIN default_time AS d ON s.time = d.id WHERE s.id = :test");
-		$stmt->bindParam(':test', $test);		
-		$stmt->execute();
-		$result = $stmt->fetch();
-		return $result;
-	}
-	public function setAppointment($test, $name, $tel) {
-		$stmt = $this->pdo->prepare("INSERT INTO reservations (name, phone, time_slot) VALUES (:name, :phone, :time_slot)");
-		$stmt->bindParam(':name', $name);
-		$stmt->bindParam(':phone', $tel);
-		$stmt->bindParam(':time_slot', $test);
-		$stmt->execute();
-	}
+	
 	public function getAllReservations() {
 		$sql = "SELECT r.id, t.date, d.time, r.name, r.phone, r.reservation_time";
 		$sql.= " FROM reservations AS r";
