@@ -55,11 +55,12 @@ class myDatabase {
 		return $DateArray;
 	}
 	public function getAllServiceTime() {
-		$sql = "SELECT s.id, s.date, d.time";
-		$sql.= " FROM time_slots AS s";
+		$sql = "SELECT t.id, t.date, d.time";
+		$sql.= " FROM time_slots AS t";
 		$sql.= " JOIN default_time AS d";
-		$sql.= " ON s.time = d.id";
-		$sql.= " ORDER BY s.id";
+		$sql.= " ON t.time = d.id";
+		$sql.= " WHERE t.date >= CURRENT_DATE()";
+		$sql.= " ORDER BY t.id";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->execute();
 		$TimeArray = $stmt->fetchAll();
