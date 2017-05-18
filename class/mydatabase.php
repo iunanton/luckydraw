@@ -21,7 +21,7 @@ class myDatabase {
 		];
 		$this->pdo = new PDO($dsn, $this->username, $this->password, $opt);
 	}
-	public function getDefaultTime() {
+	public function getDefaultTimeArray() {
 		$sql = "SELECT id, time FROM default_time";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->execute();
@@ -103,7 +103,7 @@ class myDatabase {
 		return $reservations;
 	}
 	public function getReservations($date) {
-		$sql = "SELECT a.id, d.time, a.name, a.phone, a.reservation_time";
+		$sql = "SELECT a.id, d.time, a.name, a.phone, a.time";
 		$sql.= " FROM reservations AS a";
 		$sql.= " JOIN time_slots AS s ON a.time_slot = s.id";
 		$sql.= " JOIN default_time AS d ON s.time = d.id";
@@ -113,14 +113,6 @@ class myDatabase {
 		$stmt->execute();
 		$reservations = $stmt->fetchAll();
 		return $reservations;
-	}
-	public function getDefaultTimeArray() {
-		$sql = "SELECT id, time";
-		$sql.= " FROM default_time";
-		$stmt = $this->pdo->prepare($sql);
-		$stmt->execute();
-		$defaultTimeArray = $stmt->fetchAll();
-		return $defaultTimeArray;
 	}
 }
 ?>
