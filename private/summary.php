@@ -19,7 +19,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-19T00:10:06+0800" >
+<meta name="date" content="2017-05-19T00:19:17+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -68,14 +68,14 @@
 			<?php
 				$conn = new myDatabase();
 				$reservations = $conn->getReservations(TODAY);
-				echo sizeof($reservations)." appointment(s) was founded:<br><br>";
+				echo "For today ".sizeof($reservations)." appointment(s) was founded:<br><br>";
 				echo "<table>";
 				echo "<tr>";
 				echo "<th>id</th><th>time</th><th>name</th><th>phone</th><th>the booking received at</th>";
 				echo "</tr>";
 				foreach ($reservations as $reservation) {
 					echo "<tr>";
-					echo "<td>".$reservation['id']."</td><td>".$reservation['time']."</td><td>".$reservation['name']."</td><td>".$reservation['phone']."</td><td>".$reservation['reservation_time']."</td>";
+					echo "<td>".$reservation['id']."</td><td>".$reservation['time_slot']."</td><td>".$reservation['name']."</td><td>".$reservation['phone']."</td><td>".$reservation['time']."</td>";
 					echo "</tr>";	
 				}
 				echo "</table>";
