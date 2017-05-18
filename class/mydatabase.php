@@ -1,11 +1,18 @@
 <?php
+
+/** myDatabase class
+ *  described connection to mySQL database
+ *  and common methods to work with it
+ */
 class myDatabase {
+	
 	private $servername;
 	private $username;
 	private $password;
 	private $dbname;
 	private $charset;
 	private $pdo;
+	
 	public function __construct() {
 		$config = parse_ini_file('mydatabase.ini');
 		$this->servername = $config['servername'];
@@ -21,6 +28,11 @@ class myDatabase {
 		];
 		$this->pdo = new PDO($dsn, $this->username, $this->password, $opt);
 	}
+	
+	/** Return associative array id => time
+	 *  of service default time
+	 *  @return associative array
+	 */
 	public function getDefaultTimeArray() {
 		$sql = "SELECT id, time FROM default_time";
 		$stmt = $this->pdo->prepare($sql);
@@ -28,6 +40,11 @@ class myDatabase {
 		$defaultTime = $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
 		return $defaultTime;
 	}
+	
+	/** Fill time_slots table
+	 *	 by all service default time
+	 *  and nothing to return
+	 */
 	public function fillTimeSlotTable($date) {
 		//형 보고 싶어요
 		$defaultTime = $this->getDefaultTime();
@@ -40,6 +57,41 @@ class myDatabase {
 			$stmt->execute();
 		}
 	}
+	
+	/** Return array [id],[date],[time]
+	 *  of time slots in database
+	 *  @return array
+	 */
+	public function getAllTimeSlots() {
+		$sql = "SELECT t.id, t.date, d.time";
+		$sql.= " FROM time_slots AS t";
+		$sql.= " JOIN default_time AS d";
+		$sql.= " ON t.time = d.id";
+		$sql.= " ORDER BY t.id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute();
+		$TimeArray = $stmt->fetchAll();
+		return $TimeArray;
+	}
+
+	/** Return array [id],[date],[time]
+	 *  of time slots in database
+	 *  from today
+	 *  @return array
+	 */
+	public function getAllTimeSlotsFromToday() {
+		$sql = "SELECT t.id, t.date, d.time";
+		$sql.= " FROM time_slots AS t";
+		$sql.= " JOIN default_time AS d";
+		$sql.= " ON t.time = d.id";
+		$sql.= " WHERE t.date >= CURRENT_DATE()";
+		$sql.= " ORDER BY t.id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute();
+		$TimeArray = $stmt->fetchAll();
+		return $TimeArray;
+	}
+
 	public function getValidDates() {
 		$sql = "SELECT date";
 		$sql.= " FROM time_slots";
@@ -54,18 +106,7 @@ class myDatabase {
 		$DateArray = $stmt->fetchAll(PDO::FETCH_COLUMN);
 		return $DateArray;
 	}
-	public function getAllServiceTime() {
-		$sql = "SELECT t.id, t.date, d.time";
-		$sql.= " FROM time_slots AS t";
-		$sql.= " JOIN default_time AS d";
-		$sql.= " ON t.time = d.id";
-		$sql.= " WHERE t.date >= CURRENT_DATE()";
-		$sql.= " ORDER BY t.id";
-		$stmt = $this->pdo->prepare($sql);
-		$stmt->execute();
-		$TimeArray = $stmt->fetchAll();
-		return $TimeArray;
-	}
+	
 	public function getTimeArray($date) {
 		$sql = "SELECT s.id, d.time";
 		$sql.= " FROM time_slots AS s";
