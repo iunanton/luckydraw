@@ -69,7 +69,7 @@ class myDatabase {
 		$sql = "SELECT s.id, d.time";
 		$sql.= " FROM time_slots AS s";
 		$sql.= " JOIN default_time AS d ON s.time = d.id";
-		$sql.= " LEFT JOIN appointments AS a ON s.id = a.time_slot";
+		$sql.= " LEFT JOIN reservations AS a ON s.id = a.time_slot";
 		$sql.= " WHERE a.id IS NULL";
 		$sql.= " AND s.date = :date";
 		$stmt = $this->pdo->prepare($sql);
@@ -86,33 +86,33 @@ class myDatabase {
 		return $result;
 	}
 	public function setAppointment($test, $name, $tel) {
-		$stmt = $this->pdo->prepare("INSERT INTO appointments (name, phone, time_slot) VALUES (:name, :phone, :time_slot)");
+		$stmt = $this->pdo->prepare("INSERT INTO reservations (name, phone, time_slot) VALUES (:name, :phone, :time_slot)");
 		$stmt->bindParam(':name', $name);
 		$stmt->bindParam(':phone', $tel);
 		$stmt->bindParam(':time_slot', $test);
 		$stmt->execute();
 	}
-	public function getAllAppointments() {
+	public function getAllReservtions() {
 		$sql = "SELECT a.id, d.time, a.name, a.phone, a.reservation_time";
-		$sql.= " FROM appointments AS a";
+		$sql.= " FROM reservations AS a";
 		$sql.= " JOIN time_slots AS s ON a.time_slot = s.id";
 		$sql.= " JOIN default_time AS d ON s.time = d.id";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->execute();
-		$appointments = $stmt->fetchAll();
-		return $appointments;
+		$reservations = $stmt->fetchAll();
+		return $reservations;
 	}
-	public function getAppointments($date) {
+	public function getReservations($date) {
 		$sql = "SELECT a.id, d.time, a.name, a.phone, a.reservation_time";
-		$sql.= " FROM appointments AS a";
+		$sql.= " FROM reservations AS a";
 		$sql.= " JOIN time_slots AS s ON a.time_slot = s.id";
 		$sql.= " JOIN default_time AS d ON s.time = d.id";
 		$sql.= " WHERE s.date = :date";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindParam(':date', $date);
 		$stmt->execute();
-		$appointments = $stmt->fetchAll();
-		return $appointments;
+		$reservations = $stmt->fetchAll();
+		return $reservations;
 	}
 	public function getDefaultTimeArray() {
 		$sql = "SELECT id, time";
