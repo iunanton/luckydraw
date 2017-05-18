@@ -19,7 +19,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-18T00:44:29+0800" >
+<meta name="date" content="2017-05-19T00:10:06+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -67,15 +67,15 @@
 			Today is <?=date("d M, Y"); ?><br><br>
 			<?php
 				$conn = new myDatabase();
-				$appointments = $conn->getAppointments(TODAY);
-				echo sizeof($appointments)." appointment(s) was founded:<br><br>";
+				$reservations = $conn->getReservations(TODAY);
+				echo sizeof($reservations)." appointment(s) was founded:<br><br>";
 				echo "<table>";
 				echo "<tr>";
 				echo "<th>id</th><th>time</th><th>name</th><th>phone</th><th>the booking received at</th>";
 				echo "</tr>";
-				foreach ($appointments as $appointment) {
+				foreach ($reservations as $reservation) {
 					echo "<tr>";
-					echo "<td>".$appointment['id']."</td><td>".$appointment['time']."</td><td>".$appointment['name']."</td><td>".$appointment['phone']."</td><td>".$appointment['reservation_time']."</td>";
+					echo "<td>".$reservation['id']."</td><td>".$reservation['time']."</td><td>".$reservation['name']."</td><td>".$reservation['phone']."</td><td>".$reservation['reservation_time']."</td>";
 					echo "</tr>";	
 				}
 				echo "</table>";

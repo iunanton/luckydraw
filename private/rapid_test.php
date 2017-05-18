@@ -19,7 +19,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-18T00:30:49+0800" >
+<meta name="date" content="2017-05-19T00:07:58+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -88,12 +88,12 @@
 						$timeSlotsOnRow = 3;
 						
 						$i = 0;
-						foreach ($defaultTimeArray as $defaultTime) {
+						foreach ($defaultTimeArray as $key => $time) {
 							if(!($i % $timeSlotsOnRow)) {
 								echo "<br>";							
 							}
-							echo '<input id="time-slot-'.$defaultTime['id'].'" type="checkbox" />';
-							echo '<label for="time-slot-'.$defaultTime['id'].'">'.$defaultTime['time'].'</label>';
+							echo '<input id="time-slot-'.$key.'" type="checkbox" />';
+							echo '<label for="time-slot-'.$key.'">'.$time.'</label>';
 							$i++;
 						}
 					?>
