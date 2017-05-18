@@ -7,7 +7,7 @@
 	}
 	
 	$global_page = basename(__FILE__, '.php');
-	
+
 	require_once('class/mydatabase.php');
 ?>
 <?php
@@ -20,8 +20,9 @@
 		$test = $_POST['test'];
 		$name = $_POST['name'];
 		$tel = $_POST['tel'];
-		$conn->setAppointment($test, $name, $tel);
+		$conn->setReservation($test, $name, $tel);
 		$info = $conn->getTestInfo($test);
+
 	}
 ?>
 <!DOCTYPE html>
@@ -32,7 +33,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-16T04:27:21+0800" >
+<meta name="date" content="2017-05-19T01:39:45+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
