@@ -19,7 +19,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-19T00:07:58+0800" >
+<meta name="date" content="2017-05-19T01:15:02+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -107,12 +107,12 @@
 					<th>#</th><th>Date</th><th>Time</th><th>Delete</th>		
 				</tr>
 				<?php
-					$allServiceTime = $conn->getAllServiceTime();
-					foreach ($allServiceTime as $serviceTime) {
+					$TimeSlotsFromToday = $conn->getAllTimeSlotsFromToday();
+					foreach ($TimeSlotsFromToday as $timeSlot) {
 						echo '<tr>';
-						echo '<td>'.$serviceTime['id'].'</td>';
-						echo '<td>'.$serviceTime['date'].'</td>';
-						echo '<td>'.$serviceTime['time'].'</td>';
+						echo '<td>'.$timeSlot['id'].'</td>';
+						echo '<td>'.$timeSlot['date'].'</td>';
+						echo '<td>'.$timeSlot['time'].'</td>';
 						echo '<td><u>Delete</u></td>';
 						echo '</tr>';
 					}
