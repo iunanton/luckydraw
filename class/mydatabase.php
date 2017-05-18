@@ -92,22 +92,22 @@ class myDatabase {
 		$stmt->bindParam(':time_slot', $test);
 		$stmt->execute();
 	}
-	public function getAllReservtions() {
-		$sql = "SELECT a.id, d.time, a.name, a.phone, a.reservation_time";
-		$sql.= " FROM reservations AS a";
-		$sql.= " JOIN time_slots AS s ON a.time_slot = s.id";
-		$sql.= " JOIN default_time AS d ON s.time = d.id";
+	public function getAllReservations() {
+		$sql = "SELECT r.id, t.date, d.time, r.name, r.phone, r.reservation_time";
+		$sql.= " FROM reservations AS r";
+		$sql.= " JOIN time_slots AS t ON r.time_slot = t.id";
+		$sql.= " JOIN default_time AS d ON t.time = d.id";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->execute();
 		$reservations = $stmt->fetchAll();
 		return $reservations;
 	}
 	public function getReservations($date) {
-		$sql = "SELECT a.id, d.time as time_slot, a.name, a.phone, a.time";
-		$sql.= " FROM reservations AS a";
-		$sql.= " JOIN time_slots AS s ON a.time_slot = s.id";
-		$sql.= " JOIN default_time AS d ON s.time = d.id";
-		$sql.= " WHERE s.date = :date";
+		$sql = "SELECT r.id, d.time, r.name, r.phone, r.reservation_time";
+		$sql.= " FROM reservations AS r";
+		$sql.= " JOIN time_slots AS t ON r.time_slot = t.id";
+		$sql.= " JOIN default_time AS d ON t.time = d.id";
+		$sql.= " WHERE t.date = :date";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindParam(':date', $date);
 		$stmt->execute();
