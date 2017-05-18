@@ -103,7 +103,7 @@ class myDatabase {
 		return $reservations;
 	}
 	public function getReservations($date) {
-		$sql = "SELECT a.id, d.time, a.name, a.phone, a.time";
+		$sql = "SELECT a.id, d.time as time_slot, a.name, a.phone, a.time";
 		$sql.= " FROM reservations AS a";
 		$sql.= " JOIN time_slots AS s ON a.time_slot = s.id";
 		$sql.= " JOIN default_time AS d ON s.time = d.id";
