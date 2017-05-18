@@ -113,12 +113,12 @@ class myDatabase {
 	 *  @return array
 	 */
 	public function getTestInfo($time_slot) {
-		$sql = "SELECT t.date, d.time AS time";
+		$sql = "SELECT t.date, d.time";
 		$sql.= " FROM time_slots AS t ";
 		$sql.= "JOIN default_time AS d ON t.time = d.id";
 		$sql.= " WHERE t.id = :time_slot";
 		$stmt = $this->pdo->prepare($sql);
-		$stmt->bindParam(':time_slot', $test);		
+		$stmt->bindParam(':time_slot', $time_slot);		
 		$stmt->execute();
 		$result = $stmt->fetch();
 		return $result;
