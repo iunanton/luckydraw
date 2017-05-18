@@ -21,9 +21,28 @@ class myDatabase {
 		];
 		$this->pdo = new PDO($dsn, $this->username, $this->password, $opt);
 	}
+	public function getDefaultTime() {
+		$sql = "SELECT id, time FROM default_time";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute();
+		$defaultTime = $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
+		return $defaultTime;
+	}
+	public function fillTimeSlotTable($date) {
+		//형 보고 싶어요
+		$defaultTime = $this->getDefaultTime();
+		$sql = "INSERT INTO time_slots (date, time)";
+		$sql.= " VALUES (:date, :time)";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindParam(':date', $date);
+		foreach ($defaultTime as $key => $time) {
+			$stmt->bindParam(':time', $key);
+			$stmt->execute();
+		}
+	}
 	public function getValidDates() {
 		$sql = "SELECT date";
-		$sql.= " FROM service_times";
+		$sql.= " FROM time_slots";
 		if(strtotime(NOW) < strtotime(END_OF_BOOKING_TIME)) {
 			$sql.= " WHERE date >= CURDATE()";
 		} else {
@@ -37,8 +56,8 @@ class myDatabase {
 	}
 	public function getAllServiceTime() {
 		$sql = "SELECT s.id, s.date, d.time";
-		$sql.= " FROM service_times AS s";
-		$sql.= " JOIN default_times AS d";
+		$sql.= " FROM time_slots AS s";
+		$sql.= " JOIN default_time AS d";
 		$sql.= " ON s.time = d.id";
 		$sql.= " ORDER BY s.id";
 		$stmt = $this->pdo->prepare($sql);
@@ -48,9 +67,9 @@ class myDatabase {
 	}
 	public function getTimeArray($date) {
 		$sql = "SELECT s.id, d.time";
-		$sql.= " FROM service_times AS s";
-		$sql.= " JOIN default_times AS d ON s.time = d.id";
-		$sql.= " LEFT JOIN appointments AS a ON s.id = a.service_time";
+		$sql.= " FROM time_slots AS s";
+		$sql.= " JOIN default_time AS d ON s.time = d.id";
+		$sql.= " LEFT JOIN appointments AS a ON s.id = a.time_slot";
 		$sql.= " WHERE a.id IS NULL";
 		$sql.= " AND s.date = :date";
 		$stmt = $this->pdo->prepare($sql);
@@ -60,24 +79,24 @@ class myDatabase {
 		return $TimeArray;
 	}
 	public function getTestInfo($test) {
-		$stmt = $this->pdo->prepare("SELECT s.date AS date, d.time AS time FROM service_times AS s JOIN default_times AS d ON s.time = d.id WHERE s.id = :test");
+		$stmt = $this->pdo->prepare("SELECT s.date AS date, d.time AS time FROM time_slots AS s JOIN default_time AS d ON s.time = d.id WHERE s.id = :test");
 		$stmt->bindParam(':test', $test);		
 		$stmt->execute();
 		$result = $stmt->fetch();
 		return $result;
 	}
 	public function setAppointment($test, $name, $tel) {
-		$stmt = $this->pdo->prepare("INSERT INTO appointments (name, phone, service_time) VALUES (:name, :phone, :service_time)");
+		$stmt = $this->pdo->prepare("INSERT INTO appointments (name, phone, time_slot) VALUES (:name, :phone, :time_slot)");
 		$stmt->bindParam(':name', $name);
 		$stmt->bindParam(':phone', $tel);
-		$stmt->bindParam(':service_time', $test);
+		$stmt->bindParam(':time_slot', $test);
 		$stmt->execute();
 	}
 	public function getAllAppointments() {
 		$sql = "SELECT a.id, d.time, a.name, a.phone, a.reservation_time";
 		$sql.= " FROM appointments AS a";
-		$sql.= " JOIN service_times AS s ON a.service_time = s.id";
-		$sql.= " JOIN default_times AS d ON s.time = d.id";
+		$sql.= " JOIN time_slots AS s ON a.time_slot = s.id";
+		$sql.= " JOIN default_time AS d ON s.time = d.id";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->execute();
 		$appointments = $stmt->fetchAll();
@@ -86,8 +105,8 @@ class myDatabase {
 	public function getAppointments($date) {
 		$sql = "SELECT a.id, d.time, a.name, a.phone, a.reservation_time";
 		$sql.= " FROM appointments AS a";
-		$sql.= " JOIN service_times AS s ON a.service_time = s.id";
-		$sql.= " JOIN default_times AS d ON s.time = d.id";
+		$sql.= " JOIN time_slots AS s ON a.time_slot = s.id";
+		$sql.= " JOIN default_time AS d ON s.time = d.id";
 		$sql.= " WHERE s.date = :date";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindParam(':date', $date);
@@ -97,7 +116,7 @@ class myDatabase {
 	}
 	public function getDefaultTimeArray() {
 		$sql = "SELECT id, time";
-		$sql.= " FROM default_times";
+		$sql.= " FROM default_time";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->execute();
 		$defaultTimeArray = $stmt->fetchAll();
