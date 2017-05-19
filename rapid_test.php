@@ -17,7 +17,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-20T03:56:00+0800" >
+<meta name="date" content="2017-05-20T04:11:54+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -28,6 +28,22 @@
 <meta http-equiv="expires" content="0">
 <link href="style.css" rel="stylesheet" type="text/css">
 <style type="text/css">
+	#left-column {
+		float: left;
+		width: 60%;
+		margin-right: 20px;
+
+	}
+	#map {
+		float: right;
+		width: 36%;
+		height: 400px;	
+	}
+	#wrapper-content::after {
+		display: block;
+		content: '';
+		clear: both;	
+	}
 </style>
 </head>
 <body>
@@ -68,34 +84,51 @@ HTML;
 						break;
 				}
 			?>
-			<?=$html; ?>
-			<div class="content-image">
-				<img src="images/tail_3.jpg" alt="test" height="160">
-				<p>熱線電話：<strong>5405 6631</strong></p>
+			<div id="left-column">
+				<?=$html; ?>
+				<div class="content-image">
+					<img src="images/tail_3.jpg" alt="test" height="160">
+					<p>熱線電話：<strong>5405 6631</strong></p>
+				</div>
+				<table class="content-table">
+					<tr>
+						<th class="selected">SUN</th>
+						<th>MON</th>
+						<th>TUE</th>
+						<th>WED</th>
+						<th>THU</th>
+						<th>FRI</th>
+						<th>SAT</th>
+					</tr>
+					<tr>
+						<td colspan="7">16:30-20:30<br>可親臨本中心即場安排測試<br>(無預約停止派籌時間 20:30)</td>
+					</tr>
+					<tr>
+						<td colspan="7">服務時間 Service Hour 16:30 - 20:30<br>請電 Tel 5405 6631或 <a href="booking.php?lang=<?=$global_lang; ?>">網上預約</a></td>				
+					</tr>
+				</table>
+				<p>最快捷方便>>><a href="booking.php?lang=<?=$global_lang; ?>">按此網上預約</a></p>
+				<p><strong>觀塘鴻圖道58號金凱工業大廈6樓25室</strong></p>
 			</div>
-			<table class="content-table">
-				<tr>
-					<th class="selected">SUN</th>
-					<th>MON</th>
-					<th>TUE</th>
-					<th>WED</th>
-					<th>THU</th>
-					<th>FRI</th>
-					<th>SAT</th>
-				</tr>
-				<tr>
-					<td colspan="7">16:30-20:30<br>可親臨本中心即場安排測試<br>(無預約停止派籌時間 20:30)</td>
-				</tr>
-				<tr>
-					<td colspan="7">服務時間 Service Hour 16:30 - 20:30<br>請電 Tel 5405 6631或 <a href="booking.php?lang=<?=$global_lang; ?>">網上預約</a></td>				
-				</tr>
-			</table>
-			<p>最快捷方便>>><a href="booking.php?lang=<?=$global_lang; ?>">按此網上預約</a></p>
-			<p><strong>觀塘鴻圖道58號金凱工業大廈6樓25室</strong></p>
+			<div id="map"></div>
+			<script>
+				var map;
+				function initMap() {
+					//Constructor creates a new map - only center and zoom are required.
+					map = new google.maps.Map(document.getElementById('map'), {
+						center: {lat: 22.309973, lng: 114.222658},
+						zoom: 18
+					});
+				}
+			</script>
 		</div>
 	</div>
 	<?php
 		include('view/footer.php');
 	?>
+	<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0JzzaUAMDLQF-AQ7wdku9Zg2T4IbPvI4&v=3&callback=initMap"
+		type="text/javascript">
+	</script>
 </body>
 </html>
