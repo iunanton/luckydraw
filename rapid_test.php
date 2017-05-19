@@ -17,7 +17,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-20T01:44:58+0800" >
+<meta name="date" content="2017-05-20T01:56:46+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -75,7 +75,7 @@ HTML;
 			<img src="images/tail_3.jpg" alt="test" height="160">熱線電話：<strong>5405 6631</strong>
 			<table class="content-table">
 				<tr>
-					<th>SUN</th>
+					<th class="selected">SUN</th>
 					<th>MON</th>
 					<th>TUE</th>
 					<th>WED</th>
