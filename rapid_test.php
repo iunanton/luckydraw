@@ -17,7 +17,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-20T02:09:51+0800" >
+<meta name="date" content="2017-05-20T03:56:00+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -28,9 +28,6 @@
 <meta http-equiv="expires" content="0">
 <link href="style.css" rel="stylesheet" type="text/css">
 <style type="text/css">
-	#map {
-		width: 100%;
-	}
 </style>
 </head>
 <body>
@@ -100,18 +97,5 @@ HTML;
 	<?php
 		include('view/footer.php');
 	?>
-	<div id="map"></div>
-	<script>
-		function initMap() {
-			var map = new google.maps.Map(document.getElementById('map'), {
-				zoom: 8,
-				center: {lat: -34.397, lng: 150.644}
-			});
-		}
-	</script>
-	<script async defer
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiAow0o-xQIPXSlIUfRs1QLEIrdKXTydc&callback=initMap"
-		type="text/javascript">
-	</script>
 </body>
 </html>
