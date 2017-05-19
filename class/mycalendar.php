@@ -21,7 +21,7 @@ class myCalendar {
 		
 		// table headings
 		switch($this->language) {
-			case 0:
+			case 1:
 				$this->weedDays = array('Sun','Mon','Tue','Wed','Thu','Fri','Sat');
 				switch($this->defaultMonth) {
 					case 1: $this->header = 'January '.$this->defaultYear;
@@ -50,7 +50,7 @@ class myCalendar {
 						break;
 				}
 				break;
-			case 1:
+			case 2:
 				$this->weedDays = array('日','一','二','三','四','五','六');
 				switch($this->defaultMonth) {
 					case 1: $this->header = $this->defaultYear.'年 一月';

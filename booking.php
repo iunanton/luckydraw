@@ -33,7 +33,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-16T04:27:29+0800" >
+<meta name="date" content="2017-05-20T02:21:34+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -72,7 +72,7 @@
 			<p>What date and time would you like an appointment?</p>
 			<?php
 				//Create calendar for current date
-				$calendar = new myCalendar($year, $month, 0);
+				$calendar = new myCalendar($year, $month, $global_lang);
 				$calendar->draw();
 				$calendar->show();
 			?>
