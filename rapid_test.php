@@ -17,7 +17,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-20T01:56:46+0800" >
+<meta name="date" content="2017-05-20T02:09:51+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -72,7 +72,10 @@ HTML;
 				}
 			?>
 			<?=$html; ?>
-			<img src="images/tail_3.jpg" alt="test" height="160">熱線電話：<strong>5405 6631</strong>
+			<div class="content-image">
+				<img src="images/tail_3.jpg" alt="test" height="160">
+				<p>熱線電話：<strong>5405 6631</strong></p>
+			</div>
 			<table class="content-table">
 				<tr>
 					<th class="selected">SUN</th>
@@ -90,8 +93,8 @@ HTML;
 					<td colspan="7">服務時間 Service Hour 16:30 - 20:30<br>請電 Tel 5405 6631或 <a href="booking.php?lang=<?=$global_lang; ?>">網上預約</a></td>				
 				</tr>
 			</table>
-			最快捷方便>>><a href="booking.php?lang=<?=$global_lang; ?>">按此網上預約</a><br>
-			觀塘鴻圖道58號金凱工業大廈6樓25室
+			<p>最快捷方便>>><a href="booking.php?lang=<?=$global_lang; ?>">按此網上預約</a></p>
+			<p><strong>觀塘鴻圖道58號金凱工業大廈6樓25室</strong></p>
 		</div>
 	</div>
 	<?php
