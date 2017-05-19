@@ -72,11 +72,33 @@
 	
 	}
 	.content-table {
+		width: 100%;
+		text-align: center;
 		border-collapse: collapse;
+		border-color: #305D7C;
+	}
+	.content-table tr {
+		text-align: inherit;
+		border-color: inherit;	
+	}
+	.content-table th {
+		padding: 5px 5px 5px 5px;
+		text-align: inherit;
+		background-color: #EEEEEE;
+		border-width: thin;
+		border-style: solid;
+		border-color: inherit;
+	}
+	.content-table th.selected {
+		background-color: #FFA366;
 	}
 	.content-table td {
-		padding: 5px 5px 5px 5px;
-		border: 1px solid lightgrey;	
+		padding: 20px 20px 20px 20px;
+		text-align: inherit;
+		background-color: #FFFFFF;
+		border-width: thin;
+		border-style: solid;
+		border-color: inherit;
 	}
 	footer {
 		background-color: #EEEEEE;
