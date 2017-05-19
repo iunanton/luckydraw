@@ -1,11 +1,18 @@
 <?php
+
+/** myDatabase class
+ *  described connection to mySQL database
+ *  and common methods to work with it
+ */
 class myDatabase {
+	
 	private $servername;
 	private $username;
 	private $password;
 	private $dbname;
 	private $charset;
 	private $pdo;
+	
 	public function __construct() {
 		$config = parse_ini_file('mydatabase.ini');
 		$this->servername = $config['servername'];
@@ -21,6 +28,11 @@ class myDatabase {
 		];
 		$this->pdo = new PDO($dsn, $this->username, $this->password, $opt);
 	}
+	
+	/** Return associative array id => time
+	 *  of service default time
+	 *  @return associative array
+	 */
 	public function getDefaultTimeArray() {
 		$sql = "SELECT id, time FROM default_time";
 		$stmt = $this->pdo->prepare($sql);
@@ -28,9 +40,14 @@ class myDatabase {
 		$defaultTime = $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
 		return $defaultTime;
 	}
+	
+	/** Fill time_slots table
+	 *	 by all service default time
+	 *  and nothing to return
+	 */
 	public function fillTimeSlotTable($date) {
 		//형 보고 싶어요
-		$defaultTime = $this->getDefaultTime();
+		$defaultTime = $this->getDefaultTimeArray();
 		$sql = "INSERT INTO time_slots (date, time)";
 		$sql.= " VALUES (:date, :time)";
 		$stmt = $this->pdo->prepare($sql);
@@ -40,6 +57,73 @@ class myDatabase {
 			$stmt->execute();
 		}
 	}
+	
+	/** Return array [id],[date],[time]
+	 *  of time slots in database
+	 *  @return array
+	 */
+	public function getAllTimeSlots() {
+		$sql = "SELECT t.id, t.date, d.time";
+		$sql.= " FROM time_slots AS t";
+		$sql.= " JOIN default_time AS d";
+		$sql.= " ON t.time = d.id";
+		$sql.= " ORDER BY t.id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute();
+		$TimeArray = $stmt->fetchAll();
+		return $TimeArray;
+	}
+
+	/** Return array [id],[date],[time]
+	 *  of time slots in database
+	 *  from today
+	 *  @return array
+	 */
+	public function getAllTimeSlotsFromToday() {
+		$sql = "SELECT t.id, t.date, d.time";
+		$sql.= " FROM time_slots AS t";
+		$sql.= " JOIN default_time AS d";
+		$sql.= " ON t.time = d.id";
+		$sql.= " WHERE t.date >= CURRENT_DATE()";
+		$sql.= " ORDER BY t.id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute();
+		$TimeArray = $stmt->fetchAll();
+		return $TimeArray;
+	}
+
+	/** Insert new reservation
+	 *	 @time_slot INT
+	 *  @name STRING
+	 *  @tel STRING
+	 *  @return nothing
+	 */
+	public function setReservation($time_slot, $name, $tel) {
+		$sql = "INSERT INTO reservations (name, phone, time_slot)";
+		$sql.= " VALUES (:name, :phone, :time_slot)";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindParam(':name', $name);
+		$stmt->bindParam(':phone', $tel);
+		$stmt->bindParam(':time_slot', $time_slot);
+		$stmt->execute();
+	}
+
+	/** Select info about reservation
+	 *	 @time_slot INT
+	 *  @return array
+	 */
+	public function getTestInfo($time_slot) {
+		$sql = "SELECT t.date, d.time";
+		$sql.= " FROM time_slots AS t ";
+		$sql.= "JOIN default_time AS d ON t.time = d.id";
+		$sql.= " WHERE t.id = :time_slot";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindParam(':time_slot', $time_slot);		
+		$stmt->execute();
+		$result = $stmt->fetch();
+		return $result;
+	}
+
 	public function getValidDates() {
 		$sql = "SELECT date";
 		$sql.= " FROM time_slots";
@@ -54,17 +138,7 @@ class myDatabase {
 		$DateArray = $stmt->fetchAll(PDO::FETCH_COLUMN);
 		return $DateArray;
 	}
-	public function getAllServiceTime() {
-		$sql = "SELECT s.id, s.date, d.time";
-		$sql.= " FROM time_slots AS s";
-		$sql.= " JOIN default_time AS d";
-		$sql.= " ON s.time = d.id";
-		$sql.= " ORDER BY s.id";
-		$stmt = $this->pdo->prepare($sql);
-		$stmt->execute();
-		$TimeArray = $stmt->fetchAll();
-		return $TimeArray;
-	}
+	
 	public function getTimeArray($date) {
 		$sql = "SELECT s.id, d.time";
 		$sql.= " FROM time_slots AS s";
@@ -78,20 +152,7 @@ class myDatabase {
 		$TimeArray = $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
 		return $TimeArray;
 	}
-	public function getTestInfo($test) {
-		$stmt = $this->pdo->prepare("SELECT s.date AS date, d.time AS time FROM time_slots AS s JOIN default_time AS d ON s.time = d.id WHERE s.id = :test");
-		$stmt->bindParam(':test', $test);		
-		$stmt->execute();
-		$result = $stmt->fetch();
-		return $result;
-	}
-	public function setAppointment($test, $name, $tel) {
-		$stmt = $this->pdo->prepare("INSERT INTO reservations (name, phone, time_slot) VALUES (:name, :phone, :time_slot)");
-		$stmt->bindParam(':name', $name);
-		$stmt->bindParam(':phone', $tel);
-		$stmt->bindParam(':time_slot', $test);
-		$stmt->execute();
-	}
+	
 	public function getAllReservations() {
 		$sql = "SELECT r.id, t.date, d.time, r.name, r.phone, r.reservation_time";
 		$sql.= " FROM reservations AS r";

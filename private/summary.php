@@ -19,7 +19,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-19T00:38:36+0800" >
+<meta name="date" content="2017-05-19T19:55:50+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -68,7 +68,7 @@
 			<?php
 				$conn = new myDatabase();
 				$reservations = $conn->getReservations(TODAY);
-				echo "For today ".sizeof($reservations)." appointment(s) was founded:<br><br>";
+				echo "For today <strong>".sizeof($reservations)." appointment(s)</strong> was founded:<br><br>";
 				echo '<table class="content-table">';
 				echo "<tr>";
 				echo "<th>id</th><th>time</th><th>name</th><th>phone</th><th>the booking received at</th>";
