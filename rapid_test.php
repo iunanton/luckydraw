@@ -17,7 +17,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-20T04:11:54+0800" >
+<meta name="date" content="2017-05-20T07:34:31+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -117,7 +117,13 @@ HTML;
 					//Constructor creates a new map - only center and zoom are required.
 					map = new google.maps.Map(document.getElementById('map'), {
 						center: {lat: 22.309973, lng: 114.222658},
-						zoom: 18
+						zoom: 16
+					});
+					var luckydrawstudio = {lat: 22.309973, lng: 114.222658};
+					var marker = new google.maps.Marker({
+						position: luckydrawstudio,
+						map: map,
+						title: 'Lucky Draw Studio'
 					});
 				}
 			</script>
