@@ -1,5 +1,7 @@
 	body {
-		margin: 0 0 0 0;	
+		margin: 0 0 0 0;
+		background-color: #FFFFFF;
+		color: #305D7C;
 	}
 	header,
 	nav,
@@ -11,7 +13,7 @@
 		padding: 10px 10px 10px 10px;	
 	}
 	nav {
-		background-color: whitesmoke;
+		background-color: #FFA366;
 		color: dimgrey;
 		font-family: sans-serif;	
 	}
@@ -21,10 +23,10 @@
 		color: inherit;
 	}
 	.nav-link:hover {
-		background-color: gainsboro;	
+		background-color: #FF6600;	
 	}
 	.nav-link.selected {
-		background-color: gainsboro;	
+		background-color: #FF6600;	
 	}
 	.nav-link a{
 		display: inline-block;
@@ -34,7 +36,7 @@
 	}
 	#wrapper {
 		width: 900px;
-		margin-left: 150px;	
+		margin-left: 150px;
 	}
 	#page div {
 		display: block;	
@@ -44,6 +46,9 @@
 		margin-bottom: 10px;
 		font-size: 24px;
 	}
+	#page #content {
+	
+	}
 	.content-table {
 		border-collapse: collapse;
 	}
@@ -52,8 +57,8 @@
 		border: 1px solid lightgrey;	
 	}
 	footer {
-		background-color: whitesmoke;
-		color: dimgrey;
+		background-color: #EEEEEE;
+		color: #305D7C;
 		text-align: center;
 		font-size: 14px;
 	}
@@ -63,7 +68,7 @@
 		padding-bottom: 10px;
 	}
 	#footer-copyright {
-		background-color: gainsboro;
+		background-color: #98D9D3;
 		font-size: 12px;
 	}
 	.footer-column {
