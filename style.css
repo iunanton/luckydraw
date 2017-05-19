@@ -83,3 +83,6 @@
 		padding: 0;
 		margin: 0;	
 	}
+	.footer-column a {
+		color: inherit;	
+	}
