@@ -10,6 +10,28 @@
 	header {
 		padding: 10px 10px 10px 10px;	
 	}
+	.header-image {
+		float: left;	
+	}
+	.language-bar {
+		float: right;
+	}
+	.language-bar ul{
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+	}
+	.language-bar li {
+		display: inline-block;	
+	}
+	.language-bar a {
+		color: inherit;	
+	}
+	header::after {
+		content: '';
+		display: block;
+		clear: both;
+	}
 	nav {
 		background-color: whitesmoke;
 		color: dimgrey;
