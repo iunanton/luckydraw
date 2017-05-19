@@ -3,9 +3,22 @@
 	.schedule {
 		border-collapse: collapse;
 	}
+	#calendar {
+		width: 100%;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		text-align: center;
+		border-color: #305D7C;
+	}
+	#calendar tr {
+		border-color: inherit;	
+	}
 	.calendar-day,
+	#calendar th,
 	.calendar-day-np {
-    border: 1px solid lightgrey;
+		border-width: thin;
+		border-style: solid;
+		border-color: inherit;
 	}
 	#calendar-prev,
 	#calendar-month,
@@ -15,7 +28,7 @@
 		text-align: center;
 	}
 	.calendar-day.today .day-number {
-		background-color: coral;
+		background-color: #FFA366;
 		color: white;
 	}
 	.day-number {
