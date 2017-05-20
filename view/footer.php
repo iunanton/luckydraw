@@ -1,16 +1,23 @@
 <?php
 	switch($global_lang) {
 		case EN:
-			$first_column = ARRAY("CENTER","About Us","Join Us","Member");
-			$second_column = ARRAY("CONTACT","(852) 5405 6631");
+			$first_column = ARRAY("CENTER","About Us","Join Us","Staff");
+			$second_column = ARRAY("CONTACT","Tel.: (852) 5405 6631","E-mail: @gmail.com");
 			$third_column = ARRAY("ADDRESS","Flat 25, 6/F,","Career And Kenson Industrial Mansion,","58 Hung To Rd,","Kwun Tong, HK");
 			$fourth_column = ARRAY("GO UP");
 			$copyright = "&copy Copyright By Lucky Draw Studio";
 			break;
 		case ZH:
-			$first_column = ARRAY("中心","關於我們","加入我們","會員");
-			$second_column = ARRAY("電話","(852) 5405 6631");
-			$third_column = ARRAY("地址","香港 觀塘 鴻圖道58號","金凱工業大廈","6樓 25室");
+			$first_column = ARRAY("中心","關於我們","加入我們","工作人員");
+			$second_column = ARRAY("聯絡","電話：(852) 5405 6631","電郵地址：@gmail.com");
+			$third_column = ARRAY("地址","香港觀塘鴻圖道58號","金凱工業大廈","6樓 25室");
+			$fourth_column = ARRAY("GO UP");
+			$copyright = "&copy Copyright By 幸運抽獎工作室";
+			break;
+		case CH:
+			$first_column = ARRAY("中心","关于我们","加入我们","工作人员");
+			$second_column = ARRAY("联络","电话：(852) 5405 6631","电邮地址：@gmail.com");
+			$third_column = ARRAY("地址","香港觀塘鴻圖道58號","金凱工業大廈","6樓 25室");
 			$fourth_column = ARRAY("GO UP");
 			$copyright = "&copy Copyright By 幸運抽獎工作室";
 			break;
@@ -30,6 +37,7 @@
 			<h3><?=$second_column[0]; ?></h3>
 			<ul>
 				<li><?=$second_column[1]; ?></li>
+				<li><?=$second_column[2]; ?></li>
 			</ul>
 		</div>
 		<div class="footer-column">
