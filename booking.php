@@ -33,7 +33,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-21T02:08:37+0800" >
+<meta name="date" content="2017-05-21T05:12:36+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -63,6 +63,9 @@
 						break;
 					case ZH:
 						$header = "預約測試";
+						break;
+					case CH:
+						$header = "预约测试";
 						break;
 				}
 			?>
