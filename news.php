@@ -19,7 +19,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-21T04:54:06+0800" >
+<meta name="date" content="2017-05-21T05:02:11+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -68,7 +68,7 @@
 <p>Refer to Government statement, No MSM (gay) HIV testing resourse can be used for heterosexual testing service. On the other hand, we understand heterosexuals seeking HIV test and support are very difficult. Even there are some testing service but booking may not be the same day.</p>
 <p>It cannot ease the anxiety. So a new non-Government funded heterosexuals testing center (Lucky Draw Studio) will be established in Hung To Road Kwun Tong to serve heterosexuals. The testing center will open Sunday to Saturday, 16:30 to 20:30.</p>
 <p><strong>Lucky Draw Studio</strong> starts running on 1st April 2017. We will provide rapid HIV test and Syphilis test. Due to the Internet booking web page is not finished at the moment, you may use the telephone booking.
-Because there is no government funded, all the cost will depended on donation which include rent, wages and test kti etc. Please donate. The Testing Center sign is Lucky Draw Studio and it has no wording of any diseases. All tests are conducted privately and result will remain Anonymous. Our testing staff has tens of HIV positive cases experience.</p>
+Because there is no Government funding, all the cost will depended on donation which include rent, wages and test kit etc. Please donate. The Testing Center sign is Lucky Draw Studio and it has no wording of any diseases. All tests are conducted privately and result will remain Anonymous. Our testing staff has tens of HIV positive cases experience.</p>
 <p>We do not have any religion background and no registered social worker. Our Test counselor has thin morality and is polygamy practitioner.</p>
 HTML;
 						break;
