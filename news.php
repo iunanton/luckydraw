@@ -19,7 +19,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-21T04:52:28+0800" >
+<meta name="date" content="2017-05-21T04:54:06+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -47,6 +47,9 @@
 						$header = "News";
 						break;
 					case ZH:
+						$header = "最新消息";
+						break;
+					case CH:
 						$header = "最新消息";
 						break;
 				}
