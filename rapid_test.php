@@ -17,7 +17,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-21T04:12:23+0800" >
+<meta name="date" content="2017-05-21T04:16:01+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -77,6 +77,7 @@
 						case EN:
 							$html = <<<HTML
 <p>A-Backup Testing Centre opens Monday to Saturday and Public Holidays need reservation. We provided Anonymous Rapid HIV Test. Only take a drop of blood and the result will come out within 15 minutes. All test are conducted in private and result will remain Anonymous.</p>
+<p>In the future, we will apply Government funding. Meanwhile, the operation cost is solely by donation. All the donation will spend on wages, rent and test kit expense. The running cost is around HK$600, then every service user should donate HK$200-300. If you have any financial difficulties, please let use know beforehand. If the donation cannot cover our cost especially rent, The testing service will stop.</p>
 <div class="content-image">
 	<img src="images/tail_3.jpg" alt="test" height="160">
 	<p>Hot Line number：<strong>5405 6631</strong></p>
