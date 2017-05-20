@@ -5,6 +5,8 @@ class myCalendar {
 	private $defaultYear;
 	private $defaultMonth;
 	private $language;
+	private $prevMonth;
+	private $nextMonth;
 	private $header;
 	private $weedDays;
 	private $html;
@@ -22,6 +24,8 @@ class myCalendar {
 		// table headings
 		switch($this->language) {
 			case 1:
+				$this->prevMonth = 'Prev.';
+				$this->nextMonth = 'Next';
 				$this->weedDays = array('Sun','Mon','Tue','Wed','Thu','Fri','Sat');
 				switch($this->defaultMonth) {
 					case 1: $this->header = 'January '.$this->defaultYear;
@@ -51,6 +55,39 @@ class myCalendar {
 				}
 				break;
 			case 2:
+				$this->prevMonth = '上個月';
+				$this->nextMonth = '下個月';
+				$this->weedDays = array('日','一','二','三','四','五','六');
+				switch($this->defaultMonth) {
+					case 1: $this->header = $this->defaultYear.'年 一月';
+						break;
+					case 2: $this->header = $this->defaultYear.'年 二月';
+						break;
+					case 3: $this->header = $this->defaultYear.'年 三月';
+						break;
+					case 4: $this->header = $this->defaultYear.'年 四月';
+						break;
+					case 5: $this->header = $this->defaultYear.'年 五月';
+						break;
+					case 6: $this->header = $this->defaultYear.'年 六月';
+						break;
+					case 7: $this->header = $this->defaultYear.'年 七月';
+						break;
+					case 8: $this->header = $this->defaultYear.'年 八月';
+						break;
+					case 9: $this->header = $this->defaultYear.'年 九月';
+						break;
+					case 10: $this->header = $this->defaultYear.'年 十月';
+						break;
+					case 11: $this->header = $this->defaultYear.'年 十一月';
+						break;
+					case 12: $this->header = $this->defaultYear.'年 十二月';
+						break;
+				}
+				break;
+			case 3:
+				$this->prevMonth = '上个月';
+				$this->nextMonth = '下个月';
 				$this->weedDays = array('日','一','二','三','四','五','六');
 				switch($this->defaultMonth) {
 					case 1: $this->header = $this->defaultYear.'年 一月';
@@ -136,9 +173,9 @@ class myCalendar {
 		// calendar header
 		$this->html = '<table id="calendar">';
 		$this->html.= '<tr class="calendar-head">';
-		$this->html.= '<td id="calendar-prev"><a href="'.$this->requestPreviousMonth().'">Prev.</a></td>';
+		$this->html.= '<td id="calendar-prev"><a href="'.$this->requestPreviousMonth().'">'.$this->prevMonth.'</a></td>';
 		$this->html.= '<td colspan="5" id="calendar-month">'.$this->header.'</td>';
-		$this->html.= '<td id="calendar-next"><a href="'.$this->requestNextMonth().'">Next</a></td>';
+		$this->html.= '<td id="calendar-next"><a href="'.$this->requestNextMonth().'">'.$this->nextMonth.'</a></td>';
 		$this->html.= '</tr>';
 		
 		// names of week days
