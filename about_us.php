@@ -17,7 +17,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-21T02:27:00+0800" >
+<meta name="date" content="2017-05-21T03:32:29+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -47,19 +47,43 @@
 					case ZH:
 						$header = "關於我們";
 						break;
+					case CH:
+						$header = "关于我们";
+						break;
 				}
 			?>
 			<h1><?= $header; ?></h1>
 		</div>
 		<div id="wrapper-content">
-			<p>幸運抽獎工作室Lucky Draw Studio是支援社A-Backup的分支，是一個非牟利團體，因為政府未能資助異性戀者的測試服務，所以本工作室會以自負盈虧的形式運作，而一切成本均由捐款中支出， 並於觀塘(鴻圖道58號金凱工業大廈6樓25室)測試中心提供愛滋病病毒抗體和性病測試服務。</p>
-			<p>設有測試HIV服務 Tel: 5405 6631</p>
-			<p>星期一至五開放時間 16:30 - 20:30(無需預約)</p>
-			<p>(無預約停止派籌時間 20:30)</p>
-			<p>星期六 / 日16:30 - 20:30 (敬請預約)</p>
-			<p>公眾假期 16:30 - 20:30 (敬請預約)</p>
-			<p>觀塘鴻圖道58號金凱工業大廈6樓25室</p>
-			<p>Email 電郵地址：abackuphk@gmail.com</p>
+			<?php
+				switch($global_lang) {
+					case EN:
+						$html = <<<HTML
+<p><strong>Lucky Draw Studio</strong> is a branch of A-Backup and a nonprofit organization. Due to Government has not funded heterosexuals testing service, we will run in a self-financing mode. All the cost are paid by donation. We located in Kwun Tong and provide HIV test and Syphilis test service.</p>
+<p>HIV test booking tel: <strong>5405 6631</strong></p>
+<p>Sunday to Saturday <strong>16:30 - 20:30</strong></p>
+<p>Email address:</p>
+HTML;
+						break;
+					case ZH:
+						$html = <<<HTML
+<p><strong>幸運抽獎工作室Lucky Draw Studio</strong>是支援社A-Backup的分支，是一個非牟利團體，因為政府未能資助異性戀者的測試服務，所以本工作室會以自負盈虧的形式運作，而一切成本均由捐款中支出， 並於觀塘測試中心提供愛滋病病毒抗體和性病測試服務。</p>
+<p>愛滋病測試電話預約: <strong>5405 6631</strong></p>
+<p>星期一至日開放時間 <strong>16:30 - 20:30</strong></p>
+<p>電郵地址：</p>
+HTML;
+						break;
+					case CH:
+						$html = <<<HTML
+<p><strong>幸运抽奖工作室Lucky Draw Studio</strong>是支援社A-Backup的分支，是一个非牟利团体，因为政府未能资助异性恋者的测试服务，所以本工作室会以自负盈亏的形式运作，而一切成本均由捐款中支出， 并于观塘测试中心提供爱滋病病毒抗体和性病测试服务。</p>
+<p>爱滋病测试电话预约: <strong>5405 6631</strong></p>
+<p>星期一至日开放时间 <strong>16:30 - 20:30</strong></p>
+<p>电邮地址：</p>
+HTML;
+						break;
+				}
+			?>
+			<?=$html; ?>
 		</div>
 	</div>
 	<?php
