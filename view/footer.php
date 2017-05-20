@@ -11,14 +11,14 @@
 			$first_column = ARRAY("中心","關於我們","加入我們","工作人員");
 			$second_column = ARRAY("聯絡","電話：(852) 5405 6631","電郵地址：@gmail.com");
 			$third_column = ARRAY("地址","香港觀塘鴻圖道58號","金凱工業大廈","6樓 25室");
-			$fourth_column = ARRAY("GO UP");
+			$fourth_column = ARRAY("回頂");
 			$copyright = "&copy Copyright By 幸運抽獎工作室";
 			break;
 		case CH:
 			$first_column = ARRAY("中心","关于我们","加入我们","工作人员");
 			$second_column = ARRAY("联络","电话：(852) 5405 6631","电邮地址：@gmail.com");
 			$third_column = ARRAY("地址","香港觀塘鴻圖道58號","金凱工業大廈","6樓 25室");
-			$fourth_column = ARRAY("GO UP");
+			$fourth_column = ARRAY("回顶");
 			$copyright = "&copy Copyright By 幸運抽獎工作室";
 			break;
 	}
