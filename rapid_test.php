@@ -17,7 +17,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-21T04:28:15+0800" >
+<meta name="date" content="2017-05-21T04:35:45+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -77,7 +77,7 @@
 						case EN:
 							$html = <<<HTML
 <p>A-Backup Testing Centre opens Monday to Saturday and Public Holidays need reservation. We provided Anonymous Rapid HIV Test. Only take a drop of blood and the result will come out within 15 minutes. All test are conducted in private and result will remain Anonymous.</p>
-<p>In the future, we will apply Government funding. Meanwhile, the operation cost is solely by donation. All the donation will spend on wages, rent and test kit expense. The running cost is around HK$600, then every service user should donate HK$200-300. If you have any financial difficulties, please let use know beforehand. If the donation cannot cover our cost especially rent, the testing service will stop.</p>
+<p>In the future, we will apply Government funding. Meanwhile, the operation cost is solely by donation. All the donation will spend on wages, rent and test kit expense. The running cost is around HK$600, then every service user should donate HK$200-300. If you have any financial difficulties, please let us know beforehand. If the donation cannot cover our cost especially rent, the testing service will stop.</p>
 <div class="content-image">
 	<img src="images/tail_3.jpg" alt="test" height="160">
 	<p>Hot Line number：<strong>5405 6631</strong></p>
@@ -148,7 +148,7 @@ HTML;
 		<th>SAT</th>
 	</tr>
 	<tr>
-		<td colspan="7">服务时间 <strong>16:30 - 20:30</strong><br>请电 <strong>5405 6631</strong> 或<a href="booking.php?lang=$global_lang">网上预约</a></td >
+		<td colspan="7">服务时间 <strong>16:30 - 20:30</strong><br>请电 <strong>5405 6631</strong> 或 <a href="booking.php?lang=$global_lang">网上预约</a></td >
 	</tr>
 	</tr>
 		<td colspan="7"><strong>最快捷方便</strong> >>> <a href="booking.php?lang=$global_lang">按此网上预约</a></td>
