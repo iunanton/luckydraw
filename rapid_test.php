@@ -17,7 +17,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-21T04:09:59+0800" >
+<meta name="date" content="2017-05-21T04:12:23+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -37,7 +37,7 @@
 	#map {
 		float: right;
 		width: 48%;
-		height: 600px;	
+		height: 560px;	
 	}
 	#wrapper-content::after {
 		display: block;
