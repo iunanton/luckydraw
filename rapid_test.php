@@ -17,7 +17,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-21T04:26:01+0800" >
+<meta name="date" content="2017-05-21T04:28:15+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -123,7 +123,7 @@ HTML;
 		<td colspan="7">服務時間 <strong>16:30 - 20:30</strong><br>請電 <strong>5405 6631</strong> 或 <a href="booking.php?lang=$global_lang">網上預約</a></td>
 	</tr>
 	</tr>
-		<td colspan="7">最快捷方便 >>> <a href="booking.php?lang=$global_lang">按此網上預約</a></td>
+		<td colspan="7"><strong>最快捷方便</strong> >>> <a href="booking.php?lang=$global_lang">按此網上預約</a></td>
 	</tr>
 </table>
 HTML;
@@ -151,7 +151,7 @@ HTML;
 		<td colspan="7">服务时间 <strong>16:30 - 20:30</strong><br>请电 <strong>5405 6631</strong> 或<a href="booking.php?lang=$global_lang">网上预约</a></td >
 	</tr>
 	</tr>
-		<td colspan="7">最快捷方便 >>> <a href="booking.php?lang=$global_lang">按此网上预约</a></td>
+		<td colspan="7"><strong>最快捷方便</strong> >>> <a href="booking.php?lang=$global_lang">按此网上预约</a></td>
 	</tr>
 </table>
 HTML;
