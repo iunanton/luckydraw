@@ -14,11 +14,21 @@
 			$news = "最新消息";
 			$rapid_test = "快速測試";
 			$test_booking = "預約測試";
-			$free_condom = "無標題文件";
+			$free_condom = "免費安全套";
 			$videos = "相關影片";
 			$hiv_pos = "HIV 陽性";
 			$join_us = "加入我們";
 			$about_US = "關於我們";
+			break;
+		case CH:
+			$news = "最新消息";
+			$rapid_test = "快速测试";
+			$test_booking = "预约测试";
+			$free_condom = "免费安全套";
+			$videos = "相关影片";
+			$hiv_pos = "HIV 阳性";
+			$join_us = "加入我们";
+			$about_US = "关于我们";
 			break;
 	}
 	switch($global_page) {
