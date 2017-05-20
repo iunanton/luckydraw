@@ -1,13 +1,13 @@
 <?php
 	require_once('constant.php');
+	
 	if(isset($_GET['lang'])) {
 		$global_lang = $_GET['lang'];
 	} else {
-		$global_lang = EN;
+		$global_lang = ZH;
 	}
 
 	$global_page = basename(__FILE__, '.php');
-	
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,7 +17,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-16T04:26:27+0800" >
+<meta name="date" content="2017-05-21T02:27:00+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
