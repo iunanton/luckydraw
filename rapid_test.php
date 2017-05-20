@@ -17,7 +17,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-21T04:17:17+0800" >
+<meta name="date" content="2017-05-21T04:26:01+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -93,9 +93,9 @@
 		<th>SAT</th>
 	</tr>
 	<tr>
-		<td colspan="7">Service Hour 16:30 - 20:30<br>Please call 5405 6631 or <a href="booking.php?lang=$global_lang">Internet</a></td>				
+		<td colspan="7">Service Hour <strong>16:30 - 20:30</strong><br>Please call <strong>5405 6631</strong> or <a href="booking.php?lang=$global_lang">Internet booking</a></td>				
 					</tr>
-						<td colspan="7">Most Convenient Way >>> <a href="booking.php?lang=$global_lang">Click in for Web booking</a></td>
+						<td colspan="7"><strong>Most Convenient Way</strong> >>> <a href="booking.php?lang=$global_lang">Click in for Web booking</a></td>
 					</tr>
 				</table>
 HTML;
@@ -120,7 +120,7 @@ HTML;
 		<th>SAT</th>
 	</tr>
 	<tr>
-		<td colspan="7">服務時間 16:30 - 20:30<br>請電 5405 6631 或 <a href="booking.php?lang=$global_lang">網上預約</a></td>
+		<td colspan="7">服務時間 <strong>16:30 - 20:30</strong><br>請電 <strong>5405 6631</strong> 或 <a href="booking.php?lang=$global_lang">網上預約</a></td>
 	</tr>
 	</tr>
 		<td colspan="7">最快捷方便 >>> <a href="booking.php?lang=$global_lang">按此網上預約</a></td>
@@ -148,7 +148,7 @@ HTML;
 		<th>SAT</th>
 	</tr>
 	<tr>
-		<td colspan="7">服务时间16:30 - 20:30<br>请电5405 6631 或<a href="booking.php?lang=$global_lang">网上预约</a></td >
+		<td colspan="7">服务时间 <strong>16:30 - 20:30</strong><br>请电 <strong>5405 6631</strong> 或<a href="booking.php?lang=$global_lang">网上预约</a></td >
 	</tr>
 	</tr>
 		<td colspan="7">最快捷方便 >>> <a href="booking.php?lang=$global_lang">按此网上预约</a></td>
