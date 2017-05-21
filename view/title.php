@@ -37,70 +37,74 @@
 			}
 			break;
 		case ZH:
+			$prefix = "愛滋病測試";
+			$postfix = "- 幸運抽獎工作室";
 			switch($global_page) {
 				case "news":
-					$title = "幸運抽獎工作室 - 最新消息";
+					$title = $prefix." 最新消息 ".$postfix;
 					break;
 				case "rapid_test":
-					$title = "幸運抽獎工作室 - 快速測試";
+					$title = $prefix." ".$postfix;
 					break;
 				case "booking":
-					$title = "幸運抽獎工作室 - 預約測試";
+					$title = $prefix." 預約測試 ".$postfix;
 					break;
 				case "booking_form":
-					$title = "幸運抽獎工作室 - Booking Form";
+					$title = $prefix." Booking Form ".$postfix;
 					break;
 				case "confirmation":
-					$title = "幸運抽獎工作室 - Confirmation";
+					$title = $prefix." Confirmation ".$postfix;
 					break;
 				case "free_condom":
-					$title = "幸運抽獎工作室 - 免費安全套";
+					$title = $prefix." 免費安全套 ".$postfix;
 					break;
 				case "videos":
-					$title = "幸運抽獎工作室 - 相關影片";
+					$title = $prefix." 相關影片 ".$postfix;
 					break;
 				case "hiv_pos":
-					$title = "幸運抽獎工作室 - HIV 陽性";
+					$title = $prefix." HIV 陽性 ".$postfix;
 					break;
 				case "join_us":
-					$title = "幸運抽獎工作室 - 加入我們";
+					$title = $prefix." 加入我們 ".$postfix;
 					break;
 				case "about_us":
-					$title = "幸運抽獎工作室 - 關於我們";
+					$title = $prefix." 關於我們 ".$postfix;
 					break;
 			}
 			break;
 		case CH:
+			$prefix = "爱滋病测试";
+			$postfix = "- 幸运抽奖工作室";
 			switch($global_page) {
 				case "news":
-					$title = "幸运抽奖工作室 - 最新消息";
+					$title = $prefix." 最新消息 ".$postfix;
 					break;
 				case "rapid_test":
-					$title = "幸运抽奖工作室 - 快速测试";
+					$title = $prefix." 快速测试 ".$postfix;
 					break;
 				case "booking":
-					$title = "幸运抽奖工作室 - 预约测试";
+					$title = $prefix." 预约测试 ".$postfix;
 					break;
 				case "booking_form":
-					$title = "幸运抽奖工作室 - Booking Form";
+					$title = $prefix." Booking Form ".$postfix;
 					break;
 				case "confirmation":
-					$title = "幸运抽奖工作室 - Confirmation";
+					$title = $prefix." Confirmation ".$postfix;
 					break;
 				case "free_condom":
-					$title = "幸运抽奖工作室 - 免费安全套";
+					$title = $prefix." 免费安全套 ".$postfix;
 					break;
 				case "videos":
-					$title = "幸运抽奖工作室 - 相关影片";
+					$title = $prefix." 相关影片 ".$postfix;
 					break;
 				case "hiv_pos":
-					$title = "幸运抽奖工作室 - HIV 阳性";
+					$title = $prefix." HIV 阳性 ".$postfix;
 					break;
 				case "join_us":
-					$title = "幸运抽奖工作室 - 加入我们";
+					$title = $prefix." 加入我们 ".$postfix;
 					break;
 				case "about_us":
-					$title = "幸运抽奖工作室 - 关于我们";
+					$title = $prefix." 关于我们 ".$postfix;
 					break;
 			}
 			break;
