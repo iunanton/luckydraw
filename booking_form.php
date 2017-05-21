@@ -29,7 +29,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-21T02:08:41+0800" >
+<meta name="date" content="2017-05-22T00:19:51+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -40,8 +40,24 @@
 <meta http-equiv="expires" content="0">
 <link href="style.css" rel="stylesheet" type="text/css">
 <style type="text/css">
-	#test-confirmation .input-field {
+	.input-field {
 		display: block;	
+	}
+	.input-field::after {
+		content: '';
+		clear: both;
+		display: block;	
+	}
+	.input-field label {
+		width: 100px;
+		float: left;
+		text-align: right;
+		margin-right: 10px;
+		display: block;
+	}
+	.input-field input[type=submit] {
+		float: left;
+		margin-left: 110px;	
 	}
 </style>
 </head>
@@ -67,19 +83,32 @@
 			<h1><?= $header; ?></h1>
 		</div>
 		<div id="wrapper-content">
-			<p><?= $info['date'].' '.$info['time'] ?></p>
 			<p>Please specify your name and contact phone number below in the form fields:</p>
 			<form method="POST" id="test-confirmation" action="confirmation.php">
 				<input type="hidden" name="test" value="<?= $test ?>">
 				<div class="input-field">
-					<label for="name-field">Name:</label>
-					<input type="text" id="name-field" name="name">
+					<label for="name-field">Date:</label>
+					<input type="text" id="name-field" name="date" value="<?= $info['date']; ?>" disabled="true">
 				</div>
 				<div class="input-field">
-					<label for="tel-field">Tel.:</label>
-					<input type="text" id="tel-field" name="tel">
+					<label for="name-field">Time:</label>
+					<input type="text" id="name-field" name="time" value="<?= substr($info['time'], 0, 5); ?>" disabled="true">
 				</div>
-				<input type="submit" value="Confirm">
+
+				<div class="input-field">
+					<label for="name-field">Name:</label>
+					<input type="text" id="name-field" name="name" pattern="[A-Za-z]{1,16}" title="From 1 letter to 16 letters" required>
+				</div>
+				<div class="input-field">
+					<label for="tel-field">Tel.: *</label>
+					<input type="text" id="tel-field" name="tel" pattern="[0-9]{8,13}" title="From 8 to 13 digits" required>
+				</div>
+				<div class="input-field">
+					<input type="submit" value="Confirm">				
+				</div>
+				<div class="input-field">
+					* The Tel. No. for urgent re-arrangement ONLY				
+				</div>
 			</form>
 		</div>
 	</div>
