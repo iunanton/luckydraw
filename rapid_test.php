@@ -17,7 +17,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-22T01:05:59+0800" >
+<meta name="date" content="2017-05-22T01:07:34+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -179,7 +179,7 @@ HTML;
 					var marker_mtr = new google.maps.Marker({
 						position: mtr,
 						map: map,
-						title: 'MTR'
+						title: 'Fire station exit'
 					});
 				}
 			</script>
