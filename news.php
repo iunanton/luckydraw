@@ -19,10 +19,10 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-22T02:46:14+0800" >
+<meta name="date" content="2017-05-22T02:55:08+0800" >
 <meta name="copyright" content="Lucky Draw Studio">
-<meta name="keywords" content="aids test,HIV test,heterosexual,syphilis test,STI test,STD test,愛滋病測試,hiv測試,異性戀,梅毒測試,性病測試">
-<meta name="description" content="aids test,HIV test,heterosexual,syphilis test,STI test,STD test,愛滋病測試,hiv測試,異性戀,梅毒測試,性病測試">
+<meta name="keywords" content="愛滋病測試,AIDS test,hiv測試,hiv test,syphilis test,梅毒測試,性病測試,STD test,STI test,heterosexual,異性戀">
+<meta name="description" content="愛滋病測試,AIDS test,hiv測試,hiv test,syphilis test,梅毒測試,性病測試,STD test,STI test,heterosexual,異性戀">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8">
 <meta http-equiv="content-style-type" content="text/css">
