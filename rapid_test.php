@@ -17,7 +17,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-22T00:42:53+0800" >
+<meta name="date" content="2017-05-22T01:05:59+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -170,10 +170,16 @@ HTML;
 						zoom: 17
 					});
 					var luckydrawstudio = {lat: 22.309973, lng: 114.222658};
+					var mtr = {lat: 22.3117292, lng: 114.2260397};
 					var marker = new google.maps.Marker({
 						position: luckydrawstudio,
 						map: map,
 						title: 'Lucky Draw Studio'
+					});
+					var marker_mtr = new google.maps.Marker({
+						position: mtr,
+						map: map,
+						title: 'MTR'
 					});
 				}
 			</script>
