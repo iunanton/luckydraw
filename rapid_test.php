@@ -17,7 +17,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-22T03:32:57+0800" >
+<meta name="date" content="2017-05-22T03:47:21+0800" >
 <meta name="copyright" content="Lucky Draw Studio">
 <meta name="keywords" content="愛滋病測試,AIDS test,hiv測試,hiv test,syphilis test,梅毒測試,性病測試,STD test,STI test,heterosexual,異性戀">
 <meta name="description" content="愛滋病測試,AIDS test,hiv測試,hiv test,syphilis test,梅毒測試,性病測試,STD test,STI test,heterosexual,異性戀">
@@ -188,8 +188,21 @@ HTML;
 	<?php
 		include('view/footer.php');
 	?>
+	<?php
+		switch($global_lang) {
+			case EN:
+				$google_map_settings = "region=HK&language=en-GB&";
+				break;
+			case ZH:
+				$google_map_settings = "region=HK&language=zh-TW&";
+				break;
+			case CH:
+				$google_map_settings = "region=CN&language=zh-CN&";
+				break;
+		}
+	?>
 	<script async defer
-		src="https://maps.googleapis.com/maps/api/js?region=HK&language=en&key=AIzaSyC0JzzaUAMDLQF-AQ7wdku9Zg2T4IbPvI4&v=3&callback=initMap"
+		src="https://maps.googleapis.com/maps/api/js?<?=$google_map_settings; ?>key=AIzaSyC0JzzaUAMDLQF-AQ7wdku9Zg2T4IbPvI4&v=3&callback=initMap"
 		type="text/javascript">
 	</script>
 </body>
