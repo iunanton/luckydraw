@@ -33,11 +33,10 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-21T02:08:32+0800" >
-<meta name="copyright" content="">
-<meta name="keywords" content="">
-<meta name="description" content="">
-<meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+<meta name="date" content="2017-05-22T02:17:34+0800" >
+<meta name="copyright" content="Lucky Draw Studio">
+<meta name="keywords" content="| aids test | HIV test | heterosexual | syphilis test | STI test | STD test |">
+<meta name="description" content="| aids test | HIV test | heterosexual | syphilis test | STI test | STD test |">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8">
 <meta http-equiv="content-style-type" content="text/css">
