@@ -29,7 +29,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-22T00:19:51+0800" >
+<meta name="date" content="2017-05-22T00:24:54+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -97,11 +97,11 @@
 
 				<div class="input-field">
 					<label for="name-field">Name:</label>
-					<input type="text" id="name-field" name="name" pattern="[A-Za-z]{1,16}" title="From 1 letter to 16 letters" required>
+					<input type="text" id="name-field" name="name" pattern="[A-Za-z\s-]{1,16}" title="From 1 letter to 16 letters" required>
 				</div>
 				<div class="input-field">
 					<label for="tel-field">Tel.: *</label>
-					<input type="text" id="tel-field" name="tel" pattern="[0-9]{8,13}" title="From 8 to 13 digits" required>
+					<input type="text" id="tel-field" name="tel" pattern="[0-9]{8,12}" title="From 8 to 13 digits" required>
 				</div>
 				<div class="input-field">
 					<input type="submit" value="Confirm">				
