@@ -17,7 +17,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-22T03:47:21+0800" >
+<meta name="date" content="2017-05-22T04:30:44+0800" >
 <meta name="copyright" content="Lucky Draw Studio">
 <meta name="keywords" content="愛滋病測試,AIDS test,hiv測試,hiv test,syphilis test,梅毒測試,性病測試,STD test,STI test,heterosexual,異性戀">
 <meta name="description" content="愛滋病測試,AIDS test,hiv測試,hiv test,syphilis test,梅毒測試,性病測試,STD test,STI test,heterosexual,異性戀">
@@ -163,24 +163,49 @@ HTML;
 			<div id="map"></div>
 			<script>
 				var map;
+				var markers = [];
 				function initMap() {
 					//Constructor creates a new map - only center and zoom are required.
 					map = new google.maps.Map(document.getElementById('map'), {
 						center: {lat: 22.309973, lng: 114.224158},
 						zoom: 17
 					});
-					var luckydrawstudio = {lat: 22.309973, lng: 114.222658};
-					var mtr = {lat: 22.3117292, lng: 114.2260397};
-					var marker = new google.maps.Marker({
-						position: luckydrawstudio,
-						map: map,
-						title: 'Lucky Draw Studio'
-					});
-					var marker_mtr = new google.maps.Marker({
-						position: mtr,
-						map: map,
-						title: 'B3 exit (fire station)'
-					});
+					
+					var locations = [
+						{title: 'Lucky Draw Studio', location: {lat: 22.309973, lng: 114.222658}},
+						{title: 'B3 exit (fire station)', location: {lat: 22.3117292, lng: 114.2260397}}
+					];
+
+					var largeInfowindow = new google.maps.InfoWindow();
+					var bounds = new google.maps.LatLngBounds();
+
+					for (var i = 0; i < locations.length; i++) {
+						var position = locations[i].location; 
+						var title = locations[i].title;
+						var marker = new google.maps.Marker({
+							map: map,
+							position: position,
+							title: title,
+							animation: google.maps.Animation.DROP,
+							id: i
+						});
+						markers.push(marker);
+						bounds.extend(marker.position);
+						marker.addListener('click', function () {
+							populateInfoWindow(this, largeInfowindow);
+						});
+					}
+					map.fitBounds(bounds);
+					function populateInfoWindow(marker, infowindow) {
+						if (infowindow.marker != marker) {
+							infowindow.marker = marker;
+							infowindow.setContent('<div>' + marker.title + '</div>');
+							infowindow.open(map, marker);
+							infowindow.addListener('closeclick',function () {
+								infowindow.setMarker(null);
+							});
+						}
+					}
 				}
 			</script>
 		</div>
