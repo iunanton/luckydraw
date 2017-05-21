@@ -1,36 +1,38 @@
 <?php
 	switch($global_lang) {
 		case EN:
+			$prefix = "Heterosexual HIV Test";
+			$postfix = "- Lucky Draw Studio";
 			switch($global_page) {
 				case "news":
-					$title = "Lucky Draw Studio - News";
+					$title = $prefix." News ".$postfix;
 					break;
 				case "rapid_test":
-					$title = "Lucky Draw Studio - Rapid Test";
+					$title = $prefix." ".$postfix;
 					break;
 				case "booking":
-					$title = "Lucky Draw Studio - Test Booking";
+					$title = $prefix." Booking ".$postfix;
 					break;
 				case "booking_form":
-					$title = "Lucky Draw Studio - Booking Form";
+					$title = $prefix." Booking Form ".$postfix;
 					break;
 				case "confirmation":
-					$title = "Lucky Draw Studio - Confirmation";
+					$title = $prefix." Confirmation ".$postfix;
 					break;
 				case "free_condom":
-					$title = "Lucky Draw Studio - Free Condom";
+					$title = $prefix." Free Condom ".$postfix;
 					break;
 				case "videos":
-					$title = "Lucky Draw Studio - Videos";
+					$title = $prefix." Videos ".$postfix;
 					break;
 				case "hiv_pos":
-					$title = "Lucky Draw Studio - HIV+";
+					$title = $prefix." HIV+ ".$postfix;
 					break;
 				case "join_us":
-					$title = "Lucky Draw Studio - Join Us";
+					$title = $prefix." Join Us ".$postfix;
 					break;
 				case "about_us":
-					$title = "Lucky Draw Studio - About Us";
+					$title = $prefix." About Us ".$postfix;
 					break;
 			}
 			break;
