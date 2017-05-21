@@ -17,7 +17,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-22T00:28:11+0800" >
+<meta name="date" content="2017-05-22T00:42:53+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -104,7 +104,7 @@ HTML;
 							$html = <<<HTML
 <p><strong>愛滋病測試 / HIV測試</strong><br>
 <strong>「幸運抽獎工作室」Lucky Draw Studio</strong> 逢星期一至日及公眾假期提供可即日預約無需等幾日的不記名愛滋病測試及其他性病測試，只需拮一下手指，15分鐘就有結果！所有測試過程及結果絕對保密。</p>
-<p>本會未來將會申請政府資助，但現時只靠捐款運作，而捐款全數用於人工、租金、試劑等開支，每日營運開支~$600，預計每人捐$200~300，如有經濟困難請開聲。若捐款持續不足維持成本將會停止服務。</p>
+<p>本會未來將會申請政府資助，但現時只靠捐款運作，而捐款全數用於人工、租金、試劑等開支。每日營運開支~$1000，服務使用者祗需付$600，預計每人捐$200~300。如有經濟困難請開聲。若捐款持續不足維持成本將會停止服務。</p>
 <div class="content-image">
 	<img src="images/tail_3.jpg" alt="test" height="160">
 	<p>熱線電話：<strong>5405 6631</strong></p>
@@ -132,7 +132,7 @@ HTML;
 							$html = <<<HTML
 <p><strong>爱滋病测试 / HIV测试</strong><br>
 <strong>「幸运抽奖工作室」Lucky Draw Studio</strong> 逢星期一至日及公众假期提供可即日预约无需等几日的不记名爱滋病测试及其他性病测试，只需拮一下手指，15分钟就有结果！所有测试过程及结果绝对保密。 </p>
-<p>本会未来将会申请政府资助，但现时只靠捐款运作，而捐款全数用于人工、租金、试剂等开支，每日营运开支~$600，预计每人捐$200~300，如有经济困难请开声。若捐款持续不足维持成本将会停止服务。 </p>
+<p>本会未来将会申请政府资助，但现时只靠捐款运作，而捐款全数用于人工、租金、试剂等开支。每日营运开支~$1000，服务使用者祗需付$600，预计每人捐$200~300。如有经济困难请开声。若捐款持续不足维持成本将会停止服务。</p>
 <div class="content-image">
 	<img src="images/tail_3.jpg" alt="test" height="160">
 	<p>热线电话：<strong>5405 6631</strong></p>
