@@ -17,7 +17,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-22T02:55:11+0800" >
+<meta name="date" content="2017-05-22T03:01:29+0800" >
 <meta name="copyright" content="Lucky Draw Studio">
 <meta name="keywords" content="愛滋病測試,AIDS test,hiv測試,hiv test,syphilis test,梅毒測試,性病測試,STD test,STI test,heterosexual,異性戀">
 <meta name="description" content="愛滋病測試,AIDS test,hiv測試,hiv test,syphilis test,梅毒測試,性病測試,STD test,STI test,heterosexual,異性戀">
@@ -75,6 +75,7 @@
 					switch($global_lang) {
 						case EN:
 							$html = <<<HTML
+<p><strong>AIDS test / HIV test</strong><br>
 <p>Lucky Draw Studio opens Sunday to Saturday and Public Holidays. We provide Anonymous Rapid HIV Test. Only take one drop of blood and the result will come out within 15 munutes. All tests are conducted in private and result will remain Anonymous.</p>
 <p>In the future, we will apply Government funding. Meanwhile, the operation cost is solely by donation. All the donation will spend on wages, rent and test kit expense. The running cost is around HK$1000 daily. Service user only need to pay HK$600 per day, then every service user should donate HK$200-300. If you have any financial difficulties, please let us know beforehand. If the donation cannot cover our cost especially rent, the testing service will stop.</p>
 <div class="content-image">
