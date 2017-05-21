@@ -80,7 +80,7 @@
 					$title = $prefix." 最新消息 ".$postfix;
 					break;
 				case "rapid_test":
-					$title = $prefix." 快速测试 ".$postfix;
+					$title = $prefix." ".$postfix;
 					break;
 				case "booking":
 					$title = $prefix." 预约测试 ".$postfix;
