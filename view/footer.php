@@ -5,21 +5,21 @@
 			$second_column = ARRAY("CONTACT","Tel.: (852) 5405 6631","E-mail: luckydrawkt@gmail.com","<img src=\"images/whatsapp.png\" alt=\"whatsapp\" height=\"36\" style=\"vertical-align:middle\"><span style=\"vertical-align:middle\">WhatsApp: 5405 6631</span>","<img src=\"images/line.png\" alt=\"whatsapp\" height=\"48\" style=\"vertical-align:middle\"><span style=\"vertical-align:middle\">Line ID: luckydrawstudio</span>");
 			$third_column = ARRAY("ADDRESS","Flat 25, 6/F,","Career And Kenson Industrial Mansion,","58 Hung To Rd,","Kwun Tong, HK");
 			$fourth_column = ARRAY("GO UP");
-			$copyright = "Copyright &copy 2016-".YEAR.' <a href="xiaodong.com.ru">XiaoDong.com.ru</a>';
+			$copyright = "Copyright &copy 2016-".YEAR.' <a href="http://xiaodong.com.ru">XiaoDong.com.ru</a>';
 			break;
 		case ZH:
 			$first_column = ARRAY("中心","關於我們","加入我們","工作人員");
 			$second_column = ARRAY("聯絡","電話：(852) 5405 6631","電郵地址：luckydrawkt@gmail.com","<img src=\"images/whatsapp.png\" alt=\"whatsapp\" height=\"36\" style=\"vertical-align:middle\"><span style=\"vertical-align:middle\">WhatsApp: 5405 6631</span>","<img src=\"images/line.png\" alt=\"whatsapp\" height=\"48\" style=\"vertical-align:middle\"><span style=\"vertical-align:middle\">Line ID: luckydrawstudio</span>");
 			$third_column = ARRAY("地址","香港觀塘鴻圖道58號","金凱工業大廈","6樓 25室");
 			$fourth_column = ARRAY("回頂");
-			$copyright = "Copyright &copy 2016-".YEAR.' <a href="xiaodong.com.ru">XiaoDong.com.ru</a>';
+			$copyright = "Copyright &copy 2016-".YEAR.' <a href="http://xiaodong.com.ru">XiaoDong.com.ru</a>';
 			break;
 		case CH:
 			$first_column = ARRAY("中心","关于我们","加入我们","工作人员");
 			$second_column = ARRAY("联络","电话：(852) 5405 6631","电邮地址：luckydrawkt@gmail.com","<img src=\"images/whatsapp.png\" alt=\"whatsapp\" height=\"36\" style=\"vertical-align:middle\"><span style=\"vertical-align:middle\">WhatsApp: 5405 6631</span>","<img src=\"images/line.png\" alt=\"whatsapp\" height=\"48\" style=\"vertical-align:middle\"><span style=\"vertical-align:middle\">Line ID: luckydrawstudio</span>");
 			$third_column = ARRAY("地址","香港觀塘鴻圖道58號","金凱工業大廈","6樓 25室");
 			$fourth_column = ARRAY("回顶");
-			$copyright = "Copyright &copy 2016-".YEAR.' <a href="xiaodong.com.ru">XiaoDong.com.ru</a>';
+			$copyright = "Copyright &copy 2016-".YEAR.' <a href="http://xiaodong.com.ru">XiaoDong.com.ru</a>';
 			break;
 	}
 ?>
