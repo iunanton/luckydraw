@@ -2,7 +2,7 @@
 
 Create online booking system on LAMP
 
-# myDatabase methods
+## myDatabase methods
 
 **public function** getDefaultTimeArray **()**
 ```
@@ -21,3 +21,7 @@ SELECT t.id, t.date, d.time FROM time_slots AS t JOIN default_time AS d ON t.tim
 ```
 SELECT t.id, t.date, d.time FROM time_slots AS t JOIN default_time AS d ON t.time = d.id WHERE t.date >= CURRENT_DATE() ORDER BY t.id;
  ```
+ 
+## Authors
+
+* **Anton Iun** - *Initial work*  - [nah7c00](https://github.com/nah7c00)
