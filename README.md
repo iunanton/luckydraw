@@ -21,6 +21,10 @@ SELECT t.id, t.date, d.time FROM time_slots AS t JOIN default_time AS d ON t.tim
 ```
 SELECT t.id, t.date, d.time FROM time_slots AS t JOIN default_time AS d ON t.time = d.id WHERE t.date >= CURRENT_DATE() ORDER BY t.id;
  ```
+ **public function** setReservation **($time_slot, $name, $tel)**
+ ```
+INSERT INTO reservations (name, phone, time_slot) VALUES (:name, :phone, :time_slot);
+ ```
  
 ## Authors
 
