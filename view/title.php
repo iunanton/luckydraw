@@ -37,7 +37,7 @@
 			}
 			break;
 		case ZH:
-			$prefix = "愛滋病測試";
+			$prefix = "異性戀愛滋病測試";
 			$postfix = "- 幸運抽獎工作室";
 			switch($global_page) {
 				case "news":
@@ -73,7 +73,7 @@
 			}
 			break;
 		case CH:
-			$prefix = "異性戀爱滋病测试";
+			$prefix = "异性恋爱滋病测试";
 			$postfix = "- 幸运抽奖工作室";
 			switch($global_page) {
 				case "news":
