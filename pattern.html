@@ -4,10 +4,11 @@
 <title>Pattern</title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-23T23:55:40+0800" >
+<meta name="date" content="2017-05-24T00:04:24+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
+<meta name="theme-color" content="#FFA366" />
 <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8">
@@ -15,6 +16,19 @@
 <meta http-equiv="expires" content="0">
 <link href="" rel="stylesheet" type="text/css">
 <style type="text/css">
+	/* grid */
+	.container {
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	/* specific item styles */
+
+	.container header,
+	.container nav,
+	.container section,
+	.container footer {
+		grid-column: span 4;
+	}
 </style>
 </head>
 <body>
