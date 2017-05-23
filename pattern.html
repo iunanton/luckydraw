@@ -4,7 +4,7 @@
 <title>Pattern</title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-24T00:12:11+0800" >
+<meta name="date" content="2017-05-24T00:27:50+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -18,26 +18,60 @@
 <style type="text/css">
 	/* grid */
 	.container {
-		grid-template-columns: repeat(4, 1fr);
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-gap: 10px;
 	}
 
-	/* specific item styles */
-
-	.container header,
-	.container nav,
-	.container section,
-	.container footer {
-		grid-column: span 4;
+	.container > * {
+		color: #353535;
+		font-size: 1.2em;
+		line-height: 1.5;
+		padding: 20px;
+		background: #d0cfc5;
+	}
+	
+	.container header img {
+		display: inline-block;
+	}
+	
+	.container header ul {
+		display: inline-block;
+	}
+	
+	.container header ul li {
+		display: inline-block;
+	}
+	 
+	.container nav {
+		background: #136fd2;
+	}
+	 
+	nav ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	 
+	nav a {
+		color: #d0cfc5
+	}
+	 
+	nav a:hover {
+		text-decoration: none;
 	}
 </style>
 </head>
 <body>
-	<div>
-		<header role="banner">
-			<h1>Header</h1>
+	<div class="container">
+		<header>
 			<img src="logo.jpg" alt="logo">
+			<ul>
+				<li>BOOK NOW</li>
+				<li>SHOW</li>			
+			</ul>
 		</header>
-	
+
 		<nav id="nav" role="navigation">    
 			<ul>
 				<li>
