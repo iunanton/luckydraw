@@ -73,7 +73,7 @@
 			}
 			break;
 		case CH:
-			$prefix = "爱滋病测试";
+			$prefix = "異性戀爱滋病测试";
 			$postfix = "- 幸运抽奖工作室";
 			switch($global_page) {
 				case "news":
