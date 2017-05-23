@@ -10,6 +10,6 @@
 			$conn->fillTimeSlotTable($date);
 		}
 	} else {
-		echo "Please open ".__FILE__."?date=YYY-MM";	
+		echo "Please open luckydrawhk.com/class/".basename(__FILE__)."?date=YYYY-MM";	
 	}
 ?>
