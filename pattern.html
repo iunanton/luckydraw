@@ -4,7 +4,7 @@
 <title>Pattern</title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-24T20:28:45+0800" >
+<meta name="date" content="2017-05-24T20:40:15+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -30,6 +30,16 @@
 	
 	.footer-row {
 		display: block;
+	}
+
+	.footer-group {
+		vertical-align: top;
+	}
+
+	.footer-group ul {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;	
 	}
 	
 	/* phones */
@@ -67,6 +77,10 @@
 	
 		.container footer {
 
+		}
+		
+		.footer-row {
+			text-align: left;
 		}
 		
 		.footer-group {
@@ -108,8 +122,12 @@
 			grid-area: 4 / 1 / 5 / 4;	
 		}
 
+		.footer-row {
+			text-align: center;
+		}
+
 		.footer-group {
-			display: inline-block;
+			display: block;
 		}
 		
 	}
@@ -147,8 +165,15 @@
 			grid-area: 4 / 1 / 5 / 4;	
 		}
 
+		.footer-row {
+			text-align: center;
+		}
+
 		.footer-group {
 			display: inline-block;
+			min-width: 300px;
+			margin-left: 10px;
+			margin-right: 10px;
 		}
 
 	}
@@ -211,13 +236,28 @@
 		<footer>
 			<div class="footer-row" id="footer-info">
 				<div class="footer-group">
-					CENTER
+					<h3>CENTER</h3>
+					<ul>
+						<li>About Us</li>
+						<li>Join Us</li>
+						<li>Staff</li>
+					</ul>
 				</div>
 				<div class="footer-group">
-					CONTACT
+					<h3>CONTACT</h3>
+					<ul>
+						<li>Tel.: (852) 5405 6631</li>
+						<li>E-mail: luckydrawkt@gmail.com</li>
+					</ul>
 				</div>
 				<div class="footer-group">
-					ADDRESS
+					<h3>ADDRESS</h3>
+					<ul>
+						<li>Flat 25, 6/F,</li>
+						<li>Career And Kenson Industrial Mansion,</li>
+						<li>58 Hung To Rd,</li>
+						<li>Kwun Tong, HK</li>
+					</ul>
 				</div>
 			</div>
 			<div class="footer-row" id="footer-copyright">Copyright &copy</div>		
