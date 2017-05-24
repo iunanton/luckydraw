@@ -4,7 +4,7 @@
 <title>Pattern</title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-24T19:34:56+0800" >
+<meta name="date" content="2017-05-24T20:11:30+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -17,31 +17,116 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=1" />
 <link href="" rel="stylesheet" type="text/css">
 <style type="text/css">
-	/* laptops */
-	body {
-		background-color: cyan;	
-	}
-	/* tablets */
-	@media only screen and (max-width: 800px) {
-		body {
-			background-color: magenta;	
-		}
-	}
-	
+
 	/* phones */
 	@media only screen and (max-width: 568px) {
 		body {
 			background-color: yellow;	
 		}
+				
+		/* grid */
+		.container {
+			display: grid;
+			grid-template-columns: 300px;
+			grid-gap: 10px;
+		}
+		
+		.container aside {
+			grid-row: 1 / 2;
+		}
+		
+		.container header {
+			grid-row: 2 / 3;
+		}
+
+		.container header img {
+			width: 100%;		
+		}
+		
+		.container nav {
+			display: none;
+		}
+	
+		.container section {
+			grid-row: 3 / 4;
+		}
+	
+		.container footer {
+			grid-row: 4 / 5;
+		}
+		
 	}
 	
-	/* grid */
-	.container {
-		display: grid;
-		grid-template-columns: repeat(8, 1fr);
-		grid-gap: 10px;
+	/* tablets */ 
+	@media only screen and (min-width: 569px) and (max-width: 800px) {
+		body {
+			background-color: magenta;	
+		}
+
+		/* grid */
+		.container {
+			display: grid;
+			grid-template-columns: 1fr 86% 1fr;
+			grid-gap: 10px;
+		}
+		
+		.container aside {
+			display: none;	
+		}
+		
+		.container header {
+			grid-area: 1 / 1 / 2 / 4;	
+		}
+		
+		.container nav {
+			grid-area: 2 / 1 / 3 / 4;	
+		}
+	
+		.container section {
+			grid-area: 3 / 2 / 4 / 3;	
+		}
+	
+		.container footer {
+			grid-area: 4 / 1 / 5 / 4;	
+		}
+		
 	}
 
+	/* laptops */
+	@media only screen and (min-width: 801px) {
+		body {
+			background-color: cyan;	
+		}
+		
+		/* grid */
+		.container {
+			display: grid;
+			grid-template-columns: 1fr 1000px 1fr;
+			grid-gap: 10px;
+		}
+		
+		.container aside {
+			display: none;	
+		}
+		
+		.container header {
+			grid-area: 1 / 1 / 2 / 4;	
+		}
+		
+		.container nav {
+			grid-area: 2 / 1 / 3 / 4;	
+		}
+	
+		.container section {
+			grid-area: 3 / 2 / 4 / 3;	
+		}
+	
+		.container footer {
+			grid-area: 4 / 1 / 5 / 4;	
+		}
+	}
+	
+/*
 	.container > * {
 		color: #353535;
 		font-size: 1.2em;
@@ -79,48 +164,24 @@
 	nav a:hover {
 		text-decoration: none;
 	}
+*/
 </style>
 </head>
 <body>
 	<div class="container">
-		<header>
-			<img src="logo.jpg" alt="logo">
-			<ul>
-				<li>BOOK NOW</li>
-				<li>SHOW</li>			
-			</ul>
-		</header>
-
-		<nav id="nav" role="navigation">    
-			<ul>
-				<li>
-					<a href="#">Item 1</a>
-				</li>
-				<li>
-					<a href="#">Item 2</a>
-				</li>
-				<li>
-					<a href="#">Item 3</a>
-				</li>
-			</ul>
-		</nav>
-		
+		<aside>open nav-bar and test booking link</aside>
+		<header><img src="logo.jpg" alt="logo"></header>
+		<nav>navigation-bar</nav>
+		<section>NEWS</section>
 		<section role="main">
 			<article>
-				<h2>Article</h2>
+				<h2>News # 1</h2>
 				<p>Curabitur orci lacus, auctor ut facilisis nec, ultricies quis nibh. Phasellus id diam sollicitudin, malesuada turpis id, gravida erat. Maecenas placerat elit vel hendrerit convallis. Sed in mauris ut justo vulputate viverra feugiat ac dui. Fusce feugiat arcu in vehicula vehicula. Donec varius justo at nulla aliquet volutpat.</p> 
 				<p>Ut id rutrum eros. Nulla tristique, magna et mattis vulputate, mi eros suscipit turpis, nec bibendum turpis nunc feugiat sapien. Nunc arcu est, lacinia id diam quis, sagittis euismod neque. Nullam fringilla velit sed porta gravida. Proin eu vulputate libero. Ut a lacinia enim. Etiam venenatis mauris et orci tempor congue. Sed tempor eros et ultricies congue. Aenean sed efficitur orci. Nulla vel tempus mi.</p>
 				<p>Ut cursus suscipit augue, id sagittis nibh faucibus eget. Etiam suscipit ipsum eu augue ultricies, at rhoncus mi faucibus. In et tellus vitae leo scelerisque fringilla nec at nunc.</p>
 			</article>
 		</section>
-	
-		<aside>
-			<h3>Aside</h3>
-		</aside>
-	
-		<footer>
-			<h3>Footer</h3>
-		</footer>
+		<footer>Footer is here</footer>
 	</div>
 </body>
 </html>
