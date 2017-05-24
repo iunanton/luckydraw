@@ -4,8 +4,8 @@
 <title>Pattern</title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-24T20:14:55+0800" >
-<meta name="copyright" content="">
+<meta name="date" content="2017-05-24T20:28:45+0800" >
+<meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="theme-color" content="#FFA366" />
@@ -18,6 +18,20 @@
 <link href="" rel="stylesheet" type="text/css">
 <style type="text/css">
 
+	body {
+		margin: 0;
+		padding: 0;
+	}
+
+	footer {
+		background-color: #EEEEEE;
+		color: #305D7C;
+	}
+	
+	.footer-row {
+		display: block;
+	}
+	
 	/* phones */
 	@media only screen and (max-width: 568px) {
 		body {
@@ -55,6 +69,10 @@
 
 		}
 		
+		.footer-group {
+			display: block;
+		}
+		
 	}
 	
 	/* tablets */ 
@@ -88,6 +106,10 @@
 	
 		.container footer {
 			grid-area: 4 / 1 / 5 / 4;	
+		}
+
+		.footer-group {
+			display: inline-block;
 		}
 		
 	}
@@ -124,6 +146,11 @@
 		.container footer {
 			grid-area: 4 / 1 / 5 / 4;	
 		}
+
+		.footer-group {
+			display: inline-block;
+		}
+
 	}
 	
 /*
@@ -181,7 +208,20 @@
 				<p>Ut cursus suscipit augue, id sagittis nibh faucibus eget. Etiam suscipit ipsum eu augue ultricies, at rhoncus mi faucibus. In et tellus vitae leo scelerisque fringilla nec at nunc.</p>
 			</article>
 		</section>
-		<footer>Footer is here</footer>
+		<footer>
+			<div class="footer-row" id="footer-info">
+				<div class="footer-group">
+					CENTER
+				</div>
+				<div class="footer-group">
+					CONTACT
+				</div>
+				<div class="footer-group">
+					ADDRESS
+				</div>
+			</div>
+			<div class="footer-row" id="footer-copyright">Copyright &copy</div>		
+		</footer>
 	</div>
 </body>
 </html>
