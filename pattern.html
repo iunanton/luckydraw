@@ -4,7 +4,7 @@
 <title>Pattern</title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-26T23:29:46+0800" >
+<meta name="date" content="2017-05-26T23:39:43+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -84,10 +84,19 @@
 			width: 100%;		
 		}
 		
-		.container nav {
-			display: none;
+		#nav {
+			position: fixed; /* or choose `absolute` depending on desired behavior*/
+			top: 0;
+			bottom: 0;
+			width: 300px;
+			left: -340px;
+			transition: transform .3s ease-in-out;
 		}
-	
+		
+		#nav:target {
+			transform: translateX(340px);
+		}
+		
 		.container section {
 			padding-left: 10px;
 			padding-right: 10px;
@@ -282,9 +291,12 @@
 </head>
 <body>
 	<div class="container">
-		<aside>open nav-bar and test booking link</aside>
+		<aside>
+			<a href="#nav">open nav-bar</a>
+			and test booking link
+		</aside>
 		<header><img src="logo.jpg" alt="logo"></header>
-		<nav>
+		<nav id="nav">
 			<div class="nav-link" id="news"><a href="#">NEWS</a></div>
 			<div class="nav-link" id="rapid-test"><a href="#">RAPID TEST</a></div>
 			<div class="nav-link" id="test-booking"><a href="#">TEST BOOKING</a></div>
