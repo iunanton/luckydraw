@@ -4,7 +4,7 @@
 <title>Pattern</title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-24T23:44:22+0800" >
+<meta name="date" content="2017-05-26T23:25:52+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -70,7 +70,6 @@
 		.container {
 			display: grid;
 			grid-template-columns: 1fr;
-			grid-gap: 10px;
 		}
 		
 		.container aside {
@@ -123,7 +122,6 @@
 		.container {
 			display: grid;
 			grid-template-columns: 1fr 86% 1fr;
-			grid-gap: 10px;
 		}
 		
 		.container aside {
@@ -133,6 +131,10 @@
 		.container header {
 			grid-area: 2 / 1 / 3 / 4;
 			padding: 10px 10px 10px 10px;
+		}
+
+		.container header img {
+			width: 100%;		
 		}
 		
 		.container nav {
@@ -172,7 +174,6 @@
 		.container {
 			display: grid;
 			grid-template-columns: 1fr 1000px 1fr;
-			grid-gap: 10px;
 		}
 		
 		.container aside {
@@ -180,7 +181,12 @@
 		}
 		
 		.container header {
-			grid-area: 1 / 1 / 2 / 4;	
+			grid-area: 1 / 1 / 2 / 4;
+			padding: 10px 10px 10px 10px;
+		}
+
+		.container header img {
+			height: 100px;		
 		}
 		
 		.container nav {
