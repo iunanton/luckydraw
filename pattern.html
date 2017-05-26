@@ -4,7 +4,7 @@
 <title>Pattern</title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-27T02:37:48+0800" >
+<meta name="date" content="2017-05-27T03:14:37+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -78,14 +78,20 @@
 			color: inherit;
 		}
 		
-		#booking-now {
-			display: inline-block;
-			padding: 5px 5px 5px 5px;
-			border-width: thin;
-			border-style: solid;
-			border-color: inherit;		
+		.container aside::after {
+			display: block;	
+			content: '';
+			clear: both;
 		}
 		
+		.container aside .menu {
+		 float: left;
+		}
+		
+		.container aside .book-now {
+		 float: right;
+		}
+				
 		.container header {
 			padding: 10px 10px 10px 10px;
 		}
@@ -144,7 +150,24 @@
 		}
 		
 		.container aside {
-			grid-area: 1 / 1 / 2 / 4;	
+			grid-area: 1 / 1 / 2 / 4;
+			padding: 10px 10px 10px 10px;
+			background-color: #FFA366;
+			color: inherit;
+		}
+		
+		.container aside::after {
+			display: block;	
+			content: '';
+			clear: both;
+		}
+		
+		.container aside .menu {
+		 float: left;
+		}
+		
+		.container aside .book-now {
+		 float: right;
 		}
 		
 		.container header {
@@ -302,8 +325,12 @@
 <body>
 	<div class="container">
 		<aside>
-			<a href="#nav"><img src="images/menu_icon.png" alt="menu" height="36"></a>
-			<div id="booking-now">Test Booking Now</div>
+			<div class="menu">
+				<a href="#nav"><img src="images/menu_icon.png" alt="menu" height="36"></a>			
+			</div>
+			<div class="book-now">
+				<a href="#">Book Test Now</a>
+			</div>
 		</aside>
 		<header><img src="logo.jpg" alt="logo"></header>
 		<nav id="nav">
