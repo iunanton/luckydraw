@@ -60,6 +60,9 @@
 		width: 1000px;
 		margin-left: 150px;
 	}
+	#wrapper a {
+		color: inherit;
+	}
 	#page div {
 		display: block;	
 	}

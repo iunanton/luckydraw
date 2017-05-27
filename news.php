@@ -19,7 +19,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-27T16:15:36+0800" >
+<meta name="date" content="2017-05-27T16:55:57+0800" >
 <meta name="copyright" content="Lucky Draw Studio">
 <meta name="keywords" content="愛滋病測試，AIDS測試，hiv測試，愛滋測試九龍，AIDS測試九龍，hiv測試九龍，aids test kowloon,hiv test kowloon,aids test, hiv test,梅毒測試，syphilis test,梅毒測試，性病測試，STD test,STI test,heterosexual,異性戀">
 <meta name="description" content="愛滋病測試，AIDS測試，hiv測試，愛滋測試九龍，AIDS測試九龍，hiv測試九龍，aids test kowloon,hiv test kowloon,aids test, hiv test,梅毒測試，syphilis test,梅毒測試，性病測試，STD test,STI test,heterosexual,異性戀">
@@ -64,6 +64,7 @@
 				switch($global_lang) {
 					case EN:
 						$html = <<<HTML
+<h2>With reference to non Goverment funded heterosexual AIDS test or HIV test</h2>
 <p>Refer to Government statement, No MSM (gay) HIV testing resourse can be used for heterosexual testing service. On the other hand, we understand heterosexuals seeking HIV test and support are very difficult. Even there are some testing service but booking may not be the same day.</p>
 <p>It cannot ease the anxiety. So a new non-Government funded heterosexuals testing center (Lucky Draw Studio) will be established in Hung To Road Kwun Tong to serve heterosexuals. The testing center will open Sunday to Saturday, 16:30 to 20:30.</p>
 <p><strong>Lucky Draw Studio</strong> starts running on 1st April 2017. We will provide rapid HIV test and Syphilis test. Due to the Internet booking web page is not finished at the moment, you may use the telephone booking.
@@ -73,7 +74,7 @@ HTML;
 						break;
 					case ZH:
 						$html = <<<HTML
-<h2>有關異性戀者的非政府資助測試服務</h2>
+<h2>有關異性戀者愛滋病測試或HIV測試的非政府資助服務</h2>
 <p>因政府通知，不能使用同志測試服務的資源為異性戀者提供測試服務，但亦明白異性戀者尋找快速測試服務或支援是極為困難，即使有測試服務亦未必能做到即日測試，亦未能解決即時的擔心，所以新的非政府資助異性戀者測試中心(幸運抽獎工作室)將會在觀塘鴻圖道開業為大家服務，測試中心服務時間為星期一至日、下午四時三十分至八時三十分。</p>
 <p>而幸運抽獎工作室於4月1日正式運作，為大家提供HIV愛滋病及Syphilis梅毒快速測試服務。因為網上預約系統未能預期完成，所以暫時只有電話預約。</p>
 <p>亦因為沒有政府資助，所以成本將由捐款支出，成本包括租金、人工、試劑等等，煩請各位踴躍捐助。測試中心門口水牌為「幸運抽獎工作室」及並沒有提及任何疾病的字眼在門口。所有內容不記名及保密。由有處理數以十計positive case經驗的職員主理。</p>
