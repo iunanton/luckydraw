@@ -33,7 +33,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-27T16:59:31+0800" >
+<meta name="date" content="2017-05-27T17:09:09+0800" >
 <meta name="copyright" content="Lucky Draw Studio">
 <meta name="keywords" content="愛滋病測試，AIDS測試，hiv測試，愛滋測試九龍，AIDS測試九龍，hiv測試九龍，aids test kowloon,hiv test kowloon,aids test, hiv test,梅毒測試，syphilis test,梅毒測試，性病測試，STD test,STI test,heterosexual,異性戀">
 <meta name="description" content="愛滋病測試，AIDS測試，hiv測試，愛滋測試九龍，AIDS測試九龍，hiv測試九龍，aids test kowloon,hiv test kowloon,aids test, hiv test,梅毒測試，syphilis test,梅毒測試，性病測試，STD test,STI test,heterosexual,異性戀">
@@ -68,7 +68,17 @@
 			<h1><?= $header; ?></h1>
 		</div>
 		<div id="wrapper-content">
-			<h2>Heterosexual AIDS Test or HIV Test</h2>
+			<?php
+				switch($global_lang) {
+					case EN:
+						$subheader = "<h2>Heterosexual AIDS Test or HIV Test</h2>";
+						break;
+					case ZH:
+						$subheader = "<h2>異性戀愛滋病測試或HIV測試</h2>";
+						break;
+				}
+			?>
+			<?=$subheader; ?>			
 			<p>What date and time would you like an appointment?</p>
 			<?php
 				//Create calendar for current date
