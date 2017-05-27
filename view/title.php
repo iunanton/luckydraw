@@ -72,42 +72,6 @@
 					break;
 			}
 			break;
-		case CH:
-			$prefix = "异性恋爱滋病测试";
-			$postfix = "- 幸运抽奖工作室";
-			switch($global_page) {
-				case "news":
-					$title = $prefix." 最新消息 ".$postfix;
-					break;
-				case "rapid_test":
-					$title = $prefix." ".$postfix;
-					break;
-				case "booking":
-					$title = $prefix." 预约测试 ".$postfix;
-					break;
-				case "booking_form":
-					$title = $prefix." Booking Form ".$postfix;
-					break;
-				case "confirmation":
-					$title = $prefix." Confirmation ".$postfix;
-					break;
-				case "free_condom":
-					$title = $prefix." 免费安全套 ".$postfix;
-					break;
-				case "videos":
-					$title = $prefix." 相关影片 ".$postfix;
-					break;
-				case "hiv_pos":
-					$title = $prefix." HIV 阳性 ".$postfix;
-					break;
-				case "join_us":
-					$title = $prefix." 加入我们 ".$postfix;
-					break;
-				case "about_us":
-					$title = $prefix." 关于我们 ".$postfix;
-					break;
-			}
-			break;
 	}
 ?>
 <title><?=$title; ?></title>

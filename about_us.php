@@ -17,7 +17,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-23T15:57:58+0800" >
+<meta name="date" content="2017-05-27T15:53:33+0800" >
 <meta name="copyright" content="Lucky Draw Studio">
 <meta name="keywords" content="愛滋病測試，AIDS測試，hiv測試，愛滋測試九龍，AIDS測試九龍，hiv測試九龍，aids test kowloon,hiv test kowloon,aids test, hiv test,梅毒測試，syphilis test,梅毒測試，性病測試，STD test,STI test,heterosexual,異性戀">
 <meta name="description" content="愛滋病測試，AIDS測試，hiv測試，愛滋測試九龍，AIDS測試九龍，hiv測試九龍，aids test kowloon,hiv test kowloon,aids test, hiv test,梅毒測試，syphilis test,梅毒測試，性病測試，STD test,STI test,heterosexual,異性戀">
@@ -70,14 +70,6 @@ HTML;
 <p>愛滋病測試電話預約: <strong>5405 6631</strong></p>
 <p>星期一至日開放時間 <strong>16:30 - 20:30</strong></p>
 <p>電郵地址：luckydrawkt@gmail.com</p>
-HTML;
-						break;
-					case CH:
-						$html = <<<HTML
-<p><strong>幸运抽奖工作室Lucky Draw Studio</strong>是支援社A-Backup的分支，是一个非牟利团体，因为政府未能资助异性恋者的测试服务，所以本工作室会以自负盈亏的形式运作，而一切成本均由捐款中支出， 并于观塘测试中心提供爱滋病病毒抗体和性病测试服务。</p>
-<p>爱滋病测试电话预约: <strong>5405 6631</strong></p>
-<p>星期一至日开放时间 <strong>16:30 - 20:30</strong></p>
-<p>电邮地址：luckydrawkt@gmail.com</p>
 HTML;
 						break;
 				}

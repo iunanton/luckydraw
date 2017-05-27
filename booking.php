@@ -33,7 +33,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-23T15:58:10+0800" >
+<meta name="date" content="2017-05-27T15:53:53+0800" >
 <meta name="copyright" content="Lucky Draw Studio">
 <meta name="keywords" content="愛滋病測試，AIDS測試，hiv測試，愛滋測試九龍，AIDS測試九龍，hiv測試九龍，aids test kowloon,hiv test kowloon,aids test, hiv test,梅毒測試，syphilis test,梅毒測試，性病測試，STD test,STI test,heterosexual,異性戀">
 <meta name="description" content="愛滋病測試，AIDS測試，hiv測試，愛滋測試九龍，AIDS測試九龍，hiv測試九龍，aids test kowloon,hiv test kowloon,aids test, hiv test,梅毒測試，syphilis test,梅毒測試，性病測試，STD test,STI test,heterosexual,異性戀">
@@ -62,9 +62,6 @@
 						break;
 					case ZH:
 						$header = "預約測試";
-						break;
-					case CH:
-						$header = "预约测试";
 						break;
 				}
 			?>

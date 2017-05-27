@@ -17,7 +17,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-23T15:58:38+0800" >
+<meta name="date" content="2017-05-27T15:54:52+0800" >
 <meta name="copyright" content="Lucky Draw Studio">
 <meta name="keywords" content="愛滋病測試，AIDS測試，hiv測試，愛滋測試九龍，AIDS測試九龍，hiv測試九龍，aids test kowloon,hiv test kowloon,aids test, hiv test,梅毒測試，syphilis test,梅毒測試，性病測試，STD test,STI test,heterosexual,異性戀">
 <meta name="description" content="愛滋病測試，AIDS測試，hiv測試，愛滋測試九龍，AIDS測試九龍，hiv測試九龍，aids test kowloon,hiv test kowloon,aids test, hiv test,梅毒測試，syphilis test,梅毒測試，性病測試，STD test,STI test,heterosexual,異性戀">
@@ -61,9 +61,6 @@
 						break;
 					case ZH:
 						$header = "快速測試";
-						break;
-					case CH:
-						$header = "快速测试";
 						break;
 				}
 			?>
@@ -124,34 +121,6 @@ HTML;
 	</tr>
 	</tr>
 		<td colspan="7"><strong>最快捷方便</strong> >>> <a href="booking.php?lang=$global_lang">按此網上預約</a></td>
-	</tr>
-</table>
-HTML;
-							break;
-						case CH:
-							$html = <<<HTML
-<p><strong>爱滋病测试 / HIV测试</strong><br>
-<strong>「幸运抽奖工作室」Lucky Draw Studio</strong> 逢星期一至日及公众假期提供可即日预约无需等几日的不记名爱滋病测试及其他性病测试，只需拮一下手指，15分钟就有结果！所有测试过程及结果绝对保密。 </p>
-<p>本会未来将会申请政府资助，但现时只靠捐款运作，而捐款全数用于人工、租金、试剂等开支。每日营运开支~$1000，服务使用者祗需付$600，预计每人捐$200~300。如有经济困难请早开声。若捐款持续不足维持成本将会停止服务。</p>
-<div class="content-image">
-	<img src="images/tail_3.jpg" alt="test" height="160">
-	<p>热线电话：<strong>5405 6631</strong></p>
-</div>
-<table class="content-table">
-	<tr>
-		<th class="selected">SUN</th>
-		<th>MON</th>
-		<th>TUE</th>
-		<th>WED</th>
-		<th>THU</th>
-		<th>FRI</th>
-		<th>SAT</th>
-	</tr>
-	<tr>
-		<td colspan="7">服务时间 <strong>16:30 - 20:30</strong><br>请电 <strong>5405 6631</strong> 或 <a href="booking.php?lang=$global_lang">网上预约</a></td >
-	</tr>
-	</tr>
-		<td colspan="7"><strong>最快捷方便</strong> >>> <a href="booking.php?lang=$global_lang">按此网上预约</a></td>
 	</tr>
 </table>
 HTML;
