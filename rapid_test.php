@@ -17,7 +17,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-27T16:57:14+0800" >
+<meta name="date" content="2017-05-27T17:16:15+0800" >
 <meta name="copyright" content="Lucky Draw Studio">
 <meta name="keywords" content="愛滋病測試，AIDS測試，hiv測試，愛滋測試九龍，AIDS測試九龍，hiv測試九龍，aids test kowloon,hiv test kowloon,aids test, hiv test,梅毒測試，syphilis test,梅毒測試，性病測試，STD test,STI test,heterosexual,異性戀">
 <meta name="description" content="愛滋病測試，AIDS測試，hiv測試，愛滋測試九龍，AIDS測試九龍，hiv測試九龍，aids test kowloon,hiv test kowloon,aids test, hiv test,梅毒測試，syphilis test,梅毒測試，性病測試，STD test,STI test,heterosexual,異性戀">
@@ -73,7 +73,7 @@
 						case EN:
 							$html = <<<HTML
 <p><strong>Heterosexual AIDS Test or HIV Test</strong><br>
-<strong><a href="luckydrawhk.com">Lucky Draw Studio</a></strong> opens Sunday to Saturday and Public Holidays. We provide Anonymous Rapid HIV Test. Only take one drop of blood and the result will come out within 15 munutes. All tests are conducted in private and result will remain Anonymous.</p>
+<strong>Lucky Draw Studio</strong> (www.luckydrawhk.com) opens Sunday to Saturday and Public Holidays. We provide Anonymous Rapid HIV Test. Only take one drop of blood and the result will come out within 15 munutes. All tests are conducted in private and result will remain Anonymous.</p>
 <p>In the future, we will apply Government funding. Meanwhile, the operation cost is solely by donation. All the donation will spend on wages, rent and test kit expense. The running cost is around HK$1000 daily. Service user only need to pay HK$600 per day, then every service user should donate HK$200-300. If you have any financial difficulties, please let us know beforehand. If the donation cannot cover our cost especially rent, the testing service will stop.</p>
 <div class="content-image">
 	<img src="images/tail_3.jpg" alt="test" height="160">
@@ -100,7 +100,7 @@ HTML;
 						case ZH:
 							$html = <<<HTML
 <p><strong>異性戀愛滋病測試或HIV測試</strong><br>
-<strong><a href="luckydrawhk.com">「幸運抽獎工作室」Lucky Draw Studio</a></strong> 逢星期一至日及公眾假期提供可即日預約無需等幾日的不記名愛滋病測試及其他性病測試，只需拮一下手指，15分鐘就有結果！所有測試過程及結果絕對保密。</p>
+<strong>「幸運抽獎工作室」Lucky Draw Studio</strong> (www.luckydrawhk.com) 逢星期一至日及公眾假期提供可即日預約無需等幾日的不記名愛滋病測試及其他性病測試，只需拮一下手指，15分鐘就有結果！所有測試過程及結果絕對保密。</p>
 <p>本會未來將會申請政府資助，但現時只靠捐款運作，而捐款全數用於人工、租金、試劑等開支。每日營運開支~$1000，服務使用者祗需付$600，預計每人捐$200~300。如有經濟困難請早開聲。若捐款持續不足維持成本將會停止服務。</p>
 <div class="content-image">
 	<img src="images/tail_3.jpg" alt="test" height="160">
