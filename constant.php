@@ -13,4 +13,5 @@
 	define("END_OF_BOOKING_TIME", "16:00:00", false);
 	define("OPERATION_TIME_FROM", "16:00:00", false);
 	define("OPERATION_TIME_TO", "21:00:00", false);
+	$lang_array = array("1","2");
 ?>

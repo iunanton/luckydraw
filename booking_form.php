@@ -1,6 +1,6 @@
 <?php
 	require_once('constant.php');
-	if(isset($_GET['lang'])) {
+	if(isset($_GET['lang']) && in_array($_GET['lang'], $lang_array)) {
 		$global_lang = $_GET['lang'];
 	} else {
 		$global_lang = ZH;
@@ -29,7 +29,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-23T16:00:22+0800" >
+<meta name="date" content="2017-05-27T16:15:12+0800" >
 <meta name="copyright" content="Lucky Draw Studio">
 <meta name="keywords" content="">
 <meta name="description" content="">
