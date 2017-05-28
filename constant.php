@@ -13,4 +13,11 @@
 	define("END_OF_BOOKING_TIME", "16:00:00", false);
 	define("OPERATION_TIME_FROM", "16:00:00", false);
 	define("OPERATION_TIME_TO", "21:00:00", false);
+	if(isset($_GET['lang'])) {
+	$global_lang = $_GET['lang'];
+	} else {
+		$global_lang = ZH;
+	}
+	
+	$global_page = basename(__FILE__, '.php');
 ?>
