@@ -9,7 +9,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-29T02:18:32+0800" >
+<meta name="date" content="2017-05-29T02:21:18+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -62,7 +62,7 @@
 	
 	nav a {
 		display: inline-block;
-		padding: 10px 10px 10px 10px;	
+		padding: 10px 5px 10px 5px;	
 	}
 	
 	nav a:hover {
