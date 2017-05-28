@@ -9,7 +9,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-29T02:27:06+0800" >
+<meta name="date" content="2017-05-29T02:30:07+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -51,7 +51,7 @@
 
 	.language-bar a {
 		display: inline-block;
-		padding: 0 5px 0 5px;	
+		padding: 5px 10px 5px 10px;	
 	}
 	
 	header {
