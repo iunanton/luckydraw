@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+	require_once("constant.php");
+?>
 <html>
 <head>
 	<?php
@@ -6,7 +9,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-29T02:10:32+0800" >
+<meta name="date" content="2017-05-29T02:18:32+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -103,17 +106,12 @@
 </head>
 <body>
 	<div class="container">
-	<?php
-		include("view/header.php");
-	?>
-		<nav>
-			<ul class="nav-bar">
-				<li class="nav-link"><a href="#"><br>NEWS</a></li>
-				<li class="nav-link"><a href="#">RAPID TEST</a></li>
-				<li class="nav-link"><a href="#">TEST BOOKING</a></li>
-				<li class="nav-link"><a href="#">FREE CONDOM</a></li>
-			</ul>
-		</nav>
+		<?php
+			include("view/header.php");
+		?>
+		<?php
+			include("view/navigation_bar.php");
+		?>
 		<div class="wrapper">
 			<div class="wrapper-header">
 				<h1>News</h1>
