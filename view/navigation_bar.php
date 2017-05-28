@@ -1,7 +1,7 @@
 <?php
 	switch($global_lang) {
 		case EN:
-			$news = "NEWS";
+			$news = "<br>NEWS";
 			$rapid_test = "RAPID TEST";
 			$test_booking = "TEST BOOKING";
 			$free_condom = "FREE CONDOM";
@@ -30,7 +30,7 @@
 <nav>
 	<ul class="nav-bar">
 		<li class="nav-link<?=$news_class_modifier; ?>">
-			<a href="news.php?lang=<?=$global_lang ?>"><br><?= $news; ?></a>
+			<a href="news.php?lang=<?=$global_lang ?>"><?= $news; ?></a>
 		</li>
 		<li class="nav-link<?=$rapid_test_class_modifier; ?>">
 			<a href="rapid_test.php?lang=<?=$global_lang ?>"><?= $rapid_test; ?></a>

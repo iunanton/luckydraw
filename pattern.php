@@ -9,7 +9,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-29T02:21:18+0800" >
+<meta name="date" content="2017-05-29T02:27:06+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -37,6 +37,21 @@
 	
 	a {
 		color: inherit;
+	}
+	
+	.language-bar ul {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+	}
+	
+	.language-bar li {
+		display: inline-block;
+	}
+
+	.language-bar a {
+		display: inline-block;
+		padding: 0 5px 0 5px;	
 	}
 	
 	header {
@@ -106,6 +121,9 @@
 </head>
 <body>
 	<div class="container">
+		<?php
+			include("view/language_bar.php");
+		?>
 		<?php
 			include("view/header.php");
 		?>
