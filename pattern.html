@@ -4,7 +4,7 @@
 <title>Pattern</title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-27T23:10:39+0800" >
+<meta name="date" content="2017-05-29T00:00:38+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -26,422 +26,44 @@
 		color: #305D7C;
 	}
 	
-	nav {
-		color: inherit;	
+	.container {
+		display: block;
 	}
 	
-	.wrapper-header {
-		font-size: 24px;	
+	.container header {
+		padding: 10px 10px 10px 10px;
+	}
+
+	.container header img {
+		width: 100%;		
 	}
 	
 	footer {
-		background-color: #EEEEEE;
+		font-size: 12px;
+		background-color: #98D9D3;
 		color: #305D7C;
 	}
 	
 	.footer-row {
 		display: block;
-		padding: 10px 10px 10px 10px;
+		padding: 10px 10px 10px 10px;		
+		text-align: left;
 	}
-
-	#footer-copyright {
-		background-color: #98D9D3;
-	}
-
+	
 	.footer-group {
+		display: block;
 		vertical-align: top;
 	}
 	
-	.footer-group a {
-		color: inherit;	
-	}
-
-	.footer-group ul {
-		list-style-type: none;
-		padding: 0;
-		margin: 0;	
-	}
-	
-	/* phones */
-	@media only screen and (max-width: 568px) {
-				
-		/* grid */
-		.container {
-			display: grid;
-			grid-template-columns: 1fr;
-		}
-		
-		.container aside {
-			background-color: #EEEEEE;
-			color: inherit;
-		}
-		
-		.container aside::after {
-			display: block;	
-			content: '';
-			clear: both;
-		}
-		
-		.container aside .menu {
-			float: left;
-		}
-		
-		.container aside .menu a {
-			display: inline-block;
-			padding: 10px 10px 10px 10px;
-			font-weight: bold;
-			background-color: #305D7C;
-			color: #EEEEEE;
-			text-decoration: none;
-		}
-		
-		.container aside .book-now {
-			float: right;
-		}
-		
-		.container aside .book-now a {
-			display: inline-block;
-			padding: 10px 10px 10px 10px;
-			font-weight: bold;
-			color: inherit;
-			text-decoration: none;
-		}
-				
-		.container header {
-			padding: 10px 10px 10px 10px;
-		}
-
-		.container header img {
-			width: 100%;		
-		}
-		
-		#nav {
-			position: fixed; /* or choose `absolute` depending on desired behavior*/
-			top: 0;
-			bottom: 0;
-			width: 200px;
-			left: -240px;
-			transition: transform .3s ease-in-out;
-		}
-		
-		#nav:target {
-			transform: translateX(240px);
-		}
-		
-		.container nav {
-			background-color: #FFFFFF;
-			color: inherit;
-			box-shadow: 0 0 10px #305D7C;
-		}
-	
-		.container nav .nav-bar {
-			list-style-type: none;
-			padding: 0;
-			margin: 0;
-		}
-		
-		.container nav .nav-bar .nav-link {
-			display: block;
-		}
-		
-		.container nav .nav-bar .nav-link:hover {
-			background-color: #EEEEEE;
-		}
-		
-		.container nav .nav-bar .nav-link a {
-			display: inline-block;
-			padding: 10px 10px 10px 10px;
-			border-bottom: thin solid #305D7C;
-			color: inherit;
-			text-decoration: none;
-		}
-
-		
-		.container section {
-			padding-left: 10px;
-			padding-right: 10px;
-		}
-	
-		.container footer {
-
-		}
-		
-		footer {
-			font-size: 12px;		
-		}
-		
-		.footer-row {
-			text-align: left;
-		}
-		
-		#footer-copyright {
-			font-size: 10px;		
-		}
-		
-		.footer-group {
-			display: block;
-		}
-		
-	}
-	
-	/* tablets */ 
-	@media only screen and (min-width: 569px) and (max-width: 800px) {
-
-		/* grid */
-		.container {
-			display: grid;
-			grid-template-columns: 1fr 86% 1fr;
-		}
-		
-		.container aside {
-			grid-area: 1 / 1 / 2 / 4;
-			padding: 10px 10px 10px 10px;
-			background-color: #FFA366;
-			color: inherit;
-		}
-		
-		.container aside::after {
-			display: block;	
-			content: '';
-			clear: both;
-		}
-		
-		.container aside .menu {
-			float: left;
-		}
-		
-		.container aside .menu a {
-			font-weight: bold;
-			color: inherit;
-			text-decoration: none;
-		}
-		
-		.container aside .book-now {
-			float: right;
-		}
-		
-		.container aside .book-now a {
-			font-weight: bold;
-			color: inherit;
-			text-decoration: none;
-		}
-		
-		.container header {
-			grid-area: 2 / 1 / 3 / 4;
-			padding: 10px 10px 10px 10px;
-		}
-
-		.container header img {
-			width: 100%;		
-		}
-		
-		#nav {
-			position: fixed; /* or choose `absolute` depending on desired behavior*/
-			top: 0;
-			bottom: 0;
-			width: 300px;
-			left: -340px;
-			transition: transform .3s ease-in-out;
-		}
-		
-		#nav:target {
-			transform: translateX(340px);
-		}
-		
-		.container nav {
-			background-color: #FFA366;
-			color: inherit;	
-		}
-/*
-		.container nav .nav-bar {
-			list-style-type: none;
-			padding: 0;
-			margin: 0;
-		}
-		
-		.container nav .nav-bar .nav-link {
-			display: inline-block;
-		}
-		
-		.container nav .nav-bar .nav-link.toggle {
-			display: none;
-		}
-		
-		.container nav .nav-bar .nav-link:hover {
-			background-color: #FF6600;
-		}
-		
-		.container nav .nav-bar .nav-link a {
-			display: inline-block;
-			padding: 10px 10px 10px 10px;
-			color: inherit;
-			font-weight: bold;
-			text-decoration: none;
-		}
-*/
-		.container section {
-			grid-area: 3 / 2 / 4 / 3;	
-		}
-	
-		.container footer {
-			grid-area: 4 / 1 / 5 / 4;	
-		}
-		
-		footer {
-			font-size: 14px;		
-		}
-		
-		.footer-row {
-			text-align: center;
-		}
-		
-		#footer-copyright {
-			font-size: 12px;		
-		}
-
-		.footer-group {
-			display: block;
-		}
-		
-	}
-
-	/* laptops */
-	@media only screen and (min-width: 801px) {
-		
-		/* grid */
-		.container {
-			display: grid;
-			grid-template-columns: 1fr 1000px 1fr;
-		}
-		
-		.container aside {
-			display: none;	
-		}
-		
-		.container header {
-			grid-area: 1 / 1 / 2 / 4;
-			padding: 10px 10px 10px 10px;
-		}
-
-		.container header img {
-			height: 100px;		
-		}
-		
-		.container nav {
-			grid-area: 2 / 1 / 3 / 4;
-			background-color: #FFA366;
-			color: inherit;
-		}
-		
-		.container nav .nav-bar {
-			list-style-type: none;
-			padding: 0;
-			margin: 0;
-		}
-		
-		.container nav .nav-bar .nav-link {
-			display: inline-block;
-		}
-		
-		.container nav .nav-bar .nav-link.toggle {
-			display: none;
-		}
-		
-		.container nav .nav-bar .nav-link:hover {
-			background-color: #FF6600;
-		}
-		
-		.container nav .nav-bar .nav-link a {
-			display: inline-block;
-			padding: 10px 10px 10px 10px;
-			color: inherit;
-			text-decoration: none;
-		}
-		
-		.container section {
-			grid-area: 3 / 2 / 4 / 3;	
-		}
-	
-		.container footer {
-			grid-area: 4 / 1 / 5 / 4;	
-		}
-
-		footer {
-			font-size: 14px;		
-		}
-		
-		.footer-row {
-			text-align: center;
-		}
-		
-		#footer-copyright {
-			font-size: 12px;		
-		}
-
-		.footer-group {
-			display: inline-block;
-			min-width: 200px;
-			margin-left: 10px;
-			margin-right: 10px;
-		}
-
-	}
-	
-/*
-	.container > * {
-		color: #353535;
-		font-size: 1.2em;
-		line-height: 1.5;
-		padding: 20px;
-		background: #d0cfc5;
-	}
-	
-	.container header img {
-		display: inline-block;
-	}
-	
-	.container header ul {
-		display: inline-block;
-	}
-	
-	.container header ul li {
-		display: inline-block;
-	}
-	 
-	.container nav {
-		background: #136fd2;
-	}
-	 
-	nav ul {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
-	 
-	nav a {
-		color: #d0cfc5
-	}
-	 
-	nav a:hover {
-		text-decoration: none;
-	}
-*/
 </style>
 </head>
 <body>
 	<div class="container">
-		<aside>
-			<div class="menu toggle">
-				<a href="#nav">&#9776; Menu</a>			
-			</div>
-			<div class="book-now">
-				<a href="#">Book Test Now</a>
-			</div>
-		</aside>
-		<header><img src="logo.jpg" alt="logo"></header>
-		<nav id="nav">
+		<header>
+			<img src="logo.jpg" alt="logo">
+		</header>
+		<nav>
 			<ul class="nav-bar">
-				<li class="nav-link toggle"><a href="#">&#9746;</a></li>
 				<li class="nav-link"><a href="#">NEWS</a></li>
 				<li class="nav-link"><a href="#">RAPID TEST</a></li>
 				<li class="nav-link"><a href="#">TEST BOOKING</a></li>
@@ -458,6 +80,7 @@
 			</div>
 			<div class="wrapper-content">
 				<article>
+					<h2>With reference to non Goverment funded heterosexual AIDS test or HIV test</h2>
 					<p>Refer to Government statement, No MSM (gay) HIV testing resourse can be used for heterosexual testing service. On the other hand, we understand heterosexuals seeking HIV test and support are very difficult. Even there are some testing service but booking may not be the same day.</p>
 					<p>It cannot ease the anxiety. So a new non-Government funded heterosexuals testing center (Lucky Draw Studio) will be established in Hung To Road Kwun Tong to serve heterosexuals. The testing center will open Sunday to Saturday, 16:30 to 20:30.</p>
 					<p>Lucky Draw Studio starts running on 1st April 2017. We will provide rapid HIV test and Syphilis test. Due to the Internet booking web page is not finished at the moment, you may use the telephone booking. Because there is no Government funding, all the cost will depended on donation which included rent, wages and test kit etc. Please donate. The Testing Center door sign is Lucky Draw Studio and it has no wording of any diseases. All tests are conducted privately and result will remain Anonymous. Our testing staff has tens of HIV positive cases experience.</p>
