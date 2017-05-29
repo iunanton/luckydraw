@@ -1,7 +1,7 @@
 <?php
 	switch($global_lang) {
 		case EN:
-			$news = "<br>NEWS";
+			$news = "WHAT'S NEWS";
 			$rapid_test = "RAPID TEST";
 			$test_booking = "TEST BOOKING";
 			$free_condom = "FREE CONDOM";
