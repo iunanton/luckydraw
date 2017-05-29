@@ -10,7 +10,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-29T23:57:51+0800" >
+<meta name="date" content="2017-05-30T00:04:15+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="愛滋病測試，AIDS測試，hiv測試，愛滋測試九龍，AIDS測試九龍，hiv測試九龍，aids test kowloon,hiv test kowloon,aids test, hiv test,梅毒測試，syphilis test,梅毒測試，性病測試，STD test,STI test,heterosexual,異性戀">
 <meta name="description" content="愛滋病測試，AIDS測試，hiv測試，愛滋測試九龍，AIDS測試九龍，hiv測試九龍，aids test kowloon,hiv test kowloon,aids test, hiv test,梅毒測試，syphilis test,梅毒測試，性病測試，STD test,STI test,heterosexual,異性戀">
@@ -178,42 +178,9 @@ HTML;
 				<?=$html; ?>
 			</div>
 		</div>
-		<footer>
-			<div class="footer-row" id="footer-info">
-				<div class="footer-group">
-					<h3>CENTER</h3>
-					<ul>
-						<li><a href="#">Videos</a></li>
-						<li><a href="#">HIV+</a></li>
-						<li><a href="#">About Us</a></li>
-						<li><a href="#">Join Us</a></li>
-						<li><a href="#">Staff</a></li>
-					</ul>
-				</div>
-				<div class="footer-group">
-					<h3>CONTACT</h3>
-					<ul>
-						<li>Tel.: (852) 5405 6631</li>
-						<li>E-mail: luckydrawkt@gmail.com</li>
-						<li>WhatsApp: 5405 6631</li>
-						<li>Line ID: luckydrawstudio</li>
-					</ul>
-				</div>
-				<div class="footer-group">
-					<h3>ADDRESS</h3>
-					<ul>
-						<li>Flat 25, 6/F,</li>
-						<li>Career And Kenson Industrial Mansion,</li>
-						<li>58 Hung To Rd,</li>
-						<li>Kwun Tong, HK</li>
-					</ul>
-				</div>
-				<div class="footer-group">
-					<h3><a href="#">GO UP</a></h3>
-				</div>
-			</div>
-			<div class="footer-row" id="footer-copyright">Copyright &copy 2016-2017 <a>XIAODONG IT Consulting</a></div>		
-		</footer>
+		<?php
+			include("view/footer.php");
+		?>
 	</div>
 </body>
 </html>
