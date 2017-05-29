@@ -64,6 +64,45 @@
 		padding-right: 10px;
 	}
 	
+	.content-image {
+		width: 100%;
+		text-align: center;
+	}
+	.content-image p {
+		margin: 0 auto;	
+	}
+	.content-table {
+		width: 100%;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		text-align: center;
+		border-collapse: collapse;
+		border-color: #305D7C;
+	}
+	.content-table tr {
+		text-align: inherit;
+		border-color: inherit;	
+	}
+	.content-table th {
+		padding: 5px 5px 5px 5px;
+		text-align: inherit;
+		background-color: #EEEEEE;
+		border-width: thin;
+		border-style: solid;
+		border-color: inherit;
+	}
+	.content-table th.selected {
+		background-color: #FFA366;
+	}
+	.content-table td {
+		padding: 20px 20px 20px 20px;
+		text-align: inherit;
+		background-color: #FFFFFF;
+		border-width: thin;
+		border-style: solid;
+		border-color: inherit;
+	}
+
 	footer {
 		font-size: 12px;
 		background-color: #EEEEEE;
