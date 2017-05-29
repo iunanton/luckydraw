@@ -1,6 +1,4 @@
 DirectoryIndex news.php
 RewriteEngine On
-# Check for mime types commonly accepted by mobile devices
-RewriteCond %{HTTP_ACCEPT} "text\/vnd\.wap\.wml|application\/vnd\.wap\.xhtml\+xml" [NC]
-RewriteCond %{REQUEST_URI} ^/$
-RewriteRule ^ http://m.luckydrawhk.com%{REQUEST_URI} [R,L]
+RewriteCond %{HTTP_USER_AGENT} "android|blackberry|googlebot-mobile|iemobile|ipad|iphone|ipod|opera mobile|palmos|webos" [NC]
+RewriteRule ^$ http://m.luckydrawhk.com/ [L,R=302]
