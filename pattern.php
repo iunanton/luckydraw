@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-	require_once("constant.php");
+	require_once('constant.php');
 	$global_page = basename(__FILE__, '.php');
 ?>
 <html>
@@ -10,7 +10,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-30T00:59:25+0800" >
+<meta name="date" content="2017-05-30T01:05:43+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
