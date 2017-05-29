@@ -13,11 +13,24 @@
 	define("END_OF_BOOKING_TIME", "16:00:00", false);
 	define("OPERATION_TIME_FROM", "16:00:00", false);
 	define("OPERATION_TIME_TO", "21:00:00", false);
-	if(isset($_GET['lang'])) {
-	$global_lang = $_GET['lang'];
-	} else {
-		$global_lang = ZH;
-	}
 	
+/*
+	ko_KR
+	zh-TW
+	en-US
+*/	
+	
+	$lang = array("EN", "ZH");
+	
+	$locale = Locale::acceptFromHttp($_SERVER['HTTP_ACCEPT_LANGUAGE']);
+	switch($locale) {
+		case "en_US": $global_lang = EN;
+			break;
+		case "zh_TW": $global_lang = ZH;
+			break;
+		default: $global_lang = ZH;
+			break;
+	}
+		
 	$global_page = basename(__FILE__, '.php');
 ?>
