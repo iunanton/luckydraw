@@ -28,15 +28,11 @@
 			break;
 		case "en": $global_lang = EN;
 			break;
-		case "EN": $global_lang = EN;
-			break;
 		case "zh_TW": $global_lang = ZH;
 			break;
 		case "zn": $global_lang = ZH;
 			break;
-		case "ZN": $global_lang = ZH;
-			break;
-		default: $global_lang = ZH;
+		default: $global_lang = EN;
 			break;
 	}
 		
