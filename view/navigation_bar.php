@@ -30,16 +30,16 @@
 <nav>
 	<ul class="nav-bar">
 		<li class="nav-link<?=$news_class_modifier; ?>">
-			<a href="news.php?lang=<?=$global_lang ?>"><?= $news; ?></a>
+			<a href="news.php"><?= $news; ?></a>
 		</li>
 		<li class="nav-link<?=$rapid_test_class_modifier; ?>">
-			<a href="rapid_test.php?lang=<?=$global_lang ?>"><?= $rapid_test; ?></a>
+			<a href="rapid_test.php"><?= $rapid_test; ?></a>
 		</li>
 		<li class="nav-link<?=$booking_class_modifier; ?>">
-			<a href="booking.php?lang=<?=$global_lang ?>"><?= $test_booking; ?></a>
+			<a href="booking.php"><?= $test_booking; ?></a>
 		</li>
 		<li class="nav-link<?=$free_condom_class_modifier; ?>">
-			<a href="free_condom.php?lang=<?=$global_lang ?>"><?=$free_condom; ?></a>
+			<a href="free_condom.php"><?=$free_condom; ?></a>
 		</li>
 	</ul>
 </nav>
