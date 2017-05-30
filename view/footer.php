@@ -21,11 +21,11 @@
 		<div class="footer-group">
 			<h3><?=$first_column[0]; ?></h3>
 			<ul>
-				<li><a href="videos.php">Videos</a></li>
-				<li><a href="hiv_pos.php">HIV+</a></li>
-				<li><a href="about_us.php">About Us</a></li>
-				<li><a href="join_us.php">Join Us</a></li>
-				<li><a href="private/summary.php">Staff</a></li>
+				<li><a href="videos.php"><?=$first_column[1]; ?></a></li>
+				<li><a href="hiv_pos.php"><?=$first_column[2]; ?></a></li>
+				<li><a href="about_us.php"><?=$first_column[3]; ?></a></li>
+				<li><a href="join_us.php"><?=$first_column[4]; ?></a></li>
+				<li><a href="private/summary.php"><?=$first_column[5]; ?></a></li>
 			</ul>
 		</div>
 		<div class="footer-group">
