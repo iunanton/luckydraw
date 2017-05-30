@@ -20,7 +20,7 @@
 	<div class="footer-row" id="footer-info">
 		<div class="footer-group">
 			<h3><?=$first_column[0]; ?></h3>
-			<ul>
+			<ul class="nav">
 				<li><a href="videos.php"><?=$first_column[1]; ?></a></li>
 				<li><a href="hiv_pos.php"><?=$first_column[2]; ?></a></li>
 				<li><a href="about_us.php"><?=$first_column[3]; ?></a></li>
@@ -39,7 +39,7 @@
 		</div>
 		<div class="footer-group">
 			<h3><?=$third_column[0]; ?></h3>
-			<ul>
+			<ul class="address">
 				<li><?=$third_column[1]; ?></li>
 				<li><?=$third_column[2]; ?></li>
 				<li><?=$third_column[3]; ?></li>

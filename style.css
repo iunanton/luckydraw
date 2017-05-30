@@ -134,6 +134,19 @@
 		margin: 0;	
 	}
 	
+	.footer-group ul.nav li {
+		display: inline-block;
+		margin-right: 10px;
+	}
+	
+	.footer-group ul.nav li:last-child {
+		margin-right: 0;
+	}
+	
+	.footer-group ul.address li {
+		display: inline-block;
+	}
+	
 	#footer-copyright {
 		font-size: 10px;		
 		background-color: #98D9D3;
