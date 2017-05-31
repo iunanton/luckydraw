@@ -9,7 +9,7 @@
 <title>Test Page - Weekly</title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-01T06:09:55+0800" >
+<meta name="date" content="2017-06-01T06:30:55+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -49,7 +49,7 @@
 */
 	.calendar-day-header {
 		grid-column: 1 / 2;
-		border-left-width: thin;
+/*		border-left-width: thin;
 		border-left-style: solid;
 		border-left-color: #305D7C;
 		border-top-width: thin;
@@ -57,7 +57,7 @@
 		border-top-color: #305D7C;
 		border-bottom-width: thin;
 		border-bottom-style: solid;
-		border-bottom-color: #305D7C;
+		border-bottom-color: #305D7C;*/
 		padding: 5px 5px 5px 5px;
 		vertical-align: top;
 	}
@@ -75,7 +75,7 @@
 	}
 	.calendar-day-content {
 		grid-column: 2 / 3;
-		border-top-width: thin;
+/*		border-top-width: thin;
 		border-top-style: solid;
 		border-top-color: #305D7C;
 		border-bottom-width: thin;
@@ -83,7 +83,7 @@
 		border-bottom-color: #305D7C;
 		border-right-width: thin;
 		border-right-style: solid;
-		border-right-color: #305D7C;
+		border-right-color: #305D7C;*/
 	}
 	.calendar-time-slot {
 		display: inline-block;
