@@ -4,7 +4,7 @@
 <title></title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-01T05:43:30+0800" >
+<meta name="date" content="2017-06-01T06:02:18+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -21,7 +21,8 @@
 	}
 	.calendar {
 		display: grid;
-		grid-template-columns: 50px auto;	
+		grid-template-columns: 50px auto;
+		grid-row-gap: 10px;
 	}
 	.calendar-month-header {
 		grid-column: 1 / 3;
@@ -33,11 +34,26 @@
 		font-weight: bold;
 		font-size: 24px;	
 	}
+/*	.calendar-day {
+		grid-column: 1 / 3;
+		border-width: thin;
+		border-style: solid;
+		border-color: #305D7C;	
+	}
+*/
 	.calendar-day-header {
 		grid-column: 1 / 2;
-		margin: 5px 5px 5px 5px;
-		width: 40px;
-		vertical-align: top;	
+		border-left-width: thin;
+		border-left-style: solid;
+		border-left-color: #305D7C;
+		border-top-width: thin;
+		border-top-style: solid;
+		border-top-color: #305D7C;
+		border-bottom-width: thin;
+		border-bottom-style: solid;
+		border-bottom-color: #305D7C;
+		padding: 5px 5px 5px 5px;
+		vertical-align: top;
 	}
 	.calendar-day-number {
 		display: block;
@@ -53,11 +69,15 @@
 	}
 	.calendar-day-content {
 		grid-column: 2 / 3;
-		overflow:hidden;
-		width: auto;
-		border-width: thin;
-		border-style: solid;
-		border-color: black;	
+		border-top-width: thin;
+		border-top-style: solid;
+		border-top-color: #305D7C;
+		border-bottom-width: thin;
+		border-bottom-style: solid;
+		border-bottom-color: #305D7C;
+		border-right-width: thin;
+		border-right-style: solid;
+		border-right-color: #305D7C;
 	}
 	.calendar-time-slot {
 		display: inline-block;
