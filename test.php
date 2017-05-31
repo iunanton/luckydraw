@@ -4,7 +4,7 @@
 <title></title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-01T05:41:51+0800" >
+<meta name="date" content="2017-06-01T05:43:30+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -40,7 +40,7 @@
 		vertical-align: top;	
 	}
 	.calendar-day-number {
-		display: inline-block;
+		display: block;
 		color: inherit;
 		font-style: normal;
 		font-variant: normal;
@@ -48,7 +48,7 @@
 		font-size: 24px;
 	}
 	.calendar-day-description {
-		display: inline-block;
+		display: block;
 		color: inherit;
 	}
 	.calendar-day-content {
