@@ -1,20 +1,26 @@
 <!DOCTYPE html>
+<?php
+	require_once('constant.php');
+	require_once('class/mydatabase.php');
+	$global_page = basename(__FILE__, '.php');
+?>
 <html>
 <head>
-<title></title>
+<title>Test Page - Weekly</title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-01T06:02:18+0800" >
+<meta name="date" content="2017-06-01T06:09:55+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+<meta name="theme-color" content="#FFA366" />
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8">
 <meta http-equiv="content-style-type" content="text/css">
 <meta http-equiv="expires" content="0">
 <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=1" />
-<link href="" rel="stylesheet" type="text/css">
+<link href="style.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 	body {
 		color: #305D7C;
@@ -88,17 +94,48 @@
 </style>
 </head>
 <body>
-
-	<?php
-		echo "Try to include calendar class<br>";
-		include("class/calendar.class.php");
-		echo "Create calendar object<br>";
-		$current_day = date("Y-m-d", time());
-		echo $current_day."<br>";
-		$obj = new calendar($current_day);
-		echo "Call render() method<br>";
-		$obj->render();
-	?>
-
+	<div class="container">
+		<?php
+			include('view/header.php');
+		?>
+		<?php
+			include('view/navigation_bar.php');
+		?>
+		<div class="wrapper">
+			<div class="wrapper-header">
+				<?php
+					switch($global_lang) {
+						case EN:
+							$header = "Booking";
+							break;
+						case ZH:
+							$header = "預約測試";
+							break;
+						case CH:
+							$header = "预约测试";
+							break;
+					}
+				?>
+				<h1><?= $header; ?></h1>
+			</div>
+			<div class="wrapper-content">
+				<h2>Heterosexual AIDS Test or HIV Test</h2>
+				<p>What date and time would you like an appointment?</p>
+				<?php
+					echo "Try to include calendar class<br>";
+					include("class/calendar.class.php");
+					echo "Create calendar object<br>";
+					$current_day = date("Y-m-d", time());
+					echo $current_day."<br>";
+					$obj = new calendar($current_day);
+					echo "Call render() method<br>";
+					$obj->render();
+				?>
+			</div>
+		</div>
+		<?php
+			include('view/footer.php');
+		?>
+	</div>
 </body>
 </html>
