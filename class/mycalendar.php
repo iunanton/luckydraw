@@ -251,7 +251,7 @@ class myCalendar {
 				$this->html.= '</table>';
 			} elseif($this->mayPhoneBooking($list_date)) {
 				//show notice
-				$this->html.= 'Please call us for today\'s booking';			
+				$this->html.= 'Please call 5405 6631 for today\'s booking';			
 			}
 	
 			//close td tag
