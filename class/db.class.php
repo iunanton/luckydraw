@@ -46,7 +46,6 @@
 		
 		public function getTimeSlots($page = 1) {
 			$start_from = ($page-1) * $this->results_per_page;
-//			$sql = "SELECT * FROM ".$datatable." ORDER BY ID ASC LIMIT $start_from, ".$results_per_page;
 			$sql = "SELECT t.id, t.date, d.time, r.id AS reservation FROM time_slots AS t JOIN default_time AS d ON t.time = d.id LEFT JOIN reservations AS r ON t.id = r.time_slot ORDER BY t.id DESC LIMIT $start_from, $this->results_per_page";
 			$stmt = $this->pdo->prepare($sql);
 			$stmt->execute();
@@ -77,6 +76,17 @@
 			$stmt = $this->pdo->prepare($sql);
 			$stmt->bindParam(':time', $timeSlot);
 			$stmt->execute();
+		}
+		
+		public function getReservations() {
+			$sql = "SELECT r.id, t.date, d.time, r.name, r.phone, r.reservation_time";
+			$sql.= " FROM reservations AS r";
+			$sql.= " JOIN time_slots AS t ON r.time_slot = t.id";
+			$sql.= " JOIN default_time AS d ON t.time = d.id";
+			$stmt = $this->pdo->prepare($sql);
+			$stmt->execute();
+			$reservations = $stmt->fetchAll();
+			return $reservations;
 		}
 	}
 ?>
