@@ -12,11 +12,11 @@
 	
 	$db_conn = new db();
 	
-	if(isset($_GET['start_day']) && isset($_GET['end_day']) && isset($_GET['timeSlots'])) {
-		$start_day = $_GET['start_day'];
-		$end_day = $_GET['end_day'];
-		$timeSlots = $_GET['timeSlots'];
-		//script
+	if(isset($_GET['start-day']) && isset($_GET['end-day']) && isset($_GET['timeSlots'])) {
+		$start_day = new DateTime($_GET['start-day']);
+		$end_day = new DateTime($_GET['end-day']);
+		$timeSlots = array_map('intval', $_GET['timeSlots']);
+		$db_conn->addTimeSlots($start_day, $end_day, $timeSlots);
 		$prompt = "Time slots were added.";
 	}
 	if(isset($_GET['id'])) {
@@ -32,7 +32,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-01T21:58:24+0800" >
+<meta name="date" content="2017-06-02T07:17:07+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -88,31 +88,30 @@
 				}
 			?>
 			<p><?=$todayIs; ?></p>
-			Add new service time.<br><br>
+			(UPDATED) Add new service time.<br><br>
 			Enter date period to fill and choose time slots from default ones shown below:<br><br>
 			<!--Add new time slot form-->
 			<form action="" method="GET">
 				<!--Try date input here-->
 				<div class="form-date">
 					<label for="start-date"><?=$from; ?></label>
-					<input id="start-date" type="date">
+					<input id="start-date" type="date" name="start-day">
 				</div>
 				<div class="form-date">
 					<label for="end-date"><?=$to; ?></label>
-					<input id="end-date" type="date">
+					<input id="end-date" type="date" name="end-day">
 				</div>
 				<div class="form-time-slots">
 					<?php
-						$conn = new myDatabase();
-						$defaultTimeArray = $conn->getDefaultTimeArray();
+						$defaultTimeSlots = $db_conn->getDefaultTimeSlots();
 						$timeSlotsOnRow = 3;
 						
 						$i = 0;
-						foreach ($defaultTimeArray as $key => $time) {
+						foreach ($defaultTimeSlots as $key => $time) {
 							if(!($i % $timeSlotsOnRow)) {
 								echo "<br>";							
 							}
-							echo '<input id="time-slot-'.$key.'" type="checkbox" />';
+							echo '<input id="time-slot-'.$key.'" type="checkbox" name="timeSlots[]"  value="'.$key.'" />';
 							echo '<label for="time-slot-'.$key.'">'.$time.'</label>';
 							$i++;
 						}
