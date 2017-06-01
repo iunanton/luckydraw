@@ -46,7 +46,10 @@
 		
 		public function getTimeSlots($page = 1) {
 			$start_from = ($page-1) * $this->results_per_page;
-			$sql = "SELECT t.id, t.date, d.time, r.id AS reservation FROM time_slots AS t JOIN default_time AS d ON t.time = d.id LEFT JOIN reservations AS r ON t.id = r.time_slot ORDER BY t.id DESC LIMIT $start_from, $this->results_per_page";
+			$sql = "SELECT t.id, t.date, d.time, r.id AS reservation";
+			$sql.= " FROM time_slots AS t JOIN default_time AS d ON t.time = d.id";
+			$sql.= " LEFT JOIN reservations AS r ON t.id = r.time_slot";
+			$sql.= " ORDER BY t.id DESC LIMIT $start_from, $this->results_per_page";
 			$stmt = $this->pdo->prepare($sql);
 			$stmt->execute();
 			$TimeArray = $stmt->fetchAll();
@@ -78,11 +81,21 @@
 			$stmt->execute();
 		}
 		
+		public function getReservationsCount() {
+			$sql = "SELECT COUNT(id)";
+			$sql.= " FROM reservations";
+			$stmt = $this->pdo->prepare($sql);
+			$stmt->execute();
+			$count = $stmt->fetchColumn();
+			return ceil($count / $this->results_per_page);
+		}		
+		
 		public function getReservations() {
-			$sql = "SELECT r.id, t.date, d.time, r.name, r.phone, r.reservation_time";
-			$sql.= " FROM reservations AS r";
-			$sql.= " JOIN time_slots AS t ON r.time_slot = t.id";
+//SELECT r.id, t.date, d.time, r.name, r.phone, r.reservation_time, r.cancelled FROM reservations AS r JOIN time_slots AS t ON r.time_slot = t.id JOIN default_time AS d ON t.time = d.id;
+			$sql = "SELECT r.id, t.date, d.time, r.name, r.phone, r.reservation_time, r.cancelled";
+			$sql.= " FROM reservations AS r JOIN time_slots AS t ON r.time_slot = t.id";
 			$sql.= " JOIN default_time AS d ON t.time = d.id";
+			$sql.= " ORDER BY t.id DESC";
 			$stmt = $this->pdo->prepare($sql);
 			$stmt->execute();
 			$reservations = $stmt->fetchAll();
