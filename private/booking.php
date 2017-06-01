@@ -4,6 +4,12 @@
 	require_once('../class/db.class.php');
 	require_once('../class/mydatabase.php');
 	$global_page = basename(__FILE__, '.php');
+	if (isset($_GET["page"])) {
+		$page  = $_GET["page"];
+	} else {
+		$page=1;
+	};
+	
 	$db_conn = new db();
 ?>
 <html>
@@ -13,7 +19,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-01T19:55:40+0800" >
+<meta name="date" content="2017-06-01T20:57:25+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -52,24 +58,52 @@
 		</div>
 		<div class="wrapper-content">
 			<?php
-				$conn = new myDatabase();
-				$reservations = $conn->getAllReservations();
-				echo "<strong>".sizeof($reservations)." appointment(s)</strong> was founded:<br><br>";
-				echo '<table class="sql-query">';
-				echo "<tr>";
-				echo "<th>id</th><th>date</th><th>time</th><th>name</th><th>phone</th><th>the booking received at</th>";
-				echo "</tr>";
-				foreach ($reservations as $reservation) {
-					echo "<tr>";
-					echo "<td>".$reservation['id']."</td>";
-					echo "<td>".$reservation['date']."</td>";
-					echo "<td>".$reservation['time']."</td>";
-					echo "<td>".$reservation['name']."</td>";
-					echo "<td>".$reservation['phone']."</td>";
-					echo "<td>".$reservation['reservation_time']."</td>";
-					echo "</tr>";	
-				}
-				echo "</table>";
+				$reservations = $db_conn->getReservations();
+			?>
+				<p><strong><?=sizeof($reservations);?> appointment(s)</strong> was founded:</p>
+				<table class="sql-query">
+					<tr>
+						<?php
+							switch($global_lang) {
+								case EN:
+									echo "<th>#</th><th>Date</th><th>Time</th><th>Name</th><th>Phone</th><th>The booking received at</th><th>Cancel</th>";
+									break;
+								case ZH:
+									echo "<th>id</th><th>日期</th><th>時間</th><th>名字</th><th>電話</th><th>接收時間</th><th>取消</th>";
+									break;
+							}
+						?>
+						
+					</tr>
+					<?php
+							switch($global_lang) {
+								case EN:
+									$cancel = "Cancel";
+									$cancelled = "Cancelled";
+									break;
+								case ZH:
+									$cancel = "取消";
+									$cancelled = "己經取消了";
+									break;	
+							}
+						foreach ($reservations as $reservation) {
+							echo "<tr>";
+							echo "<td>".$reservation['id']."</td>";
+							echo "<td>".$reservation['date']."</td>";
+							echo "<td>".$reservation['time']."</td>";
+							echo "<td>".$reservation['name']."</td>";
+							echo "<td>".$reservation['phone']."</td>";
+							echo "<td>".$reservation['reservation_time']."</td>";
+							echo "<td>".($reservation['cancelled'] ? $cancelled : $cancel)."</td>";	
+						}
+					?>
+				</tr>
+			</table>
+		</div>
+		<div class="wrapper-footer">
+			<?php
+				$total_pages = $db_conn->getReservationsCount();
+				include('../view/page_nav.php');
 			?>
 		</div>
 	</div>

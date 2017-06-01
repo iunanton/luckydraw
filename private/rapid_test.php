@@ -32,7 +32,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-01T20:04:55+0800" >
+<meta name="date" content="2017-06-01T20:44:51+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -120,6 +120,10 @@
 					<input type="submit" name="" value="OK" />
 				</div>
 			</form>
+			<?php
+				$timeSlots = $db_conn->getTimeSlots($page);
+			?>
+			<p><strong><?=sizeof($timeSlots);?> record(s)</strong> was showed:</p>
 			<table class="sql-query">
 				<tr>
 					<?php
@@ -144,8 +148,6 @@
 							$notBooked = "沒有預訂";
 							break;	
 					}
-					$total_pages = $db_conn->getTimeSlotsCount();
-					$timeSlots = $db_conn->getTimeSlots($page);
 					foreach ($timeSlots as $timeSlot) {
 						echo '<tr>';
 						echo '<td>'.$timeSlot['id'].'</td>';
@@ -160,6 +162,7 @@
 		</div>
 		<div class="wrapper-footer">
 			<?php
+				$total_pages = $db_conn->getTimeSlotsCount();
 				include('../view/page_nav.php');
 			?>
 		</div>
