@@ -44,10 +44,17 @@
 		background-color: #FFA366;
 	}
 
-	nav li {
+	.nav-bar li {
 		display: inline-block;
 		vertical-align: middle;
 		width: 24%;
+		text-align: center;
+	}
+
+	.private-nav-bar li {
+		display: inline-block;
+		vertical-align: middle;
+		width: 19%;
 		text-align: center;
 	}
 	
@@ -111,6 +118,42 @@
 		border-width: thin;
 		border-style: solid;
 		border-color: inherit;
+	}
+	
+	.sql-query {
+		width: 100%;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		text-align: center;
+		border-collapse: collapse;
+		border-color: #305D7C;
+	}
+	.sql-query tr {
+		text-align: inherit;
+		border-color: inherit;	
+	}
+	.sql-query th,
+	.sql-query td {
+		padding: 5px 5px 5px 5px;
+		text-align: inherit;
+		background-color: #EEEEEE;
+		border-width: thin;
+		border-style: solid;
+		border-color: inherit;
+	}
+	.sql-query td {
+		background-color: #FFFFFF;
+	}
+
+	.wrapper-footer ul {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.wrapper-footer li {
+		display: inline-block;
+		margin-right: 10px;
 	}
 
 	footer {
