@@ -32,7 +32,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-02T07:17:07+0800" >
+<meta name="date" content="2017-06-02T07:35:50+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -142,10 +142,12 @@
 					switch($global_lang) {
 						case EN:
 						$delete = "Delete";
+						$booked = "booked out";
 						$notBooked = "Not booked";
 							break;
 						case ZH:	
 							$delete = "刪除";
+							$booked = "已經預訂了";
 							$notBooked = "沒有預訂";
 							break;	
 					}
@@ -155,7 +157,11 @@
 						echo '<td>'.$timeSlot['date'].'</td>';
 						echo '<td>'.$timeSlot['time'].'</td>';
 						echo '<td>'.(is_null($timeSlot['reservation']) ? $notBooked : '<a href="booking.php?#reservation'.$timeSlot['reservation'].'">'.$timeSlot['reservation']."</a>").'</td>';
-						echo '<td><a href="?id='.$timeSlot['id'].'">'.$delete.'</a></td>';
+						if(is_null($timeSlot['reservation'])) {
+							echo '<td><a href="?id='.$timeSlot['id'].'">'.$delete.'</a></td>';
+						}else {
+							echo '<td>'.$booked.'</td>';
+						}
 						echo '</tr>';			
 					}
 				?>
