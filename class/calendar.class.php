@@ -23,7 +23,7 @@
 			$this->end_day->modify("this sunday");
 			$this->interval = new DateInterval('P1D');
 			$this->daterange = new DatePeriod($this->start_day, $this->interval ,$this->end_day);
-			foreach($this->daterange as $date){
+			foreach($this->daterange as $date) {
 				if($date->format("j") == "1") {
 					$this->html .= '<div class="calendar-month-header">';
 					$this->html .= $date->format("F");
