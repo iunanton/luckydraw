@@ -19,7 +19,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-01T20:57:25+0800" >
+<meta name="date" content="2017-06-01T22:05:38+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -94,10 +94,10 @@
 							echo "<td>".$reservation['name']."</td>";
 							echo "<td>".$reservation['phone']."</td>";
 							echo "<td>".$reservation['reservation_time']."</td>";
-							echo "<td>".($reservation['cancelled'] ? $cancelled : $cancel)."</td>";	
+							echo "<td>".($reservation['cancelled'] ? $cancelled : $cancel)."</td>";
+							echo "</tr>";
 						}
 					?>
-				</tr>
 			</table>
 		</div>
 		<div class="wrapper-footer">
