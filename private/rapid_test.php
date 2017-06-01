@@ -32,11 +32,12 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-01T19:33:59+0800" >
-<meta name="copyright" content="">
+<meta name="date" content="2017-06-01T20:04:55+0800" >
+<meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+<meta name="theme-color" content="#FFA366" />
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8">
 <meta http-equiv="content-style-type" content="text/css">
@@ -77,14 +78,10 @@
 					case EN:
 						$from = "From:";
 						$to = "To:";
-						$delete = "Delete";
-						$notBooked = "Not booked";
 						break;
 					case ZH:
 						$from = "從";
 						$to = "至";
-						$delete = "刪除";
-						$notBooked = "沒有預訂";
 						break;
 				}
 			?>
@@ -125,9 +122,28 @@
 			</form>
 			<table class="sql-query">
 				<tr>
-					<th>#</th><th>Date</th><th>Time</th><th>Booked Out</th><th>Delete</th>		
+					<?php
+						switch($global_lang) {
+							case EN:
+								echo "<th>#</th><th>Date</th><th>Time</th><th>Booked Out</th><th>Delete</th>";
+								break;
+							case ZH:
+								echo "<th>#</th><th>日期</th><th>時間</th><th>已經預訂了</th><th>刪除</th>";
+								break;	
+						}
+					?>
 				</tr>
 				<?php
+					switch($global_lang) {
+						case EN:
+						$delete = "Delete";
+						$notBooked = "Not booked";
+							break;
+						case ZH:	
+							$delete = "刪除";
+							$notBooked = "沒有預訂";
+							break;	
+					}
 					$total_pages = $db_conn->getTimeSlotsCount();
 					$timeSlots = $db_conn->getTimeSlots($page);
 					foreach ($timeSlots as $timeSlot) {
