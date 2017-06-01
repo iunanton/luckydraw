@@ -32,7 +32,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-01T19:18:55+0800" >
+<meta name="date" content="2017-06-01T19:33:59+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -77,10 +77,14 @@
 					case EN:
 						$from = "From:";
 						$to = "To:";
+						$delete = "Delete";
+						$notBooked = "Not booked";
 						break;
 					case ZH:
 						$from = "從";
 						$to = "至";
+						$delete = "刪除";
+						$notBooked = "沒有預訂";
 						break;
 				}
 			?>
@@ -131,8 +135,8 @@
 						echo '<td>'.$timeSlot['id'].'</td>';
 						echo '<td>'.$timeSlot['date'].'</td>';
 						echo '<td>'.$timeSlot['time'].'</td>';
-						echo '<td>'.(is_null($timeSlot['reservation']) ? 'Not booked' : '<a href="booking.php?#reservation'.$timeSlot['reservation'].'">'.$timeSlot['reservation']."</a>").'</td>';
-						echo '<td><a href="?id='.$timeSlot['id'].'">Delete</a></td>';
+						echo '<td>'.(is_null($timeSlot['reservation']) ? $notBooked : '<a href="booking.php?#reservation'.$timeSlot['reservation'].'">'.$timeSlot['reservation']."</a>").'</td>';
+						echo '<td><a href="?id='.$timeSlot['id'].'">'.$delete.'</a></td>';
 						echo '</tr>';			
 					}
 				?>
