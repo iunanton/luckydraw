@@ -1,17 +1,30 @@
+<!DOCTYPE html>
 <?php
 	require_once('../constant.php');
-	
-	if(isset($_GET['lang'])) {
-		$global_lang = $_GET['lang'];
-	} else {
-		$global_lang = EN;
-	}
-
-	$global_page = basename(__FILE__, '.php');
-
+	require_once('../class/db.class.php');
 	require_once('../class/mydatabase.php');
+	$global_page = basename(__FILE__, '.php');
+	if (isset($_GET["page"])) {
+		$page  = $_GET["page"];
+	} else {
+		$page=1;
+	};
+	
+	$db_conn = new db();
+	
+	if(isset($_GET['start_day']) && isset($_GET['end_day']) && isset($_GET['timeSlots'])) {
+		$start_day = $_GET['start_day'];
+		$end_day = $_GET['end_day'];
+		$timeSlots = $_GET['timeSlots'];
+		//script
+		$prompt = "Time slots were added.";
+	}
+	if(isset($_GET['id'])) {
+		$id = $_GET['id'];
+		$db_conn->deleteTimeSlot($id);
+		$prompt = "Time slot #$id was deleted.";
+	}
 ?>
-<!DOCTYPE html>
 <html>
 <head>
 	<?php
@@ -19,7 +32,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-19T01:15:02+0800" >
+<meta name="date" content="2017-06-01T19:10:08+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -40,8 +53,8 @@
 	<?php
 		include('view/navigation_bar.php');
 	?>
-	<div id="wrapper">
-		<div id="wrapper-header">
+	<div class="wrapper">
+		<div class="wrapper-header">
 			<?php
 				switch($global_lang) {
 					case EN:
@@ -54,7 +67,10 @@
 			?>
 			<h1><?= $header; ?></h1>
 		</div>
-		<div id="wrapper-content">
+		<div class="wrapper-content">
+			<div class="prompt">
+				<?=$prompt; ?>
+			</div>
 			<?php
 				switch($global_lang) {
 					case EN:
@@ -66,8 +82,8 @@
 						$to = "至";
 						break;
 				}
-			?>	
-			Today is <?=date("d M, Y"); ?><br><br>
+			?>
+			Today is <?=date("j M, Y"); ?><br><br>
 			Add new service time.<br><br>
 			Enter date period to fill and choose time slots from default ones shown below:<br><br>
 			<!--Add new time slot form-->
@@ -102,22 +118,29 @@
 					<input type="submit" name="" value="OK" />
 				</div>
 			</form>
-			<table class="content-table">
+			<table class="sql-query">
 				<tr>
-					<th>#</th><th>Date</th><th>Time</th><th>Delete</th>		
+					<th>#</th><th>Date</th><th>Time</th><th>Booked Out</th><th>Delete</th>		
 				</tr>
 				<?php
-					$TimeSlotsFromToday = $conn->getAllTimeSlotsFromToday();
-					foreach ($TimeSlotsFromToday as $timeSlot) {
+					$total_pages = $db_conn->getTimeSlotsCount();
+					$timeSlots = $db_conn->getTimeSlots($page);
+					foreach ($timeSlots as $timeSlot) {
 						echo '<tr>';
 						echo '<td>'.$timeSlot['id'].'</td>';
 						echo '<td>'.$timeSlot['date'].'</td>';
 						echo '<td>'.$timeSlot['time'].'</td>';
-						echo '<td><u>Delete</u></td>';
-						echo '</tr>';
+						echo '<td>'.(is_null($timeSlot['reservation']) ? 'Not booked' : '<a href="booking.php?#reservation'.$timeSlot['reservation'].'">'.$timeSlot['reservation']."</a>").'</td>';
+						echo '<td><a href="?id='.$timeSlot['id'].'">Delete</a></td>';
+						echo '</tr>';			
 					}
 				?>
 			</table>
+		</div>
+		<div class="wrapper-footer">
+			<?php
+				include('../view/page_nav.php');
+			?>
 		</div>
 	</div>
 	<?php

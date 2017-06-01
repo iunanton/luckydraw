@@ -1,17 +1,10 @@
+<!DOCTYPE html>
 <?php
 	require_once('../constant.php');
-	
-	if(isset($_GET['lang'])) {
-		$global_lang = $_GET['lang'];
-	} else {
-		$global_lang = EN;
-	}
-
-	$global_page = basename(__FILE__, '.php');
-
+	require_once('../class/db.class.php');
 	require_once('../class/mydatabase.php');
+	$global_page = basename(__FILE__, '.php');
 ?>
-<!DOCTYPE html>
 <html>
 <head>
 	<?php
@@ -19,7 +12,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-22T16:06:48+0800" >
+<meta name="date" content="2017-06-01T17:54:12+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
