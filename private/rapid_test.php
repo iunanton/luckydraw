@@ -32,7 +32,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-01T20:44:51+0800" >
+<meta name="date" content="2017-06-01T21:58:24+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -76,16 +76,18 @@
 			<?php
 				switch($global_lang) {
 					case EN:
+						$todayIs = "Today is ".date("j M, Y");
 						$from = "From:";
 						$to = "To:";
 						break;
 					case ZH:
+						$todayIs = "今天".date("j M, Y");
 						$from = "從";
 						$to = "至";
 						break;
 				}
 			?>
-			Today is <?=date("j M, Y"); ?><br><br>
+			<p><?=$todayIs; ?></p>
 			Add new service time.<br><br>
 			Enter date period to fill and choose time slots from default ones shown below:<br><br>
 			<!--Add new time slot form-->
