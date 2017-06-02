@@ -11,6 +11,12 @@
 	};
 	
 	$db_conn = new db();
+	
+	if(isset($_GET['id'])) {
+		$id = $_GET['id'];
+		$db_conn->cancelReservation($id);
+		$prompt = "Record #$id was cancelled.";
+	}
 ?>
 <html>
 <head>
@@ -19,7 +25,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-01T22:05:38+0800" >
+<meta name="date" content="2017-06-02T21:44:19+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -57,6 +63,9 @@
 			<h1><?= $header; ?></h1>
 		</div>
 		<div class="wrapper-content">
+			<div class="prompt">
+				<?=$prompt; ?>
+			</div>
 			<?php
 				$reservations = $db_conn->getReservations();
 			?>
@@ -94,7 +103,7 @@
 							echo "<td>".$reservation['name']."</td>";
 							echo "<td>".$reservation['phone']."</td>";
 							echo "<td>".$reservation['reservation_time']."</td>";
-							echo "<td>".($reservation['cancelled'] ? $cancelled : $cancel)."</td>";
+							echo "<td>".($reservation['cancelled'] ? $cancelled : '<a href="?id='.$reservation['id'].'">'.$cancel.'</a>')."</td>";
 							echo "</tr>";
 						}
 					?>
