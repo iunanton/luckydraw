@@ -16,7 +16,7 @@
 <title>Test Page - Weekly</title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-02T21:01:50+0800" >
+<meta name="date" content="2017-06-02T21:50:03+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -49,6 +49,9 @@
 	}
 	.week-nav {
 		grid-column: 2 / 3;
+	}
+	.week-nav a{
+		text-decoration: none;
 	}
 /*	.calendar-day {
 		grid-column: 1 / 3;
