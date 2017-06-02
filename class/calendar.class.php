@@ -5,6 +5,7 @@
 	 */
 	class calendar {
 		private $current_day; // this points to month should be shown and highlights day
+		private $today;
 		private $start_day;
 		private $end_day;
 		private $interval;
@@ -15,6 +16,7 @@
 		public function __construct($current_day) {
 			$this->html = '<div class="calendar">';
 			$this->current_day = new DateTime($current_day);
+			$this->today = new DateTime("today");
 			$this->start_day = new DateTime($current_day);
 			$this->start_day->modify("last sunday");
 			$this->end_day = new DateTime($current_day);
@@ -37,7 +39,7 @@
 					$this->html .= '</div>';
 				}
 				//$this->html .= '<div class="calendar-day">';
-				$this->html .= '<div class="calendar-day-header">';
+				$this->html .= '<div class="calendar-day-header'. ($date == $this->today ? ' today' : '').'">';
 				$this->html .= '<div class="calendar-day-number">';
 				$this->html .= $date->format("j");
 				$this->html .= '</div>';
@@ -46,7 +48,6 @@
 				$this->html .= '</div>';
 				$this->html .= '</div>';
 				$this->html .= '<div class="calendar-day-content">';
-				//$this->html .= 'allowed time slots are here...<br>a number<br>of<br>line...';
 				$this->html .= '<div class="calendar-time-slot">15:30</div>';
 				$this->html .= '<div class="calendar-time-slot">16:00</div>';
 				$this->html .= '<div class="calendar-time-slot">16:30</div>';
