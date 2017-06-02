@@ -10,7 +10,7 @@
 <title>Test Page - Weekly</title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-01T17:01:04+0800" >
+<meta name="date" content="2017-06-02T19:14:31+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -88,9 +88,12 @@
 	}
 	.calendar-time-slot {
 		display: inline-block;
-		padding: 10px 20px 10px 20px;
+		padding: 5px 10px 5px 10px;
 		background-color: #FFA366;
-		margin: 10px 10px 10px 10px;
+		margin: 5px 5px 5px 5px;
+	}
+	.calendar-time-slot:hover {
+		background-color: #FF6600;
 	}
 </style>
 </head>
@@ -123,21 +126,14 @@
 				<h2>Heterosexual AIDS Test or HIV Test</h2>
 				<p>What date and time would you like an appointment?</p>
 				<?php
-					$start_day = new DateTime('2017-08-15');
-					$end_day = new DateTime('2017-08-25');
-					$timeSlots = array(1,2,3, 4, 5, 6, 7, 8, 9);
+
 					$db_conn = new db();
-					//$db_conn->addTimeSlots($start_day, $end_day, $timeSlots);
-					$db_conn->deleteTimeSlot(657);
+
 				?>
 				<?php
-					echo "Try to include calendar class<br>";
 					include("class/calendar.class.php");
-					echo "Create calendar object<br>";
 					$current_day = date("Y-m-d", time());
-					echo $current_day."<br>";
 					$obj = new calendar($current_day);
-					echo "Call render() method<br>";
 					$obj->render();
 				?>
 			</div>
