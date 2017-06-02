@@ -122,6 +122,15 @@
 			$reservations = $stmt->fetchAll();
 			return $reservations;
 		}
+		
+		public function cancelReservation($id) {
+			$sql = "UPDATE reservations";
+			$sql.= " SET cancelled = true";
+			$sql.= " WHERE id = :id";
+			$stmt = $this->pdo->prepare($sql);
+			$stmt->bindParam(':id', $id);
+			$stmt->execute();
+		}
 
 	}
 ?>
