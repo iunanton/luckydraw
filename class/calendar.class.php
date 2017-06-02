@@ -16,11 +16,18 @@
 			$this->html = '<div class="calendar">';
 			$this->current_day = new DateTime($current_day);
 			$this->start_day = new DateTime($current_day);
-			//$this->start_day->modify("first day of this month");
 			$this->start_day->modify("last sunday");
 			$this->end_day = new DateTime($current_day);
-			//$this->end_day->modify("first day of next month");
-			$this->end_day->modify("this sunday");
+			$this->end_day->modify("this saturday");
+			$this->html .= '<div class="week-description">';
+			$this->html .= 'Week ';
+			$this->html .= $this->current_day->format("W");
+			$this->html .= ', ';
+			$this->html .= $this->start_day->format("F j");
+			$this->html .= ' - ';
+			$this->html .= $this->end_day->format("F j");
+			$this->html .= '</div>';
+			$this->end_day->modify("+1 day");
 			$this->interval = new DateInterval('P1D');
 			$this->daterange = new DatePeriod($this->start_day, $this->interval ,$this->end_day);
 			foreach($this->daterange as $date) {
