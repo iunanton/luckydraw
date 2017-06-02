@@ -22,14 +22,14 @@
 			$this->end_day = new DateTime($current_day);
 			$this->end_day->modify("this saturday");
 			$this->week_nav .= '<div class="week-nav">';
-			$this->week_nav .= '&#8592 ';
+			$this->week_nav .= '&#8592 &#9664';
 			$this->week_nav .= 'Week ';
 			$this->week_nav .= $this->current_day->format("W");
 			$this->week_nav .= ', ';
 			$this->week_nav .= $this->start_day->format("F j");
 			$this->week_nav .= ' - ';
 			$this->week_nav .= $this->end_day->format("F j");
-			$this->week_nav .= ' &#9654';
+			$this->week_nav .= ' &#9654 &#8594';
 			$this->week_nav .= '</div>';
 			$this->end_day->modify("+1 day");
 			$this->interval = new DateInterval('P1D');
