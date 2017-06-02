@@ -8,30 +8,34 @@
 		private $today;
 		private $start_day;
 		private $end_day;
+		private $week_nav;
 		private $interval;
 		private $daterange;
 		
 		private $html; // HTML code of calendar to render it
 		
 		public function __construct($current_day) {
-			$this->html = '<div class="calendar">';
 			$this->current_day = new DateTime($current_day);
 			$this->today = new DateTime("today");
 			$this->start_day = new DateTime($current_day);
 			$this->start_day->modify("last sunday");
 			$this->end_day = new DateTime($current_day);
 			$this->end_day->modify("this saturday");
-			$this->html .= '<div class="week-description">';
-			$this->html .= 'Week ';
-			$this->html .= $this->current_day->format("W");
-			$this->html .= ', ';
-			$this->html .= $this->start_day->format("F j");
-			$this->html .= ' - ';
-			$this->html .= $this->end_day->format("F j");
-			$this->html .= '</div>';
+			$this->week_nav .= '<div class="week-nav">';
+			$this->week_nav .= '&#8592 ';
+			$this->week_nav .= 'Week ';
+			$this->week_nav .= $this->current_day->format("W");
+			$this->week_nav .= ', ';
+			$this->week_nav .= $this->start_day->format("F j");
+			$this->week_nav .= ' - ';
+			$this->week_nav .= $this->end_day->format("F j");
+			$this->week_nav .= ' &#9654';
+			$this->week_nav .= '</div>';
 			$this->end_day->modify("+1 day");
 			$this->interval = new DateInterval('P1D');
 			$this->daterange = new DatePeriod($this->start_day, $this->interval ,$this->end_day);
+			$this->html = '<div class="calendar">';
+			$this->html .= $this->week_nav;
 			foreach($this->daterange as $date) {
 				if($date->format("j") == "1") {
 					$this->html .= '<div class="calendar-month-header">';
@@ -64,6 +68,7 @@
 				//$this->html .= '</div>';
 				$this->html .= '</div>';
 			}
+			$this->html .= $this->week_nav;
 			$this->html .= '</div>';
 		}
 		
