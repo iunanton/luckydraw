@@ -19,30 +19,15 @@
 		public function __construct($current_day) {
 			$this->current_day = new DateTime($current_day);
 			$this->today = new DateTime("today");
-
 			$this->last_week = new DateTime($current_day);
 			$this->last_week->modify("-7 days");
 			$this->next_week = new DateTime($current_day);
 			$this->next_week->modify("+7 days");
-	
 			$this->start_day = new DateTime($current_day);
 			$this->start_day->modify("last sunday");
 			$this->end_day = new DateTime($current_day);
 			$this->end_day->modify("this saturday");
-			$this->week_nav .= '<div class="week-nav">';
-			$this->week_nav .= '<a href="?day=';
-			$this->week_nav .= $this->last_week->format("Y-m-d"); 
-			$this->week_nav .=  '">&#9664</a> ';
-			$this->week_nav .= 'Week ';
-			$this->week_nav .= $this->current_day->format("W");
-			$this->week_nav .= ', ';
-			$this->week_nav .= $this->start_day->format("F j");
-			$this->week_nav .= ' - ';
-			$this->week_nav .= $this->end_day->format("F j");
-			$this->week_nav .= ' <a href="?day=';
-			$this->week_nav .= $this->next_week->format("Y-m-d"); 			
-			$this->week_nav .= '">&#9654</a>';
-			$this->week_nav .= '</div>';
+			$this->weekNav();		
 			$this->end_day->modify("+1 day");
 			$this->interval = new DateInterval('P1D');
 			$this->daterange = new DatePeriod($this->start_day, $this->interval ,$this->end_day);
@@ -54,7 +39,6 @@
 					$this->html .= $date->format("F");
 					$this->html .= '</div>';
 				}
-				//$this->html .= '<div class="calendar-day">';
 				$this->html .= '<div class="calendar-day-header'. ($date == $this->today ? ' today' : '').'">';
 				$this->html .= '<div class="calendar-day-number">';
 				$this->html .= $date->format("j");
@@ -77,11 +61,27 @@
 				$this->html .= '<div class="calendar-time-slot">20:30</div>';
 				$this->html .= '<div class="calendar-time-slot">21:00</div>';
 				$this->html .= '<div class="calendar-time-slot">21:30</div>';
-				//$this->html .= '</div>';
 				$this->html .= '</div>';
 			}
 			$this->html .= $this->week_nav;
 			$this->html .= '</div>';
+		}
+		
+		private function weekNav() {
+			$this->week_nav .= '<div class="week-nav">';
+			$this->week_nav .= '<a href="?day=';
+			$this->week_nav .= $this->last_week->format("Y-m-d"); 
+			$this->week_nav .=  '">&#9664</a> ';
+			$this->week_nav .= 'Week ';
+			$this->week_nav .= $this->current_day->format("W");
+			$this->week_nav .= ', ';
+			$this->week_nav .= $this->start_day->format("F j");
+			$this->week_nav .= ' - ';
+			$this->week_nav .= $this->end_day->format("F j");
+			$this->week_nav .= ' <a href="?day=';
+			$this->week_nav .= $this->next_week->format("Y-m-d"); 			
+			$this->week_nav .= '">&#9654</a>';
+			$this->week_nav .= '</div>';
 		}
 		
 		public function render() {
