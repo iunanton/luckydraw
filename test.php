@@ -4,13 +4,19 @@
 	require_once('class/mydatabase.php');
 	require_once('class/db.class.php');
 	$global_page = basename(__FILE__, '.php');
+	
+	if(isset($_GET['day'])) {
+		$current_day = $_GET['day'];
+	} else {
+		$current_day = date("Y-m-d", time());	
+	}
 ?>
 <html>
 <head>
 <title>Test Page - Weekly</title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-02T20:30:50+0800" >
+<meta name="date" content="2017-06-02T21:01:50+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -138,7 +144,6 @@
 				?>
 				<?php
 					include("class/calendar.class.php");
-					$current_day = date("Y-m-d", time());
 					$obj = new calendar($current_day);
 					$obj->render();
 				?>
