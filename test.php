@@ -10,7 +10,7 @@
 <title>Test Page - Weekly</title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-02T19:48:50+0800" >
+<meta name="date" content="2017-06-02T20:26:40+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -64,6 +64,9 @@
 		border-bottom-color: #305D7C;*/
 		padding: 5px 5px 5px 5px;
 		vertical-align: top;
+	}
+	.calendar-day-header.today {
+		background-color: #EEEEEE;
 	}
 	.calendar-day-number {
 		display: block;
