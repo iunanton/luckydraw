@@ -9,7 +9,7 @@
 			break;
 		case ZH:
 			$first_column = ARRAY("中心","相關影片","HIV 陽性","關於我們","加入我們","工作人員");
-			$second_column = ARRAY("聯絡","電話：(852) 5405 6631","電郵地址：luckydrawkt@gmail.com","<img src=\"images/whatsapp.png\" alt=\"whatsapp\" height=\"36\" style=\"vertical-align:middle\"><span style=\"vertical-align:middle\">WhatsApp: 5405 6631</span>","<img src=\"images/line.png\" alt=\"whatsapp\" height=\"48\" style=\"vertical-align:middle\"><span style=\"vertical-align:middle\">Line ID: luckydrawstudio</span>");
+			$second_column = ARRAY("聯絡","電話：(852) 5405 6631","電郵地址：luckydrawkt@gmail.com","WhatsApp: 5405 6631</span>","Line ID: luckydrawstudio</span>");
 			$third_column = ARRAY("地址","香港觀塘鴻圖道58號","金凱工業大廈","6樓 25室");
 			$fourth_column = ARRAY("回頂");
 			$copyright = "Copyright &copy 2016-".YEAR.' <a href="http://xiaodong.com.ru" style="color: inherit">XIAODONG IT Consulting</a>';

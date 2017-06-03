@@ -1,18 +1,9 @@
 <!DOCTYPE html>
 <?php
 	require_once('constant.php');
-	if(isset($_GET['lang'])) {
-		$global_lang = $_GET['lang'];
-	} else {
-		$global_lang = ZH;
-	}
 	
 	$global_page = basename(__FILE__, '.php');
 	
-	require_once('class/mydatabase.php');
-?>
-<?php
-	//include myDatabase class
 	require_once('class/mydatabase.php');
 
 	//GET and POST methods
@@ -29,7 +20,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-04T02:18:46+0800" >
+<meta name="date" content="2017-06-04T02:31:41+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
