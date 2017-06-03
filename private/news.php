@@ -20,7 +20,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-03T20:58:04+0800" >
+<meta name="date" content="2017-06-04T02:36:21+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -73,7 +73,7 @@
 			<?php
 				$articles = $handler->getTitles();
 			?>
-			<p><strong><?=sizeof($news);?> news article(s)</strong> were found:</p>
+			<p><strong><?=sizeof($articles);?> news article(s)</strong> were found:</p>
 			<table class="sql-query">
 				<tr>
 					<th>#</th><th>Title</th><th>Language</th><th>Added at</th><th>Edit</th><th>Delete</th>		
