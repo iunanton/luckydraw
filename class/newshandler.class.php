@@ -8,8 +8,10 @@
 		}
 		
 		public function getTitles() {
-			$sql = "SELECT id, lang, date, title";
-			$sql.= " FROM news";
+			$sql = "SELECT n.id, l.lang, n.date, n.title";
+			$sql.= " FROM news AS n";
+			$sql.= " JOIN languages AS l";
+			$sql.= " ON n.lang = l.id";
 			$stmt = $this->db_conn->pdo->prepare($sql);
 			$stmt->execute();
 			$titles = $stmt->fetchAll();
