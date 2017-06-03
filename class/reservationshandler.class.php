@@ -8,19 +8,27 @@
 			$this->db_conn = new dbConnector();
 		}
 		
-/*		public function getTimeSlots($date) {
-			$sql = "SELECT s.id, d.time";
-			$sql.= " FROM time_slots AS s";
-			$sql.= " JOIN default_time AS d ON s.time = d.id";
-			$sql.= " LEFT JOIN reservations AS a ON s.id = a.time_slot";
-			$sql.= " WHERE (a.id IS NULL OR a.cancelled)";
-			$sql.= " AND s.date = :date";
+		public function getReservationsForToday() {
+			$sql = "SELECT r.id, t.date, d.time, r.name, r.phone, r.reservation_time, r.cancelled";
+			$sql.= " FROM reservations AS r JOIN time_slots AS t ON r.time_slot = t.id";
+			$sql.= " JOIN default_time AS d ON t.time = d.id";
+			$sql.= " WHERE t.date = CURDATE() ORDER BY t.id ASC";
 			$stmt = $this->db_conn->pdo->prepare($sql);
-			$stmt->bindParam(':date', $date);
 			$stmt->execute();
-			$timeSlots = $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
-			return $timeSlots;
-		}*/
+			$reservations = $stmt->fetchAll();
+			return $reservations;
+		}
+		
+		public function getReservationsForTomorrow() {
+			$sql = "SELECT r.id, t.date, d.time, r.name, r.phone, r.reservation_time, r.cancelled";
+			$sql.= " FROM reservations AS r JOIN time_slots AS t ON r.time_slot = t.id";
+			$sql.= " JOIN default_time AS d ON t.time = d.id";
+			$sql.= " WHERE t.date = DATE_ADD(CURDATE(), INTERVAL 1 DAY) ORDER BY t.id ASC";
+			$stmt = $this->db_conn->pdo->prepare($sql);
+			$stmt->execute();
+			$reservations = $stmt->fetchAll();
+			return $reservations;
+		}
 		
 		public function getReservationsCount() {
 			$sql = "SELECT COUNT(id)";
