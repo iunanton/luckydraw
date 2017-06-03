@@ -206,7 +206,7 @@ class myCalendar {
 
 			//get time array from myDatabase
 			if($this->validDate($list_date)) {
-				$timeSlots = $this->handler->getTimeSlots($list_date);
+				$timeSlots = $this->handler->get($list_date);
 			}
 			
 			$this->html.= '<td class="calendar-day';
