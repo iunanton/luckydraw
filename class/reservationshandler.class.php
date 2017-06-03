@@ -8,7 +8,7 @@
 			$this->db_conn = new dbConnector();
 		}
 		
-		public function getReservationsForToday() {
+		public function getForToday() {
 			$sql = "SELECT r.id, t.date, d.time, r.name, r.phone, r.reservation_time, r.cancelled";
 			$sql.= " FROM reservations AS r JOIN time_slots AS t ON r.time_slot = t.id";
 			$sql.= " JOIN default_time AS d ON t.time = d.id";
@@ -19,7 +19,7 @@
 			return $reservations;
 		}
 		
-		public function getReservationsForTomorrow() {
+		public function getForTomorrow() {
 			$sql = "SELECT r.id, t.date, d.time, r.name, r.phone, r.reservation_time, r.cancelled";
 			$sql.= " FROM reservations AS r JOIN time_slots AS t ON r.time_slot = t.id";
 			$sql.= " JOIN default_time AS d ON t.time = d.id";
@@ -30,7 +30,7 @@
 			return $reservations;
 		}
 		
-		public function getReservationsCount() {
+		public function getCount() {
 			$sql = "SELECT COUNT(id)";
 			$sql.= " FROM reservations";
 			$stmt = $this->db_conn->pdo->prepare($sql);
@@ -39,7 +39,7 @@
 			return $count;
 		}
 		
-		public function getReservationsPagesCount() {
+		public function getPagesCount() {
 			$sql = "SELECT COUNT(id)";
 			$sql.= " FROM reservations";
 			$stmt = $this->db_conn->pdo->prepare($sql);
@@ -48,7 +48,7 @@
 			return ceil($count / $this->results_per_page);
 		}
 		
-		public function getReservationsByPage($page = 1) {			
+		public function getByPage($page = 1) {			
 			$start_from = ($page-1) * $this->results_per_page;
 			
 			$sql = "SELECT r.id, t.date, d.time, r.name, r.phone, r.reservation_time, r.cancelled";
@@ -61,7 +61,7 @@
 			return $reservations;
 		}
 		
-		public function cancelReservation($id) {
+		public function cancel($id) {
 			$sql = "UPDATE reservations";
 			$sql.= " SET cancelled = true";
 			$sql.= " WHERE id = :id";

@@ -8,7 +8,7 @@
 			$this->db_conn = new dbConnector();
 		}
 		
-		public function getDefaultTimeSlots() {
+		public function getDefault() {
 			$sql = "SELECT id, time FROM default_time";
 			$stmt = $this->db_conn->pdo->prepare($sql);
 			$stmt->execute();
@@ -16,7 +16,7 @@
 			return $timeSlots;
 		}
 		
-		public function getTimeSlots($date) {
+		public function get($date) {
 			$sql = "SELECT s.id, d.time";
 			$sql.= " FROM time_slots AS s";
 			$sql.= " JOIN default_time AS d ON s.time = d.id";
@@ -30,7 +30,7 @@
 			return $timeSlots;
 		}
 		
-		public function getTimeSlotsCount() {
+		public function getCount() {
 			$sql = "SELECT COUNT(id) AS total FROM time_slots";
 			$stmt = $this->db_conn->pdo->prepare($sql);
 			$stmt->execute();
@@ -38,7 +38,7 @@
 			return $count;
 		}
 		
-		public function getTimeSlotsPagesCount() {
+		public function getPagesCount() {
 			$sql = "SELECT COUNT(id) AS total FROM time_slots";
 			$stmt = $this->db_conn->pdo->prepare($sql);
 			$stmt->execute();
@@ -46,7 +46,7 @@
 			return ceil($count / $this->results_per_page);
 		}
 		
-		public function getTimeSlotsByPage($page = 1) {
+		public function getByPage($page = 1) {
 			$start_from = ($page-1) * $this->results_per_page;
 			$sql = "SELECT t.id, t.date, d.time, r.id AS reservation";
 			$sql.= " FROM time_slots AS t JOIN default_time AS d ON t.time = d.id";
@@ -58,7 +58,7 @@
 			return $timeSlots;
 		}
 		
-		public function addTimeSlots($start_day, $end_day, $timeSlots) {
+		public function add($start_day, $end_day, $timeSlots) {
 			$end_day->modify('+1 day');
 			$interval = new DateInterval('P1D');
 			$dateRange = new DatePeriod($start_day, $interval ,$end_day);
@@ -75,7 +75,7 @@
 			}
 		}
 		
-		public function deleteTimeSlot($timeSlot) {
+		public function delete($timeSlot) {
 			$sql = "DELETE FROM time_slots";
 			$sql.= " WHERE id = :time";
 			$stmt = $this->db_conn->pdo->prepare($sql);
