@@ -52,22 +52,13 @@
 				$this->html .= '</div>';
 				$this->html .= '<div class="calendar-day-content">';
 				$timeSlots = $this->handler->get($date->format("Y-m-d"));
-				foreach ($timeSlots as $timeSlot) {
-					$this->html .= '<div class="calendar-time-slot">'.$timeSlot.'</div>';
+				if(empty($timeSlots)) {
+					$this->html .= '<div class="calendar-day-not-available">No Available Time Slots</div>';
+				} else {
+					foreach ($timeSlots as $timeSlot) {
+						$this->html .= '<div class="calendar-time-slot">'.$timeSlot.'</div>';
+					}
 				}
-				$this->html .= '<div class="calendar-time-slot">15:30</div>';
-				$this->html .= '<div class="calendar-time-slot">16:00</div>';
-				$this->html .= '<div class="calendar-time-slot">16:30</div>';
-				$this->html .= '<div class="calendar-time-slot">17:00</div>';
-				$this->html .= '<div class="calendar-time-slot">17:30</div>';
-				$this->html .= '<div class="calendar-time-slot">18:00</div>';
-				$this->html .= '<div class="calendar-time-slot">18:30</div>';
-				$this->html .= '<div class="calendar-time-slot">19:00</div>';
-				$this->html .= '<div class="calendar-time-slot">19:30</div>';
-				$this->html .= '<div class="calendar-time-slot">20:00</div>';
-				$this->html .= '<div class="calendar-time-slot">20:30</div>';
-				$this->html .= '<div class="calendar-time-slot">21:00</div>';
-				$this->html .= '<div class="calendar-time-slot">21:30</div>';
 				$this->html .= '</div>';
 			}
 			$this->html .= $this->week_nav;
