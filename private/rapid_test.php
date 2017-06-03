@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <?php
 	require_once('../constant.php');
-	require_once('../class/db.class.php');
-	require_once('../class/mydatabase.php');
+	require_once('../class/timeslotshandler.class.php');
+	
+	$handler = new timeSlotsHandler();
+	
 	$global_page = basename(__FILE__, '.php');
+	
 	if (isset($_GET["page"])) {
 		$page  = $_GET["page"];
 	} else {
 		$page=1;
 	};
 	
-	$db_conn = new db();
-	
 	if(isset($_GET['start-day']) && isset($_GET['end-day']) && isset($_GET['timeSlots'])) {
 		$start_day = new DateTime($_GET['start-day']);
 		$end_day = new DateTime($_GET['end-day']);
 		$timeSlots = array_map('intval', $_GET['timeSlots']);
-		$db_conn->addTimeSlots($start_day, $end_day, $timeSlots);
+		$handler->addTimeSlots($start_day, $end_day, $timeSlots);
 		$prompt = "Time slots were added.";
 	}
 	if(isset($_GET['id'])) {
 		$id = $_GET['id'];
-		$db_conn->deleteTimeSlot($id);
+		$handler->deleteTimeSlot($id);
 		$prompt = "Time slot #$id was deleted.";
 	}
 ?>
@@ -32,7 +33,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-02T07:35:50+0800" >
+<meta name="date" content="2017-06-03T20:09:55+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -103,7 +104,7 @@
 				</div>
 				<div class="form-time-slots">
 					<?php
-						$defaultTimeSlots = $db_conn->getDefaultTimeSlots();
+						$defaultTimeSlots = $handler->getDefaultTimeSlots();
 						$timeSlotsOnRow = 3;
 						
 						$i = 0;
@@ -122,9 +123,10 @@
 				</div>
 			</form>
 			<?php
-				$timeSlots = $db_conn->getTimeSlots($page);
+				$timeSlotsCount = $handler->getTimeSlotsCount();
+				$timeSlots = $handler->getTimeSlotsByPage($page);
 			?>
-			<p><strong><?=sizeof($timeSlots);?> record(s)</strong> was showed:</p>
+			<p><strong><?=$timeSlotsCount;?> record(s)</strong> was found:</p>
 			<table class="sql-query">
 				<tr>
 					<?php
@@ -158,7 +160,7 @@
 						echo '<td>'.$timeSlot['time'].'</td>';
 						echo '<td>'.(is_null($timeSlot['reservation']) ? $notBooked : '<a href="booking.php?#reservation'.$timeSlot['reservation'].'">'.$timeSlot['reservation']."</a>").'</td>';
 						if(is_null($timeSlot['reservation'])) {
-							echo '<td><a href="?id='.$timeSlot['id'].'">'.$delete.'</a></td>';
+							echo '<td><a href="?id='.$timeSlot['id'].'&page='.$page.'">'.$delete.'</a></td>';
 						}else {
 							echo '<td>'.$booked.'</td>';
 						}
@@ -169,7 +171,7 @@
 		</div>
 		<div class="wrapper-footer">
 			<?php
-				$total_pages = $db_conn->getTimeSlotsCount();
+				$total_pages = $handler->getTimeSlotsPagesCount();
 				include('../view/page_nav.php');
 			?>
 		</div>
