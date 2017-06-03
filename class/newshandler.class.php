@@ -5,8 +5,8 @@
 		public function __construct() {
 			require_once("dbconnector.class.php");
 			$this->db_conn = new dbConnector();
-			//var_dump($this->db_conn->pdo);
 		}
+		
 		public function getTitles() {
 			$sql = "SELECT id, lang, date, title";
 			$sql.= " FROM news";
@@ -38,5 +38,6 @@
 			$article = $stmt->fetchAll();
 			return $article;
 		}
+		
 	}
 ?>
