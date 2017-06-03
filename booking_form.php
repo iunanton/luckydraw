@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 	require_once('constant.php');
 	if(isset($_GET['lang'])) {
@@ -21,7 +22,6 @@
 		$info = $conn->getTestInfo($test);
 	}
 ?>
-<!DOCTYPE html>
 <html>
 <head>
 	<?php
@@ -29,15 +29,17 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-23T16:00:22+0800" >
-<meta name="copyright" content="Lucky Draw Studio">
+<meta name="date" content="2017-06-04T02:18:46+0800" >
+<meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+<meta name="theme-color" content="#FFA366" />
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8">
 <meta http-equiv="content-style-type" content="text/css">
 <meta http-equiv="expires" content="0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=1" />
 <link href="style.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 	.input-field {
@@ -68,8 +70,8 @@
 	<?php
 		include('view/navigation_bar.php');
 	?>
-	<div id="wrapper">
-		<div id="wrapper-header">
+	<div class="wrapper">
+		<div class="wrapper-header">
 			<?php
 				switch($global_lang) {
 					case EN:
@@ -82,7 +84,7 @@
 			?>
 			<h1><?= $header; ?></h1>
 		</div>
-		<div id="wrapper-content">
+		<div class="wrapper-content">
 			<p>Please specify your name and contact phone number below in the form fields:</p>
 			<form method="POST" id="test-confirmation" action="confirmation.php">
 				<input type="hidden" name="test" value="<?= $test ?>">
