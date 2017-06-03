@@ -20,7 +20,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-03T20:54:38+0800" >
+<meta name="date" content="2017-06-03T20:58:04+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -43,8 +43,8 @@
 	<?php
 		include('view/navigation_bar.php');
 	?>
-	<div id="wrapper">
-		<div id="wrapper-header">
+	<div class="wrapper">
+		<div class="wrapper-header">
 			<?php
 				switch($global_lang) {
 					case EN:
@@ -57,7 +57,7 @@
 			?>
 			<h1><?= $header; ?></h1>
 		</div>
-		<div id="wrapper-content">
+		<div class="wrapper-content">
 			<?php
 				switch($global_lang) {
 					case EN:
