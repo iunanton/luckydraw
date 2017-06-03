@@ -1,10 +1,19 @@
 <?php
 	class timeSlotsHandler {
 		private $db_conn;
+		public $results_per_page = 20;
 		
 		public function __construct() {
 			require_once("dbconnector.class.php");
 			$this->db_conn = new dbConnector();
+		}
+		
+		public function getDefaultTimeSlots() {
+			$sql = "SELECT id, time FROM default_time";
+			$stmt = $this->db_conn->pdo->prepare($sql);
+			$stmt->execute();
+			$timeSlots = $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
+			return $timeSlots;
 		}
 		
 		public function getTimeSlots($date) {
@@ -19,6 +28,59 @@
 			$stmt->execute();
 			$timeSlots = $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
 			return $timeSlots;
+		}
+		
+		public function getTimeSlotsCount() {
+			$sql = "SELECT COUNT(id) AS total FROM time_slots";
+			$stmt = $this->db_conn->pdo->prepare($sql);
+			$stmt->execute();
+			$count = $stmt->fetchColumn();
+			return $count;
+		}
+		
+		public function getTimeSlotsPagesCount() {
+			$sql = "SELECT COUNT(id) AS total FROM time_slots";
+			$stmt = $this->db_conn->pdo->prepare($sql);
+			$stmt->execute();
+			$count = $stmt->fetchColumn();
+			return ceil($count / $this->results_per_page);
+		}
+		
+		public function getTimeSlotsByPage($page = 1) {
+			$start_from = ($page-1) * $this->results_per_page;
+			$sql = "SELECT t.id, t.date, d.time, r.id AS reservation";
+			$sql.= " FROM time_slots AS t JOIN default_time AS d ON t.time = d.id";
+			$sql.= " LEFT JOIN reservations AS r ON t.id = r.time_slot";
+			$sql.= " ORDER BY t.id DESC LIMIT $start_from, $this->results_per_page";
+			$stmt = $this->db_conn->pdo->prepare($sql);
+			$stmt->execute();
+			$timeSlots = $stmt->fetchAll();
+			return $timeSlots;
+		}
+		
+		public function addTimeSlots($start_day, $end_day, $timeSlots) {
+			$end_day->modify('+1 day');
+			$interval = new DateInterval('P1D');
+			$dateRange = new DatePeriod($start_day, $interval ,$end_day);
+			$sql = "INSERT INTO time_slots (date, time)";
+			$sql.= " VALUES (:date, :time)";
+			$stmt = $this->db_conn->pdo->prepare($sql);
+			foreach($dateRange as $day) {
+				$date = $day->format('Y-m-d');
+				$stmt->bindParam(':date', $date);
+				foreach($timeSlots as $timeSlot) {
+					$stmt->bindParam(':time', $timeSlot);
+					$stmt->execute();
+				}
+			}
+		}
+		
+		public function deleteTimeSlot($timeSlot) {
+			$sql = "DELETE FROM time_slots";
+			$sql.= " WHERE id = :time";
+			$stmt = $this->db_conn->pdo->prepare($sql);
+			$stmt->bindParam(':time', $timeSlot);
+			$stmt->execute();
 		}
 		
 	}
