@@ -9,7 +9,7 @@
 		}
 		
 		public function getDefault() {
-			$sql = "SELECT id, time FROM default_time";
+			$sql = "SELECT id, TIME_FORMAT(time, '%H:%i') AS time FROM default_time";
 			$stmt = $this->db_conn->pdo->prepare($sql);
 			$stmt->execute();
 			$timeSlots = $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
@@ -17,7 +17,7 @@
 		}
 		
 		public function get($date) {
-			$sql = "SELECT s.id, d.time";
+			$sql = "SELECT s.id, TIME_FORMAT(d.time, '%H:%i') AS time";
 			$sql.= " FROM time_slots AS s";
 			$sql.= " JOIN default_time AS d ON s.time = d.id";
 			$sql.= " LEFT JOIN reservations AS a ON s.id = a.time_slot";
@@ -48,7 +48,7 @@
 		
 		public function getByPage($page = 1) {
 			$start_from = ($page-1) * $this->results_per_page;
-			$sql = "SELECT t.id, t.date, d.time, r.id AS reservation";
+			$sql = "SELECT t.id, t.date, TIME_FORMAT(d.time, '%H:%i') AS time, r.id AS reservation";
 			$sql.= " FROM time_slots AS t JOIN default_time AS d ON t.time = d.id";
 			$sql.= " LEFT JOIN reservations AS r ON t.id = r.time_slot";
 			$sql.= " ORDER BY t.id DESC LIMIT $start_from, $this->results_per_page";
