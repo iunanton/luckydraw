@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <?php
 	require_once('constant.php');
-	require_once('class/mydatabase.php');
-	require_once('class/db.class.php');
+	
 	$global_page = basename(__FILE__, '.php');
 	
 	if(isset($_GET['day'])) {
@@ -16,7 +15,7 @@
 <title>Test Page - Weekly</title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-02T21:50:03+0800" >
+<meta name="date" content="2017-06-03T21:33:33+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -141,12 +140,7 @@
 				<h2>Heterosexual AIDS Test or HIV Test</h2>
 				<p>What date and time would you like an appointment?</p>
 				<?php
-
-					$db_conn = new db();
-
-				?>
-				<?php
-					include("class/calendar.class.php");
+					require_once("class/calendar.class.php");
 					$obj = new calendar($current_day);
 					$obj->render();
 				?>
