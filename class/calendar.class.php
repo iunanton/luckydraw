@@ -42,7 +42,7 @@
 					$this->html .= $date->format("F");
 					$this->html .= '</div>';
 				}
-				$this->html .= '<div class="calendar-day-header'. ($date == $this->today ? ' today' : '').'">';
+				$this->html .= '<div class="calendar-day-header'. ($this->isToday($date) ? ' today' : '').'">';
 				$this->html .= '<div class="calendar-day-number">';
 				$this->html .= $date->format("j");
 				$this->html .= '</div>';
@@ -51,13 +51,18 @@
 				$this->html .= '</div>';
 				$this->html .= '</div>';
 				$this->html .= '<div class="calendar-day-content">';
+
 				$timeSlots = $this->handler->get($date->format("Y-m-d"));
-				if(empty($timeSlots)) {
-					$this->html .= '<div class="calendar-day-not-available">No Available Time Slots</div>';
-				} else {
-					foreach ($timeSlots as $timeSlot) {
-						$this->html .= '<div class="calendar-time-slot">'.$timeSlot.'</div>';
+				if ($this->validDate($date)) {
+					if(empty($timeSlots)) {
+						$this->html .= '<div class="calendar-day-not-available">No Available</div>';
+					} else {
+						foreach ($timeSlots as $timeSlot) {
+							$this->html .= '<div class="calendar-time-slot">'.$timeSlot.'</div>';
+						}
 					}
+				} else {
+					$this->html .= '<div class="calendar-day-not-available">No Available</div>';
 				}
 				$this->html .= '</div>';
 			}
@@ -80,6 +85,18 @@
 			$this->week_nav .= $this->next_week->format("Y-m-d"); 			
 			$this->week_nav .= '">&#9654</a>';
 			$this->week_nav .= '</div>';
+		}
+				
+		private function isToday(DateTime $date) {
+			return $date == $this->today;
+		}
+				
+		private function validDate(DateTime $date) {
+			if($date > $this->today) {
+				return TRUE;
+			} else {
+				return FALSE;
+			}
 		}
 		
 		public function render() {
