@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <?php
 	require_once('../constant.php');
-	require_once('../class/db.class.php');
-	require_once('../class/mydatabase.php');
-	$global_page = basename(__FILE__, '.php');
+	require_once('../class/reservationshandler.class.php');
 	
-	$db_conn = new db();
+	$handler = new reservationsHandler();
+		
+	$global_page = basename(__FILE__, '.php');
+
 ?>
 <html>
 <head>
@@ -14,7 +15,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-01T22:12:36+0800" >
+<meta name="date" content="2017-06-03T20:34:48+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -63,7 +64,7 @@
 			?>
 			<p><?=$todayIs; ?></p>
 			<?php
-				$reservations = $db_conn->getReservationsForToday();
+				$reservations = $handler->getReservationsForToday();
 			?>
 			<p>For today <strong><?=sizeof($reservations);?> appointment(s)</strong> were found:</p>
 			<table class="sql-query">
@@ -92,7 +93,7 @@
 			?>
 			</table>
 			<?php
-				$reservations = $db_conn->getReservationsForTomorrow();
+				$reservations = $handler->getReservationsForTomorrow();
 			?>
 			<p>For tomorrow <strong><?=sizeof($reservations);?> appointment(s)</strong> were found:</p>
 			<table class="sql-query">
