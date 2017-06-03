@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <?php
 	require_once('../constant.php');
-	require_once('../class/db.class.php');
-	require_once('../class/mydatabase.php');
+	require_once('../class/reservationshandler.class.php');
+	
+	$handler = new reservationsHandler();
+	
 	$global_page = basename(__FILE__, '.php');
+	
 	if (isset($_GET["page"])) {
 		$page  = $_GET["page"];
 	} else {
 		$page=1;
 	};
 	
-	$db_conn = new db();
-	
 	if(isset($_GET['id'])) {
 		$id = $_GET['id'];
-		$db_conn->cancelReservation($id);
+		$handler->cancelReservation($id);
 		$prompt = "Record #$id was cancelled.";
 	}
 ?>
@@ -25,7 +26,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-02T21:44:19+0800" >
+<meta name="date" content="2017-06-03T20:30:03+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -67,9 +68,10 @@
 				<?=$prompt; ?>
 			</div>
 			<?php
-				$reservations = $db_conn->getReservations();
+				$reservationsCount = $handler->getReservationsCount();
+				$reservations = $handler->getReservationsByPage($page);
 			?>
-				<p><strong><?=sizeof($reservations);?> appointment(s)</strong> was founded:</p>
+				<p><strong><?=$reservationsCount;?> appointment(s)</strong> was founded:</p>
 				<table class="sql-query">
 					<tr>
 						<?php
@@ -111,7 +113,7 @@
 		</div>
 		<div class="wrapper-footer">
 			<?php
-				$total_pages = $db_conn->getReservationsCount();
+				$total_pages = $handler->getReservationsPagesCount();
 				include('../view/page_nav.php');
 			?>
 		</div>
