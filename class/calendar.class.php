@@ -4,6 +4,7 @@
 	 * it use css class to operate with monthly or weekly rendering
 	 */
 	class calendar {
+		private $handler;
 		private $current_day; // this points to month should be shown and highlights day
 		private $today;
 		private $last_week;
@@ -17,6 +18,8 @@
 		private $html; // HTML code of calendar to render it
 		
 		public function __construct($current_day) {
+			require_once("timeslotshandler.class.php");
+			$this->handler = new timeSlotsHandler();
 			$this->current_day = new DateTime($current_day);
 			$this->today = new DateTime("today");
 			$this->last_week = new DateTime($current_day);
@@ -48,6 +51,10 @@
 				$this->html .= '</div>';
 				$this->html .= '</div>';
 				$this->html .= '<div class="calendar-day-content">';
+				$timeSlots = $this->handler->get($date->format("Y-m-d"));
+				foreach ($timeSlots as $timeSlot) {
+					$this->html .= '<div class="calendar-time-slot">'.$timeSlot.'</div>';
+				}
 				$this->html .= '<div class="calendar-time-slot">15:30</div>';
 				$this->html .= '<div class="calendar-time-slot">16:00</div>';
 				$this->html .= '<div class="calendar-time-slot">16:30</div>';
