@@ -15,7 +15,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-03T20:34:48+0800" >
+<meta name="date" content="2017-06-03T20:44:39+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -64,7 +64,7 @@
 			?>
 			<p><?=$todayIs; ?></p>
 			<?php
-				$reservations = $handler->getReservationsForToday();
+				$reservations = $handler->getForToday();
 			?>
 			<p>For today <strong><?=sizeof($reservations);?> appointment(s)</strong> were found:</p>
 			<table class="sql-query">
@@ -93,7 +93,7 @@
 			?>
 			</table>
 			<?php
-				$reservations = $handler->getReservationsForTomorrow();
+				$reservations = $handler->getForTomorrow();
 			?>
 			<p>For tomorrow <strong><?=sizeof($reservations);?> appointment(s)</strong> were found:</p>
 			<table class="sql-query">

@@ -15,7 +15,7 @@
 	
 	if(isset($_GET['id'])) {
 		$id = $_GET['id'];
-		$handler->cancelReservation($id);
+		$handler->cancel($id);
 		$prompt = "Record #$id was cancelled.";
 	}
 ?>
@@ -26,7 +26,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-03T20:30:03+0800" >
+<meta name="date" content="2017-06-03T20:43:06+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -68,8 +68,8 @@
 				<?=$prompt; ?>
 			</div>
 			<?php
-				$reservationsCount = $handler->getReservationsCount();
-				$reservations = $handler->getReservationsByPage($page);
+				$reservationsCount = $handler->getCount();
+				$reservations = $handler->getByPage($page);
 			?>
 				<p><strong><?=$reservationsCount;?> appointment(s)</strong> was founded:</p>
 				<table class="sql-query">
@@ -113,7 +113,7 @@
 		</div>
 		<div class="wrapper-footer">
 			<?php
-				$total_pages = $handler->getReservationsPagesCount();
+				$total_pages = $handler->getPagesCount();
 				include('../view/page_nav.php');
 			?>
 		</div>

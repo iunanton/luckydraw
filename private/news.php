@@ -1,5 +1,8 @@
 <?php
 	require_once('../constant.php');
+	require_once('../class/newshandler.class.php');
+	
+	$handler = new newsHandler();
 	
 	if(isset($_GET['lang'])) {
 		$global_lang = $_GET['lang'];
@@ -8,8 +11,6 @@
 	}
 
 	$global_page = basename(__FILE__, '.php');
-
-	require_once('../class/mydatabase.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,7 +20,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-17T06:18:22+0800" >
+<meta name="date" content="2017-06-03T20:51:21+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -55,27 +56,50 @@
 			<h1><?= $header; ?></h1>
 		</div>
 		<div id="wrapper-content">
-			Today is <?=date("d M, Y"); ?><br><br>
-			<u>Add news</u><br><br>
-			<table class="content-table">
+			<?php
+				switch($global_lang) {
+					case EN:
+						$todayIs = "Today is ".date("j M, Y");
+						break;
+					case ZH:
+						$todayIs = "今天".date("j M, Y");
+						break;
+				}
+			?>
+			<p><?=$todayIs; ?></p>
+			<p><u>Add news</u></p>
+			<?php
+				$articles = $handler->getTitles();
+			?>
+			<p><strong><?=sizeof($news);?> news article(s)</strong> were found:</p>
+			<table class="sql-query">
 				<tr>
 					<th>#</th><th>Title</th><th>Language</th><th>Added at</th><th>Edit</th><th>Delete</th>		
 				</tr>
-				<tr>
-					<td>1</td><td>有關異性戀者的非政府資助測試服務</td><td>ZH</td><td>2017-05-15</td><td><u>Edit</u></td><td><u>Delete</u></td>		
-				</tr>
-				<tr>
-					<td>1</td><td>有關異性戀者的非政府資助測試服務</td><td>ZH</td><td>2017-05-15</td><td><u>Edit</u></td><td><u>Delete</u></td>		
-				</tr>
-				<tr>
-					<td>1</td><td>有關異性戀者的非政府資助測試服務</td><td>ZH</td><td>2017-05-15</td><td><u>Edit</u></td><td><u>Delete</u></td>		
-				</tr>
-				<tr>
-					<td>1</td><td>有關異性戀者的非政府資助測試服務</td><td>ZH</td><td>2017-05-15</td><td><u>Edit</u></td><td><u>Delete</u></td>		
-				</tr>
-				<tr>
-					<td>1</td><td>有關異性戀者的非政府資助測試服務</td><td>ZH</td><td>2017-05-15</td><td><u>Edit</u></td><td><u>Delete</u></td>		
-				</tr>
+				<?php
+					foreach ($articles as $article) {
+						echo "<tr>";
+						echo "<td>";
+						echo $article["id"];
+						echo "</td>";
+						echo "<td>";
+						echo $article["title"];
+						echo "</td>";
+						echo "<td>";
+						echo $article["lang"];
+						echo "</td>";
+						echo "<td>";
+						echo $article["date"];
+						echo "</td>";
+						echo "<td>";
+						echo "edit";
+						echo "</td>";
+						echo "<td>";
+						echo "delete";
+						echo "</td>";
+						echo "</tr>";
+					}
+				?>
 			</table>
 		</div>
 	</div>

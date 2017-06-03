@@ -17,12 +17,12 @@
 		$start_day = new DateTime($_GET['start-day']);
 		$end_day = new DateTime($_GET['end-day']);
 		$timeSlots = array_map('intval', $_GET['timeSlots']);
-		$handler->addTimeSlots($start_day, $end_day, $timeSlots);
+		$handler->add($start_day, $end_day, $timeSlots);
 		$prompt = "Time slots were added.";
 	}
 	if(isset($_GET['id'])) {
 		$id = $_GET['id'];
-		$handler->deleteTimeSlot($id);
+		$handler->delete($id);
 		$prompt = "Time slot #$id was deleted.";
 	}
 ?>
@@ -33,7 +33,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-03T20:09:55+0800" >
+<meta name="date" content="2017-06-03T20:44:07+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -104,7 +104,7 @@
 				</div>
 				<div class="form-time-slots">
 					<?php
-						$defaultTimeSlots = $handler->getDefaultTimeSlots();
+						$defaultTimeSlots = $handler->getDefault();
 						$timeSlotsOnRow = 3;
 						
 						$i = 0;
@@ -123,8 +123,8 @@
 				</div>
 			</form>
 			<?php
-				$timeSlotsCount = $handler->getTimeSlotsCount();
-				$timeSlots = $handler->getTimeSlotsByPage($page);
+				$timeSlotsCount = $handler->getCount();
+				$timeSlots = $handler->getByPage($page);
 			?>
 			<p><strong><?=$timeSlotsCount;?> record(s)</strong> was found:</p>
 			<table class="sql-query">
@@ -171,7 +171,7 @@
 		</div>
 		<div class="wrapper-footer">
 			<?php
-				$total_pages = $handler->getTimeSlotsPagesCount();
+				$total_pages = $handler->getPagesCount();
 				include('../view/page_nav.php');
 			?>
 		</div>
