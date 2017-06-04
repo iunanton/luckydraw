@@ -57,8 +57,12 @@
 				}
 				if(isset($timeSlots) && !empty($timeSlots)) {
 					if(!$this->isToday($date) || $this->allowTodayBooking()) {
-						foreach ($timeSlots as $timeSlot) {
-							$this->html .= '<div class="calendar-time-slot">'.$timeSlot.'</div>';
+						foreach ($timeSlots as $key => $timeSlot) {
+							$this->html .= '<div class="calendar-time-slot">';
+							$this->html .= '<a href="booking_form.php?test='.$key.'" class="time">';
+							$this->html .= $timeSlot;
+							$this->html .= '</a>';
+							$this->html .= '</div>';
 						}
 					} else {
 						$this->html .= '<div class="calendar-notice">Please call 5405 6631 for today\'s booking</div>';
