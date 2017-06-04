@@ -56,8 +56,12 @@
 					$timeSlots = $this->handler->get($date->format("Y-m-d"));
 				}
 				if(isset($timeSlots) && !empty($timeSlots)) {
-					foreach ($timeSlots as $timeSlot) {
-						$this->html .= '<div class="calendar-time-slot">'.$timeSlot.'</div>';
+					if(!$this->isToday($date) || $this->allowTodayBooking()) {
+						foreach ($timeSlots as $timeSlot) {
+							$this->html .= '<div class="calendar-time-slot">'.$timeSlot.'</div>';
+						}
+					} else {
+						//
 					}
 				} else {
 					$this->html .= '<div class="calendar-day-not-available">No Available</div>';
@@ -85,7 +89,6 @@
 			$this->endOfTodaysBooking = clone $this->today;
 			$this->endOfTodaysBooking->setTime(END_OF_BOOKING_HOUR, END_OF_BOOKING_MIN);
 			$this->now = new DateTime("now");
-			
 		}
 		
 		private function weekNav() {
@@ -113,7 +116,7 @@
 			return $date >= $this->today;
 		}
 			
-		private function AllowTodayBooking(DateTime $date) {
+		private function allowTodayBooking() {
 			return $this->now < $this->endOfTodaysBooking;
 		}
 		
