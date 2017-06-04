@@ -6,34 +6,30 @@
 	class calendar {
 		private $handler;
 		private $current_day; // this points to month should be shown and highlights day
-		private $today;
+		private $week_number;
+		private $week_start;
+		private $week_end;
 		private $last_week;
 		private $next_week;
-		private $start_day;
-		private $end_day;
-		private $week_nav;
+		private $today;
 		private $interval;
 		private $daterange;
 		
+		private $week_nav;		
 		private $html; // HTML code of calendar to render it
 		
 		public function __construct($current_day) {
 			require_once("timeslotshandler.class.php");
 			$this->handler = new timeSlotsHandler();
+			
 			$this->current_day = new DateTime($current_day);
-			$this->today = new DateTime("today");
-			$this->last_week = new DateTime($current_day);
-			$this->last_week->modify("-7 days");
-			$this->next_week = new DateTime($current_day);
-			$this->next_week->modify("+7 days");
-			$this->start_day = new DateTime($current_day);
-			$this->start_day->modify("last sunday");
-			$this->end_day = new DateTime($current_day);
-			$this->end_day->modify("this saturday");
-			$this->weekNav();		
-			$this->end_day->modify("+1 day");
+			$this->getWeekParameters();
+			$this->weekNav();
+			
+			$this->week_end->modify("+1 day");
 			$this->interval = new DateInterval('P1D');
-			$this->daterange = new DatePeriod($this->start_day, $this->interval ,$this->end_day);
+			$this->daterange = new DatePeriod($this->week_start, $this->interval ,$this->week_end);
+			
 			$this->html = '<div class="calendar">';
 			$this->html .= $this->week_nav;
 			foreach($this->daterange as $date) {
@@ -70,17 +66,33 @@
 			$this->html .= '</div>';
 		}
 		
+		private function getWeekParameters() {
+			$this->week_start = clone $this->current_day;
+			$this->week_start->modify("+1 day");
+			$this->week_end = clone $this->week_start;
+			$this->last_week = clone $this->week_start;
+			$this->next_week = clone $this->week_start;
+			$this->week_start->modify("monday this week");
+			$this->week_start->modify("-1 day");
+			$this->week_end->modify("sunday this week");
+			$this->week_end->modify("-1 day");
+			$this->week_number = $this->week_end->format("W"); 
+			$this->last_week->modify("-8 days");
+			$this->next_week->modify("+6 days");
+			$this->today = new DateTime("today");
+		}
+		
 		private function weekNav() {
 			$this->week_nav .= '<div class="week-nav">';
 			$this->week_nav .= '<a href="?day=';
 			$this->week_nav .= $this->last_week->format("Y-m-d"); 
 			$this->week_nav .=  '">&#9664</a> ';
 			$this->week_nav .= 'Week ';
-			$this->week_nav .= $this->current_day->format("W");
+			$this->week_nav .= $this->week_number;
 			$this->week_nav .= ', ';
-			$this->week_nav .= $this->start_day->format("F j");
+			$this->week_nav .= $this->week_start->format("F j");
 			$this->week_nav .= ' - ';
-			$this->week_nav .= $this->end_day->format("F j");
+			$this->week_nav .= $this->week_end->format("F j");
 			$this->week_nav .= ' <a href="?day=';
 			$this->week_nav .= $this->next_week->format("Y-m-d"); 			
 			$this->week_nav .= '">&#9654</a>';
