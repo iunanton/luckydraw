@@ -26,7 +26,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-03T20:43:06+0800" >
+<meta name="date" content="2017-06-05T03:34:15+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -67,6 +67,17 @@
 			<div class="prompt">
 				<?=$prompt; ?>
 			</div>
+			<?php
+				switch($global_lang) {
+					case EN:
+						$todayIs = "Today is ".date("j M, Y");
+						break;
+					case ZH:
+						$todayIs = "今天".date("j M, Y");
+						break;
+				}
+			?>
+			<p><?=$todayIs; ?></p>
 			<?php
 				$reservationsCount = $handler->getCount();
 				$reservations = $handler->getByPage($page);
