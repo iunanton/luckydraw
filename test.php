@@ -15,7 +15,7 @@
 <title>Test Page - Weekly</title>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-03T21:54:31+0800" >
+<meta name="date" content="2017-06-05T02:31:17+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -101,6 +101,7 @@
 		border-right-color: #305D7C;*/
 	}
 	.calendar-day-not-available,
+	.calendar-notice,
 	.calendar-time-slot {
 		display: inline-block;
 		padding: 5px 10px 5px 10px;
@@ -110,7 +111,8 @@
 	.calendar-time-slot:hover {
 		background-color: #FF6600;
 	}
-	.calendar-day-not-available {
+	.calendar-day-not-available,
+	.calendar-notice {
 		background-color: #EEEEEE;
 	}
 </style>

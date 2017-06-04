@@ -61,7 +61,7 @@
 							$this->html .= '<div class="calendar-time-slot">'.$timeSlot.'</div>';
 						}
 					} else {
-						//
+						$this->html .= '<div class="calendar-notice">Please call 5405 6631 for today\'s booking</div>';
 					}
 				} else {
 					$this->html .= '<div class="calendar-day-not-available">No Available</div>';
