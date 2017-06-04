@@ -12,7 +12,7 @@
 	if(isset($_POST['test']) && isset($_POST['name']) && isset($_POST['tel'])) {
 		$test = $_POST['test'];
 		$name = $_POST['name'];
-		$tel = $_POST['tel'];
+		$tel = (int) $_POST['tel'];
 		$conn->setReservation($test, $name, $tel);
 		$info = $conn->getTestInfo($test);
 
@@ -25,7 +25,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-04T02:31:54+0800" >
+<meta name="date" content="2017-06-05T03:10:48+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">

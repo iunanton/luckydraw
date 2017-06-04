@@ -20,7 +20,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-04T02:31:41+0800" >
+<meta name="date" content="2017-06-05T03:14:27+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -94,7 +94,7 @@
 				</div>
 				<div class="input-field">
 					<label for="tel-field">Tel.: *</label>
-					<input type="text" id="tel-field" name="tel" pattern="[0-9]{8,12}" title="From 8 to 13 digits" required>
+					<input type="text" id="tel-field" name="tel" pattern="[0-9]{8,12}" title="From 8 to 12 digits">
 				</div>
 				<div class="input-field">
 					<input type="submit" value="Confirm">				
