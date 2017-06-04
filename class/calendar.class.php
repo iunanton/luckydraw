@@ -114,6 +114,10 @@
 		private function validDate(DateTime $date) {
 			return $date >= $this->today;
 		}
+			
+		private function AllowTodayBooking(DateTime $date) {
+			return $this->now < $this->endOfTodaysBooking;
+		}
 		
 		public function render() {
 			echo $this->html;
