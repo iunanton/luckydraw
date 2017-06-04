@@ -85,6 +85,10 @@
 		width: 100%;
 		text-align: center;
 	}
+	.content-image img {
+		width: 100%;
+		text-align: center;
+	}
 	.content-image p {
 		margin: 0 auto;	
 	}
