@@ -12,7 +12,7 @@
 			$sql = "SELECT r.id, t.date, d.time, r.name, r.phone, r.reservation_time, r.cancelled";
 			$sql.= " FROM reservations AS r JOIN time_slots AS t ON r.time_slot = t.id";
 			$sql.= " JOIN default_time AS d ON t.time = d.id";
-			$sql.= " WHERE t.date = CURDATE() ORDER BY t.id ASC";
+			$sql.= " WHERE t.date = CURDATE() AND NOT r.cancelled ORDER BY t.id ASC";
 			$stmt = $this->db_conn->pdo->prepare($sql);
 			$stmt->execute();
 			$reservations = $stmt->fetchAll();
@@ -23,7 +23,7 @@
 			$sql = "SELECT r.id, t.date, d.time, r.name, r.phone, r.reservation_time, r.cancelled";
 			$sql.= " FROM reservations AS r JOIN time_slots AS t ON r.time_slot = t.id";
 			$sql.= " JOIN default_time AS d ON t.time = d.id";
-			$sql.= " WHERE t.date = DATE_ADD(CURDATE(), INTERVAL 1 DAY) ORDER BY t.id ASC";
+			$sql.= " WHERE t.date = DATE_ADD(CURDATE(), INTERVAL 1 DAY) AND NOT r.cancelled ORDER BY t.id ASC";
 			$stmt = $this->db_conn->pdo->prepare($sql);
 			$stmt->execute();
 			$reservations = $stmt->fetchAll();
