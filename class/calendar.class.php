@@ -52,14 +52,12 @@
 				$this->html .= '</div>';
 				$this->html .= '<div class="calendar-day-content">';
 
-				$timeSlots = $this->handler->get($date->format("Y-m-d"));
 				if ($this->validDate($date)) {
-					if(empty($timeSlots)) {
-						$this->html .= '<div class="calendar-day-not-available">No Available</div>';
-					} else {
-						foreach ($timeSlots as $timeSlot) {
-							$this->html .= '<div class="calendar-time-slot">'.$timeSlot.'</div>';
-						}
+					$timeSlots = $this->handler->get($date->format("Y-m-d"));
+				}
+				if(isset($timeSlots) && !empty($timeSlots)) {
+					foreach ($timeSlots as $timeSlot) {
+						$this->html .= '<div class="calendar-time-slot">'.$timeSlot.'</div>';
 					}
 				} else {
 					$this->html .= '<div class="calendar-day-not-available">No Available</div>';
