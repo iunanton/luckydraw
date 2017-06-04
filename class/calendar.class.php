@@ -1,4 +1,6 @@
 <?php
+	define("END_OF_BOOKING_HOUR", 14, false);
+	define("END_OF_BOOKING_MIN", 30, false);
 	/**
 	 * calendar class
 	 * it use css class to operate with monthly or weekly rendering
@@ -12,6 +14,8 @@
 		private $last_week;
 		private $next_week;
 		private $today;
+		private $now;
+		private $endOfTodaysBooking;
 		private $interval;
 		private $daterange;
 		
@@ -80,6 +84,10 @@
 			$this->last_week->modify("-8 days");
 			$this->next_week->modify("+6 days");
 			$this->today = new DateTime("today");
+			$this->endOfTodaysBooking = clone $this->today;
+			$this->endOfTodaysBooking->setTime(END_OF_BOOKING_HOUR, END_OF_BOOKING_MIN);
+			$this->now = new DateTime("now");
+			
 		}
 		
 		private function weekNav() {
@@ -104,11 +112,7 @@
 		}
 				
 		private function validDate(DateTime $date) {
-			if($date > $this->today) {
-				return TRUE;
-			} else {
-				return FALSE;
-			}
+			return $date >= $this->today;
 		}
 		
 		public function render() {
