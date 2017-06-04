@@ -33,7 +33,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-03T20:44:07+0800" >
+<meta name="date" content="2017-06-05T03:25:16+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -46,7 +46,25 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=1" />
 <link href="../style.css" rel="stylesheet" type="text/css">
 <style type="text/css">
-
+	.input-field {
+		display: block;	
+	}
+	.input-field::after {
+		content: '';
+		clear: both;
+		display: block;	
+	}
+	.input-field label {
+		width: 100px;
+		float: left;
+		text-align: right;
+		margin-right: 10px;
+		display: block;
+	}
+	.input-field input[type=submit] {
+		float: left;
+		margin-left: 110px;	
+	}
 </style>
 </head>
 <body>
@@ -94,11 +112,11 @@
 			<!--Add new time slot form-->
 			<form action="" method="GET">
 				<!--Try date input here-->
-				<div class="form-date">
+				<div class="input-field">
 					<label for="start-date"><?=$from; ?></label>
 					<input id="start-date" type="date" name="start-day">
 				</div>
-				<div class="form-date">
+				<div class="input-field">
 					<label for="end-date"><?=$to; ?></label>
 					<input id="end-date" type="date" name="end-day">
 				</div>
@@ -118,7 +136,7 @@
 						}
 					?>
 				</div>
-				<div class="form-submit">
+				<div class="input-field">
 					<input type="submit" name="" value="OK" />
 				</div>
 			</form>
