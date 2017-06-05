@@ -19,7 +19,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-06T04:54:25+0800" >
+<meta name="date" content="2017-06-06T05:07:22+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -54,53 +54,81 @@
 </style>
 </head>
 <body>
-	<?php
-		include('view/header.php');
-	?>
-	<?php
-		include('view/navigation_bar.php');
-	?>
-	<div id="wrapper">
-		<div id="wrapper-header">
-			<?php
-				switch($global_lang) {
-					case EN:
-						$header = "News";
-						break;
-					case ZH:
-						$header = "最新消息";
-						break;
-				}
-			?>
-			<h1><?= $header; ?></h1>
+	<div class="container">
+		<?php
+			include('view/header.php');
+		?>
+		<?php
+			include('view/navigation_bar.php');
+		?>
+		<div class="wrapper">
+			<div class="wrapper-header">
+				<?php
+					switch($global_lang) {
+						case EN:
+							$header = "News";
+							break;
+						case ZH:
+							$header = "最新消息";
+							break;
+					}
+				?>
+				<h1><?= $header; ?></h1>
+			</div>
+			<div class="wrapper-content">
+				<div class="prompt">
+					<?=$prompt; ?>
+				</div>
+				<?php
+					switch($global_lang) {
+						case EN:
+							$todayIs = "Today is ".date("j M, Y");
+							break;
+						case ZH:
+							$todayIs = "今天".date("j M, Y");
+							break;
+					}
+				?>
+				<p><?=$todayIs; ?></p>
+				<p><u>Add news</u></p>
+				<?php
+					$articles = $handler->getTitles();
+				?>
+				<p><strong><?=sizeof($articles);?> news article(s)</strong> were found:</p>
+				<table class="sql-query">
+					<tr>
+						<th>#</th><th>Title</th><th>Language</th><th>Added at</th><th>Edit</th><th>Delete</th>		
+					</tr>
+					<?php
+						foreach ($articles as $article) {
+							echo "<tr>";
+							echo "<td>";
+							echo $article["id"];
+							echo "</td>";
+							echo "<td>";
+							echo $article["title"];
+							echo "</td>";
+							echo "<td>";
+							echo (is_null($article["lang"]) ? "All" : $article["lang"]);
+							echo "</td>";
+							echo "<td>";
+							echo $article["date"];
+							echo "</td>";
+							echo "<td>";
+							echo "edit";
+							echo "</td>";
+							echo "<td>";
+							echo '<a href="?del='.$article["id"].'">delete</a>';
+							echo "</td>";
+							echo "</tr>";
+						}
+					?>
+				</table>
+			</div>
 		</div>
-		<div id="wrapper-content">
-			Today is <?=date("d M, Y"); ?><br><br>
-			<u>Add news</u><br><br>
-			<table class="content-table">
-				<tr>
-					<th>#</th><th>Title</th><th>Language</th><th>Added at</th><th>Edit</th><th>Delete</th>		
-				</tr>
-				<tr>
-					<td>1</td><td>有關異性戀者的非政府資助測試服務</td><td>ZH</td><td>2017-05-15</td><td><u>Edit</u></td><td><u>Delete</u></td>		
-				</tr>
-				<tr>
-					<td>1</td><td>有關異性戀者的非政府資助測試服務</td><td>ZH</td><td>2017-05-15</td><td><u>Edit</u></td><td><u>Delete</u></td>		
-				</tr>
-				<tr>
-					<td>1</td><td>有關異性戀者的非政府資助測試服務</td><td>ZH</td><td>2017-05-15</td><td><u>Edit</u></td><td><u>Delete</u></td>		
-				</tr>
-				<tr>
-					<td>1</td><td>有關異性戀者的非政府資助測試服務</td><td>ZH</td><td>2017-05-15</td><td><u>Edit</u></td><td><u>Delete</u></td>		
-				</tr>
-				<tr>
-					<td>1</td><td>有關異性戀者的非政府資助測試服務</td><td>ZH</td><td>2017-05-15</td><td><u>Edit</u></td><td><u>Delete</u></td>		
-				</tr>
-			</table>
-		</div>
+		<?php
+			include('view/footer.php');
+		?>
 	</div>
-	<?php
-		include('view/footer.php');
-	?>
 </body>
 </html>
