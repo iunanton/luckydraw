@@ -25,7 +25,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-06T05:41:23+0800" >
+<meta name="date" content="2017-06-06T05:50:31+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -99,7 +99,7 @@
 	<!----------------------------------------------------------------------------------- -->
 				<p>Add new video.</p>
 				<p>Website accepts <strong>iframe</strong> Youtube video.</p>
-				<p>Click "Share" -> "Code" and copy whole <strong>iframe</strong> line.</p>
+				<p>Click "Share" -> "Embed" and copy whole <strong>iframe</strong> line.</p>
 				<p>Fill video title and paste <strong>iframe</strong> line below:</p>
 				<!--Add new time slot form-->
 				<form action="" method="GET">
