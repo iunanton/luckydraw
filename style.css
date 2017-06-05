@@ -44,6 +44,13 @@
 		text-align: center;
 	}
 
+	.nav-bar li {
+		display: inline-block;
+		vertical-align: middle;
+		width: 19%;
+		text-align: center;
+	}
+
 	nav a {
 		display: inline-block;
 		padding: 10px 0px 10px 0px;
