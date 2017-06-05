@@ -99,12 +99,20 @@ class myDatabase {
 	 *  @return nothing
 	 */
 	public function setReservation($time_slot, $name, $tel) {
-		$sql = "INSERT INTO reservations (name, phone, time_slot)";
-		$sql.= " VALUES (:name, :phone, :time_slot)";
-		$stmt = $this->pdo->prepare($sql);
-		$stmt->bindParam(':name', $name);
-		$stmt->bindParam(':phone', $tel);
-		$stmt->bindParam(':time_slot', $time_slot);
+		if($tel == '') {
+			$sql = "INSERT INTO reservations (name, time_slot)";
+			$sql.= " VALUES (:name, :time_slot)";
+			$stmt = $this->pdo->prepare($sql);
+			$stmt->bindParam(':name', $name);
+			$stmt->bindParam(':time_slot', $time_slot);
+		} else {
+			$sql = "INSERT INTO reservations (name, phone, time_slot)";
+			$sql.= " VALUES (:name, :phone, :time_slot)";
+			$stmt = $this->pdo->prepare($sql);
+			$stmt->bindParam(':name', $name);
+			$stmt->bindParam(':phone', $tel);
+			$stmt->bindParam(':time_slot', $time_slot);
+		}
 		$stmt->execute();
 	}
 

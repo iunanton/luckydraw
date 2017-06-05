@@ -5,10 +5,7 @@
 	$global_page = basename(__FILE__, '.php');
 
 	require_once('class/mydatabase.php');
-?>
-<?php
-	//include myDatabase class
-	require_once('class/mydatabase.php');
+	
 	$conn = new myDatabase();
 
 	//GET and POST methods
@@ -28,7 +25,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-06T05:26:26+0800" >
+<meta name="date" content="2017-06-06T06:00:06+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
