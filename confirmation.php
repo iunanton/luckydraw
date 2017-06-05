@@ -25,7 +25,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-05T03:10:48+0800" >
+<meta name="date" content="2017-06-06T05:28:00+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -60,41 +60,43 @@
 </style>
 </head>
 <body>
-	<?php
-		include('view/header.php');
-	?>
-	<?php
-		include('view/navigation_bar.php');
-	?>
-	<div class="wrapper">
-		<div class="wrapper-header">
-			<?php
-				switch($global_lang) {
-					case EN:
-						$header = "Confirmation";
-						break;
-					case ZH:
-						$header = "Confirmation";
-						break;
-				}
-			?>
-			<h1><?= $header; ?></h1>
-		</div>
-		<div class="wrapper-content">
-			<p>Your booking was confirmed successfully.</p>
-			<div class="input-field">
-				<label for="name-field">Date:</label>
-				<input type="text" id="name-field" name="date" value="<?= $info['date']; ?>" disabled="true">
+	<div class="container">
+		<?php
+			include('view/header.php');
+		?>
+		<?php
+			include('view/navigation_bar.php');
+		?>
+		<div class="wrapper">
+			<div class="wrapper-header">
+				<?php
+					switch($global_lang) {
+						case EN:
+							$header = "Confirmation";
+							break;
+						case ZH:
+							$header = "Confirmation";
+							break;
+					}
+				?>
+				<h1><?= $header; ?></h1>
 			</div>
-			<div class="input-field">
-				<label for="name-field">Time:</label>
-				<input type="text" id="name-field" name="time" value="<?= substr($info['time'], 0, 5); ?>" disabled="true">
+			<div class="wrapper-content">
+				<p>Your booking was confirmed successfully.</p>
+				<div class="input-field">
+					<label for="name-field">Date:</label>
+					<input type="text" id="name-field" name="date" value="<?= $info['date']; ?>" disabled="true">
+				</div>
+				<div class="input-field">
+					<label for="name-field">Time:</label>
+					<input type="text" id="name-field" name="time" value="<?= substr($info['time'], 0, 5); ?>" disabled="true">
+				</div>
+				<p><a href="rapid_test.php">Back 回頂</a></p>
 			</div>
-			<p><a href="rapid_test.php">Back 回頂</a></p>
 		</div>
+		<?php
+			include('view/footer.php');
+		?>
 	</div>
-	<?php
-		include('view/footer.php');
-	?>
 </body>
 </html>

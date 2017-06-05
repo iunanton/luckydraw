@@ -20,7 +20,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-05T03:14:27+0800" >
+<meta name="date" content="2017-06-06T05:27:38+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -55,58 +55,60 @@
 </style>
 </head>
 <body>
-	<?php
-		include('view/header.php');
-	?>
-	<?php
-		include('view/navigation_bar.php');
-	?>
-	<div class="wrapper">
-		<div class="wrapper-header">
-			<?php
-				switch($global_lang) {
-					case EN:
-						$header = "Booking Form";
-						break;
-					case ZH:
-						$header = "Booking Form";
-						break;
-				}
-			?>
-			<h1><?= $header; ?></h1>
+	<div class="container">
+		<?php
+			include('view/header.php');
+		?>
+		<?php
+			include('view/navigation_bar.php');
+		?>
+		<div class="wrapper">
+			<div class="wrapper-header">
+				<?php
+					switch($global_lang) {
+						case EN:
+							$header = "Booking Form";
+							break;
+						case ZH:
+							$header = "Booking Form";
+							break;
+					}
+				?>
+				<h1><?= $header; ?></h1>
+			</div>
+			<div class="wrapper-content">
+				<p>Please specify your name and contact phone number below in the form fields:</p>
+				<form method="POST" id="test-confirmation" action="confirmation.php">
+					<input type="hidden" name="test" value="<?= $test ?>">
+					<div class="input-field">
+						<label for="name-field">Date:</label>
+						<input type="text" id="name-field" name="date" value="<?= $info['date']; ?>" disabled="true">
+					</div>
+					<div class="input-field">
+						<label for="name-field">Time:</label>
+						<input type="text" id="name-field" name="time" value="<?= substr($info['time'], 0, 5); ?>" disabled="true">
+					</div>
+	
+					<div class="input-field">
+						<label for="name-field">Name:</label>
+						<input type="text" id="name-field" name="name" maxlength="16" title="From 1 letter to 16 letters" required>
+					</div>
+					<div class="input-field">
+						<label for="tel-field">Tel.: *</label>
+						<input type="text" id="tel-field" name="tel" pattern="[0-9]{8,12}" title="From 8 to 12 digits">
+					</div>
+					<div class="input-field">
+						<input type="submit" value="Confirm">				
+					</div>
+					<div class="input-field">
+						* The Tel. No. for urgent re-arrangement ONLY				
+					</div>
+				</form>
+			</div>
 		</div>
-		<div class="wrapper-content">
-			<p>Please specify your name and contact phone number below in the form fields:</p>
-			<form method="POST" id="test-confirmation" action="confirmation.php">
-				<input type="hidden" name="test" value="<?= $test ?>">
-				<div class="input-field">
-					<label for="name-field">Date:</label>
-					<input type="text" id="name-field" name="date" value="<?= $info['date']; ?>" disabled="true">
-				</div>
-				<div class="input-field">
-					<label for="name-field">Time:</label>
-					<input type="text" id="name-field" name="time" value="<?= substr($info['time'], 0, 5); ?>" disabled="true">
-				</div>
-
-				<div class="input-field">
-					<label for="name-field">Name:</label>
-					<input type="text" id="name-field" name="name" maxlength="16" title="From 1 letter to 16 letters" required>
-				</div>
-				<div class="input-field">
-					<label for="tel-field">Tel.: *</label>
-					<input type="text" id="tel-field" name="tel" pattern="[0-9]{8,12}" title="From 8 to 12 digits">
-				</div>
-				<div class="input-field">
-					<input type="submit" value="Confirm">				
-				</div>
-				<div class="input-field">
-					* The Tel. No. for urgent re-arrangement ONLY				
-				</div>
-			</form>
-		</div>
+		<?php
+			include('view/footer.php');
+		?>
 	</div>
-	<?php
-		include('view/footer.php');
-	?>
 </body>
 </html>
