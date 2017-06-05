@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 	require_once('../constant.php');
 	require_once('../class/newshandler.class.php');
@@ -12,7 +13,6 @@
 		$prompt = "News #$id was deleted.";
 	}
 ?>
-<!DOCTYPE html>
 <html>
 <head>
 	<?php
