@@ -11,7 +11,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-04T02:15:20+0800" >
+<meta name="date" content="2017-06-06T02:40:28+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="愛滋病測試，AIDS測試，hiv測試，愛滋測試九龍，AIDS測試九龍，hiv測試九龍，aids test kowloon,hiv test kowloon,aids test, hiv test,梅毒測試，syphilis test,梅毒測試，性病測試，STD test,STI test,heterosexual,異性戀">
 <meta name="description" content="愛滋病測試，AIDS測試，hiv測試，愛滋測試九龍，AIDS測試九龍，hiv測試九龍，aids test kowloon,hiv test kowloon,aids test, hiv test,梅毒測試，syphilis test,梅毒測試，性病測試，STD test,STI test,heterosexual,異性戀">
@@ -88,7 +88,7 @@ HTML;
 <p><strong>「幸運抽獎工作室」Lucky Draw Studio</strong> (www.luckydrawhk.com) 逢星期一至日及公眾假期提供可即日預約無需等幾日的不記名愛滋病測試及其他性病測試，只需拮一下手指，15分鐘就有結果！所有測試過程及結果絕對保密。</p>
 <p>本會未來將會申請政府資助，但現時只靠捐款運作，而捐款全數用於人工、租金、試劑等開支。每日營運開支~$1000，服務使用者祗需付$600，預計每人捐$200~300。如有經濟困難請早開聲。若捐款持續不足維持成本將會停止服務。</p>
 <div class="content-image">
-	<img src="images/tail_3.jpg" alt="test" height="160">
+	<img src="images/tail_3.jpg" alt="test">
 	<p>熱線電話：<strong>5405 6631</strong></p>
 </div>
 <table class="content-table">
