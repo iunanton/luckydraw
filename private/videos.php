@@ -1,6 +1,8 @@
 <?php
 	require_once('../constant.php');
-	//require_once('../class/videoshandler.class.php');
+	require_once('../class/videoshandler.class.php');
+	
+	$handler = new videosHandler();
 
 	$global_page = basename(__FILE__, '.php');
 
@@ -13,7 +15,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-05T03:31:12+0800" >
+<meta name="date" content="2017-06-05T14:41:47+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -64,7 +66,7 @@
 			<p><?=$todayIs; ?></p>
 			<p><u>Add video</u></p>
 			<?php
-				//$videos = $handler->getTitles();
+				$videos = $handler->getTitles();
 			?>
 			<p><strong><?=sizeof($videos);?> news videos(s)</strong> were found:</p>
 			<table class="sql-query">
