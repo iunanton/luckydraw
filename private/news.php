@@ -1,17 +1,17 @@
+<!DOCTYPE html>
 <?php
 	require_once('../constant.php');
+	require_once('../class/newshandler.class.php');
 	
-	if(isset($_GET['lang'])) {
-		$global_lang = $_GET['lang'];
-	} else {
-		$global_lang = EN;
-	}
-
+	$handler = new newsHandler();
 	$global_page = basename(__FILE__, '.php');
-
-	require_once('../class/mydatabase.php');
+	
+	if(isset($_GET['del'])) {
+		$id = $_GET['del'];
+		$handler->delete($id);
+		$prompt = "News #$id was deleted.";
+	}
 ?>
-<!DOCTYPE html>
 <html>
 <head>
 	<?php
@@ -19,7 +19,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-05-17T06:18:22+0800" >
+<meta name="date" content="2017-06-06T04:50:17+0800" >
 <meta name="copyright" content="">
 <meta name="keywords" content="">
 <meta name="description" content="">
