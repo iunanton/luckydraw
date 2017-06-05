@@ -13,5 +13,20 @@
 	define("END_OF_BOOKING_TIME", "16:00:00", false);
 	define("OPERATION_TIME_FROM", "16:00:00", false);
 	define("OPERATION_TIME_TO", "21:00:00", false);
-	$lang_array = array("1","2");
+	$locale = Locale::acceptFromHttp($_SERVER['HTTP_ACCEPT_LANGUAGE']);
+	switch($locale) {
+		case "en-US": $global_lang = EN;
+			break;
+		case "en": $global_lang = EN;
+			break;
+		case "zh-TW": $global_lang = ZH;
+			break;
+		case "zh-HW": $global_lang = ZH;
+			break;
+		case "zh": $global_lang = ZH;
+			break;
+		default: $global_lang = EN;
+			break;
+	}
+	
 ?>
