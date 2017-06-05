@@ -49,8 +49,8 @@
 	}
 ?>
 <nav>
-	<ul class="nav-bar"
-		><li class="nav-link<?=$news_class_modifier; ?>">
+	<ul class="nav-bar">
+		<li class="nav-link<?=$news_class_modifier; ?>">
 			<a href="news.php"><?= $news; ?></a>
 		</li
 		><li class="nav-link<?=$rapid_test_class_modifier; ?>">
@@ -73,6 +73,6 @@
 		</li
 		><li class="nav-link<?=$about_us_class_modifier; ?>">
 			<a href="about_us.php"><?= $about_US; ?></a>
-		</li
-	></ul>
+		</li>
+	</ul>
 </nav>
