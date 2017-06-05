@@ -24,7 +24,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-06T03:17:52+0800" >
+<meta name="date" content="2017-06-06T05:45:51+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -67,7 +67,7 @@
 			include('view/navigation_bar.php');
 		?>
 		<div class="wrapper">
-			<div id="wrapper-header">
+			<div class="wrapper-header">
 				<?php
 					switch($global_lang) {
 						case EN:
@@ -80,7 +80,7 @@
 				?>
 				<h1><?= $header; ?></h1>
 			</div>
-			<div id="wrapper-content">
+			<div class="wrapper-content">
 				<p>Please specify your name and contact phone number below in the form fields:</p>
 				<form method="POST" id="test-confirmation" action="confirmation.php">
 					<input type="hidden" name="test" value="<?= $test ?>">

@@ -11,7 +11,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-06T03:35:33+0800" >
+<meta name="date" content="2017-06-06T05:46:00+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="愛滋病測試，AIDS測試，hiv測試，愛滋測試九龍，AIDS測試九龍，hiv測試九龍，aids test kowloon,hiv test kowloon,aids test, hiv test,梅毒測試，syphilis test,梅毒測試，性病測試，STD test,STI test,heterosexual,異性戀">
 <meta name="description" content="愛滋病測試，AIDS測試，hiv測試，愛滋測試九龍，AIDS測試九龍，hiv測試九龍，aids test kowloon,hiv test kowloon,aids test, hiv test,梅毒測試，syphilis test,梅毒測試，性病測試，STD test,STI test,heterosexual,異性戀">
@@ -34,7 +34,7 @@
 			include('view/navigation_bar.php');
 		?>
 		<div class="wrapper">
-			<div id="wrapper-header">
+			<div class="wrapper-header">
 				<?php
 					switch($global_lang) {
 						case EN:
@@ -47,7 +47,7 @@
 				?>
 				<h1><?= $header; ?></h1>
 			</div>
-			<div id="wrapper-content">
+			<div class="wrapper-content">
 				<?php
 					switch($global_lang) {
 						case EN:
