@@ -47,7 +47,8 @@
 	.private-nav-bar li {
 		display: inline-block;
 		vertical-align: middle;
-		width: 19%;
+		width: 20%;
+		box-sizing: border-box;
 		text-align: center;
 	}
 
