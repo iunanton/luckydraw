@@ -13,22 +13,7 @@
 	a {
 		color: inherit;
 	}
-	
-	.language-bar ul {
-		list-style-type: none;
-		padding: 0;
-		margin: 0;
-	}
-	
-	.language-bar li {
-		display: inline-block;
-	}
-
-	.language-bar a {
-		display: inline-block;
-		padding: 5px 10px 5px 10px;	
-	}
-	
+		
 	header {
 		padding: 10px 10px 10px 10px;
 	}
