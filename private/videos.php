@@ -5,7 +5,17 @@
 	$handler = new videosHandler();
 
 	$global_page = basename(__FILE__, '.php');
-
+	
+	if(isset($_GET['lang']) && isset($_GET['title']) && isset($_GET['content'])) {
+		$handler->add($_GET['lang'], $_GET['title'], $_GET['content']);
+		$prompt = "Video was added.";
+	}
+	
+	if(isset($_GET['del'])) {
+		$id = $_GET['del'];
+		$handler->delete($id);
+		$prompt = "Video #$id was deleted.";
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,7 +25,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-05T14:45:50+0800" >
+<meta name="date" content="2017-06-05T15:35:05+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -28,7 +38,25 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=1" />
 <link href="../style.css" rel="stylesheet" type="text/css">
 <style type="text/css">
-
+	.input-field {
+		display: block;	
+	}
+	.input-field::after {
+		content: '';
+		clear: both;
+		display: block;	
+	}
+	.input-field label {
+		width: 100px;
+		float: left;
+		text-align: right;
+		margin-right: 10px;
+		display: block;
+	}
+	.input-field input[type=submit] {
+		float: left;
+		margin-left: 110px;	
+	}
 </style>
 </head>
 <body>
@@ -53,6 +81,9 @@
 			<h1><?= $header; ?></h1>
 		</div>
 		<div class="wrapper-content">
+			<div class="prompt">
+				<?=$prompt; ?>
+			</div>
 			<?php
 				switch($global_lang) {
 					case EN:
@@ -64,7 +95,37 @@
 				}
 			?>
 			<p><?=$todayIs; ?></p>
-			<p><u>Add video</u></p>
+<!----------------------------------------------------------------------------------- -->
+			Add new video.<br><br>
+			For Youtube video:<br>Please fill video title, copy iframe tag and paste it below:<br><br>
+			<!--Add new time slot form-->
+			<form action="" method="GET">
+				<!--Try date input here-->
+				<div class="input-field">
+					<label for="lang">Language: </label>
+					<select id="lang" name="lang">
+						<option value="">All</option>
+						<?php
+							$languages = $handler->getLang();
+							foreach ($languages as $key => $language) {
+								echo '<option value="'.$key.'">'.$language.'</option>';
+							}
+						?>
+					</select>				
+				</div>
+				<div class="input-field">
+					<label for="title">Title: </label>
+					<input id="title" type="text" name="title">
+				</div>
+				<div class="input-field">
+					<label for="content">iframe tag: </label>
+					<input id="content" type="text" name="content">
+				</div>
+				<div class="input-field">
+					<input type="submit" name="" value="Add video" />
+				</div>
+			</form>
+<!--------------------------------------------------------------------------------- -->
 			<?php
 				$videos = $handler->getTitles();
 			?>
@@ -92,7 +153,7 @@
 						echo "edit";
 						echo "</td>";
 						echo "<td>";
-						echo "delete";
+						echo '<a href="?del='.$video["id"].'">delete</a>';
 						echo "</td>";
 						echo "</tr>";
 					}
