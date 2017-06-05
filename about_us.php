@@ -1,15 +1,9 @@
+<!DOCTYPE html>
 <?php
 	require_once('constant.php');
 	
-	if(isset($_GET['lang']) && in_array($_GET['lang'], $lang_array)) {
-		$global_lang = $_GET['lang'];
-	} else {
-		$global_lang = ZH;
-	}
-
 	$global_page = basename(__FILE__, '.php');
 ?>
-<!DOCTYPE html>
 <html>
 <head>
 	<?php
@@ -17,7 +11,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-06T03:02:06+0800" >
+<meta name="date" content="2017-06-06T03:06:18+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="愛滋病測試，AIDS測試，hiv測試，愛滋測試九龍，AIDS測試九龍，hiv測試九龍，aids test kowloon,hiv test kowloon,aids test, hiv test,梅毒測試，syphilis test,梅毒測試，性病測試，STD test,STI test,heterosexual,異性戀">
 <meta name="description" content="愛滋病測試，AIDS測試，hiv測試，愛滋測試九龍，AIDS測試九龍，hiv測試九龍，aids test kowloon,hiv test kowloon,aids test, hiv test,梅毒測試，syphilis test,梅毒測試，性病測試，STD test,STI test,heterosexual,異性戀">
