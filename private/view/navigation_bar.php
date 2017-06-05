@@ -47,7 +47,7 @@
 		<li class="nav-link<?=$booking_class_modifier; ?>">
 			<a href="booking.php"><?= $test_booking; ?></a>
 		</li>
-		<li class="nav-link<?=$video_class_modifier; ?>">
+		<li class="nav-link<?=$videos_class_modifier; ?>">
 			<a href="videos.php"><?=$videos; ?></a>
 		</li>
 	</ul>
