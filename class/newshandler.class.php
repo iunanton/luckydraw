@@ -41,5 +41,13 @@
 			return $article;
 		}
 		
+		public function delete($id) {
+			$sql = "DELETE FROM news";
+			$sql.= " WHERE id = :id";
+			$stmt = $this->db_conn->pdo->prepare($sql);
+			$stmt->bindParam(':id', $id);
+			$stmt->execute();
+		}
+		
 	}
 ?>
