@@ -157,6 +157,17 @@
 		background-color: #FFFFFF;
 	}
 	
+	.wrapper-footer ul {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.wrapper-footer li {
+		display: inline-block;
+		margin-right: 10px;
+	}
+
 	footer {
 		background-color: #EEEEEE;
 		color: #305D7C;
