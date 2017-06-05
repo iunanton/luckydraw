@@ -20,7 +20,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-04T02:36:21+0800" >
+<meta name="date" content="2017-06-05T14:46:16+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -88,7 +88,7 @@
 						echo $article["title"];
 						echo "</td>";
 						echo "<td>";
-						echo $article["lang"];
+						echo (is_null($article["lang"]) ? "All" : $article["lang"]);
 						echo "</td>";
 						echo "<td>";
 						echo $article["date"];

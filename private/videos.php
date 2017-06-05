@@ -15,7 +15,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-05T14:41:47+0800" >
+<meta name="date" content="2017-06-05T14:45:50+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -83,7 +83,7 @@
 						echo $video["title"];
 						echo "</td>";
 						echo "<td>";
-						echo $video["lang"];
+						echo (is_null($video["lang"]) ? "All" : $video["lang"]);
 						echo "</td>";
 						echo "<td>";
 						echo $video["date"];
