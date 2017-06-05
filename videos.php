@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 	require_once('constant.php');
-
+	require_once('class/videoshandler.class.php');
 	$global_page = basename(__FILE__, '.php');
 ?>
 <html>
@@ -11,7 +11,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-06T03:07:52+0800" >
+<meta name="date" content="2017-06-06T05:33:00+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="愛滋病測試，AIDS測試，hiv測試，愛滋測試九龍，AIDS測試九龍，hiv測試九龍，aids test kowloon,hiv test kowloon,aids test, hiv test,梅毒測試，syphilis test,梅毒測試，性病測試，STD test,STI test,heterosexual,異性戀">
 <meta name="description" content="愛滋病測試，AIDS測試，hiv測試，愛滋測試九龍，AIDS測試九龍，hiv測試九龍，aids test kowloon,hiv test kowloon,aids test, hiv test,梅毒測試，syphilis test,梅毒測試，性病測試，STD test,STI test,heterosexual,異性戀">
@@ -23,6 +23,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=1" />
 <link href="style.css" rel="stylesheet" type="text/css">
 <style type="text/css">
+	.wrapper-content iframe {
+	    width: 100%;
+	}
 </style>
 </head>
 <body>
@@ -48,7 +51,16 @@
 				<h1><?= $header; ?></h1>
 			</div>
 			<div id="wrapper-content">
-				<p>Coming soon...</p>
+				<?php
+					$handler = new videosHandler();
+					$articles = $handler->getByLang($global_lang);
+					foreach ($articles as $article) {
+						echo "<article>";
+						echo "<h3>".html_entity_decode($article["title"], ENT_QUOTES)."</h3>";
+						echo html_entity_decode($article["content"], ENT_QUOTES);
+						echo "</article>";
+					}
+				?>
 			</div>
 		</div>
 		<?php
