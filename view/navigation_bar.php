@@ -31,14 +31,14 @@
 	<ul class="nav-bar">
 		<li class="nav-link<?=$news_class_modifier; ?>">
 			<a href="news.php"><?= $news; ?></a>
-		</li
-		><li class="nav-link<?=$rapid_test_class_modifier; ?>">
+		</li>
+		<li class="nav-link<?=$rapid_test_class_modifier; ?>">
 			<a href="rapid_test.php"><?= $rapid_test; ?></a>
-		</li
-		><li class="nav-link<?=$booking_class_modifier; ?>">
+		</li>
+		<li class="nav-link<?=$booking_class_modifier; ?>">
 			<a href="booking.php"><?= $test_booking; ?></a>
-		</li
-		><li class="nav-link<?=$free_condom_class_modifier; ?>">
+		</li>
+		<li class="nav-link<?=$free_condom_class_modifier; ?>">
 			<a href="free_condom.php"><?=$free_condom; ?></a>
 		</li>
 	</ul>
