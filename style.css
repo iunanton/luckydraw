@@ -13,13 +13,6 @@
 	a {
 		color: inherit;
 	}
-
-	header,
-	nav,
-	#wrapper,
-	footer {
-		display: block;	
-	}
 	
 	header {
 		padding: 10px 10px 10px 10px;	
@@ -70,6 +63,8 @@
 
 	.wrapper {
 		width: 1000px;
+		margin-top: 5px;
+		margin-bottom: 5px;
 		margin-left: auto;
 		margin-right: auto;
 	}
