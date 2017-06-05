@@ -47,8 +47,7 @@
 	.nav-bar li {
 		display: inline-block;
 		vertical-align: middle;
-		width: 25%;
-		box-sizing: border-box;
+		width: 24%;
 		text-align: center;
 	}
 
