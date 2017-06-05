@@ -5,10 +5,6 @@
 	$global_page = basename(__FILE__, '.php');
 	
 	require_once('class/mydatabase.php');
-?>
-<?php
-	//include myDatabase class
-	require_once('class/mydatabase.php');
 
 	//GET and POST methods
 	if(isset($_GET['test'])) {
@@ -24,7 +20,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-06T05:45:51+0800" >
+<meta name="date" content="2017-06-06T06:06:37+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -99,7 +95,7 @@
 					</div>
 					<div class="input-field">
 						<label for="tel-field">Tel.: *</label>
-						<input type="text" id="tel-field" name="tel" pattern="[0-9]{8,12}" title="From 8 to 13 digits" required>
+						<input type="text" id="tel-field" name="tel" pattern="[0-9]{8,12}" title="From 8 to 12 digits">
 					</div>
 					<div class="input-field">
 						<input type="submit" value="Confirm">				
