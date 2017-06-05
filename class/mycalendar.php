@@ -1,7 +1,7 @@
 <?php
 class myCalendar {
 	//determine class variables
-	private $conn;
+	private $handler;
 	private $defaultYear;
 	private $defaultMonth;
 	private $language;
@@ -14,8 +14,8 @@ class myCalendar {
 
 	public function __construct($year, $month, $language) {
 		//myDatabase class
-		require_once('mydatabase.php');
-		$this->conn = new myDatabase();
+		require_once('timeslotshandler.class.php');
+		$this->handler = new timeSlotsHandler();
 		
 		$this->defaultYear = $year;
 		$this->defaultMonth = $month;
@@ -206,7 +206,7 @@ class myCalendar {
 
 			//get time array from myDatabase
 			if($this->validDate($list_date)) {
-				$timeSlots = $this->conn->getTimeArray($list_date);
+				$timeSlots = $this->handler->get($list_date);
 			}
 			
 			$this->html.= '<td class="calendar-day';
