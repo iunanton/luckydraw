@@ -34,9 +34,21 @@
 	}
 ?>
 <nav>
-	<div class="nav-link<?=$summary_class_modifier; ?>" id="summary"><a href="summary.php?lang=<?=$global_lang ?>"><?= $summary; ?></a></div>
-	<div class="nav-link<?=$news_class_modifier; ?>" id="news"><a href="news.php?lang=<?=$global_lang ?>"><?= $news; ?></a></div>
-	<div class="nav-link<?=$rapid_test_class_modifier; ?>" id="rapid-test"><a href="rapid_test.php?lang=<?=$global_lang ?>"><?= $rapid_test; ?></a></div>
-	<div class="nav-link<?=$booking_class_modifier; ?>" id="test-booking"><a href="booking.php?lang=<?=$global_lang ?>"><?= $test_booking; ?></a></div>
-	<div class="nav-link<?=$videos_class_modifier; ?>" id="videos"><a href="videos.php?lang=<?=$global_lang ?>"><?=$videos; ?></a></div>
+	<ul class="private-nav-bar">
+		<li class="nav-link<?=$summary_class_modifier; ?>">
+			<a href="summary.php"><?= $summary; ?></a>
+		</li>
+		<li class="nav-link<?=$news_class_modifier; ?>">
+			<a href="news.php"><?= $news; ?></a>
+		</li>
+		<li class="nav-link<?=$rapid_test_class_modifier; ?>">
+			<a href="rapid_test.php"><?= $rapid_test; ?></a>
+		</li>
+		<li class="nav-link<?=$booking_class_modifier; ?>">
+			<a href="booking.php"><?= $test_booking; ?></a>
+		</li>
+		<li class="nav-link<?=$videos_class_modifier; ?>">
+			<a href="videos.php"><?=$videos; ?></a>
+		</li>
+	<ul>
 </nav>
