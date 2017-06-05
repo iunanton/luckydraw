@@ -26,7 +26,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-05T03:34:15+0800" >
+<meta name="date" content="2017-06-06T04:56:17+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -43,94 +43,96 @@
 </style>
 </head>
 <body>
-	<?php
-		include('view/header.php');
-	?>
-	<?php
-		include('view/navigation_bar.php');
-	?>
-	<div class="wrapper">
-		<div class="wrapper-header">
-			<?php
-				switch($global_lang) {
-					case EN:
-						$header = "Booking";
-						break;
-					case ZH:
-						$header = "預約測試";
-						break;
-				}
-			?>
-			<h1><?= $header; ?></h1>
-		</div>
-		<div class="wrapper-content">
-			<div class="prompt">
-				<?=$prompt; ?>
+	<div class="container">
+		<?php
+			include('view/header.php');
+		?>
+		<?php
+			include('view/navigation_bar.php');
+		?>
+		<div class="wrapper">
+			<div class="wrapper-header">
+				<?php
+					switch($global_lang) {
+						case EN:
+							$header = "Booking";
+							break;
+						case ZH:
+							$header = "預約測試";
+							break;
+					}
+				?>
+				<h1><?= $header; ?></h1>
 			</div>
-			<?php
-				switch($global_lang) {
-					case EN:
-						$todayIs = "Today is ".date("j M, Y");
-						break;
-					case ZH:
-						$todayIs = "今天".date("j M, Y");
-						break;
-				}
-			?>
-			<p><?=$todayIs; ?></p>
-			<?php
-				$reservationsCount = $handler->getCount();
-				$reservations = $handler->getByPage($page);
-			?>
-				<p><strong><?=$reservationsCount;?> appointment(s)</strong> was founded:</p>
-				<table class="sql-query">
-					<tr>
+			<div class="wrapper-content">
+				<div class="prompt">
+					<?=$prompt; ?>
+				</div>
+				<?php
+					switch($global_lang) {
+						case EN:
+							$todayIs = "Today is ".date("j M, Y");
+							break;
+						case ZH:
+							$todayIs = "今天".date("j M, Y");
+							break;
+					}
+				?>
+				<p><?=$todayIs; ?></p>
+				<?php
+					$reservationsCount = $handler->getCount();
+					$reservations = $handler->getByPage($page);
+				?>
+					<p><strong><?=$reservationsCount;?> appointment(s)</strong> was founded:</p>
+					<table class="sql-query">
+						<tr>
+							<?php
+								switch($global_lang) {
+									case EN:
+										echo "<th>#</th><th>Date</th><th>Time</th><th>Name</th><th>Phone</th><th>The booking received at</th><th>Cancel</th>";
+										break;
+									case ZH:
+										echo "<th>id</th><th>日期</th><th>時間</th><th>名字</th><th>電話</th><th>接收時間</th><th>取消</th>";
+										break;
+								}
+							?>
+							
+						</tr>
 						<?php
-							switch($global_lang) {
-								case EN:
-									echo "<th>#</th><th>Date</th><th>Time</th><th>Name</th><th>Phone</th><th>The booking received at</th><th>Cancel</th>";
-									break;
-								case ZH:
-									echo "<th>id</th><th>日期</th><th>時間</th><th>名字</th><th>電話</th><th>接收時間</th><th>取消</th>";
-									break;
+								switch($global_lang) {
+									case EN:
+										$cancel = "Cancel";
+										$cancelled = "Cancelled";
+										break;
+									case ZH:
+										$cancel = "取消";
+										$cancelled = "己經取消了";
+										break;	
+								}
+							foreach ($reservations as $reservation) {
+								echo "<tr>";
+								echo "<td>".$reservation['id']."</td>";
+								echo "<td>".$reservation['date']."</td>";
+								echo "<td>".$reservation['time']."</td>";
+								echo "<td>".$reservation['name']."</td>";
+								echo "<td>".$reservation['phone']."</td>";
+								echo "<td>".$reservation['reservation_time']."</td>";
+								echo "<td>".($reservation['cancelled'] ? $cancelled : '<a href="?id='.$reservation['id'].'">'.$cancel.'</a>')."</td>";
+								echo "</tr>";
 							}
 						?>
-						
-					</tr>
-					<?php
-							switch($global_lang) {
-								case EN:
-									$cancel = "Cancel";
-									$cancelled = "Cancelled";
-									break;
-								case ZH:
-									$cancel = "取消";
-									$cancelled = "己經取消了";
-									break;	
-							}
-						foreach ($reservations as $reservation) {
-							echo "<tr>";
-							echo "<td>".$reservation['id']."</td>";
-							echo "<td>".$reservation['date']."</td>";
-							echo "<td>".$reservation['time']."</td>";
-							echo "<td>".$reservation['name']."</td>";
-							echo "<td>".$reservation['phone']."</td>";
-							echo "<td>".$reservation['reservation_time']."</td>";
-							echo "<td>".($reservation['cancelled'] ? $cancelled : '<a href="?id='.$reservation['id'].'">'.$cancel.'</a>')."</td>";
-							echo "</tr>";
-						}
-					?>
-			</table>
+				</table>
+			</div>
+			<div class="wrapper-footer">
+				<?php
+					$total_pages = $handler->getPagesCount();
+					include('../view/page_nav.php');
+				?>
+			</div>
 		</div>
-		<div class="wrapper-footer">
-			<?php
-				$total_pages = $handler->getPagesCount();
-				include('../view/page_nav.php');
-			?>
-		</div>
+		<?php
+			include('view/footer.php');
+		?>
 	</div>
-	<?php
-		include('view/footer.php');
-	?>
 </body>
 </html>

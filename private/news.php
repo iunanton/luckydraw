@@ -20,7 +20,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-05T14:58:59+0800" >
+<meta name="date" content="2017-06-06T04:55:57+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -55,79 +55,81 @@
 </style>
 </head>
 <body>
-	<?php
-		include('view/header.php');
-	?>
-	<?php
-		include('view/navigation_bar.php');
-	?>
-	<div class="wrapper">
-		<div class="wrapper-header">
-			<?php
-				switch($global_lang) {
-					case EN:
-						$header = "News";
-						break;
-					case ZH:
-						$header = "最新消息";
-						break;
-				}
-			?>
-			<h1><?= $header; ?></h1>
-		</div>
-		<div class="wrapper-content">
-			<div class="prompt">
-				<?=$prompt; ?>
-			</div>
-			<?php
-				switch($global_lang) {
-					case EN:
-						$todayIs = "Today is ".date("j M, Y");
-						break;
-					case ZH:
-						$todayIs = "今天".date("j M, Y");
-						break;
-				}
-			?>
-			<p><?=$todayIs; ?></p>
-			<p><u>Add news</u></p>
-			<?php
-				$articles = $handler->getTitles();
-			?>
-			<p><strong><?=sizeof($articles);?> news article(s)</strong> were found:</p>
-			<table class="sql-query">
-				<tr>
-					<th>#</th><th>Title</th><th>Language</th><th>Added at</th><th>Edit</th><th>Delete</th>		
-				</tr>
+	<div class="container">
+		<?php
+			include('view/header.php');
+		?>
+		<?php
+			include('view/navigation_bar.php');
+		?>
+		<div class="wrapper">
+			<div class="wrapper-header">
 				<?php
-					foreach ($articles as $article) {
-						echo "<tr>";
-						echo "<td>";
-						echo $article["id"];
-						echo "</td>";
-						echo "<td>";
-						echo $article["title"];
-						echo "</td>";
-						echo "<td>";
-						echo (is_null($article["lang"]) ? "All" : $article["lang"]);
-						echo "</td>";
-						echo "<td>";
-						echo $article["date"];
-						echo "</td>";
-						echo "<td>";
-						echo "edit";
-						echo "</td>";
-						echo "<td>";
-						echo '<a href="?del='.$article["id"].'">delete</a>';
-						echo "</td>";
-						echo "</tr>";
+					switch($global_lang) {
+						case EN:
+							$header = "News";
+							break;
+						case ZH:
+							$header = "最新消息";
+							break;
 					}
 				?>
-			</table>
+				<h1><?= $header; ?></h1>
+			</div>
+			<div class="wrapper-content">
+				<div class="prompt">
+					<?=$prompt; ?>
+				</div>
+				<?php
+					switch($global_lang) {
+						case EN:
+							$todayIs = "Today is ".date("j M, Y");
+							break;
+						case ZH:
+							$todayIs = "今天".date("j M, Y");
+							break;
+					}
+				?>
+				<p><?=$todayIs; ?></p>
+				<p><u>Add news</u></p>
+				<?php
+					$articles = $handler->getTitles();
+				?>
+				<p><strong><?=sizeof($articles);?> news article(s)</strong> were found:</p>
+				<table class="sql-query">
+					<tr>
+						<th>#</th><th>Title</th><th>Language</th><th>Added at</th><th>Edit</th><th>Delete</th>		
+					</tr>
+					<?php
+						foreach ($articles as $article) {
+							echo "<tr>";
+							echo "<td>";
+							echo $article["id"];
+							echo "</td>";
+							echo "<td>";
+							echo $article["title"];
+							echo "</td>";
+							echo "<td>";
+							echo (is_null($article["lang"]) ? "All" : $article["lang"]);
+							echo "</td>";
+							echo "<td>";
+							echo $article["date"];
+							echo "</td>";
+							echo "<td>";
+							echo "edit";
+							echo "</td>";
+							echo "<td>";
+							echo '<a href="?del='.$article["id"].'">delete</a>';
+							echo "</td>";
+							echo "</tr>";
+						}
+					?>
+				</table>
+			</div>
 		</div>
+		<?php
+			include('view/footer.php');
+		?>
 	</div>
-	<?php
-		include('view/footer.php');
-	?>
 </body>
 </html>
