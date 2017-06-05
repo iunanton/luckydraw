@@ -3,14 +3,14 @@
 	require_once('../class/newshandler.class.php');
 	
 	$handler = new newsHandler();
-	
-	if(isset($_GET['lang'])) {
-		$global_lang = $_GET['lang'];
-	} else {
-		$global_lang = EN;
-	}
 
 	$global_page = basename(__FILE__, '.php');
+	
+	if(isset($_GET['del'])) {
+		$id = $_GET['del'];
+		$handler->delete($id);
+		$prompt = "News #$id was deleted.";
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,7 +20,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-05T14:46:16+0800" >
+<meta name="date" content="2017-06-05T14:58:59+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -33,7 +33,25 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=1" />
 <link href="../style.css" rel="stylesheet" type="text/css">
 <style type="text/css">
-
+	.input-field {
+		display: block;	
+	}
+	.input-field::after {
+		content: '';
+		clear: both;
+		display: block;	
+	}
+	.input-field label {
+		width: 100px;
+		float: left;
+		text-align: right;
+		margin-right: 10px;
+		display: block;
+	}
+	.input-field input[type=submit] {
+		float: left;
+		margin-left: 110px;	
+	}
 </style>
 </head>
 <body>
@@ -58,6 +76,9 @@
 			<h1><?= $header; ?></h1>
 		</div>
 		<div class="wrapper-content">
+			<div class="prompt">
+				<?=$prompt; ?>
+			</div>
 			<?php
 				switch($global_lang) {
 					case EN:
@@ -97,7 +118,7 @@
 						echo "edit";
 						echo "</td>";
 						echo "<td>";
-						echo "delete";
+						echo '<a href="?del='.$article["id"].'">delete</a>';
 						echo "</td>";
 						echo "</tr>";
 					}
