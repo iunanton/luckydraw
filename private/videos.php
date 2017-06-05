@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 	require_once('../constant.php');
 	require_once('../class/videoshandler.class.php');
@@ -17,7 +18,6 @@
 		$prompt = "Video #$id was deleted.";
 	}
 ?>
-<!DOCTYPE html>
 <html>
 <head>
 	<?php
@@ -25,7 +25,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-06T04:56:57+0800" >
+<meta name="date" content="2017-06-06T05:16:13+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
