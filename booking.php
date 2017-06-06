@@ -28,7 +28,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-06T21:14:44+0800" >
+<meta name="date" content="2017-06-06T21:32:23+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="<?=$meta_keywords; ?>">
 <meta name="description" content="<?=$meta_description; ?>">
@@ -76,7 +76,7 @@
 							break;
 					}
 				?>
-				<?=$subheader; ?>			
+				<?=$subheader; ?>
 				<p>What date and time would you like an appointment?</p>
 				<?php
 					//Create calendar for current date
