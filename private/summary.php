@@ -15,7 +15,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-06T04:56:41+0800" >
+<meta name="date" content="2017-06-06T21:25:25+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -81,17 +81,17 @@
 							}
 						?>
 					</tr>
-				<?php
-					foreach ($reservations as $reservation) {
-						echo "<tr>";
-						echo "<td>".$reservation['id']."</td>";
-						echo "<td>".$reservation['time']."</td>";
-						echo "<td>".$reservation['name']."</td>";
-						echo "<td>".$reservation['phone']."</td>";
-						echo "<td>".$reservation['reservation_time']."</td>";
-						echo "</tr>";	
-					}
-				?>
+					<?php
+						foreach ($reservations as $reservation) {
+							echo "<tr>";
+							echo "<td>".$reservation['id']."</td>";
+							echo "<td>".$reservation['time']."</td>";
+							echo "<td>".$reservation['name']."</td>";
+							echo "<td>".$reservation['phone']."</td>";
+							echo "<td>".$reservation['reservation_time']."</td>";
+							echo "</tr>";	
+						}
+					?>
 				</table>
 				<?php
 					$reservations = $handler->getForTomorrow();
@@ -110,17 +110,17 @@
 							}
 						?>
 					</tr>
-				<?php
-					foreach ($reservations as $reservation) {
-						echo "<tr>";
-						echo "<td>".$reservation['id']."</td>";
-						echo "<td>".$reservation['time']."</td>";
-						echo "<td>".$reservation['name']."</td>";
-						echo "<td>".$reservation['phone']."</td>";
-						echo "<td>".$reservation['reservation_time']."</td>";
-						echo "</tr>";	
-					}
-				?>
+					<?php
+						foreach ($reservations as $reservation) {
+							echo "<tr>";
+							echo "<td>".$reservation['id']."</td>";
+							echo "<td>".$reservation['time']."</td>";
+							echo "<td>".$reservation['name']."</td>";
+							echo "<td>".$reservation['phone']."</td>";
+							echo "<td>".$reservation['reservation_time']."</td>";
+							echo "</tr>";	
+						}
+					?>
 				</table>
 			</div>
 		</div>
