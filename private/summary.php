@@ -14,7 +14,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-06T21:23:53+0800" >
+<meta name="date" content="2017-06-06T21:25:57+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -126,6 +126,6 @@
 		<?php
 			include('view/footer.php');
 		?>
-</div>
+	</div>
 </body>
 </html>
