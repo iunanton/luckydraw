@@ -1,6 +1,8 @@
 <?php
 	define("END_OF_BOOKING_HOUR", 14, false);
 	define("END_OF_BOOKING_MIN", 30, false);
+	define("END_OF_OPERATION_HOUR", 21, false);
+	define("END_OF_OPERATION_MIN", 30, false);
 	/**
 	 * calendar class
 	 * it use css class to operate with monthly or weekly rendering
@@ -16,6 +18,7 @@
 		private $today;
 		private $now;
 		private $endOfTodaysBooking;
+		private $endOfOperation;
 		private $interval;
 		private $daterange;
 		
@@ -55,7 +58,7 @@
 				if ($this->validDate($date)) {
 					$timeSlots = $this->handler->get($date->format("Y-m-d"));
 				}
-				if(isset($timeSlots) && !empty($timeSlots)) {
+				if(isset($timeSlots) && !empty($timeSlots) && $this->isOperationTime($date)) {
 					if(!$this->isToday($date) || $this->allowTodayBooking()) {
 						foreach ($timeSlots as $key => $timeSlot) {
 							$this->html .= '<div class="calendar-time-slot">';
@@ -92,6 +95,8 @@
 			$this->today = new DateTime("today");
 			$this->endOfTodaysBooking = clone $this->today;
 			$this->endOfTodaysBooking->setTime(END_OF_BOOKING_HOUR, END_OF_BOOKING_MIN);
+			$this->endOfOperation = clone $this->today;
+			$this->endOfOperation->setTime(END_OF_OPERATION_HOUR, END_OF_OPERATION_MIN);
 			$this->now = new DateTime("now");
 		}
 		
@@ -118,6 +123,10 @@
 				
 		private function validDate(DateTime $date) {
 			return $date >= $this->today;
+		}
+			
+		private function isOperationTime($date) {
+			return ($date != $this->today) || ($this->now < $this->endOfOperation);
 		}
 			
 		private function allowTodayBooking() {
