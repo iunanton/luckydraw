@@ -19,7 +19,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-06T05:07:22+0800" >
+<meta name="date" content="2017-06-16T02:11:48+0900" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -30,6 +30,7 @@
 <meta http-equiv="content-style-type" content="text/css">
 <meta http-equiv="expires" content="0">
 <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=1" />
+<script src="../ckeditor/ckeditor.js"></script>
 <link href="../style.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 	.input-field {
@@ -90,7 +91,15 @@
 					}
 				?>
 				<p><?=$todayIs; ?></p>
-				<p><u>Add news</u></p>
+				<p>Add news</p>
+	         <textarea name="editor" id="editor" rows="10" cols="80">
+                This is my textarea to be replaced with CKEditor.
+            </textarea>
+				<script>
+					// Replace the <textarea id="editor1"> with a CKEditor
+					// instance, using default configuration.
+					CKEDITOR.replace( 'editor' );
+				</script>
 				<?php
 					$articles = $handler->getTitles();
 				?>
