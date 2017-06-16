@@ -40,6 +40,33 @@
 			$article = $stmt->fetchAll();
 			return $article;
 		}
+	
+		public function getLang() {
+			$sql = "SELECT id, short";
+			$sql.= " FROM languages";
+			$stmt = $this->db_conn->pdo->prepare($sql);
+			$stmt->execute();
+			$lang = $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
+			return $lang;
+		}
+		
+		public function add($lang, $title, $content) {
+			if($lang == '') {
+				$sql = "INSERT INTO news (title, content)";
+				$sql.= " VALUES (:title, :content)";
+				$stmt = $this->db_conn->pdo->prepare($sql);
+				$stmt->bindParam(':title', $title);
+				$stmt->bindParam(':content', $content);
+			} else {
+				$sql = "INSERT INTO news (lang, title, content)";
+				$sql.= " VALUES (:lang, :title, :content)";
+				$stmt = $this->db_conn->pdo->prepare($sql);
+				$stmt->bindParam(':lang', $lang);
+				$stmt->bindParam(':title', $title);
+				$stmt->bindParam(':content', $content);
+			}
+			$stmt->execute();
+		}
 		
 		public function delete($id) {
 			$sql = "DELETE FROM news";

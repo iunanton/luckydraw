@@ -5,7 +5,12 @@
 	
 	$handler = new newsHandler();
 	$global_page = basename(__FILE__, '.php');
-	
+
+	if(isset($_POST['lang']) && isset($_POST['title']) && isset($_POST['editor'])) {
+		$handler->add($_POST['lang'], $_POST['title'], $_POST['editor']);
+		$prompt = "News was added.";
+	}
+
 	if(isset($_GET['del'])) {
 		$id = $_GET['del'];
 		$handler->delete($id);
@@ -19,7 +24,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-16T02:11:48+0900" >
+<meta name="date" content="2017-06-17T01:42:16+0900" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -92,14 +97,38 @@
 				?>
 				<p><?=$todayIs; ?></p>
 				<p>Add news</p>
-	         <textarea name="editor" id="editor" rows="10" cols="80">
-                This is my textarea to be replaced with CKEditor.
-            </textarea>
-				<script>
-					// Replace the <textarea id="editor1"> with a CKEditor
-					// instance, using default configuration.
-					CKEDITOR.replace( 'editor' );
-				</script>
+				<form action="" method="POST">
+					<div class="input-field">
+						<label for="lang">Language: </label>
+						<select id="lang" name="lang">
+							<option value="">All</option>
+							<?php
+								$languages = $handler->getLang();
+								foreach ($languages as $key => $language) {
+									echo '<option value="'.$key.'">'.$language.'</option>';
+								}
+							?>
+						</select>				
+					</div>
+					<div class="input-field">
+						<label for="title">Heading: </label>
+						<input id="title" type="text" name="title">
+					</div>
+					<div class="input-field">
+						<label for="editor">Text: </label>
+					</div>
+		         <textarea name="editor" id="editor" rows="10" cols="80">
+	                Please type news text here.
+	            </textarea>
+					<div class="input-field">
+						<input type="submit" name="" value="Add News" />
+					</div>
+					<script>
+						// Replace the <textarea id="editor1"> with a CKEditor
+						// instance, using default configuration.
+						 CKEDITOR.replace( 'editor' );
+					</script>
+				</form>
 				<?php
 					$articles = $handler->getTitles();
 				?>
