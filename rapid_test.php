@@ -75,7 +75,7 @@
 		<th>SAT</th>
 	</tr>
 	<tr>
-		<td colspan="7">Service Hour <strong>16:30 - 20:30</strong><br>Please call <strong>5405 6631</strong> or <a href="booking.php?lang=$global_lang">Internet booking</a></td>				
+		<td colspan="7">Service Hour <strong>16:30 - 20:30</strong><br>Please call <strong>5405 6631</strong> or <a href="booking.php?lang=$global_lang">Internet booking</a><br>Telephone book can book 03:00-04:00 and 09:00-10:00 PM</td>				
 					</tr>
 						<td colspan="7"><strong>Most Convenient Way</strong> >>> <a href="booking.php?lang=$global_lang">Click in for Web booking</a></td>
 					</tr>
@@ -102,7 +102,7 @@ HTML;
 		<th>SAT</th>
 	</tr>
 	<tr>
-		<td colspan="7">服務時間 <strong>16:30 - 20:30</strong><br>請電 <strong>5405 6631</strong> 或 <a href="booking.php?lang=$global_lang">網上預約</a></td>
+		<td colspan="7">服務時間 <strong>16:30 - 20:30</strong><br>請電 <strong>5405 6631</strong> 或 <a href="booking.php?lang=$global_lang">網上預約<br>電話預約可約下午3-4時及9-10 時</a></td>
 	</tr>
 	</tr>
 		<td colspan="7"><strong>最快捷方便</strong> >>> <a href="booking.php?lang=$global_lang">按此網上預約</a></td>
