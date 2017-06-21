@@ -11,7 +11,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-20T00:18:21+0900" >
+<meta name="date" content="2017-06-22T03:44:36+0900" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="<?=$meta_keywords; ?>">
 <meta name="description" content="<?=$meta_description; ?>">
@@ -75,9 +75,13 @@
 		<th>SAT</th>
 	</tr>
 	<tr>
-		<td colspan="7">Service Hour <strong>16:30 - 20:30</strong><br>Please call <strong>5405 6631</strong> or <a href="booking.php?lang=$global_lang">Internet booking</a><br>Telephone book can book 03:00-04:00 and 09:00-10:00 PM</td>				
+		<td colspan="7">
+			<strong>5405 6631</strong> Telephone booking 15:30-21:30<br>
+			<strong>Walk-in</strong> 16:30-20:30 Please call 5405 6631 before come<br>
+			<strong>Internet Booking</strong> 16:30-20:30 Please <a href="booking.php">Click here</a>
+		</td>
 					</tr>
-						<td colspan="7"><strong>Most Convenient Way</strong> >>> <a href="booking.php?lang=$global_lang">Click in for Web booking</a></td>
+						<td colspan="7"><strong>Most Convenient Way</strong> >>> <a href="booking.php">Click in for Web booking</a></td>
 					</tr>
 				</table>
 HTML;
@@ -102,10 +106,14 @@ HTML;
 		<th>SAT</th>
 	</tr>
 	<tr>
-		<td colspan="7">服務時間 <strong>16:30 - 20:30</strong><br>請電 <strong>5405 6631</strong> 或 <a href="booking.php?lang=$global_lang">網上預約</a><br>電話預約可約下午3-4時及9-10 時</td>
+		<td colspan="7">
+			<strong>5405 6631</strong> 電話預約 15:30 - 21:30<br>
+			<strong>自由上嚟</strong> 16:30 - 20:30 請出發前致電 5405 6631<br>
+			<strong>網上預約</strong> 16:30 - 20:30 <a href="booking.php">請按此</a>
+		</td>
 	</tr>
 	</tr>
-		<td colspan="7"><strong>最快捷方便</strong> >>> <a href="booking.php?lang=$global_lang">按此網上預約</a></td>
+		<td colspan="7"><strong>最快捷方便</strong> >>> <a href="booking.php">按此網上預約</a></td>
 	</tr>
 </table>
 HTML;
