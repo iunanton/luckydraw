@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <?php
-	require_once('../constant.php');
-	require_once('../class/videoshandler.class.php');
-	
-	$handler = new videosHandler();
+	define('__ROOT__', dirname(dirname(dirname(__FILE__))));
+	require_once(__ROOT__.'/config/language.php');
+	require_once(__ROOT__.'/config/php_config.php');
+	require_once(__ROOT__.'/lib/languageshandler.class.php');
+	require_once(__ROOT__.'/lib/videoshandler.class.php');
 	$global_page = basename(__FILE__, '.php');
+	$lang_handler = new languagesHandler();
+	$handler = new videosHandler();
 	
 	if(isset($_GET['lang']) && isset($_GET['title']) && isset($_GET['content'])) {
 		$handler->add($_GET['lang'], $_GET['title'], $_GET['content']);
@@ -24,7 +27,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-06T21:27:38+0800" >
+<meta name="date" content="2017-06-29T02:58:43+0900" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -111,7 +114,7 @@
 						<select id="lang" name="lang">
 							<option value="">All</option>
 							<?php
-								$languages = $handler->getLang();
+								$languages = $lang_handler->get();
 								foreach ($languages as $key => $language) {
 									echo '<option value="'.$key.'">'.$language.'</option>';
 								}

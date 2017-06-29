@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <?php
-	require_once('../constant.php');
-	require_once('../class/newshandler.class.php');
-	
-	$handler = new newsHandler();
+	define('__ROOT__', dirname(dirname(dirname(__FILE__))));
+	require_once(__ROOT__.'/config/language.php');
+	require_once(__ROOT__.'/config/php_config.php');
+	require_once(__ROOT__.'/lib/languageshandler.class.php');
+	require_once(__ROOT__.'/lib/newshandler.class.php');
 	$global_page = basename(__FILE__, '.php');
+	$lang_handler = new languagesHandler();
+	$handler = new newsHandler();
 
 	if(isset($_POST['lang']) && isset($_POST['title']) && isset($_POST['editor'])) {
 		$handler->add($_POST['lang'], $_POST['title'], $_POST['editor']);
@@ -24,7 +27,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-17T01:42:16+0900" >
+<meta name="date" content="2017-06-29T03:00:25+0900" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -103,7 +106,7 @@
 						<select id="lang" name="lang">
 							<option value="">All</option>
 							<?php
-								$languages = $handler->getLang();
+								$languages = $lang_handler->get();
 								foreach ($languages as $key => $language) {
 									echo '<option value="'.$key.'">'.$language.'</option>';
 								}

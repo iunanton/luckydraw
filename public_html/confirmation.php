@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <?php
-	require_once('constant.php');
-	
+	define('__ROOT__', dirname(dirname(__FILE__)));
+	require_once(__ROOT__.'/config/language.php');
+	require_once(__ROOT__.'/config/php_config.php');
+	require_once(__ROOT__.'/lib/reservationshandler.class.php');
+	require_once(__ROOT__.'/lib/timeslotshandler.class.php');
 	$global_page = basename(__FILE__, '.php');
 
-	require_once('class/mydatabase.php');
-
-	$conn = new myDatabase();
-
-	//GET and POST methods
 	if(isset($_POST['test']) && isset($_POST['name']) && isset($_POST['tel'])) {
 		$test = $_POST['test'];
 		$name = $_POST['name'];
 		$tel = $_POST['tel'];
-		$conn->setReservation($test, $name, $tel);
-		$info = $conn->getTestInfo($test);
-
+		$obj = new reservationsHandler();
+		$obj->set($test, $name, $tel);
+		$obj = new timeSlotsHandler();
+		$info = $obj->getTestInfo($test);
 	}
 ?>
 <html>
@@ -25,7 +24,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-06T21:33:32+0800" >
+<meta name="date" content="2017-06-29T02:42:04+0900" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">

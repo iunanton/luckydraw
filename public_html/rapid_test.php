@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <?php
-	require_once('constant.php');
-	
+	define('__ROOT__', dirname(dirname(__FILE__)));
+	require_once(__ROOT__.'/config/language.php');
+	require_once(__ROOT__.'/config/php_config.php');
 	$global_page = basename(__FILE__, '.php');
 ?>
 <html>
@@ -11,7 +12,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-20T00:16:17+0900" >
+<meta name="date" content="2017-06-29T02:42:45+0900" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="<?=$meta_keywords; ?>">
 <meta name="description" content="<?=$meta_description; ?>">
@@ -23,22 +24,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=1" />
 <link href="style.css" rel="stylesheet" type="text/css">
 <style type="text/css">
-	#left-column {
-		float: left;
-		width: 50%;
-		margin-right: 20px;
-
-	}
-	#map {
-		float: right;
-		width: 48%;
-		height: 560px;	
-	}
-	.wrapper-content::after {
-		display: block;
-		content: '';
-		clear: both;	
-	}
 </style>
 </head>
 <body>
@@ -130,11 +115,12 @@ HTML;
 </table>
 HTML;
 								break;
+
 						}
 					?>
 					<?=$html; ?>
 				</article>
-				<article id="map"></div>
+				<article id="map"></article>
 				<script>
 					var map;
 					var markers = [];
@@ -144,15 +130,15 @@ HTML;
 							center: {lat: 22.309973, lng: 114.224158},
 							zoom: 17
 						});
-						
+					
 						var locations = [
 							{title: 'Lucky Draw Studio', location: {lat: 22.309973, lng: 114.222658}},
 							{title: 'B3 exit (fire station)', location: {lat: 22.3117292, lng: 114.2260397}}
 						];
-	
+
 						var largeInfowindow = new google.maps.InfoWindow();
 						var bounds = new google.maps.LatLngBounds();
-	
+
 						for (var i = 0; i < locations.length; i++) {
 							var position = locations[i].location; 
 							var title = locations[i].title;

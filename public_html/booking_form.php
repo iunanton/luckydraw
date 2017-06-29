@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <?php
-	require_once('constant.php');
-	
+	define('__ROOT__', dirname(dirname(__FILE__)));
+	require_once(__ROOT__.'/config/language.php');
+	require_once(__ROOT__.'/config/php_config.php');
+	require_once(__ROOT__.'/lib/timeslotshandler.class.php');
 	$global_page = basename(__FILE__, '.php');
 	
-	require_once('class/mydatabase.php');
-
-	//GET and POST methods
 	if(isset($_GET['test'])) {
 		$test = $_GET['test'];
-		$conn = new myDatabase();
-		$info = $conn->getTestInfo($test);
+		$obj = new timeSlotsHandler();
+		$info = $obj->getTestInfo($test);
 	}
 ?>
 <html>
@@ -20,7 +19,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-06T06:06:37+0800" >
+<meta name="date" content="2017-06-29T02:41:17+0900" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">

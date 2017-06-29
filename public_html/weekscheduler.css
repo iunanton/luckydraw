@@ -1,0 +1,70 @@
+.week-scheduler a{
+	text-decoration: none;
+}
+
+.week-scheduler .week-nav {
+	display: block;
+	text-align: center;
+}
+
+.week-scheduler .month-label {
+	display: block;
+	text-align: center;
+	padding: 10px 10px 10px 10px;
+	background-color: #98D9D3;
+	color: inherit;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	font-size: 24px;
+}
+.week-scheduler .week-day.today {
+	border-top: thick solid #FFA366;
+}
+
+.week-scheduler .day-header,
+.week-scheduler .day-content {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.week-scheduler .day-header {
+	width: 40px;
+	padding: 5px 5px 5px 5px;
+}
+
+.week-scheduler .day-number {
+	display: block;
+	color: inherit;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	font-size: 24px;
+}
+
+.week-scheduler .day-description {
+	display: block;
+	color: inherit;
+}
+
+.week-scheduler .notice {
+	margin-left: 10px;
+	padding: 5px 5px 5px 5px;
+	background-color: #EEEEEE;	
+}
+
+.week-scheduler .time-slot {
+	display: inline-block;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+.week-scheduler .time-slot a {
+	display: inline-block;
+	padding: 7px 7px 7px 7px;
+	background-color: #FFA366;
+}
+
+.week-scheduler .time-slot a:hover {
+	background-color: #FF6600;
+}

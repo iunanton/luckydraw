@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <?php
-	require_once('../constant.php');
-	require_once('../class/reservationshandler.class.php');
-	
-	$handler = new reservationsHandler();
-	
+	define('__ROOT__', dirname(dirname(dirname(__FILE__))));
+	require_once(__ROOT__.'/config/language.php');
+	require_once(__ROOT__.'/config/php_config.php');
+	require_once(__ROOT__.'/lib/reservationshandler.class.php');
 	$global_page = basename(__FILE__, '.php');
+	$handler = new reservationsHandler();
 	
 	if (isset($_GET["page"])) {
 		$page  = $_GET["page"];
@@ -26,7 +26,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-06T06:02:52+0800" >
+<meta name="date" content="2017-06-29T03:02:59+0900" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">

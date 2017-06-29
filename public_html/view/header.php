@@ -1,3 +1,3 @@
 <header>
-	<img src="logo.jpg" alt="logo">
+	<img src="images/logo.jpg" alt="logo">
 </header>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <?php
-	require_once('constant.php');
-	
+	define('__ROOT__', dirname(dirname(__FILE__)));
+	require_once(__ROOT__.'/config/language.php');
+	require_once(__ROOT__.'/config/php_config.php');
 	$global_page = basename(__FILE__, '.php');
-	
 ?>
 <html>
 <head>
@@ -12,7 +12,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-06T21:14:54+0800" >
+<meta name="date" content="2017-06-29T02:42:12+0900" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="<?=$meta_keywords; ?>">
 <meta name="description" content="<?=$meta_description; ?>">

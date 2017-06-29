@@ -1,24 +1,16 @@
 <!DOCTYPE html>
 <?php
-	require_once('constant.php');
-	
+	define('__ROOT__', dirname(dirname(__FILE__)));
+	require_once(__ROOT__.'/config/language.php');
+	require_once(__ROOT__.'/config/php_config.php');
+	require_once(__ROOT__.'/lib/weekscheduler.class.php');
+	require_once(__ROOT__.'/lib/monthscheduler.class.php');
 	$global_page = basename(__FILE__, '.php');
 	
-	require_once('class/mydatabase.php');
-?>
-<?php
-	//include myCalendar class
-	require_once('class/mycalendar.php');
-
-	//GET and POST methods
-	if(isset($_GET['year']) && isset($_GET['month'])) {
-		$year = $_GET['year'];
-		$month = str_pad($_GET['month'], 2, '0', STR_PAD_LEFT);
-		$day = str_pad($_GET['day'], 2, '0', STR_PAD_LEFT);
+	if(isset($_GET['day'])) {
+		$current_day = $_GET['day'];
 	} else {
-		$year = YEAR;
-		$month = MONTH;
-		$day = DAY;
+		$current_day = date("Y-m-d", time());	
 	}
 ?>
 <html>
@@ -28,7 +20,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-06T21:32:23+0800" >
+<meta name="date" content="2017-06-29T02:41:40+0900" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="<?=$meta_keywords; ?>">
 <meta name="description" content="<?=$meta_description; ?>">
@@ -39,7 +31,8 @@
 <meta http-equiv="expires" content="0">
 <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=1" />
 <link href="style.css" rel="stylesheet" type="text/css">
-<link href="class/mycalendar.css" rel="stylesheet" type="text/css">
+<link href="weekscheduler.css" rel="stylesheet" type="text/css">
+<link href="monthscheduler.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 </style>
 </head>
@@ -80,9 +73,10 @@
 				<p>What date and time would you like an appointment?</p>
 				<?php
 					//Create calendar for current date
-					$calendar = new myCalendar($year, $month, $global_lang);
-					$calendar->draw();
-					$calendar->show();
+					$obj = new weekScheduler($current_day, $global_lang);
+					$obj->render();
+					$obj = new monthScheduler($current_day, $global_lang);
+					$obj->render();
 				?>
 			</div>
 		</div>

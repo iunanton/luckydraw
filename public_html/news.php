@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <?php
-	require_once('constant.php');
-	require_once('class/newshandler.class.php');
+	define('__ROOT__', dirname(dirname(__FILE__)));
+	require_once(__ROOT__.'/config/language.php');
+	require_once(__ROOT__.'/config/php_config.php');
+	require_once(__ROOT__.'/lib/newshandler.class.php');
 	$global_page = basename(__FILE__, '.php');
 ?>
 <html>
@@ -11,7 +13,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-06T21:15:12+0800" >
+<meta name="date" content="2017-06-29T02:42:40+0900" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="<?=$meta_keywords; ?>">
 <meta name="description" content="<?=$meta_description; ?>">
@@ -28,10 +30,10 @@
 <body>
 	<div class="container">
 		<?php
-			include('view/header.php');
+			include("view/header.php");
 		?>
 		<?php
-			include('view/navigation_bar.php');
+			include("view/navigation_bar.php");
 		?>
 		<div class="wrapper">
 			<div class="wrapper-header">
@@ -41,9 +43,6 @@
 							$header = "News";
 							break;
 						case ZH:
-							$header = "最新消息";
-							break;
-						case CH:
 							$header = "最新消息";
 							break;
 					}
@@ -64,7 +63,7 @@
 			</div>
 		</div>
 		<?php
-			include('view/footer.php');
+			include("view/footer.php");
 		?>
 	</div>
 </body>
