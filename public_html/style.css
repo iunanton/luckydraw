@@ -64,7 +64,7 @@ header {
 	
 	nav a {
 		display: inline-block;
-		padding: 10px 5px 10px 5px;
+		padding: 10px 0px 10px 0px;
 		width: 100%;
 		text-decoration: none;
 		font-weight: bold;
@@ -267,7 +267,7 @@ header {
 	
 	nav a {
 		display: inline-block;
-		padding: 10px 5px 10px 5px;
+		padding: 10px 0px 10px 0px;
 		width: 100%;
 		text-decoration: none;
 		font-weight: bold;
@@ -467,7 +467,7 @@ header {
 	
 	nav a {
 		display: inline-block;
-		padding: 10px 5px 10px 5px;
+		padding: 10px 0px 10px 0px;
 		width: 100%;
 		text-decoration: none;
 		font-weight: bold;
