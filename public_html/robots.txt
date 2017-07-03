@@ -1,0 +1,7 @@
+Host: luckydrawhk.com
+Sitemap: http://luckydrawhk.com/sitemap.xml
+User-agent: *
+Disallow: /ckeditor/
+Disallow: /images/
+Disallow: /private/
+Disallow: /view/
