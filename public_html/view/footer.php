@@ -25,7 +25,7 @@
 				<li><a href="hiv_pos.php"><?=$first_column[2]; ?></a></li>
 				<li><a href="about_us.php"><?=$first_column[3]; ?></a></li>
 				<li><a href="join_us.php"><?=$first_column[4]; ?></a></li>
-				<li><a href="private/summary.php"><?=$first_column[5]; ?></a></li>
+				<li><a href="private/summary.php" rel="nofollow"><?=$first_column[5]; ?></a></li>
 			</ul>
 		</div>
 		<div class="footer-group">
