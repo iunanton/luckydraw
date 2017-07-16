@@ -1,6 +1,6 @@
 <?php
 	if(isset($_GET['lang'])) {
-		$global_lang = $_GET['lang']."<br>";		
+		$global_lang = $_GET['lang'];
 	} else {
 		$langs = array();
 		$preferred = array('en', 'zh', 'cn', 'kr');
