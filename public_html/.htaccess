@@ -1,1 +1,3 @@
 DirectoryIndex news.php
+RewriteEngine On
+RewriteRule ^(en|zh|cn|kr)/(.*)$ $2?lang=$1 [NC,L]
