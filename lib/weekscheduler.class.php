@@ -110,7 +110,7 @@
 			$this->week_nav .= $this->last_week->format("Y-m-d"); 
 			$this->week_nav .=  '">&#9664</a> ';
 			switch($this->lang) {
-				case EN:
+				case 'en':
 					$this->week_nav .= 'Week ';
 					$this->week_nav .= $this->week_number;
 					$this->week_nav .= ', ';
@@ -118,7 +118,7 @@
 					$this->week_nav .= ' - ';
 					$this->week_nav .= $this->week_end->format("F j");
 					break;
-				case ZH:
+				case 'zh':
 					$this->week_nav .= $this->week_number;
 					$this->week_nav .= $this->week_start->format("周、m月d日");
 					$this->week_nav .= $this->week_end->format(" - m月d日");
@@ -132,15 +132,15 @@
 		
 		private function makeNotices() {
 			switch($this->lang) {
-				case EN: $this->please_call .= '<div class="notice">Please call 5405 6631 for today\'s booking</div>';
+				case 'en': $this->please_call .= '<div class="notice">Please call 5405 6631 for today\'s booking</div>';
 					break;
-				case ZH: $this->please_call .= '<div class="notice">請電話 5405 6631 預約</div>';
+				case 'zh': $this->please_call .= '<div class="notice">請電話 5405 6631 預約</div>';
 					break;
 			}
 			switch($this->lang) {
-				case EN: $this->not_available .= '<div class="notice">Not Available</div>';
+				case 'en': $this->not_available .= '<div class="notice">Not Available</div>';
 					break;
-				case ZH: $this->not_available .= '<div class="notice">没有預約</div>';
+				case 'zh': $this->not_available .= '<div class="notice">没有預約</div>';
 					break;
 			}
 		}
@@ -148,10 +148,10 @@
 		private function monthLabel($date) {
 			$this->month_label = '<div class="month-label">';
 			switch($this->lang) {
-				case EN:
+				case 'en':
 					$this->month_label .= $date->format("F Y");
 					break;
-				case ZH:
+				case 'zh':
 					$this->month_label .= $date->format("Y年m月");
 					break;
 			}
@@ -165,10 +165,10 @@
 				$this->day_header .= '</div>';
 				$this->day_header .= '<div class="day-description">';
 				switch($this->lang) {
-					case EN:
+					case 'en':
 						$this->day_header .= $date->format("D");
 						break;
-					case ZH:
+					case 'zh':
 						switch($date->format("N")) {
 							case 1: $this->day_header .= '一';
 								break;

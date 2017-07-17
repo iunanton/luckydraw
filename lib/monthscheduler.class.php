@@ -118,10 +118,10 @@
 			$this->month_nav .= $this->last_month->format("Y-m-d"); 
 			$this->month_nav .=  '">&#9664</a> ';
 			switch($this->lang) {
-				case EN:
+				case 'en':
 					$this->month_nav .= $this->current_day->format("F Y");
 					break;
-				case ZH:
+				case 'zh':
 					$this->month_nav .= $this->current_day->format("Y年m月");
 					break;
 			}
@@ -133,15 +133,15 @@
 		
 		private function makeNotices() {
 			switch($this->lang) {
-				case EN: $this->please_call .= '<div class="notice">Please call 5405 6631 for today\'s booking</div>';
+				case 'en': $this->please_call .= '<div class="notice">Please call 5405 6631 for today\'s booking</div>';
 					break;
-				case ZH: $this->please_call .= '<div class="notice">請電話 5405 6631 預約</div>';
+				case 'zh': $this->please_call .= '<div class="notice">請電話 5405 6631 預約</div>';
 					break;
 			}
 			switch($this->lang) {
-				case EN: $this->not_available .= '<div class="notice">Not Available</div>';
+				case 'en': $this->not_available .= '<div class="notice">Not Available</div>';
 					break;
-				case ZH: $this->not_available .= '<div class="notice">没有預約</div>';
+				case 'zh': $this->not_available .= '<div class="notice">没有預約</div>';
 					break;
 			}
 		}
@@ -149,7 +149,7 @@
 		private function weekdayHeader() {			
 			$this->weekday_header = '<div class="weekday-header">';
 			switch($this->lang) {
-				case EN:
+				case 'en':
 					$this->weekday_header .= '<div class="week-day">Sun</div>';
 					$this->weekday_header .= '<div class="week-day">Mon</div>';
 					$this->weekday_header .= '<div class="week-day">Tue</div>';
@@ -158,7 +158,7 @@
 					$this->weekday_header .= '<div class="week-day">Fri</div>';
 					$this->weekday_header .= '<div class="week-day">Sat</div>';
 					break;
-				case ZH:
+				case 'zh':
 					$this->weekday_header .= '<div class="week-day">日</div>';
 					$this->weekday_header .= '<div class="week-day">一</div>';
 					$this->weekday_header .= '<div class="week-day">二</div>';
