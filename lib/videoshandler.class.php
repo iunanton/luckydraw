@@ -30,10 +30,10 @@
 		}
 		
 		public function getByLang($lang) {
-			$sql = "SELECT id, lang, date, title, content";
-			$sql.= " FROM videos";
-			$sql.= " WHERE lang = :lang OR lang IS NULL";
-			$sql.= " ORDER BY id DESC";
+			$sql = "SELECT v.title, v.content";
+			$sql.= " FROM videos AS v LEFT JOIN languages AS l ON v.lang = l.id";
+			$sql.= " WHERE l.short = :lang OR v.lang IS NULL";
+			$sql.= " ORDER BY v.date DESC";
 			$stmt = $this->db_conn->pdo->prepare($sql);
 			$stmt->bindParam(':lang', $lang);
 			$stmt->execute();
