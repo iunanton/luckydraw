@@ -18,6 +18,17 @@ header {
 	padding: 10px 10px 10px 10px;	
 }
 
+.lang-bar {
+	display: inline-block;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+.lang-bar li {
+	display: inline-block;
+}
+
 @media only screen and (max-width: 568px) {
 	.tablet {
 		display: none;
@@ -242,6 +253,16 @@ header {
 		height: 100px;	
 	}
 	
+	.lang-bar {
+		float: right;
+	}
+	
+	.lang-bar::after {
+		display: block;
+		content: '';
+		clear: both;
+	}
+	
 	nav ul {
 		list-style-type: none;
 		padding: 0;
@@ -440,6 +461,16 @@ header {
 	
 	header img {
 		height: 100px;	
+	}
+	
+	.lang-bar {
+		float: right;
+	}
+	
+	.lang-bar::after {
+		display: block;
+		content: '';
+		clear: both;
 	}
 	
 	nav ul {
