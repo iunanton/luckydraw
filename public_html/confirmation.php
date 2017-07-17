@@ -22,12 +22,13 @@
 ?>
 <html lang="<?=$global_lang; ?>">
 <head>
-	<?php
-		include('view/title.php');
-	?>
+<?php
+	include_once(__ROOT__.'/config/hreflang.php');
+	include_once('view/title.php');
+?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-07-18T05:14:55+0800" >
+<meta name="date" content="2017-07-18T05:53:18+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
