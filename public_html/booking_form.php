@@ -15,14 +15,14 @@
 		$info = $obj->getTestInfo($test);
 	}
 ?>
-<html lang="<?=strtolower($lang[$global_lang]) ?>">
+<html lang="<?=$global_lang; ?>">
 <head>
 	<?php
 		include('view/title.php');
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-07-18T03:08:59+0800" >
+<meta name="date" content="2017-07-18T05:14:45+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
