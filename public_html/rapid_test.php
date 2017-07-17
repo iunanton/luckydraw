@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <?php
 	define('__ROOT__', dirname(dirname(__FILE__)));
-	require_once(__ROOT__.'/config/language.php');
 	require_once(__ROOT__.'/config/php_config.php');
 	require_once(__ROOT__.'/lib/languageshandler.class.php');
-	$global_page = basename(__FILE__, '.php');
+	$global_page = basename(__FILE__);
+	require_once(__ROOT__.'/lib/locale.php');
 	$lang_handler = new languagesHandler();
 	$lang = $lang_handler->getShort();
 ?>
@@ -15,7 +15,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-07-04T04:55:36+0900" >
+<meta name="date" content="2017-07-18T03:09:34+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="<?=$meta_keywords; ?>">
 <meta name="description" content="<?=$meta_description; ?>">
@@ -41,10 +41,10 @@
 			<div class="wrapper-header">
 				<?php
 					switch($global_lang) {
-						case EN:
+						case 'en':
 							$header = "Rapid Test";
 							break;
-						case ZH:
+						case 'zh':
 							$header = "快速測試";
 							break;
 					}
@@ -55,7 +55,7 @@
 				<article id="left-column">
 					<?php
 						switch($global_lang) {
-							case EN:
+							case 'en':
 								$html = <<<HTML
 <h3>Heterosexual AIDS Test or HIV Test</h3>
 <p><strong>Lucky Draw Studio</strong> (www.luckydrawhk.com) opens Sunday to Saturday and Public Holidays. We provide Anonymous Rapid HIV Test. Only take one drop of blood and the result will come out within 15 munutes. All tests are conducted in private and result will remain Anonymous.</p>
@@ -86,7 +86,7 @@
 				</table>
 HTML;
 								break;
-							case ZH:
+							case 'zh':
 								$html = <<<HTML
 <h3>異性戀愛滋病測試或HIV測試</h3>
 <p><strong>「幸運抽獎工作室」Lucky Draw Studio</strong> (www.luckydrawhk.com) 逢星期一至日及公眾假期提供可即日預約無需等幾日的不記名愛滋病測試及其他性病測試，只需拮一下手指，15分鐘就有結果！所有測試過程及結果絕對保密。</p>
@@ -178,10 +178,10 @@ HTML;
 		?>
 		<?php
 			switch($global_lang) {
-				case EN:
+				case 'en':
 					$google_map_settings = "region=HK&language=en-GB&";
 					break;
-				case ZH:
+				case 'zh':
 					$google_map_settings = "region=HK&language=zh-TW&";
 					break;
 			}

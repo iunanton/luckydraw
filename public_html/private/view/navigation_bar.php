@@ -1,13 +1,13 @@
 <?php
 	switch($global_lang) {
-		case EN:
+		case 'en':
 			$summary = "SUMMARY";
 			$news = "NEWS";
 			$rapid_test = "RAPID TEST";
 			$test_booking = "TEST BOOKING";
 			$videos = "VIDEOS";
 			break;
-		case ZH:
+		case 'zh':
 			$summary = "概要";
 			$news = "最新消息";
 			$rapid_test = "快速測試";
@@ -16,19 +16,19 @@
 			break;
 	}
 	switch($global_page) {
-		case "summary":
+		case "summary.php":
 			$summary_class_modifier = " selected";
 			break;
-		case "news":
+		case "news.php":
 			$news_class_modifier = " selected";
 			break;
-		case "rapid_test":
+		case "rapid_test.php":
 			$rapid_test_class_modifier = " selected";
 			break;
-		case "booking":
+		case "booking.php":
 			$booking_class_modifier = " selected";
 			break;
-		case "videos":
+		case "videos.php":
 			$videos_class_modifier = " selected";
 			break;
 	}

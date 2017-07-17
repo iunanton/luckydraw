@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <?php
 	define('__ROOT__', dirname(dirname(dirname(__FILE__))));
-	require_once(__ROOT__.'/config/language.php');
 	require_once(__ROOT__.'/config/php_config.php');
 	require_once(__ROOT__.'/lib/reservationshandler.class.php');
-	$global_page = basename(__FILE__, '.php');
+	$global_page = basename(__FILE__);
+	require_once(__ROOT__.'/lib/locale.php');
 	$handler = new reservationsHandler();
 ?>
 <html>
@@ -14,7 +14,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-29T02:48:05+0900" >
+<meta name="date" content="2017-07-18T03:33:19+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -41,10 +41,10 @@
 			<div class="wrapper-header">
 				<?php
 					switch($global_lang) {
-						case EN:
+						case 'en':
 							$header = "Summary";
 							break;
-						case ZH:
+						case 'zh':
 							$header = "概要";
 							break;
 					}
@@ -54,10 +54,10 @@
 			<div class="wrapper-content">
 				<?php
 					switch($global_lang) {
-						case EN:
+						case 'en':
 							$todayIs = "Today is ".date("j M, Y");
 							break;
-						case ZH:
+						case 'zh':
 							$todayIs = "今天".date("j M, Y");
 							break;
 					}
@@ -71,10 +71,10 @@
 					<tr>
 						<?php
 							switch($global_lang) {
-								case EN:
+								case 'en':
 									echo "<th>#</th><th>Time</th><th>Name</th><th>Phone</th><th>The booking received at</th>";
 									break;
-								case ZH:
+								case 'zh':
 									echo "<th>#</th><th>時間</th><th>名字</th><th>電話</th><th>接收時間</th>";
 									break;
 							}
@@ -86,7 +86,7 @@
 							echo "<td>".$reservation['id']."</td>";
 							echo "<td>".$reservation['time']."</td>";
 							echo "<td>".$reservation['name']."</td>";
-							echo "<td>".$reservation['phone']."</td>";
+							echo "<td>".(is_null($reservation['phone']) ? 'not specified' : $reservation['phone'] )."</td>";
 							echo "<td>".$reservation['reservation_time']."</td>";
 							echo "</tr>";	
 						}
@@ -100,10 +100,10 @@
 					<tr>
 						<?php
 							switch($global_lang) {
-								case EN:
+								case 'en':
 									echo "<th>#</th><th>Time</th><th>Name</th><th>Phone</th><th>The booking received at</th>";
 									break;
-								case ZH:
+								case 'zh':
 									echo "<th>#</th><th>時間</th><th>名字</th><th>電話</th><th>接收時間</th>";
 									break;
 							}

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <?php
 	define('__ROOT__', dirname(dirname(__FILE__)));
-	require_once(__ROOT__.'/config/language.php');
 	require_once(__ROOT__.'/config/php_config.php');
 	require_once(__ROOT__.'/lib/languageshandler.class.php');
 	require_once(__ROOT__.'/lib/reservationshandler.class.php');
 	require_once(__ROOT__.'/lib/timeslotshandler.class.php');
-	$global_page = basename(__FILE__, '.php');
+	$global_page = basename(__FILE__);
+	require_once(__ROOT__.'/lib/locale.php');
 	$lang_handler = new languagesHandler();
 	$lang = $lang_handler->getShort();
 
@@ -27,7 +27,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-07-04T04:55:16+0900" >
+<meta name="date" content="2017-07-18T03:09:09+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -73,10 +73,10 @@
 			<div class="wrapper-header">
 				<?php
 					switch($global_lang) {
-						case EN:
+						case 'en':
 							$header = "Confirmation";
 							break;
-						case ZH:
+						case 'zh':
 							$header = "Confirmation";
 							break;
 					}

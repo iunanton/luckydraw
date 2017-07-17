@@ -1,6 +1,6 @@
 <?php
 	switch($global_lang) {
-		case EN:
+		case 'en':
 			$news = "WHAT'S NEWS";
 			$rapid_test = "&nbspRAPID TEST&nbsp";
 			$test_booking = "TEST BOOKING";
@@ -10,7 +10,7 @@
 			$join_us = "JOIN US";
 			$about_US = "ABOUT US";
 			break;
-		case ZH:
+		case 'zh':
 			$news = "最新消息";
 			$rapid_test = "快速測試";
 			$test_booking = "預約測試";
@@ -22,28 +22,28 @@
 			break;
 	}
 	switch($global_page) {
-		case "news":
+		case "news.php":
 			$news_class_modifier = " selected";
 			break;
-		case "rapid_test":
+		case "rapid_test.php":
 			$rapid_test_class_modifier = " selected";
 			break;
-		case "booking":
+		case "booking.php":
 			$booking_class_modifier = " selected";
 			break;
-		case "free_condom":
+		case "free_condom.php":
 			$free_condom_class_modifier = " selected";
 			break;
-		case "videos":
+		case "videos.php":
 			$videos_class_modifier = " selected";
 			break;
-		case "hiv_pos":
+		case "hiv_pos.php":
 			$hiv_pos_class_modifier = " selected";
 			break;
-		case "join_us":
+		case "join_us.php":
 			$join_us_class_modifier = " selected";
 			break;
-		case "about_us":
+		case "about_us.php":
 			$about_us_class_modifier = " selected";
 			break;
 	}

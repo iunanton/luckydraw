@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <?php
 	define('__ROOT__', dirname(dirname(dirname(__FILE__))));
-	require_once(__ROOT__.'/config/language.php');
 	require_once(__ROOT__.'/config/php_config.php');
 	require_once(__ROOT__.'/lib/timeslotshandler.class.php');
-	$global_page = basename(__FILE__, '.php');
+	$global_page = basename(__FILE__);
+	require_once(__ROOT__.'/lib/locale.php');
 	$handler = new timeSlotsHandler();
 
 	if (isset($_GET["page"])) {
@@ -33,7 +33,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-29T03:01:35+0900" >
+<meta name="date" content="2017-07-18T03:16:17+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -79,10 +79,10 @@
 			<div class="wrapper-header">
 				<?php
 					switch($global_lang) {
-						case EN:
+						case 'en':
 							$header = "Rapid Test";
 							break;
-						case ZH:
+						case 'zh':
 							$header = "快速測試";
 							break;
 					}
@@ -95,12 +95,12 @@
 				</div>
 				<?php
 					switch($global_lang) {
-						case EN:
+						case 'en':
 							$todayIs = "Today is ".date("j M, Y");
 							$from = "From:";
 							$to = "To:";
 							break;
-						case ZH:
+						case 'zh':
 							$todayIs = "今天".date("j M, Y");
 							$from = "從";
 							$to = "至";
@@ -150,10 +150,10 @@
 					<tr>
 						<?php
 							switch($global_lang) {
-								case EN:
+								case 'en':
 									echo "<th>#</th><th>Date</th><th>Time</th><th>Booked Out</th><th>Delete</th>";
 									break;
-								case ZH:
+								case 'zh':
 									echo "<th>#</th><th>日期</th><th>時間</th><th>已經預訂了</th><th>刪除</th>";
 									break;	
 							}
@@ -161,12 +161,12 @@
 					</tr>
 					<?php
 						switch($global_lang) {
-							case EN:
+							case 'en':
 							$delete = "Delete";
 							$booked = "booked out";
 							$notBooked = "Not booked";
 								break;
-							case ZH:	
+							case 'zh':
 								$delete = "刪除";
 								$booked = "已經預訂了";
 								$notBooked = "沒有預訂";

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <?php
 	define('__ROOT__', dirname(dirname(dirname(__FILE__))));
-	require_once(__ROOT__.'/config/language.php');
 	require_once(__ROOT__.'/config/php_config.php');
 	require_once(__ROOT__.'/lib/reservationshandler.class.php');
-	$global_page = basename(__FILE__, '.php');
+	$global_page = basename(__FILE__);
+	require_once(__ROOT__.'/lib/locale.php');
 	$handler = new reservationsHandler();
 	
 	if (isset($_GET["page"])) {
@@ -26,7 +26,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-29T03:02:59+0900" >
+<meta name="date" content="2017-07-18T03:17:51+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -54,10 +54,10 @@
 			<div class="wrapper-header">
 				<?php
 					switch($global_lang) {
-						case EN:
+						case 'en':
 							$header = "Booking";
 							break;
-						case ZH:
+						case 'zh':
 							$header = "預約測試";
 							break;
 					}
@@ -70,10 +70,10 @@
 				</div>
 				<?php
 					switch($global_lang) {
-						case EN:
+						case 'en':
 							$todayIs = "Today is ".date("j M, Y");
 							break;
-						case ZH:
+						case 'zh':
 							$todayIs = "今天".date("j M, Y");
 							break;
 					}
@@ -88,10 +88,10 @@
 						<tr>
 							<?php
 								switch($global_lang) {
-									case EN:
+									case 'en':
 										echo "<th>#</th><th>Date</th><th>Time</th><th>Name</th><th>Phone</th><th>The booking received at</th><th>Cancel</th>";
 										break;
-									case ZH:
+									case 'zh':
 										echo "<th>id</th><th>日期</th><th>時間</th><th>名字</th><th>電話</th><th>接收時間</th><th>取消</th>";
 										break;
 								}
@@ -100,11 +100,11 @@
 						</tr>
 						<?php
 								switch($global_lang) {
-									case EN:
+									case 'en':
 										$cancel = "Cancel";
 										$cancelled = "Cancelled";
 										break;
-									case ZH:
+									case 'zh':
 										$cancel = "取消";
 										$cancelled = "己經取消了";
 										break;	

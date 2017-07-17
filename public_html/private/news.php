@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <?php
 	define('__ROOT__', dirname(dirname(dirname(__FILE__))));
-	require_once(__ROOT__.'/config/language.php');
 	require_once(__ROOT__.'/config/php_config.php');
 	require_once(__ROOT__.'/lib/languageshandler.class.php');
 	require_once(__ROOT__.'/lib/newshandler.class.php');
-	$global_page = basename(__FILE__, '.php');
+	$global_page = basename(__FILE__);
+	require_once(__ROOT__.'/lib/locale.php');
 	$lang_handler = new languagesHandler();
 	$handler = new newsHandler();
 
@@ -27,7 +27,7 @@
 	?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-06-29T03:00:25+0900" >
+<meta name="date" content="2017-07-18T03:16:54+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -74,10 +74,10 @@
 			<div class="wrapper-header">
 				<?php
 					switch($global_lang) {
-						case EN:
+						case 'en':
 							$header = "News";
 							break;
-						case ZH:
+						case 'zh':
 							$header = "最新消息";
 							break;
 					}
@@ -90,10 +90,10 @@
 				</div>
 				<?php
 					switch($global_lang) {
-						case EN:
+						case 'en':
 							$todayIs = "Today is ".date("j M, Y");
 							break;
-						case ZH:
+						case 'zh':
 							$todayIs = "今天".date("j M, Y");
 							break;
 					}

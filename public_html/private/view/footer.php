@@ -1,11 +1,11 @@
 <?php
 	switch($global_lang) {
-		case EN:
+		case 'en':
 			$first_column = ARRAY("CENTER","Home");
 			$second_column = ARRAY("GO UP");
 			$copyright = "Copyright &copy 2016-".date("Y").' <a href="http://xiaodong.com.ru" style="color: inherit">XIAODONG IT Consulting</a>';
 			break;
-		case ZH:
+		case 'zh':
 			$first_column = ARRAY("中心","首頁");
 			$second_column = ARRAY("GO UP");
 			$copyright = "Copyright &copy 2016-".date("Y").' <a href="http://xiaodong.com.ru" style="color: inherit">XIAODONG IT Consulting</a>';
