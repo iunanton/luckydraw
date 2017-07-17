@@ -20,7 +20,7 @@
 		} else {
 			$global_lang = 'en';
 		}
-		header("Location: ".$global_lang.$_SERVER['REQUEST_URI']);
+		header("Location: /".$global_lang.$_SERVER['REQUEST_URI']);
 		die();
 	}
 ?>
