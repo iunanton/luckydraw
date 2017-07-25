@@ -17,7 +17,7 @@
 ?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-07-18T05:53:37+0800" >
+<meta name="date" content="2017-07-26T00:05:18+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="<?=$meta_keywords; ?>">
 <meta name="description" content="<?=$meta_description; ?>">
@@ -61,6 +61,7 @@
 						echo "<article>";
 						echo "<h3>".html_entity_decode($article["title"])."</h3>";
 						echo html_entity_decode($article["content"]);
+						echo '<footer class="article-footer">'.html_entity_decode($article["date"]). " by Lucky Draw Studio</footer>";
 						echo "</article>";
 					}
 				?>
