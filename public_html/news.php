@@ -17,7 +17,7 @@
 ?>
 <meta name="generator" content="Bluefish 2.2.7" >
 <meta name="author" content="Anton Yun" >
-<meta name="date" content="2017-07-26T00:09:30+0800" >
+<meta name="date" content="2017-07-26T00:23:41+0800" >
 <meta name="copyright" content="XIAODONG IT Consulting">
 <meta name="keywords" content="<?=$meta_keywords; ?>">
 <meta name="description" content="<?=$meta_description; ?>">
@@ -55,13 +55,21 @@
 			</div>
 			<div class="wrapper-content">
 				<?php
+					switch($global_lang) {
+						case 'en':
+							$footer = "by Lucky Draw Studio";
+							break;
+						case 'zh':
+							$footer = "幸運抽獎工作室";
+							break;
+					}
 					$handler = new newsHandler();
 					$articles = $handler->getByLang($global_lang);
 					foreach ($articles as $article) {
 						echo "<article>";
 						echo "<header><h3>".html_entity_decode($article["title"])."</h3></header>";
 						echo html_entity_decode($article["content"]);
-						echo '<footer class="article-footer">'.html_entity_decode($article["date"]). " by Lucky Draw Studio</footer>";
+						echo '<footer class="article-footer">'.html_entity_decode($article["date"]). " $footer</footer>";
 						echo "</article>";
 					}
 				?>
