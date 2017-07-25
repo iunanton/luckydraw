@@ -12,7 +12,7 @@
 			break;
 	}
 ?>
-<footer>
+<footer class="page-footer">
 	<div class="footer-row" id="footer-info">
 		<div class="footer-group">
 			<h3><?=$first_column[0]; ?></h3>
