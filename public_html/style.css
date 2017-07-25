@@ -29,6 +29,24 @@ header {
 	display: inline-block;
 }
 
+article {
+	padding-top: 20px;
+}
+
+article header {
+	padding: 0;
+	text-decoration: underline;
+}
+
+article:first-child {
+	padding-top: 0;
+}
+
+.article-footer {
+	font-size: 12px;
+	font-style: italic;
+}
+
 @media only screen and (max-width: 568px) {
 	.tablet {
 		display: none;
@@ -190,7 +208,7 @@ header {
 		height: 320px;	
 	}
 
-	footer {
+	.page-footer {
 		font-size: 12px;
 		background-color: #EEEEEE;
 		color: #305D7C;
@@ -404,7 +422,7 @@ header {
 		height: 320px;	
 	}
 
-	footer {
+	.page-footer {
 		background-color: #EEEEEE;
 		color: #305D7C;
 		text-align: center;
@@ -628,7 +646,7 @@ header {
 		clear: both;	
 	}
 
-	footer {
+	.page-footer {
 		background-color: #EEEEEE;
 		color: #305D7C;
 		text-align: center;
