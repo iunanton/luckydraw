@@ -30,7 +30,7 @@
 		}
 		
 		public function getByLang($lang) {
-			$sql = "SELECT n.title, n.content";
+			$sql = "SELECT n.title, n.content, DATE(n.date) AS date";
 			$sql.= " FROM news AS n LEFT JOIN languages AS l ON n.lang = l.id";
 			$sql.= " WHERE l.short = :lang OR n.lang IS NULL";
 			$sql.= " ORDER BY n.date DESC";
