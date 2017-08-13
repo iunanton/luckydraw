@@ -54,8 +54,7 @@
 			$sql = "SELECT r.id, t.date, d.time, r.name, r.phone, r.reservation_time, r.cancelled";
 			$sql.= " FROM reservations AS r JOIN time_slots AS t ON r.time_slot = t.id";
 			$sql.= " JOIN default_time AS d ON t.time = d.id";
-			$sql.= " ORDER BY d.time DESC";
-			$sql.= " ORDER BY t.date DESC";
+			$sql.= " ORDER BY d.time DESC, t.date DESC";
 			$sql.= " LIMIT $start_from, $this->results_per_page";
 			$stmt = $this->db_conn->pdo->prepare($sql);
 			$stmt->execute();
