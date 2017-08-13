@@ -23,6 +23,7 @@
 			$sql.= " LEFT JOIN reservations AS a ON s.id = a.time_slot";
 			$sql.= " WHERE (a.id IS NULL OR a.cancelled)";
 			$sql.= " AND s.date = :date";
+			$sql.= " ORDER BY time ASC";
 			$stmt = $this->db_conn->pdo->prepare($sql);
 			$stmt->bindParam(':date', $date);
 			$stmt->execute();
