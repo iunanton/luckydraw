@@ -5,7 +5,7 @@
 			$second_column = ARRAY("CONTACT","Tel.: (852) 5405 6631","E-mail: luckydrawkt@gmail.com","WhatsApp: 5405 6631","Line ID: luckydrawstudio");
 			$third_column = ARRAY("ADDRESS","Flat 25, 6/F,","Career And Kenson Industrial Mansion,","58 Hung To Rd,","Kwun Tong, HK");
 			$fourth_column = ARRAY("GO UP");
-			$copyright = "Copyright &copy 2016-".date("Y").' <a href="http://xiaodong.com.ru" style="color: inherit">XIAODONG IT Consulting</a>';
+			$copyright = "Copyright &copy 2016-".date("Y").' <a target="_blank" href="http://xiaodong.com.ru" style="color: inherit">XIAODONG IT Consulting</a>';
 			break;
 		case 'zh':
 			$first_column = ARRAY("中心","相關影片","HIV 陽性","關於我們","加入我們","工作人員");
