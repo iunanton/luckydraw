@@ -12,7 +12,7 @@
 			$second_column = ARRAY("聯絡","電話：(852) 5405 6631","電郵地址：luckydrawkt@gmail.com","WhatsApp: 5405 6631</span>","Line ID: luckydrawstudio</span>");
 			$third_column = ARRAY("地址","香港觀塘鴻圖道58號","金凱工業大廈","6樓 25室");
 			$fourth_column = ARRAY("回頂");
-			$copyright = "Copyright &copy 2016-".date("Y").' <a href="http://xiaodong.com.ru" style="color: inherit">XIAODONG IT Consulting</a>';
+			$copyright = "Copyright &copy 2016-".date("Y").' <a target="_blank" href="http://xiaodong.com.ru" style="color: inherit">XIAODONG IT Consulting</a>';
 			break;
 	}
 ?>
